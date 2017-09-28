@@ -1,0 +1,5 @@
+E:\sourcecode\TrizUI\TrizUI\bin\TrizUI.dll
+E:\sourcecode\TrizUI\TrizUI\bin\TrizUI.pdb
+E:\sourcecode\TrizUI\TrizUI\obj\Debug\TrizUI.dll
+E:\sourcecode\TrizUI\TrizUI\obj\Debug\TrizUI.pdb
+E:\sourcecode\TrizUI\TrizUI\obj\Debug\TrizUI.csprojResolveAssemblyReference.cache
