@@ -177,6 +177,7 @@
     <Content Include="login.html" />
     <Content Include="nestable-list.html" />
     <Content Include="pages\Controllers\App.js" />
+    <Content Include="pages\HtmlPage1.html" />
     <Content Include="pages\index.html" />
     <Content Include="pages\Main.html" />
     <Content Include="pages\Page1.html" />
