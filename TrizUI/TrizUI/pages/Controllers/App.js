@@ -4,7 +4,8 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state("PageTab", {
            url: "/PageTab",
-           templateUrl: "/pages/PageTab.html"
+           templateUrl: "/pages/List.html",
+            controller: 'table-Controller'
        })
        .state("PageTab.Page1", {
            url:"/Page1",
@@ -19,3 +20,4 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
            templateUrl: "/pages/Page3.html"
        });
 });
+

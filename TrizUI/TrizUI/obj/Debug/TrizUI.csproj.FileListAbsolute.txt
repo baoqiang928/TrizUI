@@ -3,3 +3,8 @@ E:\sourcecode\TrizUI\TrizUI\bin\TrizUI.pdb
 E:\sourcecode\TrizUI\TrizUI\obj\Debug\TrizUI.dll
 E:\sourcecode\TrizUI\TrizUI\obj\Debug\TrizUI.pdb
 E:\sourcecode\TrizUI\TrizUI\obj\Debug\TrizUI.csprojResolveAssemblyReference.cache
+F:\TrizUI\TrizUI\TrizUI\bin\TrizUI.dll
+F:\TrizUI\TrizUI\TrizUI\bin\TrizUI.pdb
+F:\TrizUI\TrizUI\TrizUI\obj\Debug\TrizUI.csprojResolveAssemblyReference.cache
+F:\TrizUI\TrizUI\TrizUI\obj\Debug\TrizUI.dll
+F:\TrizUI\TrizUI\TrizUI\obj\Debug\TrizUI.pdb

@@ -9,6 +9,7 @@
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/angular-ui-router.js"></script>
     <script src="Controllers/App.js"></script>
+    <script src="Controllers/tb.js"></script>
     <!-- basic styles -->
 
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -701,17 +702,11 @@
                     <!-- #nav-search -->
                 </div>
 
-                <div class="page-content">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <!-- PAGE CONTENT BEGINS -->
-                            <div data-ui-view="">11111111</div>
-                            <!-- PAGE CONTENT ENDS -->
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                    <!-- /.row -->
-                </div>
+                <!-- PAGE CONTENT BEGINS -->
+                <div data-ui-view="">11111111</div>
+                <!-- PAGE CONTENT ENDS -->
+                <!-- /.col -->
+                <!-- /.row -->
                 <!-- /.page-content -->
             </div>
             <!-- /.main-content -->
@@ -773,46 +768,51 @@
     </div>
     <!-- /.main-container -->
 
-    <!-- basic scripts -->
+   <!-- basic scripts -->
 
-    <!--[if !IE]> -->
+		<!--[if !IE]> -->
 
-    <script src="/assets\js\jquery-2.0.3.min.js"></script>
+		<script src="\assets\js\jquery-2.0.3.min.js"></script>
 
-    <!-- <![endif]-->
+		<!-- <![endif]-->
 
-    <!--[if IE]>
-<script src="/assets\js\jquery-1.10.2.min.js"></script>
+		<!--[if IE]>
+<script src="\assets\js\jquery-1.10.2.min.js"></script>
 <![endif]-->
 
-    <!--[if !IE]> -->
+		<!--[if !IE]> -->
 
-    <script type="text/javascript">
-        window.jQuery || document.write("<script src='/assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
-    </script>
+		<script type="text/javascript">
+		    window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
+		</script>
 
-    <!-- <![endif]-->
+		<!-- <![endif]-->
 
-    <!--[if IE]>
+		<!--[if IE]>
 <script type="text/javascript">
- window.jQuery || document.write("<script src='/assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
 </script>
 <![endif]-->
 
-    <script type="text/javascript">
-        if ("ontouchend" in document) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
-    </script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/typeahead-bs2.min.js"></script>
+		<script type="text/javascript">
+		    if ("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+		</script>
+		<script src="/assets/js/bootstrap.min.js"></script>
+		<script src="/assets/js/typeahead-bs2.min.js"></script>
 
-    <!-- page specific plugin scripts -->
+		<!-- page specific plugin scripts -->
 
-    <!-- ace scripts -->
+		<script src="/assets/js/jquery.dataTables.min.js"></script>
+		<script src="/assets/js/jquery.dataTables.bootstrap.js"></script>
 
-    <script src="/assets/js/ace-elements.min.js"></script>
-    <script src="/assets/js/ace.min.js"></script>
+		<!-- ace scripts -->
 
-    <!-- inline scripts related to this page -->
-    <script>var _hmt = _hmt || []; (function () { var hm = document.createElement("script"); hm.src = "//hm.baidu.com/hm.js?a43c39da34531f4da694d4499c5614d4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s); })();</script>
+		<script src="/assets/js/ace-elements.min.js"></script>
+		<script src="/assets/js/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+
+
+	 
 </body>
 </html>
