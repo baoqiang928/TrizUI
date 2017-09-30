@@ -35,7 +35,6 @@ angular.module("myApp")
             return 'left';
         }
 
-        alert(1234);
 
 
     });

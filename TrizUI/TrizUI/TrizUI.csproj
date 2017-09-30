@@ -176,9 +176,7 @@
     <Content Include="js\common\zepto.js" />
     <Content Include="login.html" />
     <Content Include="nestable-list.html" />
-    <Content Include="pages\Controllers\a.js" />
     <Content Include="pages\Controllers\App.js" />
-    <Content Include="pages\Controllers\b.js" />
     <Content Include="pages\Controllers\tb.js" />
     <Content Include="pages\index.html" />
     <Content Include="pages\List.html" />
