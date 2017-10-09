@@ -4,7 +4,7 @@ angular.module("myApp")
         var oTable1 = $('#sample-table-2').dataTable({
             "aoColumns": [
               { "bSortable": false },
-              null, null, null, null, null,
+              { "bSortable": false }, { "bSortable": false }, { "bSortable": false }, { "bSortable": false }, { "bSortable": false },
               { "bSortable": false }
             ]
         });
@@ -31,7 +31,7 @@ angular.module("myApp")
             var off2 = $source.offset();
             var w2 = $source.width();
 
-            if (parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2)) return 'right';
+            if (parseint(off2.left) < parseint(off1.left) + parseint(w1 / 2)) return 'right';
             return 'left';
         }
 

@@ -5,7 +5,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("PageTab", {
            url: "/PageTab",
            templateUrl: "/pages/List.html",
-            controller: 'table-Controller'
+           controller: 'table-Controller'
+        })
+       .state("ProjectAdd", {
+           url: "/ProjectAdd",
+           templateUrl: "/pages/Project/ProjectOperate.html"
        })
        .state("PageTab.Page1", {
            url:"/Page1",
@@ -15,7 +19,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
            url:"/Page2",
            templateUrl: "/pages/Page2.html"
        })
-       .state("PageTab.Page3", {
+       .state("Page3", {
            url:"/Page3",
            templateUrl: "/pages/Page3.html"
        });
