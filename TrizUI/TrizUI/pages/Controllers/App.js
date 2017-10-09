@@ -1,15 +1,27 @@
 ﻿var myApp = angular.module("myApp", ["ui.router"]);
 myApp.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.when("", "/PageTab");
+    $urlRouterProvider.when("", "/ProjectList");
     $stateProvider
-        .state("PageTab", {
-           url: "/PageTab",
+        .state("ProjectList", {
+            url: "/ProjectList",
            templateUrl: "/pages/List.html",
            controller: 'table-Controller'
         })
        .state("ProjectAdd", {
            url: "/ProjectAdd",
            templateUrl: "/pages/Project/ProjectOperate.html"
+       })
+       .state("QuestionAdd", {
+           url: "/QuestionAdd",
+           templateUrl: "/pages/Question/QuestionOperate.html"
+       })
+       .state("AnalyseAdd", {
+           url: "/AnalyseAdd",
+           templateUrl: "/pages/Analyse/AnalyseOperate.html"
+       })
+       .state("CauseEffectAdd", {
+           url: "/CauseEffectAdd",
+           templateUrl: "/pages/CauseEffect/CauseEffectOperate.html"
        })
        .state("PageTab.Page1", {
            url:"/Page1",

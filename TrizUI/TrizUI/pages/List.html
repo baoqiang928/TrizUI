@@ -4,13 +4,26 @@
             <!-- PAGE CONTENT BEGINS -->
             <div class="row">
                 <div class="col-xs-12">
-                    <h3 class="header smaller lighter blue">啊啊啊啊啊啊 dataTables123</h3>
-                    <label>Label name</label>
-                    <input type="text" placeholder="Type something&hellip;" /><br />
-                    <label>Label name</label>
-                    <input type="text" placeholder="Type something&hellip;" /><br />
+                    <h3 class="header smaller lighter blue">项目管理</h3>
+                    <p>
+                        <label style="display: inline-block; width: 60px; text-align: right;">项目名称</label>
+                        <input type="text" />
+                        <label>项目编号</label>
+                        <input type="text" />
+                    </p>
+                    <p>
+                        <label style="display: inline-block; width: 60px; text-align: right;">负责人</label>
+                        <input type="text" />
+                        <label>工作部门</label>
+                        <input type="text" />
+                    </p>
+                    <p>
+                        <label style="display: inline-block; width: 60px; text-align: right;">创建日期</label>
+                        <input type="text" />
+                        -
+                    <input type="text" /><br />
+                    </p>
 
-                    <span class="help-block">Example block-level help text here.</span>
                     <p>
                         <button class="btn btn-primary" ng-click="Query()">查询</button>
                         <button class="btn btn-primary" ui-sref="ProjectAdd">增加</button>
@@ -26,16 +39,12 @@
                                             <span class="lbl"></span>
                                         </label>
                                     </th>
-                                    <th>Domain</th>
-                                    <th>Price</th>
-                                    <th class="hidden-480">Clicks</th>
-
-                                    <th>
-                                        <i class="icon-time bigger-110 hidden-480"></i>
-                                        Update
+                                    <th>项目编号</th>
+                                    <th>项目名称</th>
+                                    <th class="hidden-480">创建时间</th>
+                                    <th>负责人
                                     </th>
-                                    <th class="hidden-480">Status</th>
-
+                                    <th class="hidden-480">工作部门</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -53,12 +62,9 @@
                                         <a href="#">app.com</a>
                                     </td>
                                     <td>$45</td>
-                                    <td class="hidden-480">3,330</td>
+                                    <td>3,330</td>
                                     <td>Feb 12</td>
-
-                                    <td class="hidden-480">
-                                        <span class="label label-sm label-warning">Expiring</span>
-                                    </td>
+                                    <td>Feb 12</td>
 
                                     <td>
                                         <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
@@ -110,7 +116,6 @@
                                         </div>
                                     </td>
                                 </tr>
-
                                 <tr>
                                     <td class="center">
                                         <label>
@@ -120,15 +125,12 @@
                                     </td>
 
                                     <td>
-                                        <a href="#">shine.com</a>
+                                        <a href="#">app.com</a>
                                     </td>
-                                    <td>$25</td>
-                                    <td class="hidden-480">2,200</td>
-                                    <td>Apr 01</td>
-
-                                    <td class="hidden-480">
-                                        <span class="label label-sm label-inverse arrowed-in">Flagged</span>
-                                    </td>
+                                    <td>$45</td>
+                                    <td>3,330</td>
+                                    <td>Feb 12</td>
+                                    <td>Feb 12</td>
 
                                     <td>
                                         <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
