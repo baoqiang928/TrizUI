@@ -190,7 +190,7 @@
     <Content Include="pages\Page3.html" />
     <Content Include="pages\PageTab.html" />
     <Content Include="pages\Project\ProjectOperate.html" />
-    <Content Include="pages\Question\QuestionOperate.html" />
+    <Content Include="pages\QuestionDescription\QuestionDescriptionOperate.html" />
     <Content Include="pages\Scripts\angular-ui-router.js" />
     <Content Include="pages\Scripts\angular.min.js" />
     <Content Include="pricing.html" />
