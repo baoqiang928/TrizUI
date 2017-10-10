@@ -176,8 +176,12 @@
     <Content Include="js\common\zepto.js" />
     <Content Include="login.html" />
     <Content Include="nestable-list.html" />
-    <Content Include="pages\Analyse\AnalyseOperate.html" />
-    <Content Include="pages\Analyse\wentifenxi.jpg" />
+    <Content Include="pages\Controllers\StandardSolution.js" />
+    <Content Include="pages\Controllers\Tree.js" />
+    <Content Include="pages\FunctionAnalyse\FunctionAnalyseOperate.html" />
+    <Content Include="pages\FunctionAnalyse\t.png" />
+    <Content Include="pages\QuestionAnalyse\QuestionAnalyseOperate.html" />
+    <Content Include="pages\QuestionAnalyse\wentifenxi.jpg" />
     <Content Include="pages\CauseEffect\CauseEffectOperate.html" />
     <Content Include="pages\Controllers\App.js" />
     <Content Include="pages\Controllers\Project.js" />
@@ -193,6 +197,8 @@
     <Content Include="pages\QuestionDescription\QuestionDescriptionOperate.html" />
     <Content Include="pages\Scripts\angular-ui-router.js" />
     <Content Include="pages\Scripts\angular.min.js" />
+    <Content Include="pages\StandardSolution\StandardSolutionList.html" />
+    <Content Include="pages\StandardSolution\StandardSolutionOperate.html" />
     <Content Include="pricing.html" />
     <Content Include="profile.html" />
     <Content Include="tables.html" />
@@ -219,6 +225,7 @@
     <Content Include="assets\css\images\Thumbs.db" />
     <Content Include="assets\font\fontawesome-webfont.woff" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

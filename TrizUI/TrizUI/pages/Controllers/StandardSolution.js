@@ -1,5 +1,5 @@
 ﻿angular.module("myApp")
-    .controller('ProjectCtrl', function ($scope, $location) {
+    .controller('StandardSolutionCtrl', function ($scope, $location) {
 
         $scope.Query = function () {
             alert('Query');

@@ -15,14 +15,22 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
            url: "/QuestionAdd",
            templateUrl: "/pages/QuestionDescription/QuestionDescriptionOperate.html"
        })
+        .state("StandardSolutionAdd", {
+            url: "/StandardSolutionAdd",
+            templateUrl: "/pages/StandardSolution/StandardSolutionOperate.html"
+        })
        .state("QuestionAnalyseAdd", {
            url: "/AnalyseAdd",
            templateUrl: "/pages/QuestionAnalyse/QuestionAnalyseOperate.html"
        })
        .state("FunctionAnalyseAdd", {
-           url: "/AnalyseAdd",
+           url: "/FunctionAnalyseAdd",
            templateUrl: "/pages/FunctionAnalyse/FunctionAnalyseOperate.html",
            controller: 'tree-Controller'
+       })
+       .state("StandardSolutionList", {
+           url: "/StandardSolutionList",
+           templateUrl: "/pages/StandardSolution/StandardSolutionList.html"
        })
        .state("CauseEffectAdd", {
            url: "/CauseEffectAdd",
