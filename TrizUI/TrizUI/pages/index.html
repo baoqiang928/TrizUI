@@ -10,6 +10,7 @@
     <script src="Scripts/angular-ui-router.js"></script>
     <script src="Controllers/App.js"></script>
     <script src="Controllers/tb.js"></script>
+    <script src="/pages/Controllers/Tree.js"></script>
     <script src="Controllers/Project.js"></script>
     <!-- basic styles -->
 
@@ -146,13 +147,13 @@
                     </li>
 
                     <li>
-                        <a href="#" ui-sref="AnalyseAdd">
+                        <a href="#" ui-sref="QuestionAnalyseAdd">
                             <i class="icon-lightbulb"></i>
                             <span class="menu-text">问题分析 </span>
                         </a>
                     </li>
                     <li>
-                        <a href="typography.html">
+                        <a href="#" ui-sref="FunctionAnalyseAdd">
                             <i class="icon-eye-open"></i>
                             <span class="menu-text">功能分析 </span>
                         </a>
@@ -244,7 +245,7 @@
     <!--[if !IE]> -->
 
     <script type="text/javascript">
-        window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
+        window.jQuery || document.write("<script src='/assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
     </script>
 
     <!-- <![endif]-->
@@ -256,12 +257,13 @@
 <![endif]-->
 
     <script type="text/javascript">
-        if ("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+        if ("ontouchend" in document) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
     </script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/typeahead-bs2.min.js"></script>
 
     <!-- page specific plugin scripts -->
+    <script src="/assets/js/jquery.nestable.min.js"></script>
 
     <script src="/assets/js/jquery.dataTables.min.js"></script>
     <script src="/assets/js/jquery.dataTables.bootstrap.js"></script>
@@ -272,7 +274,6 @@
     <script src="/assets/js/ace.min.js"></script>
 
     <!-- inline scripts related to this page -->
-
 
 
 </body>
