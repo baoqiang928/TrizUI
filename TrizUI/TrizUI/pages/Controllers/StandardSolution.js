@@ -1,6 +1,8 @@
 ﻿angular.module("myApp")
     .controller('StandardSolutionCtrl', function ($scope, $location) {
 
+        ClearAndHide("改变的规则|物质-场模型|相互作用类型|标准解1|方案是否有效1|标准解2|方案是否有效2|标准解3|方案是否有效3");
+
         $scope.Query = function () {
             alert('Query');
             //$location.path("/AddProject");
@@ -14,6 +16,7 @@
         ////////////////////
         //change profile
         $('[data-toggle="buttons"] .btn').on('click', function (e) {
+
             var target = $(this).find('input[type=radio]');
             var which = target.val();
 
