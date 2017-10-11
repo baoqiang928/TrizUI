@@ -6,10 +6,4 @@
             //$location.path("/AddProject");
         }
 
-        $scope.toggle = function () {
-            alert(1);
-            $scope.visible = !$scope.visible;
-        }
-
-
     });

@@ -21,18 +21,18 @@
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-2">需要的工作 </label>
                     <div class="col-sm-9">
                         <span id="accordion-style" data-toggle="buttons" class="btn-group no-margin">
-                            <label class="btn btn-xs btn-yellow active">
-                                <input type="radio" value="1" ng-change="alert(1);"/>  
+                            <label id="label1" class="btn btn-xs btn-yellow active">
+                                <input type="radio" value="10" />
                                 预测改变的潜力
                             </label>
 
-                            <label class="btn btn-xs btn-yellow">
-                                <input type="radio" value="2" />
+                            <label id="label2" class="btn btn-xs btn-yellow">
+                                <input type="radio" value="11" />
                                 系统改进
                             </label>
 
-                            <label class="btn btn-xs btn-yellow">
-                                <input type="radio" value="3" />
+                            <label id="label3" class="btn btn-xs btn-yellow">
+                                <input type="radio" value="12" />
                                 添加检测、测量功能
                             </label>
 
@@ -40,18 +40,18 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div id="Option10" class="form-group">
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-2">改变的规则 </label>
 
                     <div class="col-sm-9">
                         <span id="Span1" data-toggle="buttons" class="btn-group no-margin">
-                            <label class="btn btn-xs btn-yellow active">
-                                <input type="radio" value="1" />
+                            <label id="label4" class="btn btn-xs btn-yellow active">
+                                <input type="radio" value="101" />
                                 超系统或子系统的改变
                             </label>
 
-                            <label class="btn btn-xs btn-yellow">
-                                <input type="radio" value="2" />
+                            <label id="label5" class="btn btn-xs btn-yellow">
+                                <input type="radio" value="102" />
                                 最小改变
                             </label>
 
@@ -59,28 +59,57 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2">标准解 </label>
+                <div id="StandardSolution1" class="form-group">
+                    <label id="DisplayLabel1" class="col-sm-3 control-label no-padding-right" for="form-field-2">标准解 </label>
                     <div class="col-sm-9">
                         <input type="text" id="Text1" class="col-xs-10 col-sm-5" />
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2">负责人 </label>
-
+                <div id="SolutionWork1" class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2">方案是否有效 </label>
                     <div class="col-sm-9">
-                        <input type="text" id="Text2" class="col-xs-10 col-sm-5" />
+                        <span id="Span3" data-toggle="buttons" class="btn-group no-margin">
+                            <label class="btn btn-xs btn-yellow active">
+                                <input type="radio" value="invalid1" />
+                                无效
+                            </label>
+
+                            <label class="btn btn-xs btn-yellow">
+                                <input type="radio" value="valid1" />
+                                有效
+                            </label>
+
+                        </span>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2">工作部门 </label>
-
+                <div id="StandardSolution2" class="form-group">
+                    <label id="DisplayLabel2" class="col-sm-3 control-label no-padding-right" for="form-field-2">标准解 </label>
                     <div class="col-sm-9">
-                        <input type="text" id="Text3" class="col-xs-10 col-sm-5" />
+                        <input type="text" id="Text5" class="col-xs-10 col-sm-5" />
                     </div>
                 </div>
+
+                <div id="SolutionWork2" class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2">方案是否有效 </label>
+                    <div class="col-sm-9">
+                        <span id="Span2" data-toggle="buttons" class="btn-group no-margin">
+                            <label class="btn btn-xs btn-yellow active">
+                                <input type="radio" value="invalid2" />
+                                无效
+                            </label>
+
+                            <label class="btn btn-xs btn-yellow">
+                                <input type="radio" value="valid2" />
+                                有效
+                            </label>
+
+                        </span>
+                    </div>
+                </div>
+
+
 
 
 
@@ -92,7 +121,6 @@
                             <i class="icon-ok bigger-110"></i>
                             保存
                         </button>
-                        <button class="btn btn-primary" ng-click="toggle()">查询</button>
                         &nbsp; &nbsp; &nbsp;
 						<button class="btn" type="reset" onclick="window.history.back()">
                             <i class="icon-arrow-left bigger-110"></i>
