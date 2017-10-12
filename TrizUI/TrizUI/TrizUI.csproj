@@ -176,6 +176,12 @@
     <Content Include="js\common\zepto.js" />
     <Content Include="login.html" />
     <Content Include="nestable-list.html" />
+    <Content Include="pages\Conflict\PhysicalConflictList.html" />
+    <Content Include="pages\Conflict\PhysicalConflictOperate.html" />
+    <Content Include="pages\Conflict\PhysicalConflictResolveList.html" />
+    <Content Include="pages\Conflict\TechConflictList.html" />
+    <Content Include="pages\Conflict\TechConflictOperate.html" />
+    <Content Include="pages\Conflict\TechConflictResolveList.html" />
     <Content Include="pages\Controllers\StandardSolution.js" />
     <Content Include="pages\Controllers\Tree.js" />
     <Content Include="pages\FunctionAnalyse\FunctionAnalyseOperate.html" />

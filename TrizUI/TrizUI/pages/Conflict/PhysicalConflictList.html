@@ -4,24 +4,12 @@
             <!-- PAGE CONTENT BEGINS -->
             <div class="row">
                 <div class="col-xs-12">
-                    <h3 class="header smaller lighter blue">项目管理</h3>
+                    <h3 class="header smaller lighter blue">物理冲突表</h3>
                     <p>
-                        <label style="display: inline-block; width: 60px; text-align: right;">项目名称</label>
+                        <label style="display: inline-block; width: 60px; text-align: right;">正向特性</label>
                         <input type="text" />
-                        <label>项目编号</label>
+                        <label>正向特性</label>
                         <input type="text" />
-                    </p>
-                    <p>
-                        <label style="display: inline-block; width: 60px; text-align: right;">负责人</label>
-                        <input type="text" />
-                        <label>工作部门</label>
-                        <input type="text" />
-                    </p>
-                    <p>
-                        <label style="display: inline-block; width: 60px; text-align: right;">创建日期</label>
-                        <input type="text" />
-                        -
-                    <input type="text" /><br />
                     </p>
 
                     <p>
@@ -39,12 +27,9 @@
                                             <span class="lbl"></span>
                                         </label>
                                     </th>
-                                    <th>项目编号</th>
-                                    <th>项目名称</th>
-                                    <th class="hidden-480">创建时间</th>
-                                    <th>负责人
-                                    </th>
-                                    <th class="hidden-480">工作部门</th>
+                                    <th>正向特性</th>
+                                    <th>正向特性</th>
+                                    <th>共同相关参数</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -59,13 +44,10 @@
                                     </td>
 
                                     <td>
-                                        <a href="#">Triz20170405075254438</a>
+                                        <a href="#">空载时提供张紧力</a>
                                     </td>
-                                    <td>绞车排缆器</td>
-                                    <td>2017/4/5 7:52:54</td>
-                                    <td>李雯雯</td>
-                                    <td>研发部</td>
-
+                                    <td>重载时取消张紧力</td>
+                                    <td>导向机构与滚筒间钢丝绳的张紧力</td>
                                     <td>
                                         <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
 
@@ -77,7 +59,7 @@
                                                 <i class="icon-trash bigger-130"></i>
                                             </a>
 
-                                            <a class="red" href="#">
+                                            <a class="red" href="#" ui-sref="PhysicalConflictResolveList">
                                                 <i class="icon-legal bigger-130"></i>
                                             </a>
 
@@ -96,13 +78,10 @@
                                     </td>
 
                                     <td>
-                                        <a href="#">Triz20170405075254423</a>
+                                        <a href="#">空载时提供张紧力</a>
                                     </td>
-                                    <td>铁链</td>
-                                    <td>2017/4/5 7:52:54</td>
-                                    <td>王天龙</td>
-                                    <td>设计部</td>
-
+                                    <td>重载时取消张紧力</td>
+                                    <td>导向机构与滚筒间钢丝绳的张紧力</td>
                                     <td>
                                         <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
 
@@ -114,7 +93,7 @@
                                                 <i class="icon-trash bigger-130"></i>
                                             </a>
 
-                                            <a class="red" href="#">
+                                            <a class="red" href="#" ui-sref="PhysicalConflictResolveList">
                                                 <i class="icon-legal bigger-130"></i>
                                             </a>
 
@@ -124,6 +103,7 @@
                                         
                                     </td>
                                 </tr>
+                               
 
                             </tbody>
                         </table>

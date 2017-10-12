@@ -37,6 +37,22 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
            url: "/CauseEffectAdd",
            templateUrl: "/pages/CauseEffect/CauseEffectOperate.html"
        })
+       .state("PhysicalConflictList", {
+           url: "/PhysicalConflictList",
+           templateUrl: "/pages/Conflict/PhysicalConflictList.html"
+       })
+       .state("TechConflictList", {
+           url: "/TechConflictList",
+           templateUrl: "/pages/Conflict/TechConflictList.html"
+       })
+       .state("TechConflictResolveList", {
+           url: "/TechConflictResolveList",
+           templateUrl: "/pages/Conflict/TechConflictResolveList.html"
+       })
+       .state("PhysicalConflictResolveList", {
+           url: "/PhysicalConflictResolveList",
+           templateUrl: "/pages/Conflict/PhysicalConflictResolveList.html"
+       })
        .state("PageTab.Page1", {
            url: "/Page1",
            templateUrl: "/pages/Page1.html"
