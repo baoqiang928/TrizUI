@@ -47,12 +47,14 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
        })
        .state("TechConflictResolveList", {
            url: "/TechConflictResolveList",
-           templateUrl: "/pages/Conflict/TechConflictResolveList.html"
-       })
+           templateUrl: "/pages/Conflict/TechConflictResolveList.html",
+           controller: 'tree-Controller'
+})
        .state("PhysicalConflictResolveList", {
            url: "/PhysicalConflictResolveList",
-           templateUrl: "/pages/Conflict/PhysicalConflictResolveList.html"
-       })
+           templateUrl: "/pages/Conflict/PhysicalConflictResolveList.html",
+           controller: 'tree-Controller'
+})
        .state("PageTab.Page1", {
            url: "/Page1",
            templateUrl: "/pages/Page1.html"

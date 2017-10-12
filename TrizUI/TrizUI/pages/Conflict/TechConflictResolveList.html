@@ -14,7 +14,7 @@
                         30 物体外部有害因素作用的敏感性
                     </p>
                     <p>
-                        <button class="btn btn-primary" ui-sref="ProjectAdd">选择案例</button>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#modal-table">选择案例</button>
                         <button class="btn btn-primary" ng-click="Delete()">删除</button>
                     </p>
                     <div class="table-responsive">
@@ -85,6 +85,129 @@
                         </table>
                     </div>
                 </div>
+            </div>
+
+            <div class="row">
+                <div id="modal-table" class="modal fade" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header no-padding">
+                                <div class="table-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        <span class="white">&times;</span>
+                                    </button>
+                                    原理与案例
+                                </div>
+                            </div>
+
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="dd">
+                                                <ol class="dd-list">
+
+                                                    <li class="dd-item" data-id="13">
+                                                        <div class="dd2-content">
+                                                            <span class="orange">2 分离</span>
+                                                        </div>
+                                                        <ol class="dd-list">
+                                                            <li class="dd-item" data-id="16">
+                                                                <div class="dd2-content">
+                                                                    （1）将一个物体中的“干扰”部分分离出去
+                                                                </div>
+                                                                <ol class="dd-list">
+                                                                    <li class="dd-item" data-id="16">
+                                                                        <div class="dd2-content">
+                                                                            分体式抽排油烟机                                          
+                                                                            <div class="pull-right action-buttons">
+                                                                                <a class="blue" href="#">
+                                                                                    <i class="icon-key bigger-130"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+
+                                                                    <li class="dd-item" data-id="17">
+                                                                        <div class="dd2-content">
+                                                                            绝缘半导体                                        
+                                                                            <div class="pull-right action-buttons">
+                                                                                <a class="blue" href="#">
+                                                                                    <i class="icon-key bigger-130"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                </ol>
+                                                            </li>
+                                                        </ol>
+                                                        <ol class="dd-list">
+                                                            <li class="dd-item" data-id="16">
+                                                                <div class="dd2-content">
+                                                                    （2）将物体中的关键部分挑选或分离出来                                           
+                                                                </div>
+                                                                <ol class="dd-list">
+                                                                    <li class="dd-item" data-id="16">
+                                                                        <div class="dd2-content">
+                                                                            被绑定的人造卫星                                         
+                                                                            <div class="pull-right action-buttons">
+                                                                                <a class="blue" href="#">
+                                                                                    <i class="icon-key bigger-130"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+
+                                                                    <li class="dd-item" data-id="17">
+                                                                        <div class="dd2-content">
+                                                                            等离子体发动机                                          
+                                                                            <div class="pull-right action-buttons">
+                                                                                <a class="blue" href="#">
+                                                                                    <i class="icon-key bigger-130"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                </ol>
+                                                            </li>
+                                                        </ol>
+                                                    </li>
+
+                                                    <li class="dd-item" data-id="15">
+                                                        <div class="dd2-content">
+                                                            <span class="orange">27 低成本、不耐用的物体代替昂贵、耐用的物体</span>
+                                                        </div>
+                                                        <ol class="dd-list">
+                                                            <li class="dd-item dd2-item" data-id="16">
+                                                                <div class="dd2-content">
+                                                                    用一些低成本物体代替昂贵物体，用一些不耐用物体代替耐用物体，有关特性作折衷处理
+                                                                </div>
+                                                            </li>
+                                                        </ol>
+                                                    </li>
+
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="modal-footer no-margin-top">
+                                <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+                                    <i class="icon-remove"></i>
+                                    关闭
+                                </button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+
             </div>
             <!-- PAGE CONTENT ENDS -->
         </div>

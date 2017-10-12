@@ -14,7 +14,7 @@
                         重载时取消张紧力
                     </p>
                     <p>
-                        <button class="btn btn-primary" ui-sref="ProjectAdd">选择案例</button>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#modal-table">选择案例</button>
                         <button class="btn btn-primary" ng-click="Delete()">删除</button>
                         <button class="btn btn-primary" ng-click="Delete()">查看冲突矩阵</button>
                     </p>
@@ -90,6 +90,134 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div id="modal-table" class="modal fade" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header no-padding">
+                                <div class="table-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        <span class="white">&times;</span>
+                                    </button>
+                                    原理与案例
+                                </div>
+                            </div>
+
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="dd">
+                                                <ol class="dd-list">
+
+                                                    <li class="dd-item" data-id="13">
+                                                        <div class="dd2-content">
+                                                            <span class="orange">1 空间分离</span>
+                                                        </div>
+                                                        <ol class="dd-list">
+                                                            <li class="dd-item" data-id="16">
+                                                                <div class="dd2-content">
+                                                                    1 分割
+                                                                </div>
+                                                                <ol class="dd-list">
+                                                                    <li class="dd-item" data-id="16">
+                                                                        <div class="dd2-content">
+                                                                            （1）将一个物体分成相互独立的部分                                         
+                                                                        </div>
+                                                                        <ol class="dd-list">
+                                                                            <li class="dd-item" data-id="16">
+                                                                                <div class="dd2-content">
+                                                                                    凹槽抑制张力  
+                                                                                    <div class="pull-right action-buttons">
+                                                                                        <a class="blue" href="#">
+                                                                                            <i class="icon-key bigger-130"></i>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+
+                                                                            <li class="dd-item" data-id="17">
+                                                                                <div class="dd2-content">
+                                                                                    微爆炸粉碎岩石                                         
+                                                                                    <div class="pull-right action-buttons">
+                                                                                        <a class="blue" href="#">
+                                                                                            <i class="icon-key bigger-130"></i>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ol>
+                                                                    </li>
+
+                                                                    <li class="dd-item" data-id="17">
+                                                                        <div class="dd2-content">
+                                                                            （2）使物体分成容易组装及拆卸的部分                                       
+                                                                        </div>
+                                                                    </li>
+                                                                </ol>
+                                                            </li>
+                                                        </ol>
+                                                        <ol class="dd-list">
+                                                            <li class="dd-item" data-id="16">
+                                                                <div class="dd2-content">
+                                                                    2 分离                                           
+                                                                </div>
+                                                                <ol class="dd-list">
+                                                                    <li class="dd-item" data-id="16">
+                                                                        <div class="dd2-content">
+                                                                            （1）将一个物体中的“干扰”部分分离出去                                         
+                                                                        </div>
+                                                                    </li>
+
+                                                                    <li class="dd-item" data-id="17">
+                                                                        <div class="dd2-content">
+                                                                            （2）将物体中的关键部分挑选或分离出来                                          
+                                                                        </div>
+                                                                    </li>
+                                                                </ol>
+                                                            </li>
+                                                        </ol>
+                                                    </li>
+
+                                                    <li class="dd-item" data-id="15">
+                                                        <div class="dd2-content">
+                                                            <span class="orange">2 时间分离</span>
+                                                        </div>
+                                                        <ol class="dd-list">
+                                                            <li class="dd-item dd2-item" data-id="16">
+                                                                <div class="dd2-content">
+                                                                    时间分离原理是将冲突双方在不同的时间段分离，以降低解决问题的难度。当关键子系统冲突双方在某一时间段只出现一方时，时间分离是可能的。
+                                                                </div>
+                                                            </li>
+                                                        </ol>
+                                                    </li>
+
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="modal-footer no-margin-top">
+                                <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+                                    <i class="icon-remove"></i>
+                                    关闭
+                                </button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+
+            </div>
+
+
             <!-- PAGE CONTENT ENDS -->
         </div>
         <!-- /.col -->
