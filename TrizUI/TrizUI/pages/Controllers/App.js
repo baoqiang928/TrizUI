@@ -17,7 +17,8 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
        })
         .state("StandardSolutionAdd", {
             url: "/StandardSolutionAdd",
-            templateUrl: "/pages/StandardSolution/StandardSolutionOperate.html"
+            templateUrl: "/pages/StandardSolution/StandardSolutionOperate.html",
+            controller: 'tree-Controller'
         })
        .state("QuestionAnalyseAdd", {
            url: "/AnalyseAdd",
