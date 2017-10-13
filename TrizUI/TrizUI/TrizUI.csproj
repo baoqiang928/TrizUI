@@ -177,6 +177,9 @@
     <Content Include="js\common\zepto.js" />
     <Content Include="login.html" />
     <Content Include="nestable-list.html" />
+    <Content Include="pages\CauseEffect\1.png" />
+    <Content Include="pages\CauseEffect\2.png" />
+    <Content Include="pages\CauseEffect\3.png" />
     <Content Include="pages\Conflict\PhysicalConflictList.html" />
     <Content Include="pages\Conflict\PhysicalConflictOperate.html" />
     <Content Include="pages\Conflict\PhysicalConflictResolveList.html" />
