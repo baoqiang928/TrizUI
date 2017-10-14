@@ -215,6 +215,7 @@
     <Content Include="pricing.html" />
     <Content Include="profile.html" />
     <Content Include="tables.html" />
+    <Content Include="Talent\Personnel\index.html" />
     <Content Include="Test\Controllers\App.js" />
     <Content Include="Test\Main.html" />
     <Content Include="Test\Page1.html" />
@@ -246,6 +247,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Doc\因果流程实例.doc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Talent\Enterprise\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
