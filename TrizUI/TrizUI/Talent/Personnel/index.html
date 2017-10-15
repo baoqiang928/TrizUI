@@ -6,7 +6,12 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-ui-router.js"></script>
+    <script src="Controllers/App.js"></script>
+    <script src="Controllers/tb.js"></script>
+    <script src="Controllers/Tree.js"></script>
+    <script src="Controllers/Project.js"></script>
     <!-- basic styles -->
 
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -32,7 +37,9 @@
     <link rel="stylesheet" href="/assets/css/ace.min.css" />
     <link rel="stylesheet" href="/assets/css/ace-rtl.min.css" />
     <link rel="stylesheet" href="/assets/css/ace-skins.min.css" />
-
+    <script src="Controllers/App.js"></script>
+    <script src="Controllers/tb.js"></script>
+    <script src="Controllers/Tree.js"></script>
     <!--[if lte IE 8]>
 		  <link rel="stylesheet" href="/assets/css/ace-ie.min.css" />
 		<![endif]-->
@@ -51,7 +58,7 @@
 		<![endif]-->
 </head>
 
-<body>
+<body data-ng-app="myApp">
     <div class="navbar navbar-default" id="navbar">
         <script type="text/javascript">
             try { ace.settings.check('navbar', 'fixed') } catch (e) { }
@@ -133,28 +140,28 @@
                                     <div class="tabbable">
                                         <ul class="nav nav-tabs padding-18">
                                             <li class="active">
-                                                <a data-toggle="tab" href="#home">
+                                                <a data-toggle="tab" class="aaa" href="#Profile">
                                                     <i class="green icon-user bigger-120"></i>
                                                     简历
                                                 </a>
                                             </li>
 
                                             <li>
-                                                <a data-toggle="tab" href="#feed">
+                                                <a data-toggle="tab" href="#JobRequest">
                                                     <i class="orange icon-rss bigger-120"></i>
                                                     人才需求
                                                 </a>
                                             </li>
 
                                             <li>
-                                                <a data-toggle="tab" href="#friends">
+                                                <a data-toggle="tab" href="#TechRequest">
                                                     <i class="blue icon-group bigger-120"></i>
                                                     技术需求
                                                 </a>
                                             </li>
 
                                             <li>
-                                                <a data-toggle="tab" href="#pictures">
+                                                <a data-toggle="tab" href="#Favorite">
                                                     <i class="pink icon-picture bigger-120"></i>
                                                     收藏列表
                                                 </a>
@@ -162,472 +169,27 @@
                                         </ul>
 
                                         <div class="tab-content no-border padding-24">
-                                            <div id="home" class="tab-pane in active">
-                                                <div class="row">
-                                                    <div class="col-xs-12 col-sm-3 center">
-                                                        <span class="profile-picture">
-                                                            <img class="editable img-responsive" alt="Alex's Avatar" id="avatar2" src="timg.jpg" />
-                                                        </span>
-                                                    </div>
-                                                    <!-- /span -->
-
-                                                    <div class="col-xs-12 col-sm-9">
-                                                        <h4 class="blue">
-                                                            <span class="middle">李大成</span>
-                                                        </h4>
-
-                                                        <div class="profile-user-info">
-                                                            <div class="profile-info-row">
-                                                                <div class="profile-info-name">性别 </div>
-
-                                                                <div class="profile-info-value">
-                                                                    <span>男</span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="profile-info-row">
-                                                                <div class="profile-info-name">年龄 </div>
-
-                                                                <div class="profile-info-value">
-                                                                    <span>26</span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="profile-info-row">
-                                                                <div class="profile-info-name">民族 </div>
-
-                                                                <div class="profile-info-value">
-                                                                    <span>汉</span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="profile-info-row">
-                                                                <div class="profile-info-name">电话 </div>
-
-                                                                <div class="profile-info-value">
-                                                                    <span>13899876211</span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="profile-info-row">
-                                                                <div class="profile-info-name">邮箱 </div>
-
-                                                                <div class="profile-info-value">
-                                                                    <span>baoeiddgn98327@126.com</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="hr hr-8 dotted"></div>
-
-                                                        <div class="profile-user-info">
-                                                            <div class="profile-info-row">
-                                                                <div class="profile-info-name">学历 </div>
-
-                                                                <div class="profile-info-value">
-                                                                    <a href="#" target="_blank">研究生</a>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                    <!-- /span -->
-                                                </div>
+                                            <div id="Profile" class="tab-pane in active">
+                                                <div data-ui-view=""></div>
                                                 <!-- /row-fluid -->
-
-                                                <div class="space-20"></div>
-
-                                                <div class="row">
-                                                    <div class="col-xs-12 col-sm-6">
-                                                        <div class="widget-box transparent">
-                                                            <div class="widget-header widget-header-small">
-                                                                <h4 class="smaller">
-                                                                    <i class="icon-check bigger-110"></i>
-                                                                    教育经历
-                                                                </h4>
-                                                            </div>
-
-                                                            <div class="widget-body">
-                                                                <div class="widget-main">
-                                                                    <div id="timeline-2">
-                                                                        <div class="row">
-                                                                            <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-                                                                                <div class="timeline-container timeline-style2">
-                                                                                    <div class="timeline-items">
-                                                                                        <div class="timeline-item clearfix">
-                                                                                            <div class="timeline-info">
-                                                                                                <span class="timeline-date">2016.5-2018.1</span>
-
-                                                                                                <i class="timeline-indicator btn btn-info no-hover"></i>
-                                                                                            </div>
-
-                                                                                            <div class="widget-box transparent">
-                                                                                                <div class="widget-body">
-                                                                                                    <div class="widget-main no-padding">
-                                                                                                        <span class="bigger-110">清华大学 物理系 研究生
-                                                                                                        </span>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-
-                                                                                        <div class="timeline-item clearfix">
-                                                                                            <div class="timeline-info">
-                                                                                                <span class="timeline-date">2011.9-2015.9</span>
-
-                                                                                                <i class="timeline-indicator btn btn-info no-hover"></i>
-                                                                                            </div>
-
-                                                                                            <div class="widget-box transparent">
-                                                                                                <div class="widget-body">
-                                                                                                    <div class="widget-main no-padding">北京大学 管理系 本科</div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <!-- /.timeline-items -->
-                                                                                </div>
-                                                                                <!-- /.timeline-container -->
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-xs-12 col-sm-6">
-                                                        <div class="widget-box transparent">
-                                                            <div class="widget-header widget-header-small header-color-blue2">
-                                                                <h4 class="smaller">
-                                                                    <i class="icon-lightbulb bigger-120"></i>
-                                                                    任职经历
-                                                                </h4>
-                                                            </div>
-
-                                                            <div class="widget-body">
-                                                                <div class="widget-main padding-16">
-
-                                                                    <div id="accordion" class="accordion-style1 panel-group">
-                                                                        <div class="panel panel-default">
-                                                                            <div class="panel-heading">
-                                                                                <h4 class="panel-title">
-                                                                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                                                                        <i class="icon-angle-down bigger-110" data-icon-hide="icon-angle-down" data-icon-show="icon-angle-right"></i>
-                                                                                        &nbsp;技术总监 
-                                                                                    </a>
-                                                                                </h4>
-
-                                                                            </div>
-
-                                                                            <div class="panel-collapse collapse in" id="collapseOne">
-                                                                                <div class="panel-body">
-                                                                                    <h5>微软中国技术股份有限公司 2015.1-2017.10</h5>
-                                                                                    <p>
-                                                                                        表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，
-                                                                                    </p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="panel panel-default">
-                                                                            <div class="panel-heading">
-                                                                                <h4 class="panel-title">
-                                                                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                                                                        <i class="icon-angle-right bigger-110" data-icon-hide="icon-angle-down" data-icon-show="icon-angle-right"></i>
-                                                                                        &nbsp;软件开发
-                                                                                    </a>
-                                                                                </h4>
-                                                                            </div>
-
-                                                                            <div class="panel-collapse collapse" id="collapseTwo">
-                                                                                <div class="panel-body">
-                                                                                    <h5>微软中国技术股份有限公司 2015.1-2017.10</h5>
-                                                                                    <p>
-                                                                                        表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，
-                                                                                    </p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="panel panel-default">
-                                                                            <div class="panel-heading">
-                                                                                <h4 class="panel-title">
-                                                                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                                                                        <i class="icon-angle-right bigger-110" data-icon-hide="icon-angle-down" data-icon-show="icon-angle-right"></i>
-                                                                                        &nbsp;架构师
-                                                                                    </a>
-                                                                                </h4>
-                                                                            </div>
-
-                                                                            <div class="panel-collapse collapse" id="collapseThree">
-                                                                                <div class="panel-body">
-                                                                                    <h5>微软中国技术股份有限公司 2015.1-2017.10</h5>
-                                                                                    <p>
-                                                                                        表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，表现优异，
-                                                                                    </p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
-                                            <!-- #home -->
+                                            <!-- #Profile -->
 
-                                            <div id="feed" class="tab-pane">
-                                                <div class="profile-feed row-fluid">
-                                                    <div class="col-xs-12">
-                                                        <p>
-                                                            <label style="display: inline-block; width: 60px; text-align: right;">行业类别</label>
-                                                            <input type="text" />
-                                                            <label>职业类别</label>
-                                                            <input type="text" />
-                                                            <label style="display: inline-block; width: 60px; text-align: right;">工作地点</label>
-                                                            <input type="text" />
-                                                            <label>工作经验</label>
-                                                            <input type="text" />
-                                                        </p>
-                                                        <p>
-                                                            <label style="display: inline-block; width: 60px; text-align: right;">最低学历</label>
-                                                            <input type="text" />
-                                                            <label>发布日期</label>
-                                                            <input type="text" />
-                                                            <label style="display: inline-block; width: 60px; text-align: right;">期望月薪</label>
-                                                            <input type="text" />
-                                                            -
-                    <input type="text" /><br />
-                                                        </p>
-                                                        <p>
-                                                            <label style="display: inline-block; width: 60px; text-align: right;">岗位职责</label>
-                                                            <input type="text" />
-                                                            <label>能力要求</label>
-                                                            <input type="text" />
-                                                        </p>
-                                                        <p>
-                                                            <button class="btn btn-primary" ng-click="Query()">查询</button>
-                                                        </p>
-                                                        <div class="table-responsive">
-                                                            <table id="sample-table-2" class="table table-striped table-bordered table-hover">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>职位名称</th>
-                                                                        <th>公司名称</th>
-                                                                        <th>工作地点</th>
-                                                                        <th>职位月薪</th>
-                                                                        <th>发布时间</th>
-                                                                    </tr>
-                                                                </thead>
-
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <a href="#">硬笔书法、铅笔字老师</a>
-                                                                        </td>
-                                                                        <td>北京圣乐天歌文化艺术有限公司</td>
-                                                                        <td>北京-海淀区</td>
-                                                                        <td>200元/小时</td>
-                                                                        <td>10-14</td>
-                                                                    </tr>
-                                                                    <tr>
-
-                                                                        <td>
-                                                                            <a href="#">大数据架构师</a>
-                                                                        </td>
-                                                                        <td>北京招通致晟科技有限公司</td>
-                                                                        <td>北京-朝阳区</td>
-                                                                        <td>40-60万/年</td>
-                                                                        <td>10-14</td>
-                                                                    </tr>
-
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            <div id="JobRequest" class="tab-pane">
+                                                <div data-ui-view=""></div>
                                                 <!-- /row -->
+                                            </div>
+                                            <!-- /#JobRequest -->
+
+                                            <div id="TechRequest" class="tab-pane">
+                                                <div data-ui-view=""></div>
 
                                             </div>
-                                            <!-- /#feed -->
+                                            <!-- /#TechRequest -->
 
-                                            <div id="friends" class="tab-pane">
-                                                <div class="profile-users clearfix">
-                                                    <div class="col-xs-12">
-                                                        <p>
-                                                            <label style="display: inline-block; width: 60px; text-align: right;">需求名称</label>
-                                                            <input type="text" />
-                                                            <label>行业分类</label>
-                                                            <input type="text" />
-                                                            <label style="display: inline-block; width: 60px; text-align: right;">技术类型</label>
-                                                            <input type="text" />
-                                                            <label>需求简介</label>
-                                                            <input type="text" />
-                                                        </p>
-                                                        <p>
-                                                            <label style="display: inline-block; width: 60px; text-align: right;">发布日期</label>
-                                                            <input type="text" />
-                                                            <label style="display: inline-block; width: 60px; text-align: right;">投入预算</label>
-                                                            <input type="text" />
-                                                            -
-                    <input type="text" /><br />
-                                                        </p>
-                                                        <p>
-                                                            <button class="btn btn-primary" ng-click="Query()">查询</button>
-                                                        </p>
-                                                        <div class="table-responsive">
-                                                            <table id="Table1" class="table table-striped table-bordered table-hover">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>需求名称</th>
-                                                                        <th>行业分类</th>
-                                                                        <th>技术类型</th>
-                                                                        <th>投入预算</th>
-                                                                        <th>截止日期</th>
-                                                                    </tr>
-                                                                </thead>
-
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <a href="#">xxxxxxxxx</a>
-                                                                        </td>
-                                                                        <td>xxxxxxxxx</td>
-                                                                        <td>xxxxxxxxx</td>
-                                                                        <td>xxxxxxxxx</td>
-                                                                        <td>xxxxxxxxx</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <a href="#">xxxxxxxxx</a>
-                                                                        </td>
-                                                                        <td>xxxxxxxxx</td>
-                                                                        <td>xxxxxxxxx</td>
-                                                                        <td>xxxxxxxxx</td>
-                                                                        <td>xxxxxxxxx</td>
-                                                                    </tr>
-
-
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-
-
-                                                </div>
-
-                                            </div>
-                                            <!-- /#friends -->
-
-                                            <div id="pictures" class="tab-pane">
-                                                <div id="Div1" class="tab-pane">
-                                                    <div class="profile-users clearfix">
-                                                        <div class="col-xs-12">
-
-                                                            <div class="table-responsive">
-                                                                <table id="Table2" class="table table-striped table-bordered table-hover">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th>收藏内容</th>
-                                                                            <th>收藏时间</th>
-                                                                            <th></th>
-                                                                        </tr>
-                                                                    </thead>
-
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <a href="#">高级软件工程师 - 微软中国股份有限公司公司</a>
-                                                                            </td>
-                                                                            <td>2017-10-10 12:09:10</td>
-                                                                            <td>
-                                                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-
-                                                                                    <a class="red" href="#">
-                                                                                        <i class="icon-heart bigger-130"></i>
-                                                                                    </a>
-
-                                                                                </div>
-
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <a href="#">高级酿造技术 - 五粮液有限公司</a>
-                                                                            </td>
-                                                                            <td>2017-10-10 12:09:10</td>
-                                                                            <td>
-                                                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-
-                                                                                    <a class="red" href="#">
-                                                                                        <i class="icon-heart bigger-130"></i>
-                                                                                    </a>
-
-                                                                                </div>
-
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <a href="#">xxxxxxxxx</a>
-                                                                            </td>
-                                                                            <td>2017-10-10 12:09:10</td>
-                                                                            <td>
-                                                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-
-                                                                                    <a class="red" href="#">
-                                                                                        <i class="icon-heart bigger-130"></i>
-                                                                                    </a>
-
-                                                                                </div>
-
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <a href="#">xxxxxxxxx</a>
-                                                                            </td>
-                                                                            <td>2017-10-10 12:09:10</td>
-                                                                            <td>
-                                                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-
-                                                                                    <a class="red" href="#">
-                                                                                        <i class="icon-heart bigger-130"></i>
-                                                                                    </a>
-
-                                                                                </div>
-
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <a href="#">xxxxxxxxx</a>
-                                                                            </td>
-                                                                            <td>2017-10-10 12:09:10</td>
-                                                                            <td>
-                                                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-
-                                                                                    <a class="red" href="#">
-                                                                                        <i class="icon-heart bigger-130"></i>
-                                                                                    </a>
-
-                                                                                </div>
-
-                                                                            </td>
-                                                                        </tr>
-
-
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-
-
-                                                    </div>
-
-                                                </div>
+                                            <div id="Favorite" class="tab-pane">
+                                                <div data-ui-view=""></div>
+                                                
                                             </div>
                                             <!-- /#pictures -->
                                         </div>
@@ -1120,15 +682,24 @@
 
             ////////////////////
             //change profile
-            $('[data-toggle="buttons"] .btn').on('click', function (e) {
-                var target = $(this).find('input[type=radio]');
-                var which = parseInt(target.val());
-                $('.user-profile').parent().addClass('hide');
-                $('#user-profile-' + which).parent().removeClass('hide');
-            });
+            //$('[data-toggle="buttons"] .btn').on('click', function (e) {
+            //    var target = $(this).find('input[type=radio]');
+            //    var which = parseInt(target.val());
+            //    $('.user-profile').parent().addClass('hide');
+            //    $('#user-profile-' + which).parent().removeClass('hide');
+            //});
+
+            //$('[data-toggle="tab"]').on('click', function (e) {
+            //    alert(1);
+            //    $urlRouterProvider.when("", "/ProjectList");
+
+            //    //var target = $(this).find('input[type=radio]');
+            //    //var which = parseInt(target.val());
+            //    //$('.user-profile').parent().addClass('hide');
+            //    //$('#user-profile-' + which).parent().removeClass('hide');
+            //});
         });
     </script>
 
 </body>
 </html>
-<script>var _hmt = _hmt || []; (function () { var hm = document.createElement("script"); hm.src = "//hm.baidu.com/hm.js?a43c39da34531f4da694d4499c5614d4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s); })();</script>

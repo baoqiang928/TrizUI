@@ -215,9 +215,13 @@
     <Content Include="pricing.html" />
     <Content Include="profile.html" />
     <Content Include="tables.html" />
+    <Content Include="Talent\Controllers\App.js" />
+    <Content Include="Talent\Controllers\tb.js" />
+    <Content Include="Talent\Controllers\Tree.js" />
     <Content Include="Talent\logo_02.png" />
     <Content Include="Talent\Personnel\index.html" />
     <Content Include="Talent\logo.png" />
+    <Content Include="Talent\Personnel\Profile\Profile.html" />
     <Content Include="Talent\Personnel\timg.jpg" />
     <Content Include="Test\Controllers\App.js" />
     <Content Include="Test\Main.html" />
