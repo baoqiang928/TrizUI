@@ -11,6 +11,10 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
            url: "/JobRequest",
            templateUrl: "/Talent/Personnel/JobRequest/JobRequestList.html"
        })
+       .state("JobDetail", {
+           url: "/JobDetail",
+           templateUrl: "/Talent/Personnel/JobRequest/JDDetail.html"
+       })
        .state("TechRequest", {
            url: "/TechRequest",
            templateUrl: "/Talent/Personnel/TechRequest/TechRequestList.html"
