@@ -149,7 +149,7 @@
                                             <li>
                                                 <a data-toggle="tab" href="#friends">
                                                     <i class="blue icon-group bigger-120"></i>
-                                                    继续需求
+                                                    技术需求
                                                 </a>
                                             </li>
 
@@ -168,18 +168,6 @@
                                                         <span class="profile-picture">
                                                             <img class="editable img-responsive" alt="Alex's Avatar" id="avatar2" src="timg.jpg" />
                                                         </span>
-
-                                                        <div class="space space-4"></div>
-
-                                                        <a href="#" class="btn btn-sm btn-block btn-success">
-                                                            <i class="icon-plus-sign bigger-120"></i>
-                                                            <span class="bigger-110">Add as a friend</span>
-                                                        </a>
-
-                                                        <a href="#" class="btn btn-sm btn-block btn-primary">
-                                                            <i class="icon-envelope-alt bigger-110"></i>
-                                                            <span class="bigger-110">Send a message</span>
-                                                        </a>
                                                     </div>
                                                     <!-- /span -->
 
@@ -392,881 +380,254 @@
 
                                             <div id="feed" class="tab-pane">
                                                 <div class="profile-feed row-fluid">
-                                                    <div class="span6">
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <img class="pull-left" alt="Alex Doe's avatar" src="/assets/avatars/avatar5.png" />
-                                                                <a class="user" href="#">Alex Doe </a>
-                                                                changed his profile photo.
-																	<a href="#">Take a look</a>
+                                                    <div class="col-xs-12">
+                                                        <p>
+                                                            <label style="display: inline-block; width: 60px; text-align: right;">行业类别</label>
+                                                            <input type="text" />
+                                                            <label>职业类别</label>
+                                                            <input type="text" />
+                                                            <label style="display: inline-block; width: 60px; text-align: right;">工作地点</label>
+                                                            <input type="text" />
+                                                            <label>工作经验</label>
+                                                            <input type="text" />
+                                                        </p>
+                                                        <p>
+                                                            <label style="display: inline-block; width: 60px; text-align: right;">最低学历</label>
+                                                            <input type="text" />
+                                                            <label>发布日期</label>
+                                                            <input type="text" />
+                                                            <label style="display: inline-block; width: 60px; text-align: right;">期望月薪</label>
+                                                            <input type="text" />
+                                                            -
+                    <input type="text" /><br />
+                                                        </p>
+                                                        <p>
+                                                            <label style="display: inline-block; width: 60px; text-align: right;">岗位职责</label>
+                                                            <input type="text" />
+                                                            <label>能力要求</label>
+                                                            <input type="text" />
+                                                        </p>
+                                                        <p>
+                                                            <button class="btn btn-primary" ng-click="Query()">查询</button>
+                                                        </p>
+                                                        <div class="table-responsive">
+                                                            <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>职位名称</th>
+                                                                        <th>公司名称</th>
+                                                                        <th>工作地点</th>
+                                                                        <th>职位月薪</th>
+                                                                        <th>发布时间</th>
+                                                                    </tr>
+                                                                </thead>
 
-                                                                <div class="time">
-                                                                    <i class="icon-time bigger-110"></i>
-                                                                    an hour ago
-                                                                </div>
-                                                            </div>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">硬笔书法、铅笔字老师</a>
+                                                                        </td>
+                                                                        <td>北京圣乐天歌文化艺术有限公司</td>
+                                                                        <td>北京-海淀区</td>
+                                                                        <td>200元/小时</td>
+                                                                        <td>10-14</td>
+                                                                    </tr>
+                                                                    <tr>
 
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="icon-pencil bigger-125"></i>
-                                                                </a>
+                                                                        <td>
+                                                                            <a href="#">大数据架构师</a>
+                                                                        </td>
+                                                                        <td>北京招通致晟科技有限公司</td>
+                                                                        <td>北京-朝阳区</td>
+                                                                        <td>40-60万/年</td>
+                                                                        <td>10-14</td>
+                                                                    </tr>
 
-                                                                <a href="#" class="red">
-                                                                    <i class="icon-remove bigger-125"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <img class="pull-left" alt="Susan Smith's avatar" src="/assets/avatars/avatar1.png" />
-                                                                <a class="user" href="#">Susan Smith </a>
-
-                                                                is now friends with Alex Doe.
-																	<div class="time">
-                                                                        <i class="icon-time bigger-110"></i>
-                                                                        2 hours ago
-                                                                    </div>
-                                                            </div>
-
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="icon-pencil bigger-125"></i>
-                                                                </a>
-
-                                                                <a href="#" class="red">
-                                                                    <i class="icon-remove bigger-125"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <i class="pull-left thumbicon icon-ok btn-success no-hover"></i>
-                                                                <a class="user" href="#">Alex Doe </a>
-                                                                joined
-																	<a href="#">Country Music</a>
-
-                                                                group.
-																	<div class="time">
-                                                                        <i class="icon-time bigger-110"></i>
-                                                                        5 hours ago
-                                                                    </div>
-                                                            </div>
-
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="icon-pencil bigger-125"></i>
-                                                                </a>
-
-                                                                <a href="#" class="red">
-                                                                    <i class="icon-remove bigger-125"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <i class="pull-left thumbicon icon-picture btn-info no-hover"></i>
-                                                                <a class="user" href="#">Alex Doe </a>
-                                                                uploaded a new photo.
-																	<a href="#">Take a look</a>
-
-                                                                <div class="time">
-                                                                    <i class="icon-time bigger-110"></i>
-                                                                    5 hours ago
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="icon-pencil bigger-125"></i>
-                                                                </a>
-
-                                                                <a href="#" class="red">
-                                                                    <i class="icon-remove bigger-125"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <img class="pull-left" alt="David Palms's avatar" src="/assets/avatars/avatar4.png" />
-                                                                <a class="user" href="#">David Palms </a>
-
-                                                                left a comment on Alex's wall.
-																	<div class="time">
-                                                                        <i class="icon-time bigger-110"></i>
-                                                                        8 hours ago
-                                                                    </div>
-                                                            </div>
-
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="icon-pencil bigger-125"></i>
-                                                                </a>
-
-                                                                <a href="#" class="red">
-                                                                    <i class="icon-remove bigger-125"></i>
-                                                                </a>
-                                                            </div>
+                                                                </tbody>
+                                                            </table>
                                                         </div>
                                                     </div>
-                                                    <!-- /span -->
-
-                                                    <div class="span6">
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <i class="pull-left thumbicon icon-edit btn-pink no-hover"></i>
-                                                                <a class="user" href="#">Alex Doe </a>
-                                                                published a new blog post.
-																	<a href="#">Read now</a>
-
-                                                                <div class="time">
-                                                                    <i class="icon-time bigger-110"></i>
-                                                                    11 hours ago
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="icon-pencil bigger-125"></i>
-                                                                </a>
-
-                                                                <a href="#" class="red">
-                                                                    <i class="icon-remove bigger-125"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <img class="pull-left" alt="Alex Doe's avatar" src="/assets/avatars/avatar5.png" />
-                                                                <a class="user" href="#">Alex Doe </a>
-
-                                                                upgraded his skills.
-																	<div class="time">
-                                                                        <i class="icon-time bigger-110"></i>
-                                                                        12 hours ago
-                                                                    </div>
-                                                            </div>
-
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="icon-pencil bigger-125"></i>
-                                                                </a>
-
-                                                                <a href="#" class="red">
-                                                                    <i class="icon-remove bigger-125"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <i class="pull-left thumbicon icon-key btn-info no-hover"></i>
-                                                                <a class="user" href="#">Alex Doe </a>
-
-                                                                logged in.
-																	<div class="time">
-                                                                        <i class="icon-time bigger-110"></i>
-                                                                        12 hours ago
-                                                                    </div>
-                                                            </div>
-
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="icon-pencil bigger-125"></i>
-                                                                </a>
-
-                                                                <a href="#" class="red">
-                                                                    <i class="icon-remove bigger-125"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <i class="pull-left thumbicon icon-off btn-inverse no-hover"></i>
-                                                                <a class="user" href="#">Alex Doe </a>
-
-                                                                logged out.
-																	<div class="time">
-                                                                        <i class="icon-time bigger-110"></i>
-                                                                        16 hours ago
-                                                                    </div>
-                                                            </div>
-
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="icon-pencil bigger-125"></i>
-                                                                </a>
-
-                                                                <a href="#" class="red">
-                                                                    <i class="icon-remove bigger-125"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <i class="pull-left thumbicon icon-key btn-info no-hover"></i>
-                                                                <a class="user" href="#">Alex Doe </a>
-
-                                                                logged in.
-																	<div class="time">
-                                                                        <i class="icon-time bigger-110"></i>
-                                                                        16 hours ago
-                                                                    </div>
-                                                            </div>
-
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="icon-pencil bigger-125"></i>
-                                                                </a>
-
-                                                                <a href="#" class="red">
-                                                                    <i class="icon-remove bigger-125"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /span -->
                                                 </div>
                                                 <!-- /row -->
 
-                                                <div class="space-12"></div>
-
-                                                <div class="center">
-                                                    <a href="#" class="btn btn-small btn-primary">
-                                                        <i class="icon-rss bigger-150 middle"></i>
-
-                                                        View more activities
-															<i class="icon-on-right icon-arrow-right"></i>
-                                                    </a>
-                                                </div>
                                             </div>
                                             <!-- /#feed -->
 
                                             <div id="friends" class="tab-pane">
                                                 <div class="profile-users clearfix">
-                                                    <div class="itemdiv memberdiv">
-                                                        <div class="inline position-relative">
-                                                            <div class="user">
-                                                                <a href="#">
-                                                                    <img src="/assets/avatars/avatar4.png" alt="Bob Doe's avatar" />
-                                                                </a>
-                                                            </div>
+                                                    <div class="col-xs-12">
+                                                        <p>
+                                                            <label style="display: inline-block; width: 60px; text-align: right;">需求名称</label>
+                                                            <input type="text" />
+                                                            <label>行业分类</label>
+                                                            <input type="text" />
+                                                            <label style="display: inline-block; width: 60px; text-align: right;">技术类型</label>
+                                                            <input type="text" />
+                                                            <label>需求简介</label>
+                                                            <input type="text" />
+                                                        </p>
+                                                        <p>
+                                                            <label style="display: inline-block; width: 60px; text-align: right;">发布日期</label>
+                                                            <input type="text" />
+                                                            <label style="display: inline-block; width: 60px; text-align: right;">投入预算</label>
+                                                            <input type="text" />
+                                                            -
+                    <input type="text" /><br />
+                                                        </p>
+                                                        <p>
+                                                            <button class="btn btn-primary" ng-click="Query()">查询</button>
+                                                        </p>
+                                                        <div class="table-responsive">
+                                                            <table id="Table1" class="table table-striped table-bordered table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>需求名称</th>
+                                                                        <th>行业分类</th>
+                                                                        <th>技术类型</th>
+                                                                        <th>投入预算</th>
+                                                                        <th>截止日期</th>
+                                                                    </tr>
+                                                                </thead>
 
-                                                            <div class="body">
-                                                                <div class="name">
-                                                                    <a href="#">
-                                                                        <span class="user-status status-online"></span>
-                                                                        Bob Doe
-                                                                    </a>
-                                                                </div>
-                                                            </div>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">xxxxxxxxx</a>
+                                                                        </td>
+                                                                        <td>xxxxxxxxx</td>
+                                                                        <td>xxxxxxxxx</td>
+                                                                        <td>xxxxxxxxx</td>
+                                                                        <td>xxxxxxxxx</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">xxxxxxxxx</a>
+                                                                        </td>
+                                                                        <td>xxxxxxxxx</td>
+                                                                        <td>xxxxxxxxx</td>
+                                                                        <td>xxxxxxxxx</td>
+                                                                        <td>xxxxxxxxx</td>
+                                                                    </tr>
 
-                                                            <div class="popover">
-                                                                <div class="arrow"></div>
 
-                                                                <div class="popover-content">
-                                                                    <div class="bolder">Content Editor</div>
-
-                                                                    <div class="time">
-                                                                        <i class="icon-time middle bigger-120 orange"></i>
-                                                                        <span class="green">20 mins ago </span>
-                                                                    </div>
-
-                                                                    <div class="hr dotted hr-8"></div>
-
-                                                                    <div class="tools action-buttons">
-                                                                        <a href="#">
-                                                                            <i class="icon-facebook-sign blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="icon-twitter-sign light-blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="icon-google-plus-sign red bigger-150"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                                </tbody>
+                                                            </table>
                                                         </div>
                                                     </div>
 
-                                                    <div class="itemdiv memberdiv">
-                                                        <div class="inline position-relative">
-                                                            <div class="user">
-                                                                <a href="#">
-                                                                    <img src="/assets/avatars/avatar1.png" alt="Rose Doe's avatar" />
-                                                                </a>
-                                                            </div>
 
-                                                            <div class="body">
-                                                                <div class="name">
-                                                                    <a href="#">
-                                                                        <span class="user-status status-offline"></span>
-                                                                        Rose Doe
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="popover">
-                                                                <div class="arrow"></div>
-
-                                                                <div class="popover-content">
-                                                                    <div class="bolder">Graphic Designer</div>
-
-                                                                    <div class="time">
-                                                                        <i class="icon-time middle bigger-120 grey"></i>
-                                                                        <span class="grey">30 min ago </span>
-                                                                    </div>
-
-                                                                    <div class="hr dotted hr-8"></div>
-
-                                                                    <div class="tools action-buttons">
-                                                                        <a href="#">
-                                                                            <i class="icon-facebook-sign blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="icon-twitter-sign light-blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="icon-google-plus-sign red bigger-150"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="itemdiv memberdiv">
-                                                        <div class="inline position-relative">
-                                                            <div class="user">
-                                                                <a href="#">
-                                                                    <img src="/assets/avatars/avatar.png" alt="Jim Doe's avatar" />
-                                                                </a>
-                                                            </div>
-
-                                                            <div class="body">
-                                                                <div class="name">
-                                                                    <a href="#">
-                                                                        <span class="user-status status-busy"></span>
-                                                                        Jim Doe
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="popover">
-                                                                <div class="arrow"></div>
-
-                                                                <div class="popover-content">
-                                                                    <div class="bolder">SEO &amp; Advertising</div>
-
-                                                                    <div class="time">
-                                                                        <i class="icon-time middle bigger-120 red"></i>
-                                                                        <span class="grey">1 hour ago </span>
-                                                                    </div>
-
-                                                                    <div class="hr dotted hr-8"></div>
-
-                                                                    <div class="tools action-buttons">
-                                                                        <a href="#">
-                                                                            <i class="icon-facebook-sign blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="icon-twitter-sign light-blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="icon-google-plus-sign red bigger-150"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="itemdiv memberdiv">
-                                                        <div class="inline position-relative">
-                                                            <div class="user">
-                                                                <a href="#">
-                                                                    <img src="/assets/avatars/avatar5.png" alt="Alex Doe's avatar" />
-                                                                </a>
-                                                            </div>
-
-                                                            <div class="body">
-                                                                <div class="name">
-                                                                    <a href="#">
-                                                                        <span class="user-status status-idle"></span>
-                                                                        Alex Doe
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="popover">
-                                                                <div class="arrow"></div>
-
-                                                                <div class="popover-content">
-                                                                    <div class="bolder">Marketing</div>
-
-                                                                    <div class="time">
-                                                                        <i class="icon-time middle bigger-120 orange"></i>
-                                                                        <span class="">40 minutes idle </span>
-                                                                    </div>
-
-                                                                    <div class="hr dotted hr-8"></div>
-
-                                                                    <div class="tools action-buttons">
-                                                                        <a href="#">
-                                                                            <i class="icon-facebook-sign blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="icon-twitter-sign light-blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="icon-google-plus-sign red bigger-150"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="itemdiv memberdiv">
-                                                        <div class="inline position-relative">
-                                                            <div class="user">
-                                                                <a href="#">
-                                                                    <img src="/assets/avatars/avatar2.png" alt="Phil Doe's avatar" />
-                                                                </a>
-                                                            </div>
-
-                                                            <div class="body">
-                                                                <div class="name">
-                                                                    <a href="#">
-                                                                        <span class="user-status status-online"></span>
-                                                                        Phil Doe
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="popover">
-                                                                <div class="arrow"></div>
-
-                                                                <div class="popover-content">
-                                                                    <div class="bolder">Public Relations</div>
-
-                                                                    <div class="time">
-                                                                        <i class="icon-time middle bigger-120 orange"></i>
-                                                                        <span class="green">2 hours ago </span>
-                                                                    </div>
-
-                                                                    <div class="hr dotted hr-8"></div>
-
-                                                                    <div class="tools action-buttons">
-                                                                        <a href="#">
-                                                                            <i class="icon-facebook-sign blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="icon-twitter-sign light-blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="icon-google-plus-sign red bigger-150"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="itemdiv memberdiv">
-                                                        <div class="inline position-relative">
-                                                            <div class="user">
-                                                                <a href="#">
-                                                                    <img src="/assets/avatars/avatar3.png" alt="Susan Doe's avatar" />
-                                                                </a>
-                                                            </div>
-
-                                                            <div class="body">
-                                                                <div class="name">
-                                                                    <a href="#">
-                                                                        <span class="user-status status-online"></span>
-                                                                        Susan Doe
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="popover">
-                                                                <div class="arrow"></div>
-
-                                                                <div class="popover-content">
-                                                                    <div class="bolder">HR Management</div>
-
-                                                                    <div class="time">
-                                                                        <i class="icon-time middle bigger-120 orange"></i>
-                                                                        <span class="green">20 mins ago </span>
-                                                                    </div>
-
-                                                                    <div class="hr dotted hr-8"></div>
-
-                                                                    <div class="tools action-buttons">
-                                                                        <a href="#">
-                                                                            <i class="icon-facebook-sign blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="icon-twitter-sign light-blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="icon-google-plus-sign red bigger-150"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="itemdiv memberdiv">
-                                                        <div class="inline position-relative">
-                                                            <div class="user">
-                                                                <a href="#">
-                                                                    <img src="/assets/avatars/avatar1.png" alt="Jennifer Doe's avatar" />
-                                                                </a>
-                                                            </div>
-
-                                                            <div class="body">
-                                                                <div class="name">
-                                                                    <a href="#">
-                                                                        <span class="user-status status-offline"></span>
-                                                                        Jennifer Doe
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="popover">
-                                                                <div class="arrow"></div>
-
-                                                                <div class="popover-content">
-                                                                    <div class="bolder">Graphic Designer</div>
-
-                                                                    <div class="time">
-                                                                        <i class="icon-time middle bigger-120 grey"></i>
-                                                                        <span class="grey">2 hours ago </span>
-                                                                    </div>
-
-                                                                    <div class="hr dotted hr-8"></div>
-
-                                                                    <div class="tools action-buttons">
-                                                                        <a href="#">
-                                                                            <i class="icon-facebook-sign blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="icon-twitter-sign light-blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="icon-google-plus-sign red bigger-150"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="itemdiv memberdiv">
-                                                        <div class="inline position-relative">
-                                                            <div class="user">
-                                                                <a href="#">
-                                                                    <img src="/assets/avatars/avatar3.png" alt="Alexa Doe's avatar" />
-                                                                </a>
-                                                            </div>
-
-                                                            <div class="body">
-                                                                <div class="name">
-                                                                    <a href="#">
-                                                                        <span class="user-status status-offline"></span>
-                                                                        Alexa Doe
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="popover">
-                                                                <div class="arrow"></div>
-
-                                                                <div class="popover-content">
-                                                                    <div class="bolder">Accounting</div>
-
-                                                                    <div class="time">
-                                                                        <i class="icon-time middle bigger-120 grey"></i>
-                                                                        <span class="grey">4 hours ago </span>
-                                                                    </div>
-
-                                                                    <div class="hr dotted hr-8"></div>
-
-                                                                    <div class="tools action-buttons">
-                                                                        <a href="#">
-                                                                            <i class="icon-facebook-sign blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="icon-twitter-sign light-blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="icon-google-plus-sign red bigger-150"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </div>
 
-                                                <div class="hr hr10 hr-double"></div>
-
-                                                <ul class="pager pull-right">
-                                                    <li class="previous disabled">
-                                                        <a href="#">&larr; Prev</a>
-                                                    </li>
-
-                                                    <li class="next">
-                                                        <a href="#">Next &rarr;</a>
-                                                    </li>
-                                                </ul>
                                             </div>
                                             <!-- /#friends -->
 
                                             <div id="pictures" class="tab-pane">
-                                                <ul class="ace-thumbnails">
-                                                    <li>
-                                                        <a href="#" data-rel="colorbox">
-                                                            <img alt="150x150" src="/assets/images/gallery/thumb-1.jpg" />
-                                                            <div class="text">
-                                                                <div class="inner">Sample Caption on Hover</div>
+                                                <div id="Div1" class="tab-pane">
+                                                    <div class="profile-users clearfix">
+                                                        <div class="col-xs-12">
+
+                                                            <div class="table-responsive">
+                                                                <table id="Table2" class="table table-striped table-bordered table-hover">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>收藏内容</th>
+                                                                            <th>收藏时间</th>
+                                                                            <th></th>
+                                                                        </tr>
+                                                                    </thead>
+
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <a href="#">高级软件工程师 - 微软中国股份有限公司公司</a>
+                                                                            </td>
+                                                                            <td>2017-10-10 12:09:10</td>
+                                                                            <td>
+                                                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+
+                                                                                    <a class="red" href="#">
+                                                                                        <i class="icon-heart bigger-130"></i>
+                                                                                    </a>
+
+                                                                                </div>
+
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <a href="#">高级酿造技术 - 五粮液有限公司</a>
+                                                                            </td>
+                                                                            <td>2017-10-10 12:09:10</td>
+                                                                            <td>
+                                                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+
+                                                                                    <a class="red" href="#">
+                                                                                        <i class="icon-heart bigger-130"></i>
+                                                                                    </a>
+
+                                                                                </div>
+
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <a href="#">xxxxxxxxx</a>
+                                                                            </td>
+                                                                            <td>2017-10-10 12:09:10</td>
+                                                                            <td>
+                                                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+
+                                                                                    <a class="red" href="#">
+                                                                                        <i class="icon-heart bigger-130"></i>
+                                                                                    </a>
+
+                                                                                </div>
+
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <a href="#">xxxxxxxxx</a>
+                                                                            </td>
+                                                                            <td>2017-10-10 12:09:10</td>
+                                                                            <td>
+                                                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+
+                                                                                    <a class="red" href="#">
+                                                                                        <i class="icon-heart bigger-130"></i>
+                                                                                    </a>
+
+                                                                                </div>
+
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <a href="#">xxxxxxxxx</a>
+                                                                            </td>
+                                                                            <td>2017-10-10 12:09:10</td>
+                                                                            <td>
+                                                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+
+                                                                                    <a class="red" href="#">
+                                                                                        <i class="icon-heart bigger-130"></i>
+                                                                                    </a>
+
+                                                                                </div>
+
+                                                                            </td>
+                                                                        </tr>
+
+
+                                                                    </tbody>
+                                                                </table>
                                                             </div>
-                                                        </a>
-
-                                                        <div class="tools tools-bottom">
-                                                            <a href="#">
-                                                                <i class="icon-link"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-paper-clip"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-pencil"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-remove red"></i>
-                                                            </a>
                                                         </div>
-                                                    </li>
 
-                                                    <li>
-                                                        <a href="#" data-rel="colorbox">
-                                                            <img alt="150x150" src="/assets/images/gallery/thumb-2.jpg" />
-                                                            <div class="text">
-                                                                <div class="inner">Sample Caption on Hover</div>
-                                                            </div>
-                                                        </a>
 
-                                                        <div class="tools tools-bottom">
-                                                            <a href="#">
-                                                                <i class="icon-link"></i>
-                                                            </a>
+                                                    </div>
 
-                                                            <a href="#">
-                                                                <i class="icon-paper-clip"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-pencil"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-remove red"></i>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" data-rel="colorbox">
-                                                            <img alt="150x150" src="/assets/images/gallery/thumb-3.jpg" />
-                                                            <div class="text">
-                                                                <div class="inner">Sample Caption on Hover</div>
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="tools tools-bottom">
-                                                            <a href="#">
-                                                                <i class="icon-link"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-paper-clip"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-pencil"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-remove red"></i>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" data-rel="colorbox">
-                                                            <img alt="150x150" src="/assets/images/gallery/thumb-4.jpg" />
-                                                            <div class="text">
-                                                                <div class="inner">Sample Caption on Hover</div>
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="tools tools-bottom">
-                                                            <a href="#">
-                                                                <i class="icon-link"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-paper-clip"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-pencil"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-remove red"></i>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" data-rel="colorbox">
-                                                            <img alt="150x150" src="/assets/images/gallery/thumb-5.jpg" />
-                                                            <div class="text">
-                                                                <div class="inner">Sample Caption on Hover</div>
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="tools tools-bottom">
-                                                            <a href="#">
-                                                                <i class="icon-link"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-paper-clip"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-pencil"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-remove red"></i>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" data-rel="colorbox">
-                                                            <img alt="150x150" src="/assets/images/gallery/thumb-6.jpg" />
-                                                            <div class="text">
-                                                                <div class="inner">Sample Caption on Hover</div>
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="tools tools-bottom">
-                                                            <a href="#">
-                                                                <i class="icon-link"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-paper-clip"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-pencil"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-remove red"></i>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" data-rel="colorbox">
-                                                            <img alt="150x150" src="/assets/images/gallery/thumb-1.jpg" />
-                                                            <div class="text">
-                                                                <div class="inner">Sample Caption on Hover</div>
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="tools tools-bottom">
-                                                            <a href="#">
-                                                                <i class="icon-link"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-paper-clip"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-pencil"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-remove red"></i>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" data-rel="colorbox">
-                                                            <img alt="150x150" src="/assets/images/gallery/thumb-2.jpg" />
-                                                            <div class="text">
-                                                                <div class="inner">Sample Caption on Hover</div>
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="tools tools-bottom">
-                                                            <a href="#">
-                                                                <i class="icon-link"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-paper-clip"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-pencil"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="icon-remove red"></i>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-                                                </ul>
+                                                </div>
                                             </div>
                                             <!-- /#pictures -->
                                         </div>
