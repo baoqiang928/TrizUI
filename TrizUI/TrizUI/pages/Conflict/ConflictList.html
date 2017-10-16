@@ -87,7 +87,7 @@
                             </table>
 
                             <div>
-                                <button class="btn btn-primary" ng-click="#">添加技术冲突</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#modal-table">添加技术冲突</button>
                             </div>
 
 
@@ -146,7 +146,227 @@
         </div>
     </div>
 
+    <div class="row">
+        <div id="modal-table" class="modal fade" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header no-padding">
+                        <div class="table-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                <span class="white">&times;</span>
+                            </button>
+                            添加技术冲突
+                        </div>
+                    </div>
 
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="widget-box">
+                                        <div class="widget-header widget-header-flat">
+                                            <h4 class="smaller">技术冲突</h4>
+                                        </div>
+
+                                        <div class="widget-body">
+                                            <div class="widget-main">
+                                                <div>
+                                                    <div>
+                                                        <label for="form-field-select-1">改进的技术参数</label>
+
+                                                        <select class="form-control" id="form-field-select-1">
+                                                            <option value="48">1 运动物体的重量</option>
+
+                                                            <option value="49">2 静止物体的重量</option>
+
+                                                            <option value="50">3 运动物体的长度</option>
+
+                                                            <option value="51">4 静止物体的长度</option>
+
+                                                            <option value="52">5 运动物体的面积</option>
+
+                                                            <option value="53">6 静止物体的面积</option>
+
+                                                            <option value="54">7 运动物体的体积 </option>
+
+                                                            <option value="55">8 静止物体的体积</option>
+
+                                                            <option value="56">9 速度</option>
+
+                                                            <option value="57">10 力</option>
+
+                                                            <option value="58">11 应力或压力</option>
+
+                                                            <option value="60">12 形状</option>
+
+                                                            <option value="61">13 结构的稳定性</option>
+
+                                                            <option value="62">14 强度</option>
+
+                                                            <option value="63">15 运动物体作用时间</option>
+
+                                                            <option value="64">16 静止物体作用时间</option>
+
+                                                            <option value="65">17 温度</option>
+
+                                                            <option value="66">18 光照强度</option>
+
+                                                            <option value="67">19 运动物体的能量</option>
+
+                                                            <option value="68">20 静止物体的能量</option>
+
+                                                            <option value="69">21 功率</option>
+
+                                                            <option value="70">22 能量损失</option>
+
+                                                            <option value="71">23 物质损失</option>
+
+                                                            <option value="72">24 信息损失</option>
+
+                                                            <option value="73">25 时间损失</option>
+
+                                                            <option value="74">26  物质或事物的数量</option>
+
+                                                            <option value="75">27 可靠性</option>
+
+                                                            <option value="76">28 测试精度</option>
+
+                                                            <option value="77">29 制造精度</option>
+
+                                                            <option value="78">30 物体外部有害因素作用的敏感性</option>
+
+                                                            <option value="79">31 物体产生的有害因素</option>
+
+                                                            <option value="80">32 可制造性</option>
+
+                                                            <option value="81">33 可操作性</option>
+
+                                                            <option value="82">34 可维修性</option>
+
+                                                            <option value="83">35 适应性及多用性</option>
+
+                                                            <option value="84">36 装置的复杂性</option>
+
+                                                            <option value="85">37 监控与测试的困难程度</option>
+
+                                                            <option value="86">38 自动化程度</option>
+
+                                                            <option value="87">39 生产率</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <br />
+                                                    <label for="form-field-9">恶化的技术参数</label>
+
+                                                    <select class="form-control" id="Select1">
+                                                            <option value="48">1 运动物体的重量</option>
+
+                                                            <option value="49">2 静止物体的重量</option>
+
+                                                            <option value="50">3 运动物体的长度</option>
+
+                                                            <option value="51">4 静止物体的长度</option>
+
+                                                            <option value="52">5 运动物体的面积</option>
+
+                                                            <option value="53">6 静止物体的面积</option>
+
+                                                            <option value="54">7 运动物体的体积 </option>
+
+                                                            <option value="55">8 静止物体的体积</option>
+
+                                                            <option value="56">9 速度</option>
+
+                                                            <option value="57">10 力</option>
+
+                                                            <option value="58">11 应力或压力</option>
+
+                                                            <option value="60">12 形状</option>
+
+                                                            <option value="61">13 结构的稳定性</option>
+
+                                                            <option value="62">14 强度</option>
+
+                                                            <option value="63">15 运动物体作用时间</option>
+
+                                                            <option value="64">16 静止物体作用时间</option>
+
+                                                            <option value="65">17 温度</option>
+
+                                                            <option value="66">18 光照强度</option>
+
+                                                            <option value="67">19 运动物体的能量</option>
+
+                                                            <option value="68">20 静止物体的能量</option>
+
+                                                            <option value="69">21 功率</option>
+
+                                                            <option value="70">22 能量损失</option>
+
+                                                            <option value="71">23 物质损失</option>
+
+                                                            <option value="72">24 信息损失</option>
+
+                                                            <option value="73">25 时间损失</option>
+
+                                                            <option value="74">26  物质或事物的数量</option>
+
+                                                            <option value="75">27 可靠性</option>
+
+                                                            <option value="76">28 测试精度</option>
+
+                                                            <option value="77">29 制造精度</option>
+
+                                                            <option value="78">30 物体外部有害因素作用的敏感性</option>
+
+                                                            <option value="79">31 物体产生的有害因素</option>
+
+                                                            <option value="80">32 可制造性</option>
+
+                                                            <option value="81">33 可操作性</option>
+
+                                                            <option value="82">34 可维修性</option>
+
+                                                            <option value="83">35 适应性及多用性</option>
+
+                                                            <option value="84">36 装置的复杂性</option>
+
+                                                            <option value="85">37 监控与测试的困难程度</option>
+
+                                                            <option value="86">38 自动化程度</option>
+
+                                                            <option value="87">39 生产率</option>
+                                                        </select>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="modal-footer no-margin-top">
+                        <button class="btn btn-sm pull-left" data-dismiss="modal">
+                            <i class="icon-plus"></i>
+                            保存
+                        </button>
+                        <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+                            <i class="icon-remove"></i>
+                            关闭
+                        </button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+
+    </div>
     <!-- PAGE CONTENT ENDS -->
 
 
