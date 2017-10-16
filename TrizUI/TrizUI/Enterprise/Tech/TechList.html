@@ -1,0 +1,61 @@
+﻿<div class="profile-users clearfix">
+    <div class="col-xs-12">
+        <p>
+            <label style="display: inline-block; width: 60px; text-align: right;">123</label>
+            <input type="text" />
+            <label>行业分类</label>
+            <input type="text" />
+            <label style="display: inline-block; width: 60px; text-align: right;">技术类型</label>
+            <input type="text" />
+            <label>需求简介</label>
+            <input type="text" />
+        </p>
+        <p>
+            <label style="display: inline-block; width: 60px; text-align: right;">发布日期</label>
+            <input type="text" />
+            <label style="display: inline-block; width: 60px; text-align: right;">投入预算</label>
+            <input type="text" />
+            -
+                    <input type="text" /><br />
+        </p>
+        <p>
+            <button class="btn btn-primary" ng-click="Query()">查询</button>
+        </p>
+        <div class="table-responsive">
+            <table id="Table1" class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>需求名称</th>
+                        <th>行业分类</th>
+                        <th>技术类型</th>
+                        <th>投入预算</th>
+                        <th>截止日期</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="#" ui-sref="TechRequestDetail">矿井监控系统、定位系统、无线通讯系统、传感器、安全仪器、消防救护设备等</a>
+                        </td>
+                        <td>电子信息</td>
+                        <td>软件</td>
+                        <td>1000万</td>
+                        <td>2017.10.10</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#" ui-sref="TechRequestDetail">教育信息化应用软件产品。包括：电子备课系统、素质评价系统、OA系统、督导管理系统、巡课系统等等</a>
+                        </td>
+                        <td>电子信息</td>
+                        <td>软件</td>
+                        <td>500万</td>
+                        <td>2017.10.10</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>

@@ -161,6 +161,16 @@
     <Content Include="calendar.html" />
     <Content Include="dropzone.html" />
     <Content Include="elements.html" />
+    <Content Include="Enterprise\Controllers\App.js" />
+    <Content Include="Enterprise\index.html" />
+    <Content Include="Enterprise\logo.png" />
+    <Content Include="Enterprise\logo_02.png" />
+    <Content Include="Enterprise\Profile\ProfileList.html" />
+    <Content Include="Enterprise\Scripts\angular-ui-router.js" />
+    <Content Include="Enterprise\Scripts\angular.min.js" />
+    <Content Include="Enterprise\Talent\TalentList.html" />
+    <Content Include="Enterprise\Tech\TechList.html" />
+    <Content Include="Enterprise\timg.jpg" />
     <Content Include="error-404.html" />
     <Content Include="error-500.html" />
     <Content Include="faq.html" />
@@ -180,6 +190,7 @@
     <Content Include="pages\CauseEffect\1.png" />
     <Content Include="pages\CauseEffect\2.png" />
     <Content Include="pages\CauseEffect\3.png" />
+    <Content Include="pages\Conflict\ConflictList.html" />
     <Content Include="pages\Conflict\PhysicalConflictList.html" />
     <Content Include="pages\Conflict\PhysicalConflictOperate.html" />
     <Content Include="pages\Conflict\PhysicalConflictResolveList.html" />
@@ -263,9 +274,7 @@
   <ItemGroup>
     <Content Include="Doc\因果流程实例.doc" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Enterprise\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
