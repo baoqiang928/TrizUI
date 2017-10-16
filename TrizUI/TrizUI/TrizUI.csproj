@@ -222,11 +222,13 @@
     <Content Include="Talent\Personnel\Favorite\FavoriteList.html" />
     <Content Include="Talent\Personnel\index.html" />
     <Content Include="Talent\logo.png" />
+    <Content Include="Talent\Personnel\JobRequest\CompanyDetail.html" />
     <Content Include="Talent\Personnel\JobRequest\JDDetail.html" />
     <Content Include="Talent\Personnel\JobRequest\JobRequestList.html" />
     <Content Include="Talent\Personnel\Profile\ProfileList.html" />
     <Content Include="Talent\Personnel\Scripts\angular-ui-router.js" />
     <Content Include="Talent\Personnel\Scripts\angular.min.js" />
+    <Content Include="Talent\Personnel\TechRequest\TechRequestDetail.html" />
     <Content Include="Talent\Personnel\TechRequest\TechRequestList.html" />
     <Content Include="Talent\Personnel\timg.jpg" />
     <Content Include="Test\Controllers\App.js" />

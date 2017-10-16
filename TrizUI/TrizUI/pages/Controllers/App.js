@@ -50,6 +50,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
            templateUrl: "/pages/Conflict/TechConflictResolveList.html",
            controller: 'tree-Controller'
        })
+        .state("ConflictList", {
+            url: "/ConflictList",
+            templateUrl: "/pages/Conflict/ConflictList.html",
+            controller: 'tree-Controller'
+        })
        .state("PhysicalConflictResolveList", {
            url: "/PhysicalConflictResolveList",
            templateUrl: "/pages/Conflict/PhysicalConflictResolveList.html",
