@@ -262,7 +262,7 @@
     <Content Include="Doc\因果流程实例.doc" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Talent\Enterprise\" />
+    <Folder Include="Enterprise\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
