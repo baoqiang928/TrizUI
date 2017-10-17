@@ -1,6 +1,10 @@
 ﻿<div class="page-content">
     <div class="page-header">
         <h1>功能分析
+			<small>
+                <i class="icon-double-angle-right"></i>
+                <a data-toggle="modal" style="cursor: pointer" data-target="#modal-table">[查看功能分析流程]</a>
+            </small>
         </h1>
     </div>
     <!-- /.page-header -->
@@ -283,11 +287,13 @@
 
                                     <tr>
                                         <td>电机</td>
+                                        <td></td>
                                         <td>
-                                        </td>
-                                        <td><input type="checkbox" /></td>
-                                        <td><input type="checkbox" /></td>
-                                        <td><input type="checkbox" /></td>
+                                            <input type="checkbox" /></td>
+                                        <td>
+                                            <input type="checkbox" /></td>
+                                        <td>
+                                            <input type="checkbox" /></td>
                                     </tr>
                                     <tr>
                                         <td>大链轮</td>
@@ -295,25 +301,31 @@
                                             <input type="checkbox" />
                                         </td>
                                         <td></td>
-                                        <td><input type="checkbox" /></td>
-                                        <td><input type="checkbox" /></td>
+                                        <td>
+                                            <input type="checkbox" /></td>
+                                        <td>
+                                            <input type="checkbox" /></td>
                                     </tr>
                                     <tr>
                                         <td>小链轮</td>
                                         <td>
                                             <input type="checkbox" />
                                         </td>
-                                        <td><input type="checkbox" /></td>
+                                        <td>
+                                            <input type="checkbox" /></td>
                                         <td></td>
-                                        <td><input type="checkbox" /></td>
+                                        <td>
+                                            <input type="checkbox" /></td>
                                     </tr>
                                     <tr>
                                         <td>链条</td>
                                         <td>
                                             <input type="checkbox" />
                                         </td>
-                                        <td><input type="checkbox" /></td>
-                                        <td><input type="checkbox" /></td>
+                                        <td>
+                                            <input type="checkbox" /></td>
+                                        <td>
+                                            <input type="checkbox" /></td>
                                         <td></td>
                                     </tr>
 
@@ -470,6 +482,8 @@
             </div>
         </div>
     </div>
+
+
     <!-- PAGE CONTENT ENDS -->
 
     <div class="row">
@@ -478,5 +492,42 @@
         </div>
     </div>
 
+    <div class="row">
+        <div id="modal-table" class="modal fade" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header no-padding">
+                        <div class="table-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                <span class="white">&times;</span>
+                            </button>
+                            功能分析流程
+                        </div>
+                    </div>
+
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <img width="100%" src="/pages/FunctionAnalyse/t.png" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="modal-footer no-margin-top">
+                        <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+                            <i class="icon-remove"></i>
+                            关闭
+                        </button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+
+    </div>
 </div>
 <!-- /.page-content -->
