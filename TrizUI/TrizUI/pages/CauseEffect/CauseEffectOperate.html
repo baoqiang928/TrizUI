@@ -43,7 +43,7 @@
                                         <td>独立变量</td>
                                         <td>
                                             <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                <a class="blue" href="#">
+                                                <a class="blue" data-toggle="modal" style="cursor: pointer" data-target="#modal-table1">
                                                     <i class="icon-plus bigger-130"></i>
                                                 </a>
 
@@ -494,7 +494,7 @@
             <div class="col-sm-6">
                 <div class="widget-box">
                     <div class="widget-header widget-header-flat">
-                        <h4 class="smaller">绞车冲突列表
+                        <h4 class="smaller">冲突列表
                         </h4>
                     </div>
 
@@ -504,9 +504,9 @@
                                 <thead>
                                     <tr>
                                         <th>相关元件</th>
-                                        <th>功能参数</th>
+                                        <th>独立变量参数</th>
                                         <th>当前设置</th>
-                                        <th>改变设置</th>
+                                        <th>目前问题</th>
                                         <th>新的问题</th>
                                         <th></th>
                                     </tr>
@@ -733,6 +733,74 @@
         </div>
 
     </div>
+
+    <div class="row">
+        <div id="modal-table1" class="modal fade" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header no-padding">
+                        <div class="table-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                <span class="white">&times;</span>
+                            </button>
+                            初级功能参数
+                        </div>
+                    </div>
+
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div>
+                                <div>
+                                    <label for="form-field-select-1">问题相关元件</label>
+
+                                    <select class="form-control" id="form-field-select-1">
+                                        <option value="1">缆绳</option>
+                                        <option value="2">导向架</option>
+                                        <option value="3">卷筒</option>
+                                        <option value="4">转速</option>
+                                        <option value="5">人</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <br />
+                                <label for="form-field-9">元件特征参数</label>
+
+                                <input type="text" id="Text1" class="form-control"  placeholder="请输入元件特征参数" />
+
+                            </div>
+                            <div>
+                                <br />
+                                <label for="form-field-9">参数类型</label>
+
+                                <select class="form-control" id="Select1">
+                                    <option value="1">独立变量</option>
+                                    <option value="2">非独立变量</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="modal-footer no-margin-top">
+                        <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+                            <i class="icon-plus"></i>
+                            保存
+                        </button>
+                        <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+                            <i class="icon-remove"></i>
+                            关闭
+                        </button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+
+    </div>
+
+
     <!-- PAGE CONTENT ENDS -->
 
 
