@@ -168,6 +168,7 @@
     <Content Include="Enterprise\Profile\ProfileList.html" />
     <Content Include="Enterprise\Scripts\angular-ui-router.js" />
     <Content Include="Enterprise\Scripts\angular.min.js" />
+    <Content Include="Enterprise\Talent\TalentDetail.html" />
     <Content Include="Enterprise\Talent\TalentList.html" />
     <Content Include="Enterprise\Tech\TechList.html" />
     <Content Include="Enterprise\timg.jpg" />
@@ -190,10 +191,15 @@
     <Content Include="pages\CauseEffect\1.png" />
     <Content Include="pages\CauseEffect\2.png" />
     <Content Include="pages\CauseEffect\3.png" />
+    <Content Include="pages\Conflict\0.jpg" />
+    <Content Include="pages\Conflict\1.jpg" />
+    <Content Include="pages\Conflict\3.jpg" />
     <Content Include="pages\Conflict\ConflictList.html" />
+    <Content Include="pages\Conflict\F065.jpg" />
     <Content Include="pages\Conflict\PhysicalConflictList.html" />
     <Content Include="pages\Conflict\PhysicalConflictOperate.html" />
     <Content Include="pages\Conflict\PhysicalConflictResolveList.html" />
+    <Content Include="pages\Conflict\ResolveDetail.html" />
     <Content Include="pages\Conflict\TechConflictList.html" />
     <Content Include="pages\Conflict\TechConflictOperate.html" />
     <Content Include="pages\Conflict\TechConflictResolveList.html" />
