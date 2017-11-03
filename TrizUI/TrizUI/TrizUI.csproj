@@ -204,6 +204,7 @@
     <Content Include="js\common\zepto.js" />
     <Content Include="login.html" />
     <Content Include="nestable-list.html" />
+    <Content Include="pages\AngularJs-UI-master\demo\HtmlPage1.html" />
     <Content Include="pages\AngularJs-UI-master\demo\pagination.html" />
     <Content Include="pages\AngularJs-UI-master\lib\angularjs\1.2.22\angular-animate.js" />
     <Content Include="pages\AngularJs-UI-master\lib\angularjs\1.2.22\angular-animate.min.js" />

@@ -19,8 +19,52 @@
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
     <link rel="stylesheet" href="Scripts/pagination.css" />
-    <!--<link rel="stylesheet" href="AngularJs-UI-master/lib/bootstrap/3.2.0/css/bootstrap.min.css">-->
+    <style>
+        .page-list .pagination
+        {
+            float: left;
+        }
 
+            .page-list .pagination span
+            {
+                cursor: pointer;
+            }
+
+            .page-list .pagination .separate span
+            {
+                cursor: default;
+                border-top: none;
+                border-bottom: none;
+            }
+
+                .page-list .pagination .separate span:hover
+                {
+                    background: none;
+                }
+
+        .page-list .page-total
+        {
+            float: left;
+            margin: 25px 20px;
+        }
+
+            .page-list .page-total input, .page-list .page-total select
+            {
+                height: 26px;
+                border: 1px solid #ddd;
+            }
+
+            .page-list .page-total input
+            {
+                width: 40px;
+                padding-left: 3px;
+            }
+
+            .page-list .page-total select
+            {
+                width: 50px;
+            }
+    </style>
     <!--[if IE 7]>
 		  <link rel="stylesheet" href="/assets/css/font-awesome-ie7.min.css" />
 		<![endif]-->
@@ -180,7 +224,7 @@
                             <span class="menu-text">冲突解决 </span>
                         </a>
                     </li>
-<!--                    <li>
+                    <!--                    <li>
                         <a href="#" class="dropdown-toggle">
                             <i class="icon-bolt"></i>
                             <span class="menu-text">冲突解决 </span>
