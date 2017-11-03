@@ -1,10 +1,11 @@
-﻿var myApp = angular.module("myApp", ["ui.router","StoreService"]);
+﻿var myApp = angular.module("myApp", ["ui.router", "StoreService", "tm.pagination"]);
 myApp.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.when("", "/ProjectList");
     $stateProvider
         .state("ProjectList", {
             url: "/ProjectList",
             templateUrl: "/pages/List.html",
+            module: "tm.pagination",
             controller: 'table-Controller'
         })
        .state("ProjectAdd", {
