@@ -1,4 +1,4 @@
-﻿var myApp = angular.module("myApp", ["ui.router"]);
+﻿var myApp = angular.module("myApp", ["ui.router","StoreService"]);
 myApp.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.when("", "/ProjectList");
     $stateProvider
@@ -88,3 +88,44 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
        });
 });
 
+
+
+//服务
+var StoreService = angular.module('StoreService', []);
+//请求服务
+StoreService.factory('requestService', function ($http, $q) {
+
+    var ApiUrl = "http://localhost:2072/api/";
+    var request = {
+        method: 'POST',
+        url: '',
+        headers: { 'Content-Type': 'application/json' },
+        data: {}
+    };
+    var postData = {
+        lists: function (type) {
+            request.method = "get";
+            request.url = ApiUrl + "products/" + type + "";
+            return requestService($http, $q, request);
+        },
+        submit_product: function (data) {
+            request.method = "post";
+            request.url = ApiUrl + "products";
+            request.data = data;
+            return requestService($http, $q, request);
+        }
+    };
+    return postData;
+});
+
+function requestService($http, $q, request) {
+    var deferred = $q.defer(); // 声明延后执行，表示要去监控后面的执行  
+    $http(request).
+    success(function (data, status, headers, config) {
+        deferred.resolve(data);  // 声明执行成功，即http请求数据成功，可以返回数据了  
+    }).
+    error(function (data, status, headers, config) {
+        deferred.reject(data);   // 声明执行失败，即服务器返回错误  
+    });
+    return deferred.promise;   // 返回承诺，这里并不是最终数据，而是访问最终数据的API  
+};

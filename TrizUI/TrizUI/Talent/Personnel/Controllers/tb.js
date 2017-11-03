@@ -1,5 +1,6 @@
 ﻿angular.module("myApp")
     .controller('table-Controller', function ($scope) {
+        alert(3);
         var oTable1 = $('#sample-table-2').dataTable({
             "aoColumns": [
               { "bSortable": false },

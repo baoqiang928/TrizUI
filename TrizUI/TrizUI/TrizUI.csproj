@@ -39,6 +39,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -48,6 +56,14 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -203,6 +219,7 @@
     <Content Include="pages\Conflict\TechConflictList.html" />
     <Content Include="pages\Conflict\TechConflictOperate.html" />
     <Content Include="pages\Conflict\TechConflictResolveList.html" />
+    <Content Include="pages\Controllers\SplitPage.js" />
     <Content Include="pages\Controllers\StandardSolution.js" />
     <Content Include="pages\Controllers\Tree.js" />
     <Content Include="pages\Evolve\demo.png" />
@@ -210,6 +227,7 @@
     <Content Include="pages\Evolve\EvolveOperate.html" />
     <Content Include="pages\FunctionAnalyse\FunctionAnalyseOperate.html" />
     <Content Include="pages\FunctionAnalyse\t.png" />
+    <Content Include="pages\HtmlPage1.html" />
     <Content Include="pages\QuestionAnalyse\QuestionAnalyseOperate.html" />
     <Content Include="pages\QuestionAnalyse\wentifenxi.jpg" />
     <Content Include="pages\CauseEffect\CauseEffectOperate.html" />
@@ -227,8 +245,15 @@
     <Content Include="pages\QuestionDescription\QuestionDescriptionOperate.html" />
     <Content Include="pages\Scripts\angular-ui-router.js" />
     <Content Include="pages\Scripts\angular.min.js" />
+    <Content Include="pages\Scripts\jquery.min.js" />
+    <Content Include="pages\Scripts\jquery.pagination.js" />
+    <Content Include="pages\Scripts\pagination.css" />
     <Content Include="pages\StandardSolution\StandardSolutionList.html" />
     <Content Include="pages\StandardSolution\StandardSolutionOperate.html" />
+    <Content Include="pages\test\demo.html" />
+    <Content Include="pages\test\pagination.css" />
+    <Content Include="pages\test\pagination.html" />
+    <Content Include="pages\test\pagination.js" />
     <Content Include="pricing.html" />
     <Content Include="profile.html" />
     <Content Include="tables.html" />
@@ -280,7 +305,9 @@
   <ItemGroup>
     <Content Include="Doc\因果流程实例.doc" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

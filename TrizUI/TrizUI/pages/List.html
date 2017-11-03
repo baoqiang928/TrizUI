@@ -30,7 +30,7 @@
                         <button class="btn btn-primary" ng-click="Delete()">删除</button>
                     </p>
                     <div class="table-responsive">
-                        <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                        <table id="sample-table-2111" class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th class="center">
@@ -39,7 +39,7 @@
                                             <span class="lbl"></span>
                                         </label>
                                     </th>
-                                    <th>项目编号</th>
+                                    <th>项目编号111</th>
                                     <th>项目名称</th>
                                     <th class="hidden-480">创建时间</th>
                                     <th>负责人
@@ -50,7 +50,7 @@
                             </thead>
 
                             <tbody>
-                                <tr>
+                                <tr ng-repeat="project in projects">
                                     <td class="center">
                                         <label>
                                             <input type="checkbox" class="ace" />
@@ -61,7 +61,7 @@
                                     <td>
                                         <a href="#">Triz20170405075254438</a>
                                     </td>
-                                    <td>绞车排缆器</td>
+                                    <td>{{project.Name}}绞车排缆器</td>
                                     <td>2017/4/5 7:52:54</td>
                                     <td>李雯雯</td>
                                     <td>研发部</td>
@@ -81,10 +81,9 @@
                                                 <i class="icon-legal bigger-130"></i>
                                             </a>
 
-
                                         </div>
 
-                                        
+
                                     </td>
                                 </tr>
                                 <tr>
@@ -121,12 +120,53 @@
 
                                         </div>
 
-                                        
+
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td colspan="999">
+                                        <div class="ui-page">
+                                            <ul class="pagination" ng-if="conf.total">
+                                                <li ng-class="{disabled :  conf.currentPage == 1}" ng-click="prevPage()">
+                                                    <a href="#" aria-label="Previous">
+                                                        <span aria-hidden="true">&laquo
+      </span>
+                                                    </a>
+                                                </li>
+                                                <li ng-repeat="page in pageList track by $index" ng-click="changePage(page)" ng-class="{active : conf.currentPage == page }">
+                                                    <a>{{page}}</a>
+                                                </li>
+                                                <li ng-class="{disabled :  conf.currentPage == page.limit}" ng-click="nextPage()">
+                                                    <a href="#" aria-label="Previous">
+                                                        <span aria-hidden="true">&raquo
+      </span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <div class="pageConf">
+                                                <div ng-if="!conf.isSelectPage">
+                                                    一页<select ng-options="limit for limit in conf.pageLimit" ng-model="conf.itemPageLimit" ng-change="selectPage()"></select>条/
+   
+                                                </div>
+                                                <div>
+                                                    共<span>{{page.limit}}</span>页
+   
+                                                </div>
+                                                <div ng-if="!conf.isLinkPage">
+                                                    <div class="name">
+                                                        到<input type="text" ng-model="conf.linkPage" ng-change="linkPage()">页
+     
+                                                    </div>
+                                                    <button class="btn btn-success" ng-if="0">确定</button>
+                                                </div>
+                                            </div>
+                                        </div>
 
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
+
                     </div>
                 </div>
             </div>
@@ -138,4 +178,3 @@
 </div>
 
 <!-- inline scripts related to this page -->
-
