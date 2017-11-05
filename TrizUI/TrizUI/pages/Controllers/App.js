@@ -106,7 +106,9 @@ StoreService.factory('requestService', function ($http, $q) {
     var postData = {
         lists: function (type) {
             request.method = "get";
-            request.url = ApiUrl + "products/" + type + "";
+            request.params = type;
+            //request.url = ApiUrl + "products/" + type + "";
+            request.url = ApiUrl + "products/";
             return requestService($http, $q, request);
         },
         submit_product: function (data) {

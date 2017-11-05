@@ -11,6 +11,35 @@
             }
         };
 
+        $scope.data1 = {
+            aaa: 5555555555555555555555,
+            bbb: 456
+        };
+
+        var GetAllEmployee = function () {
+            //alert($scope.paginationConf.currentPage);
+
+            //requestService.lists($scope.data).then(function (data) {
+            //    alert(1);
+            //    $scope.projects = data;
+            //    alert($scope.projects.length);
+            //});
+
+            requestService.lists($scope.data1).then(function (data) {
+                //alert(data.Name);
+                //if (data._code === 200) {
+                $scope.projects = data;
+                alert(3);
+                //alert($scope.projects.length);
+                //alert($scope.projects[0].Id);
+                //};
+            });
+
+
+        }
+
+
+        $scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', GetAllEmployee);
 
         $scope.Query = function () {
             alert('Query');
@@ -66,12 +95,7 @@
 //    };
 
 
-//    var GetAllEmployee = function () {
-//        alert($scope.paginationConf.currentPage);
-//    }
 
-
-//    $scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', GetAllEmployee);
 
 
 
