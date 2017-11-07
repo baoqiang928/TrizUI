@@ -11,9 +11,10 @@
             }
         };
 
-        $scope.data1 = {
-            aaa: 5555555555555555555555,
-            bbb: 456
+        $scope.data = {
+            currentPage: $scope.paginationConf.currentPage,
+            itemsPerPage: $scope.paginationConf.itemsPerPage
+
         };
 
         var GetAllEmployee = function () {
@@ -25,7 +26,7 @@
             //    alert($scope.projects.length);
             //});
 
-            requestService.lists($scope.data1).then(function (data) {
+            requestService.lists($scope.data).then(function (data) {
                 //alert(data.Name);
                 //if (data._code === 200) {
                 $scope.projects = data;

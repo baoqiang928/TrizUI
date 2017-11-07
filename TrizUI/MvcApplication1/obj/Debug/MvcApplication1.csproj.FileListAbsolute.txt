@@ -42,3 +42,9 @@ F:\TrizUI\TrizUI\MvcApplication1\bin\zh-Hans\System.Web.WebPages.Razor.resources
 F:\TrizUI\TrizUI\MvcApplication1\obj\Debug\MvcApplication1.dll
 F:\TrizUI\TrizUI\MvcApplication1\obj\Debug\MvcApplication1.pdb
 F:\TrizUI\TrizUI\MvcApplication1\obj\Debug\MvcApplication1.csprojResolveAssemblyReference.cache
+F:\TrizUI\TrizUI\MvcApplication1\bin\Triz.BLL.dll
+F:\TrizUI\TrizUI\MvcApplication1\bin\Triz.Model.dll
+F:\TrizUI\TrizUI\MvcApplication1\bin\Triz.DAL.dll
+F:\TrizUI\TrizUI\MvcApplication1\bin\Triz.BLL.pdb
+F:\TrizUI\TrizUI\MvcApplication1\bin\Triz.Model.pdb
+F:\TrizUI\TrizUI\MvcApplication1\bin\Triz.DAL.pdb

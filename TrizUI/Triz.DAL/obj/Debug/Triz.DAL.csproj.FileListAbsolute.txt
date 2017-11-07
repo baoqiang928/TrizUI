@@ -1,0 +1,11 @@
+F:\TrizUI\TrizUI\Triz.DAL\bin\Debug\Triz.DAL.dll.config
+F:\TrizUI\TrizUI\Triz.DAL\bin\Debug\Triz.DAL.dll
+F:\TrizUI\TrizUI\Triz.DAL\bin\Debug\Triz.DAL.pdb
+F:\TrizUI\TrizUI\Triz.DAL\bin\Debug\EntityFramework.dll
+F:\TrizUI\TrizUI\Triz.DAL\bin\Debug\Triz.Model.dll
+F:\TrizUI\TrizUI\Triz.DAL\bin\Debug\Triz.Model.pdb
+F:\TrizUI\TrizUI\Triz.DAL\bin\Debug\EntityFramework.xml
+F:\TrizUI\TrizUI\Triz.DAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\TrizUI\TrizUI\Triz.DAL\obj\Debug\Triz.DAL.csprojResolveAssemblyReference.cache
+F:\TrizUI\TrizUI\Triz.DAL\obj\Debug\Triz.DAL.dll
+F:\TrizUI\TrizUI\Triz.DAL\obj\Debug\Triz.DAL.pdb

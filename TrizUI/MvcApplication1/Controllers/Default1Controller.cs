@@ -40,11 +40,11 @@ namespace MvcApplication1.Controllers
         }
 
         // GET api/Products/5
-        public IEnumerable<Product> Get([FromUri]string aaa, int bbb)
+        public IEnumerable<Product> Get([FromUri]string currentPage, int itemsPerPage)
         {
             IList<Product> pds1 = new List<Product>{
-            new Product { Id = 1, Name = aaa, Category = "Groceries", Price = 1 },
-            new Product { Id = 2, Name = "bbbbbbbbbb", Category = "Toys", Price = 3.75M },
+            new Product { Id = 1, Name = currentPage, Category = "bbb", Price = 1 },
+            new Product { Id = 2, Name = itemsPerPage.ToString(), Category = "Toys", Price = 3.75M },
             new Product { Id = 3, Name = "Yo-yo", Category = "Toys", Price = 3.75M },
             new Product { Id = 4, Name = "Yo-yo", Category = "Toys", Price = 3.75M },
             new Product { Id = 5, Name = "Hammer", Category = "Hardware", Price = 16.99M }

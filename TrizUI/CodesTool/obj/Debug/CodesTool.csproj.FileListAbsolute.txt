@@ -1,0 +1,9 @@
+F:\TrizUI\TrizUI\CodesTool\bin\Debug\CodesTool.exe.config
+F:\TrizUI\TrizUI\CodesTool\bin\Debug\CodesTool.exe
+F:\TrizUI\TrizUI\CodesTool\bin\Debug\CodesTool.pdb
+F:\TrizUI\TrizUI\CodesTool\obj\Debug\CodesTool.csprojResolveAssemblyReference.cache
+F:\TrizUI\TrizUI\CodesTool\obj\Debug\CodesTool.Form1.resources
+F:\TrizUI\TrizUI\CodesTool\obj\Debug\CodesTool.Properties.Resources.resources
+F:\TrizUI\TrizUI\CodesTool\obj\Debug\CodesTool.csproj.GenerateResource.Cache
+F:\TrizUI\TrizUI\CodesTool\obj\Debug\CodesTool.exe
+F:\TrizUI\TrizUI\CodesTool\obj\Debug\CodesTool.pdb
