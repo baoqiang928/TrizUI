@@ -104,11 +104,10 @@ StoreService.factory('requestService', function ($http, $q) {
         data: {}
     };
     var postData = {
-        lists: function (type) {
+        lists: function (resource, params) {
             request.method = "get";
-            request.params = type;
-            //request.url = ApiUrl + "products/" + type + "";
-            request.url = ApiUrl + "products/";
+            request.params = params;
+            request.url = ApiUrl + resource;
             return requestService($http, $q, request);
         },
         submit_product: function (data) {

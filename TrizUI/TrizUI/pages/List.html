@@ -7,21 +7,21 @@
                     <h3 class="header smaller lighter blue">项目管理</h3>
                     <p>
                         <label style="display: inline-block; width: 60px; text-align: right;">名称</label>
-                        <input type="text" ng-model="Name"/>
+                        <input type="text" ng-model="data.Name"/>
                         <label>编号</label>
-                        <input type="text" ng-model="Code"/>
+                        <input type="text" ng-model="data.Code"/>
                     </p>
                     <p>
                         <label style="display: inline-block; width: 60px; text-align: right;">负责人</label>
-                        <input type="text" ng-model="Owner"/>
+                        <input type="text" ng-model="data.Owner"/>
                         <label>工作部门</label>
-                        <input type="text" ng-model="Department"/>
+                        <input type="text" ng-model="data.Department"/>
                     </p>
                     <p>
                         <label style="display: inline-block; width: 60px; text-align: right;">创建日期</label>
-                        <input type="text" ng-model="FromDate"/>
+                        <input type="text" ng-model="data.FromDate"/>
                         -
-                    <input type="text" ng-model="ToDate"/><br />
+                    <input type="text" ng-model="data.ToDate"/><br />
                     </p>
 
                     <p>
@@ -59,12 +59,12 @@
                                     </td>
 
                                     <td>
-                                        <a href="#">Triz20170405075254438</a>
+                                        <a href="#">{{project.Code}}</a>
                                     </td>
-                                    <td>{{project.Name}}绞车排缆器</td>
-                                    <td>2017/4/5 7:52:54</td>
-                                    <td>李雯雯</td>
-                                    <td>研发部</td>
+                                    <td>{{project.Name}}</td>
+                                    <td>{{project.CreateDateTime}}</td>
+                                    <td>{{project.Owner}}</td>
+                                    <td>{{project.Department}}</td>
 
                                     <td>
                                         <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
@@ -86,43 +86,7 @@
 
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="center">
-                                        <label>
-                                            <input type="checkbox" class="ace" />
-                                            <span class="lbl"></span>
-                                        </label>
-                                    </td>
-
-                                    <td>
-                                        <a href="#">Triz20170405075254423</a>
-                                    </td>
-                                    <td>铁链</td>
-                                    <td>2017/4/5 7:52:54</td>
-                                    <td>王天龙</td>
-                                    <td>设计部</td>
-
-                                    <td>
-                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-
-                                            <a class="green" href="#">
-                                                <i class="icon-pencil bigger-130"></i>
-                                            </a>
-
-                                            <a class="red" href="#">
-                                                <i class="icon-trash bigger-130"></i>
-                                            </a>
-
-                                            <a class="red" href="#">
-                                                <i class="icon-legal bigger-130"></i>
-                                            </a>
-
-
-                                        </div>
-
-
-                                    </td>
-                                </tr>
+                               
                                 <tr>
                                     <td colspan="999">
                                         <tm-pagination conf="paginationConf"></tm-pagination>                                         

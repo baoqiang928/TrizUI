@@ -1,6 +1,8 @@
 ﻿angular.module("myApp")
     .controller('ProjectCtrl', function ($scope, $location, requestService) {
 
+        var Sources = "Projects";
+
         $scope.paginationConf = {
             currentPage: 1,
             totalItems: 8000,
@@ -12,38 +14,30 @@
         };
 
         $scope.data = {
-            currentPage: $scope.paginationConf.currentPage,
-            itemsPerPage: $scope.paginationConf.itemsPerPage
-
+            currentPage: "",
+            itemsPerPage: "",
+            Name: "",
+            Code: "",
+            Owner: "",
+            Department: "",
+            FromDate: "",
+            ToDate: ""
         };
 
-        var GetAllEmployee = function () {
-            //alert($scope.paginationConf.currentPage);
-
-            //requestService.lists($scope.data).then(function (data) {
-            //    alert(1);
-            //    $scope.projects = data;
-            //    alert($scope.projects.length);
-            //});
-
-            requestService.lists($scope.data).then(function (data) {
-                //alert(data.Name);
-                //if (data._code === 200) {
-                $scope.projects = data;
-                alert(3);
-                //alert($scope.projects.length);
-                //alert($scope.projects[0].Id);
-                //};
+        var GetProjects = function () {
+            $scope.data.currentPage = $scope.paginationConf.currentPage;
+            $scope.data.itemsPerPage = $scope.paginationConf.itemsPerPage;
+            requestService.lists(Sources, $scope.data).then(function (data) {
+                $scope.projects = data.Results;
+                $scope.paginationConf.totalItems = data.TotalItems;
+                $scope.paginationConf.pagesLength = data.PagesLength;
             });
-
-
         }
 
-
-        $scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', GetAllEmployee);
+        $scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', GetProjects);
 
         $scope.Query = function () {
-            alert('Query');
+            GetProjects();
             //$location.path("/AddProject");
         }
         $scope.Save = function () {

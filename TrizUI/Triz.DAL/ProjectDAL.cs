@@ -24,14 +24,19 @@ namespace Triz.DAL
             return false;
         }
 
-        public List<ProjectInfo> Query(string name, int pageIndex, int pageSize)
+        public List<ProjectInfo> Query(string name, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
             int startRow = (pageIndex - 1) * pageSize;
             Expression<Func<tbl_ProjectInfo, bool>> where = PredicateExtensionses.True<tbl_ProjectInfo>();
-            where = where.And(a => a.Name == name);
+            if (!string.IsNullOrWhiteSpace(name))
+                where = where.And(a => a.Name == name);
             using (TrizDBEntities entity = new TrizDBEntities())
             {
-                var query = entity.tbl_ProjectInfo.Where(where.Compile()).OrderBy(p => p.ID).Skip(startRow).Take(pageSize);
+
+                var query = entity.tbl_ProjectInfo.Where(where.Compile());
+                totalItems = query.Count();
+                PagesLength = (int)Math.Ceiling((double)totalItems/pageSize);
+                query = query.OrderBy(p => p.ID).Skip(startRow).Take(pageSize);
                 List<tbl_ProjectInfo> ProjectDataEntityList = query.ToList();
                 List<ProjectInfo> ProjectList = new List<ProjectInfo>();
                 //Mapper.CreateMap<ProjectDataEntityList, ProjectList>(); 

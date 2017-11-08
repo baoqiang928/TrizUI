@@ -15,9 +15,9 @@ namespace Triz.BLL
             new ProjectDAL().AddEntity(new ProjectInfo() { Name = name });
         }
 
-        public List<ProjectInfo> Query(string name, int pageIndex, int pageSize)
+        public List<ProjectInfo> Query(string name, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
-            return new ProjectDAL().Query(name, pageIndex, pageSize);
+            return new ProjectDAL().Query(name, pageIndex, pageSize, ref totalItems, ref PagesLength);
         }
     }
 }
