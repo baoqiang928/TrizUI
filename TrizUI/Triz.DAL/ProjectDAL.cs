@@ -92,13 +92,13 @@ namespace Triz.DAL
         /// </summary>
         /// <param name="ProjectInfo"></param>
         /// <returns></returns>
-        public int Delete(ProjectInfo ProjectInfo)
+        public int Delete(int id)
         {
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
                 try
                 {
-                    var Query = TrizDB.tbl_ProjectInfo.Where(o => o.ID == ProjectInfo.ID).First();
+                    var Query = TrizDB.tbl_ProjectInfo.Where(o => o.ID == id).First();
                     if (Query == null) return 0;
                     TrizDB.tbl_ProjectInfo.Remove(Query);
                     return TrizDB.SaveChanges();

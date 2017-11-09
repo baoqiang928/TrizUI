@@ -10,7 +10,19 @@ namespace Triz.BLL
 {
     public class ProjectLogic
     {
+        public void DeleteProject(int id)
+        {
+            new ProjectDAL().Delete(id);
+        }
 
+        public void DeleteProject(string ids)
+        {
+            foreach (string id in ids.Split('^'))
+            {
+                if (string.IsNullOrWhiteSpace(id)) continue;
+                new ProjectDAL().Delete(int.Parse(id));
+            }
+        }
 
         public void SaveProject(ProjectInfo ProjectInfo)
         {

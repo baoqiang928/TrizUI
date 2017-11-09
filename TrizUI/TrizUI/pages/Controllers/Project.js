@@ -40,37 +40,81 @@
             GetProjects();
         }
 
-        $scope.Delete = function () {
-
-            GetProjects();
+        $scope.Delete = function (ID) {
+            requestService.delete(Sources, ID).then(function (data) {
+                GetProjects();
+            });
         }
+
+        $scope.BatchDelete = function () {
+            var ids = "";
+            $('input[name="ck"]:checked').each(function () {
+                //alert(1);
+                //var sfruit=$(this).val();  
+                //alert(sfruit);
+                //var orders=sfruit.split(",");
+            });
+
+            //requestService.batchdelete(Sources, ids).then(function (data) {
+            //    GetProjects();
+            //});
+        }
+
 
         $scope.Update = function (ID) {
-            //requestService.getobj(Sources, ID).then(function (data) {
-            //    //alert("data1.Name:" + data.Name);
-            //    //$scope.abcd = data.Name;
-            //    $scope.abcd = "9999999999999";
-            //    $location.path("/ProjectAdd");
-            //    $scope.data.Code = data.Code;
-            //    $scope.data.Name = data.Name;
-            //});
-            //alert(ID);
-            $scope.data.Name = "777";
-            $scope.abcd = "9999999999999";
-            //$location.path("/ProjectAdd");
             $state.go("ProjectAdd", { ID: ID });
-
         }
 
+        $scope.selected = [];
+        var updateSelected = function (action, id, name) {
+            if (action == 'add' && $scope.selected.indexOf(id) == -1) {
+                $scope.selected.push(id);
+            }
+            if (action == 'remove' && $scope.selected.indexOf(id) != -1) {
+                var idx = $scope.selected.indexOf(id);
+                $scope.selected.splice(idx, 1);
+            }
+        }
 
-        //requestService.lists($scope.Owner).then(function (data) {
-        //    //alert(data.Name);
-        //    //if (data._code === 200) {
-        //    $scope.projects = data;
-        //    //alert($scope.projects.length);
-        //    //alert($scope.projects[0].Id);
-        //    //};
-        //});
+        $scope.updateSelection = function ($event, id) {
+            var checkbox = $event.target;
+            var action = (checkbox.checked ? 'add' : 'remove');
+            updateSelected(action, id, checkbox.name);
+            alert($scope.selected);
+        }
+
+        $scope.isSelected = function (id) {
+            return $scope.selected.indexOf(id) >= 0;
+        }
+
+        //$("#checkall").click(
+        //  function () {
+        //      if (this.checked) {
+        //          $("input[name='ck']").attr('checked', true);
+        //      } else {
+        //          $("input[name='ck']").attr('checked', false);
+        //      }
+        //  });
+
+        $(function(){  
+            $("#checkall").click(function () {
+                alert(this.checked);
+                //第一种方法 全选全不选  
+                if(this.checked){   
+                    $("input[name='ck']:checkbox").attr('checked',true);   
+                }else{   
+                    $("input[name='ck']:checkbox").attr('checked', false);
+                }  
+                //第二种方法 全选全不选   
+                $('[name=ck]:checkbox').attr('checked', this.checked);//checked为true时为默认显示的状态   
+            });  
+            $("#checkrev").click(function(){  
+                //实现反选功能  
+                $('[name=ck]:checkbox').each(function () {
+                    this.checked=!this.checked;  
+                });  
+            });   
+        });
 
 
     });

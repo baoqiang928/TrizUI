@@ -1,4 +1,4 @@
-﻿<div class="page-content" ng-controller="ProjectCtrl">                                     
+﻿<div class="page-content" ng-controller="ProjectCtrl">
     <div class="row">
         <div class="col-xs-12">
             <!-- PAGE CONTENT BEGINS -->
@@ -7,27 +7,27 @@
                     <h3 class="header smaller lighter blue">项目管理</h3>
                     <p>
                         <label style="display: inline-block; width: 60px; text-align: right;">名称</label>
-                        <input type="text" ng-model="data.Name"/>
+                        <input type="text" ng-model="data.Name" />
                         <label>编号</label>
-                        <input type="text" ng-model="data.Code"/>
+                        <input type="text" ng-model="data.Code" />
                     </p>
                     <p>
                         <label style="display: inline-block; width: 60px; text-align: right;">负责人</label>
-                        <input type="text" ng-model="data.Owner"/>
+                        <input type="text" ng-model="data.Owner" />
                         <label>工作部门</label>
-                        <input type="text" ng-model="data.Department"/>
+                        <input type="text" ng-model="data.Department" />
                     </p>
                     <p>
                         <label style="display: inline-block; width: 60px; text-align: right;">创建日期</label>
-                        <input type="text" ng-model="data.FromDate"/>
+                        <input type="text" ng-model="data.FromDate" />
                         -
-                    <input type="text" ng-model="data.ToDate"/><br />
+                    <input type="text" ng-model="data.ToDate" /><br />
                     </p>
 
                     <p>
                         <button class="btn btn-primary" ng-click="Query()">查询</button>
                         <button class="btn btn-primary" ui-sref="ProjectAdd">增加</button>
-                        <button class="btn btn-primary" ng-click="Delete()">删除</button>
+                        <button class="btn btn-primary" ng-click="BatchDelete()">删除</button>
                     </p>
                     <div class="table-responsive">
                         <table id="sample-table-2111" class="table table-striped table-bordered table-hover">
@@ -35,7 +35,7 @@
                                 <tr>
                                     <th class="center">
                                         <label>
-                                            <input type="checkbox" class="ace" />
+                                            <input type="checkbox" class="ace" id="checkall" name="checkall" />
                                             <span class="lbl"></span>
                                         </label>
                                     </th>
@@ -50,10 +50,10 @@
                             </thead>
 
                             <tbody>
-                                <tr ng-repeat="project in projects">
+                                <tr>
                                     <td class="center">
                                         <label>
-                                            <input type="checkbox" class="ace" />
+                                            <input type="checkbox" class="ace" name="ck" id="Checkbox1" />
                                             <span class="lbl"></span>
                                         </label>
                                     </td>
@@ -69,16 +69,16 @@
                                     <td>
                                         <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
 
-                                            <a class="green" ng-click="Update(project.ID)" >
-                                                <i class="icon-pencil bigger-130"></i>
+                                            <a class="green" href="#" ng-click="Update(project.ID)">
+                                                <i class="icon-pencil bigger-130">修改</i>
+                                            </a>
+
+                                            <a class="red" href="#" ng-click="Delete(project.ID)">
+                                                <i class="icon-trash bigger-130">删除</i>
                                             </a>
 
                                             <a class="red" href="#">
-                                                <i class="icon-trash bigger-130"></i>
-                                            </a>
-
-                                            <a class="red" href="#">
-                                                <i class="icon-legal bigger-130"></i>
+                                                <i class="icon-legal bigger-130">当前项目</i>
                                             </a>
 
                                         </div>
@@ -86,10 +86,46 @@
 
                                     </td>
                                 </tr>
-                               
+                                <tr ng-repeat="project in projects">
+                                    <td class="center">
+                                        <label>
+                                            <input type="checkbox" class="ace" name="ck"  ng-checked="isSelected(project.ID)" ng-click="updateSelection($event,project.ID)" />
+                                            <span class="lbl"></span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <a href="#">{{project.Code}}</a>
+                                    </td>
+                                    <td>{{project.Name}}</td>
+                                    <td>{{project.CreateDateTime}}</td>
+                                    <td>{{project.Owner}}</td>
+                                    <td>{{project.Department}}</td>
+
+                                    <td>
+                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+
+                                            <a class="green" href="#" ng-click="Update(project.ID)">
+                                                <i class="icon-pencil bigger-130">修改</i>
+                                            </a>
+
+                                            <a class="red" href="#" ng-click="Delete(project.ID)">
+                                                <i class="icon-trash bigger-130">删除</i>
+                                            </a>
+
+                                            <a class="red" href="#">
+                                                <i class="icon-legal bigger-130">当前项目</i>
+                                            </a>
+
+                                        </div>
+
+
+                                    </td>
+                                </tr>
+
                                 <tr>
                                     <td colspan="999">
-                                        <tm-pagination conf="paginationConf"></tm-pagination>                                         
+                                        <tm-pagination conf="paginationConf"></tm-pagination>
                                     </td>
                                 </tr>
                             </tbody>

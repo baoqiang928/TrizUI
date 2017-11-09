@@ -69,6 +69,14 @@ namespace MvcApplication1.Controllers
         // DELETE api/projects/5
         public void Delete(int id)
         {
+            new ProjectLogic().DeleteProject(id);
         }
+
+        // DELETE api/projects/5
+        public void Delete(string ids)
+        {
+            new ProjectLogic().DeleteProject(ids);
+        }
+
     }
 }

@@ -122,6 +122,19 @@ StoreService.factory('requestService', function ($http, $q) {
             request.data = data;
             return requestService($http, $q, request);
         },
+        delete: function (resource, id) {
+            request.method = "delete";
+            request.url = ApiUrl + resource + "/" + id;
+            request.params = {};
+            alert('d');
+            return requestService($http, $q, request);
+        },
+        batchdelete: function (resource, ids) {
+            request.method = "delete";
+            request.url = ApiUrl + resource + "/?ids=" + ids;
+            request.params = {};
+            return requestService($http, $q, request);
+        },
         getobj: function (resource, id) {
             request.method = "get";
             request.url = ApiUrl + resource + "/" + id;
