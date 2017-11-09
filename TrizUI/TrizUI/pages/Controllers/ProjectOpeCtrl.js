@@ -18,7 +18,16 @@
         });
 
         $scope.Save = function () {
-            requestService.add(Sources, $scope.data).then(function (data) {
+
+            if ($stateParams.ID == "") {
+                requestService.add(Sources, $scope.data).then(function (data) {
+                    //$state.go("ProjectList", {}, { reload: true, cache: false });
+                    $state.go("ProjectList");
+                });
+                return;
+            }
+
+            requestService.update(Sources, $scope.data).then(function (data) {
                 //$state.go("ProjectList", {}, { reload: true, cache: false });
                 $state.go("ProjectList");
             });

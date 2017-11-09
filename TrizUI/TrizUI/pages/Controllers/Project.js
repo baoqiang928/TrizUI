@@ -38,7 +38,11 @@
 
         $scope.Query = function () {
             GetProjects();
-            //$location.path("/AddProject");
+        }
+
+        $scope.Delete = function () {
+
+            GetProjects();
         }
 
         $scope.Update = function (ID) {

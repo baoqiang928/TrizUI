@@ -16,13 +16,15 @@ namespace Triz.DAL
         /// </summary>
         /// <param name="ProjectInfo"></param>
         /// <returns></returns>
-        public bool AddEntity(ProjectInfo ProjectInfo)
+        public bool Add(ProjectInfo ProjectInfo)
         {
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
                 try
                 {
-                    TrizDB.tbl_ProjectInfo.Add(GetDataEntity(ProjectInfo));
+                    tbl_ProjectInfo ProjectInfoEntity = new tbl_ProjectInfo();
+                    SetDataEntity(ProjectInfoEntity, ProjectInfo);
+                    TrizDB.tbl_ProjectInfo.Add(ProjectInfoEntity);
                     if (TrizDB.SaveChanges() > 0)
                         return true;
                 }
@@ -50,15 +52,17 @@ namespace Triz.DAL
         /// </summary>
         /// <param name="ProjectInfo"></param>
         /// <returns></returns>
-        public bool UpdateEntity(ProjectInfo ProjectInfo)
+        public bool Update(ProjectInfo ProjectInfo)
         {
             bool result = false;
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
                 try
                 {
-                    tbl_ProjectInfo ProjectInfoEntity = new tbl_ProjectInfo();
-                    ProjectInfoEntity.Name = ProjectInfo.Name;
+                    var Query = TrizDB.tbl_ProjectInfo.Where(o => o.ID == ProjectInfo.ID).First();
+                    if (Query == null) return false;
+                    //Query = GetDataEntity(ProjectInfo);
+                    SetDataEntity(Query, ProjectInfo);
                     TrizDB.SaveChanges();
                     if (TrizDB.SaveChanges() > 0)
                         result = true;
@@ -172,14 +176,20 @@ namespace Triz.DAL
             return ProjectInfo;
         }
 
-        public tbl_ProjectInfo GetDataEntity(ProjectInfo ProjectInfo)
+        public void SetDataEntity(tbl_ProjectInfo ProjectInfoEntity, ProjectInfo ProjectInfo)
         {
-            tbl_ProjectInfo ProjectInfoEntity = new tbl_ProjectInfo();
-            ProjectInfoEntity.ID = ProjectInfo.ID ?? 0;
-            ProjectInfoEntity.Code = ProjectInfo.Code;
-            ProjectInfoEntity.Name = ProjectInfo.Name;
+            if (ProjectInfo.ID != null)
+                ProjectInfoEntity.ID = ProjectInfo.ID ?? 0;
 
-            return ProjectInfoEntity;
+            if (ProjectInfo.Code != null)
+                ProjectInfoEntity.Code = ProjectInfo.Code;
+
+            if (ProjectInfo.Name != null)
+                ProjectInfoEntity.Name = ProjectInfo.Name;
+
+            if (ProjectInfo.Department != null)
+                ProjectInfoEntity.Department = ProjectInfo.Department;
+
         }
 
         public List<ProjectInfo> GetGetBusinessObjectList(List<tbl_ProjectInfo> ProjectInfoEntityList)

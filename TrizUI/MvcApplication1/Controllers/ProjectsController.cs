@@ -51,13 +51,20 @@ namespace MvcApplication1.Controllers
         // POST api/projects
         public void Post([FromBody]ProjectInfo ProjectInfo)
         {
-            new ProjectLogic().AddProject(ProjectInfo.Name);
+            new ProjectLogic().SaveProject(ProjectInfo);
         }
 
         // PUT api/projects/5
-        public void Put(int id, [FromBody]string value)
+        //public void Put(int id, [FromBody]string value)
+        //{
+        //}
+
+        public void Put([FromBody]ProjectInfo ProjectInfo)
         {
+            new ProjectLogic().SaveProject(ProjectInfo);
         }
+
+
 
         // DELETE api/projects/5
         public void Delete(int id)

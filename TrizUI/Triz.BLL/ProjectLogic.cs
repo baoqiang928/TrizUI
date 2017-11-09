@@ -10,10 +10,19 @@ namespace Triz.BLL
 {
     public class ProjectLogic
     {
-        public void AddProject(string name)
+
+
+        public void SaveProject(ProjectInfo ProjectInfo)
         {
-            new ProjectDAL().AddEntity(new ProjectInfo() { Name = name });
+            if (ProjectInfo.ID == null)
+            {
+                new ProjectDAL().Add(ProjectInfo);
+                return;
+            }
+            new ProjectDAL().Update(ProjectInfo);
+
         }
+
         public ProjectInfo GetByID(string ID)
         {
            return new ProjectDAL().GetByID(int.Parse(ID));
