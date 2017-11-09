@@ -5,10 +5,10 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("ProjectList", {
             url: "/ProjectList",
             templateUrl: "/pages/List.html",
-            module: "tm.pagination",
-            controller: 'table-Controller'
+            module: "tm.pagination"
         })
        .state("ProjectAdd", {
+           params: { "ID": null },
            url: "/ProjectAdd",
            templateUrl: "/pages/Project/ProjectOperate.html"
        })
@@ -110,12 +110,19 @@ StoreService.factory('requestService', function ($http, $q) {
             request.url = ApiUrl + resource;
             return requestService($http, $q, request);
         },
-        submit_product: function (data) {
+        add: function (resource, data) {
             request.method = "post";
-            request.url = ApiUrl + "products";
+            request.url = ApiUrl + resource;
             request.data = data;
             return requestService($http, $q, request);
-        }
+        },
+        getobj: function (resource, id) {
+            request.method = "get";
+            request.url = ApiUrl + resource + "/" + id;
+            request.params = {};
+            return requestService($http, $q, request);
+        },
+
     };
     return postData;
 });

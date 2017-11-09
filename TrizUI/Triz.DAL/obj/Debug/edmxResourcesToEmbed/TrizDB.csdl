@@ -8,6 +8,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Code" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="Department" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Type="DateTime" Name="CreateDateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />

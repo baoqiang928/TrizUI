@@ -1,4 +1,4 @@
-﻿<div class="page-content" ng-controller="ProjectCtrl">
+﻿<div class="page-content" ng-controller="ProjectOpeCtrl">
     <div class="page-header">
         <h1>项目信息维护
         </h1>
@@ -12,7 +12,7 @@
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1">项目编号 </label>
 
                     <div class="col-sm-9">
-                        <input type="text" id="form-field-1" class="col-xs-10 col-sm-5" />
+                        <input type="text" id="form-field-1" class="col-xs-10 col-sm-5"  data-ng-model="data.Code"/>
                     </div>
                 </div>
 
@@ -20,7 +20,7 @@
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-2">项目名称 </label>
 
                     <div class="col-sm-9">
-                        <input type="text" id="form-field-2" class="col-xs-10 col-sm-5" />
+                        <input type="text" id="form-field-2" class="col-xs-10 col-sm-5"  data-ng-model="data.Name"/>
                     </div>
                 </div>
 
@@ -28,7 +28,7 @@
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-2">创建时间 </label>
 
                     <div class="col-sm-9">
-                        <input type="text" id="Text1" class="col-xs-10 col-sm-5" />
+                        <input type="text" id="Text1" class="col-xs-10 col-sm-5" data-ng-model="abcd" />
                     </div>
                 </div>
 

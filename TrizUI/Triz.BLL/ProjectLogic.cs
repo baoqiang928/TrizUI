@@ -14,7 +14,10 @@ namespace Triz.BLL
         {
             new ProjectDAL().AddEntity(new ProjectInfo() { Name = name });
         }
-
+        public ProjectInfo GetByID(string ID)
+        {
+           return new ProjectDAL().GetByID(int.Parse(ID));
+        }
         public List<ProjectInfo> Query(string name, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
             return new ProjectDAL().Query(name, pageIndex, pageSize, ref totalItems, ref PagesLength);

@@ -23,6 +23,13 @@ namespace MvcApplication1.Controllers
         //    return new ProjectLogic().Query(Name, currentPage, itemsPerPage);
         //}
 
+        // GET api/projects/5
+        public ProjectInfo Get(string id)
+        {
+            return new ProjectLogic().GetByID(id);
+        }
+
+        // GET api/projects
         public object Get([FromUri]string Name, string Code, string Owner, string Department, string FromDate, string ToDate, int currentPage, int itemsPerPage)
         {
             int TotalItems = 0;
@@ -35,9 +42,6 @@ namespace MvcApplication1.Controllers
                 Results = ProjectInfoList
             };
         }
-
-
-
 
         //public List<ProjectInfo> Get([FromUri]string Name, int currentPage, int itemsPerPage)
         //{

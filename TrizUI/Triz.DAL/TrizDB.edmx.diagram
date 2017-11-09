@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="575b99ada9264aefa54110ae3fe5fc2b" Name="Diagram1">
-        <EntityTypeShape EntityType="TrizDBModel.tbl_ProjectInfo" Width="1.5" PointX="2.7635771738195687" PointY="22.368783394977815" />
+        <EntityTypeShape EntityType="TrizDBModel.tbl_ProjectInfo" Width="1.5" PointX="0.33051435105992216" PointY="23.099600236443617" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

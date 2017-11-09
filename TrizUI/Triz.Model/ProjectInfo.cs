@@ -15,6 +15,15 @@ namespace Triz.Model
             get { return id; }
             set { id = value; }
         }
+        private string code;
+
+        public string Code
+        {
+            get { return code; }
+            set { code = value; }
+        }
+
+
         private string name;
 
         public string Name
