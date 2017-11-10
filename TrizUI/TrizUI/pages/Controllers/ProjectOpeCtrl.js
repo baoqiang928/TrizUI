@@ -81,6 +81,9 @@
             },
 
             messages: {
+                name: {
+                    required: "请填写项目名称。",
+                },
                 email: {
                     required: "Please provide a valid email.",
                     email: "Please provide a valid email."
