@@ -35,7 +35,7 @@
                                 <tr>
                                     <th class="center">
                                         <label>
-                                            <input type="checkbox" class="ace" id="checkall" name="checkall" />
+                                            <input type="checkbox" class="ace" ng-model="all" />
                                             <span class="lbl"></span>
                                         </label>
                                     </th>
@@ -50,46 +50,11 @@
                             </thead>
 
                             <tbody>
-                                <tr>
-                                    <td class="center">
-                                        <label>
-                                            <input type="checkbox" class="ace" name="ck" id="Checkbox1" />
-                                            <span class="lbl"></span>
-                                        </label>
-                                    </td>
-
-                                    <td>
-                                        <a href="#">{{project.Code}}</a>
-                                    </td>
-                                    <td>{{project.Name}}</td>
-                                    <td>{{project.CreateDateTime}}</td>
-                                    <td>{{project.Owner}}</td>
-                                    <td>{{project.Department}}</td>
-
-                                    <td>
-                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-
-                                            <a class="green" href="#" ng-click="Update(project.ID)">
-                                                <i class="icon-pencil bigger-130">修改</i>
-                                            </a>
-
-                                            <a class="red" href="#" ng-click="Delete(project.ID)">
-                                                <i class="icon-trash bigger-130">删除</i>
-                                            </a>
-
-                                            <a class="red" href="#">
-                                                <i class="icon-legal bigger-130">当前项目</i>
-                                            </a>
-
-                                        </div>
-
-
-                                    </td>
-                                </tr>
+                                
                                 <tr ng-repeat="project in projects">
                                     <td class="center">
                                         <label>
-                                            <input type="checkbox" class="ace" name="ck"  ng-checked="isSelected(project.ID)" ng-click="updateSelection($event,project.ID)" />
+                                            <input type="checkbox" class="ace" id={{project.ID}} ng-checked="all" ng-click="updateSelection($event,project.ID)" />
                                             <span class="lbl"></span>
                                         </label>
                                     </td>
