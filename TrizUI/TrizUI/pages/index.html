@@ -15,11 +15,45 @@
     <script src="Controllers/Project.js"></script>
     <script src="Controllers/ProjectOpeCtrl.js"></script>
     <script src="Controllers/StandardSolution.js"></script>
-    <!-- basic styles -->
 
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
     <link rel="stylesheet" href="Scripts/pagination.css" />
+    <style>
+        /**
+    样式如果自己觉得黑乎乎不好看可以修改
+    **/
+        .ec_tip
+        {
+            display: none;
+            padding: 5px;
+            position: absolute;
+            background: #555;
+            color: #fff;
+            border: 3px solid #555;
+            z-index: 9999;
+        }
+    </style>
+
+    <script>
+        //弹出提示效果
+        window.Alert = function (messages, callback) {
+            if ($(".ec_tip").length < 1) {
+                $("body").append("<div class=\"ec_tip\">" + messages + "</div>");
+            }
+            //定位居中显示
+            leftW = (document.body.clientWidth - $(".ec_tip").width()) / 2;
+            topH = (document.body.clientHeight - $(".ec_tip").height()) / 2;
+            $(".ec_tip").css("top", topH + "px").css("left", leftW + "px").fadeIn(1000);
+            //谈出效果并执行回调
+            $(".ec_tip").animate({ top: "0px", opacity: 0 }, 300, function () {
+                $(".ec_tip").remove();
+                if (callback != undefined)
+                    callback();
+            });
+        }
+    </script>
+
     <style>
         .page-list .pagination
         {
@@ -347,6 +381,7 @@
     <script src="/assets/js/ace-elements.min.js"></script>
     <script src="/assets/js/ace.min.js"></script>
 
+    <script src="/assets/js/bootbox.min.js"></script>
 
     <!-- inline scripts related to this page -->
 

@@ -35,7 +35,7 @@
                                 <tr>
                                     <th class="center">
                                         <label>
-                                            <input type="checkbox" class="ace" ng-model="all" />
+                                            <input type="checkbox" class="ace" ng-model="all" ng-checked="one"/>
                                             <span class="lbl"></span>
                                         </label>
                                     </th>
@@ -54,7 +54,7 @@
                                 <tr ng-repeat="project in projects">
                                     <td class="center">
                                         <label>
-                                            <input type="checkbox" class="ace" id={{project.ID}} ng-checked="all" ng-click="updateSelection($event,project.ID)" />
+                                            <input type="checkbox" class="ace" name="ck" id="{{project.ID}}" value="{{project.ID}}" ng-checked="all" ng-click="updateSelection($event,project.ID)" />
                                             <span class="lbl"></span>
                                         </label>
                                     </td>
