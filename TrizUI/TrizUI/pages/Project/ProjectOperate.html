@@ -7,20 +7,28 @@
     <div class="row">
         <div class="col-xs-12">
             <!-- PAGE CONTENT BEGINS -->
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" id="validation-form" role="form">
                 <div class="form-group">
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1">项目编号 </label>
 
                     <div class="col-sm-9">
-                        <input type="text" id="form-field-1" class="col-xs-10 col-sm-5"  data-ng-model="data.Code"/>
+                        <input type="text" id="form-field-1" class="col-xs-10 col-sm-5" data-ng-model="data.Code" />
                     </div>
                 </div>
-
                 <div class="form-group">
-                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2">项目名称 </label>
+                    <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">Email Address:</label>
+
+                    <div class="col-xs-12 col-sm-9">
+                        <div class="clearfix">
+                            <input type="email" name="email" id="email" class="col-xs-12 col-sm-6" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2" for="name">项目名称 </label>
 
                     <div class="col-sm-9">
-                        <input type="text" id="form-field-2" class="col-xs-10 col-sm-5"  data-ng-model="data.Name"/>
+                        <input type="text" id="form-field-2" class="col-xs-10 col-sm-5" id="name" name="name" data-ng-model="data.Name" />
                     </div>
                 </div>
 
@@ -44,7 +52,7 @@
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-2">工作部门 </label>
 
                     <div class="col-sm-9">
-                        <input type="text" id="Text3" class="col-xs-10 col-sm-5" data-ng-model="data.Department"/>
+                        <input type="text" id="Text3" class="col-xs-10 col-sm-5" data-ng-model="data.Department" />
                     </div>
                 </div>
 
@@ -52,12 +60,12 @@
 
                 <div class="clearfix form-actions">
                     <div class="col-md-offset-3 col-md-9">
-                        <button class="btn btn-info" type="button" ng-click="Save()" >
+                        <button class="btn btn-info" type="button" ng-click="Save()">
                             <i class="icon-ok bigger-110"></i>
                             保存
                         </button>
                         &nbsp; &nbsp; &nbsp;
-						<button class="btn" type="reset" onclick="window.history.back()">
+						<button class="btn" id="BtnGetQRCode" type="reset" onclick="window.history.back()">
                             <i class="icon-arrow-left bigger-110"></i>
                             返回
                         </button>
