@@ -4,8 +4,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using Triz.Model;
 using System.Transactions;
+using Triz.Model;
 
 namespace Triz.DAL
 {
@@ -61,7 +61,6 @@ namespace Triz.DAL
                 {
                     var Query = TrizDB.tbl_ProjectInfo.Where(o => o.ID == ProjectInfo.ID).First();
                     if (Query == null) return false;
-                    //Query = GetDataEntity(ProjectInfo);
                     SetDataEntity(Query, ProjectInfo);
                     TrizDB.SaveChanges();
                     if (TrizDB.SaveChanges() > 0)

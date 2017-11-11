@@ -8,13 +8,14 @@
             Department: ""
         };
 
-        requestService.getobj(Sources, $stateParams.ID).then(function (data) {
-            $scope.data = data;
-        });
+        if ($stateParams.ID != null) {
+            requestService.getobj(Sources, $stateParams.ID).then(function (data) {
+                $scope.data = data;
+            });
+        }
 
         $scope.Save = function () {
 
-            //alert($('#validation-form').valid());
 
             if (!$('#validation-form').valid()) {
                 return false;

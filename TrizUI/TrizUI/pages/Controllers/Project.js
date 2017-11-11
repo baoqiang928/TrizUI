@@ -39,8 +39,10 @@
         }
 
         $scope.Delete = function (ID) {
-            requestService.delete(Sources, ID).then(function (data) {
-                GetProjects();
+            bootbox.confirm("要删除当前的记录？", function (result) {
+                requestService.delete(Sources, ID).then(function (data) {
+                    GetProjects();
+                });
             });
         }
 
@@ -64,16 +66,11 @@
                 }
             });
 
-
         }
-
 
         $scope.Update = function (ID) {
             $state.go("ProjectAdd", { ID: ID });
         }
-
-
-
 
     });//end
 

@@ -126,7 +126,6 @@ StoreService.factory('requestService', function ($http, $q) {
             request.method = "delete";
             request.url = ApiUrl + resource + "/" + id;
             request.params = {};
-            alert('d');
             return requestService($http, $q, request);
         },
         batchdelete: function (resource, ids) {

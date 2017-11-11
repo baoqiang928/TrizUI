@@ -11,18 +11,6 @@ namespace MvcApplication1.Controllers
 {
     public class ProjectsController : ApiController
     {
-        // GET api/projects
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
-
-        // GET api/projects/5
-        //public List<ProjectInfo> Get([FromUri]string Name, string Code, string Owner, string Department, string FromDate, string ToDate, int currentPage, int itemsPerPage)
-        //{
-        //    return new ProjectLogic().Query(Name, currentPage, itemsPerPage);
-        //}
-
         // GET api/projects/5
         public ProjectInfo Get(string id)
         {
@@ -43,28 +31,16 @@ namespace MvcApplication1.Controllers
             };
         }
 
-        //public List<ProjectInfo> Get([FromUri]string Name, int currentPage, int itemsPerPage)
-        //{
-        //    return new ProjectLogic().Query(Name, currentPage, itemsPerPage);
-        //}
-
         // POST api/projects
         public void Post([FromBody]ProjectInfo ProjectInfo)
         {
             new ProjectLogic().SaveProject(ProjectInfo);
         }
 
-        // PUT api/projects/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
-
         public void Put([FromBody]ProjectInfo ProjectInfo)
         {
             new ProjectLogic().SaveProject(ProjectInfo);
         }
-
-
 
         // DELETE api/projects/5
         public void Delete(int id)

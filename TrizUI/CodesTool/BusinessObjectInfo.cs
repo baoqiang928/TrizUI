@@ -17,14 +17,18 @@ namespace CodesTool
         }
 
         private string name;
-
+        /// <summary>
+        /// 业务类属性名称
+        /// </summary>
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
         private string description;
-
+        /// <summary>
+        /// 属性中文描述
+        /// </summary>
         public string Description
         {
             get { return description; }
