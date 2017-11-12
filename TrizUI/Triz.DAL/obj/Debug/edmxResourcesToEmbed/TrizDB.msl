@@ -6,6 +6,7 @@
         <MappingFragment StoreEntitySet="tbl_ProjectInfo">
           <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
           <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="ID" ColumnName="ID" />

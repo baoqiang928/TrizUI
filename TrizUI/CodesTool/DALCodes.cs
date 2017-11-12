@@ -210,6 +210,17 @@ namespace Triz.DAL
             string CodeSection = "";
             foreach (BusinessObjectInfo BusinessObjectInfo in BusinessObjectInfoList)
             {
+                CodeSection += @"
+                                     {BusinessObjectInfo.ObjName}Info.{BusinessObjectInfo.Name} = {BusinessObjectInfo.ObjName}InfoEntity.{BusinessObjectInfo.Name};
+                    ";
+                CodeSection = CodeSection.Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name);
+            }
+            codes = codes.Replace("{GetBusinessObject}", CodeSection);
+
+            CodeSection = "";
+            foreach (BusinessObjectInfo BusinessObjectInfo in BusinessObjectInfoList)
+            {
+                if (BusinessObjectInfo.Name.Contains("CreateDateTime")) continue;
                 if (BusinessObjectInfo.Name == "ID")
                 {
                     CodeSection += @"
@@ -221,16 +232,6 @@ namespace Triz.DAL
                 CodeSection += @"
                                         if ({BusinessObjectInfo.ObjName}Info.{BusinessObjectInfo.Name} != null)
                                             {BusinessObjectInfo.ObjName}InfoEntity.{BusinessObjectInfo.Name} = {BusinessObjectInfo.ObjName}Info.{BusinessObjectInfo.Name};
-                    ";
-                CodeSection = CodeSection.Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name);
-            }
-            codes = codes.Replace("{GetBusinessObject}", CodeSection);
-
-            CodeSection = "";
-            foreach (BusinessObjectInfo BusinessObjectInfo in BusinessObjectInfoList)
-            {
-                CodeSection += @"
-                                     {BusinessObjectInfo.ObjName}Info.{BusinessObjectInfo.Name} = {BusinessObjectInfo.ObjName}InfoEntity.{BusinessObjectInfo.Name};
                     ";
                 CodeSection = CodeSection.Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name);
             }

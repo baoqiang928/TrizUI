@@ -17,6 +17,7 @@ namespace Triz.DAL
         public int ID { get; set; }
         public string Code { get; set; }
         public string Name { get; set; }
+        public string Owner { get; set; }
         public string Department { get; set; }
         public System.DateTime CreateDateTime { get; set; }
     }

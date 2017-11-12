@@ -64,10 +64,12 @@ namespace CodesTool
                     <label class=""col-sm-3 control-label no-padding-right"" for=""form-field-1"">{BusinessObjectInfo.Description}</label>
 
                     <div class=""col-sm-9"">
-                        <input type=""text"" id=""form-field-1"" class=""col-xs-10 col-sm-5"" data-ng-model=""data.{BusinessObjectInfo.Name}"" />
+                        <div class=""clearfix"">
+                            <input type=""text"" id=""{id}"" name=""{name}"" class=""col-xs-10 col-sm-5"" data-ng-model=""data.{BusinessObjectInfo.Name}"" />
+                        </div>
                     </div>
                 </div>                                        
-                    ".Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name).Replace("{BusinessObjectInfo.Description}", BusinessObjectInfo.Description);
+                    ".Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name).Replace("{BusinessObjectInfo.Description}", BusinessObjectInfo.Description).Replace("{id}", BusinessObjectInfo.Name).Replace("{name}", BusinessObjectInfo.Name);
                 
             }
 

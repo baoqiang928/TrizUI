@@ -109,27 +109,31 @@ namespace CodesTool
                 CodeSection = CodeSection.Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name);
 
                 //{rulles}
-                if (string.IsNullOrWhiteSpace(BusinessObjectInfo.Mondantory))
+                if (BusinessObjectInfo.Name != "CreateDateTime")
                 {
-                    CodeSection1 += @"
+                    if (string.IsNullOrWhiteSpace(BusinessObjectInfo.Mondantory) && (BusinessObjectInfo.Name != "CreateDateTime"))
+                    {
+                        CodeSection1 += @"
                                     {BusinessObjectInfo.Name}: {
                                         maxlength: {BusinessObjectInfo.Length}
                                     },
                     ";
-                    CodeSection1 = CodeSection1.Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name);
-                    CodeSection1 = CodeSection1.Replace("{BusinessObjectInfo.Length}", BusinessObjectInfo.Length);
-                    continue;
-                }
-                CodeSection1 += @"
+                        CodeSection1 = CodeSection1.Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name);
+                        CodeSection1 = CodeSection1.Replace("{BusinessObjectInfo.Length}", BusinessObjectInfo.Length);
+                        continue;
+                    }
+
+                    CodeSection1 += @"
                                     {BusinessObjectInfo.Name}: {
                                         required: true,
                                         maxlength: {BusinessObjectInfo.Length}
                                     },
                     ";
-                CodeSection1 = CodeSection1.Replace("{BusinessObjectInfo.Length}", BusinessObjectInfo.Length);
-                CodeSection1 = CodeSection1.Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name);
-
+                    CodeSection1 = CodeSection1.Replace("{BusinessObjectInfo.Length}", BusinessObjectInfo.Length);
+                    CodeSection1 = CodeSection1.Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name);
+                }
                 //{messages}
+                if (BusinessObjectInfo.Name == "CreateDateTime") continue;
                 CodeSection2 += @"
                                     {BusinessObjectInfo.Name}: {
                                         required: ""请填写{BusinessObjectInfo.Description}。"",

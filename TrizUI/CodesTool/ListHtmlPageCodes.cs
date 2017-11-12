@@ -53,7 +53,7 @@ namespace CodesTool
                                     <td>
                                         <div class=""visible-md visible-lg hidden-sm hidden-xs action-buttons"">
 
-                                            <a class=""green"" href=""#"" ng-click=""Update({BusinessObjectInfo.ObjName}.ID)"">
+                                            <a class=""green"" href="""" ng-click=""Update({BusinessObjectInfo.ObjName}.ID)"">
                                                 <i class=""icon-pencil bigger-130"">修改</i>
                                             </a>
 
@@ -159,7 +159,7 @@ namespace CodesTool
                 {
                     CodeSection += @"
                                     <td>
-                                        <a href=""#"" ng-click=""Update({BusinessObjectInfo.ObjName}.ID)"">{{{BusinessObjectInfo.ObjName}.{BusinessObjectInfo.Name}}}</a>
+                                        <a href="""" ng-click=""Update({BusinessObjectInfo.ObjName}.ID)"">{{{BusinessObjectInfo.ObjName}.{BusinessObjectInfo.Name}}}</a>
                                     </td>
                     ".Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name).Replace("{BusinessObjectInfo.Description}", BusinessObjectInfo.Description);
                     i = i + 1;

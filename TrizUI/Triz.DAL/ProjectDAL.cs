@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -162,8 +161,8 @@ namespace Triz.DAL
             if (!string.IsNullOrWhiteSpace(Name))
                 where = where.And(a => a.Name.Contains(Name));
 
-            //if (!string.IsNullOrWhiteSpace(Owner))
-            //    where = where.And(a => a.Owner.Contains(Owner));
+            if (!string.IsNullOrWhiteSpace(Owner))
+                where = where.And(a => a.Owner.Contains(Owner));
 
             if (!string.IsNullOrWhiteSpace(Department))
                 where = where.And(a => a.Department.Contains(Department));
@@ -185,6 +184,25 @@ namespace Triz.DAL
         {
             ProjectInfo ProjectInfo = new ProjectInfo();
 
+            ProjectInfo.ID = ProjectInfoEntity.ID;
+
+            ProjectInfo.Code = ProjectInfoEntity.Code;
+
+            ProjectInfo.Name = ProjectInfoEntity.Name;
+
+            ProjectInfo.Owner = ProjectInfoEntity.Owner;
+
+            ProjectInfo.Department = ProjectInfoEntity.Department;
+
+            ProjectInfo.CreateDateTime = ProjectInfoEntity.CreateDateTime;
+
+
+            return ProjectInfo;
+        }
+
+        public void SetDataEntity(tbl_ProjectInfo ProjectInfoEntity, ProjectInfo ProjectInfo)
+        {
+
             if (ProjectInfo.ID != null)
                 ProjectInfoEntity.ID = ProjectInfo.ID ?? 0;
 
@@ -194,33 +212,11 @@ namespace Triz.DAL
             if (ProjectInfo.Name != null)
                 ProjectInfoEntity.Name = ProjectInfo.Name;
 
-            //if (ProjectInfo.Owner != null)
-            //    ProjectInfoEntity.Owner = ProjectInfo.Owner;
+            if (ProjectInfo.Owner != null)
+                ProjectInfoEntity.Owner = ProjectInfo.Owner;
 
             if (ProjectInfo.Department != null)
                 ProjectInfoEntity.Department = ProjectInfo.Department;
-
-            //if (ProjectInfo.CreateDateTime != null)
-            //    ProjectInfoEntity.CreateDateTime = ProjectInfo.CreateDateTime;
-
-
-            return ProjectInfo;
-        }
-
-        public void SetDataEntity(tbl_ProjectInfo ProjectInfoEntity, ProjectInfo ProjectInfo)
-        {
-
-            ProjectInfo.ID = ProjectInfoEntity.ID;
-
-            ProjectInfo.Code = ProjectInfoEntity.Code;
-
-            ProjectInfo.Name = ProjectInfoEntity.Name;
-
-            //ProjectInfo.Owner = ProjectInfoEntity.Owner;
-
-            ProjectInfo.Department = ProjectInfoEntity.Department;
-
-            ProjectInfo.CreateDateTime = ProjectInfoEntity.CreateDateTime;
 
         }
 

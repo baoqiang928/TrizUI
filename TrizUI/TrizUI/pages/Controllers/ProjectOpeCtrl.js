@@ -2,12 +2,12 @@
     .controller('ProjectOpeCtrl', function ($scope, $location, requestService, $stateParams, $state) {
         var Sources = "Projects";
         $scope.data = {
-            Name: "",
             Code: "",
+            Name: "",
             Owner: "",
-            Department: ""
+            Department: "",
+            CreateDateTime: ""
         };
-
         if ($stateParams.ID != null) {
             requestService.getobj(Sources, $stateParams.ID).then(function (data) {
                 $scope.data = data;
@@ -16,12 +16,9 @@
 
         $scope.Save = function () {
 
-
             if (!$('#validation-form').valid()) {
                 return false;
             }
-
-
 
             if ($stateParams.ID == "") {
                 requestService.add(Sources, $scope.data).then(function (data) {
@@ -41,61 +38,38 @@
             errorClass: 'help-block',
             focusInvalid: false,
             rules: {
-                email: {
+                Code: {
                     required: true,
-                    email: true
+                    maxlength: 50
                 },
-                password: {
+
+                Name: {
                     required: true,
-                    minlength: 5
+                    maxlength: 50
                 },
-                password2: {
+
+                Owner: {
                     required: true,
-                    minlength: 5,
-                    equalTo: "#password"
+                    maxlength: 50
                 },
-                name: {
-                    required: true
-                },
-                phone: {
-                    required: true,
-                    phone: 'required'
-                },
-                url: {
-                    required: true,
-                    url: true
-                },
-                comment: {
-                    required: true
-                },
-                state: {
-                    required: true
-                },
-                platform: {
-                    required: true
-                },
-                subscription: {
-                    required: true
-                },
-                gender: 'required',
-                agree: 'required'
+
+                Department: {
+                    maxlength: 50
+                }
             },
 
             messages: {
-                name: {
-                    required: "请填写项目名称。",
+                Code: {
+                    required: "请填写编号。",
                 },
-                email: {
-                    required: "Please provide a valid email.",
-                    email: "Please provide a valid email."
+
+                Name: {
+                    required: "请填写名称。",
                 },
-                password: {
-                    required: "Please specify a password.",
-                    minlength: "Please specify a secure password."
-                },
-                subscription: "Please choose at least one option",
-                gender: "Please choose gender",
-                agree: "Please accept our policy"
+
+                Owner: {
+                    required: "请填写负责人。",
+                }
             },
 
             invalidHandler: function (event, validator) { //display error alert on form submit   
@@ -131,7 +105,6 @@
             invalidHandler: function (form) {
             }
         });
-
 
 
 

@@ -22,7 +22,6 @@ GO
 CREATE TABLE [dbo].[tbl_{BusinessObjectInfo.ObjName}Info](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 {Fields}
-	[CreateDateTime] [datetime] NOT NULL,
  CONSTRAINT [PK_tbl_{BusinessObjectInfo.ObjName}Info] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
