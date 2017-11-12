@@ -29,7 +29,7 @@ namespace CodesTool
             txtListHtml.Text = new ListHtmlPageCodes().Generate(objectList);
             txtListCtrl.Text = new ListCtrlCodes().Generate(objectList);
             txtOperateHtml.Text = new OperateHtmlPageCodes().Generate(objectList);
-
+            txtOpeCtrl.Text = new OpeCtrlCodes().Generate(objectList);
         }
 
         
