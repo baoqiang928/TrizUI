@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -35,7 +36,7 @@ namespace Triz.DAL
                     {
                         foreach (var validationError in validationErrors.ValidationErrors)
                         {
-                            string message = string.Format("{0},{1}",
+                            string message = string.Format("Project,{1}",
                                 validationErrors.Entry.Entity.ToString(),
                                 validationError.ErrorMessage);
                             raise = new InvalidOperationException(message, raise);
@@ -150,12 +151,26 @@ namespace Triz.DAL
             return new ProjectInfo();
         }
 
-        public List<ProjectInfo> Query(string name, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
+        public List<ProjectInfo> Query(string Code, string Name, string Owner, string Department, string CreateDateTime, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
             int startRow = (pageIndex - 1) * pageSize;
             Expression<Func<tbl_ProjectInfo, bool>> where = PredicateExtensionses.True<tbl_ProjectInfo>();
-            if (!string.IsNullOrWhiteSpace(name))
-                where = where.And(a => a.Name.Contains(name));
+
+            if (!string.IsNullOrWhiteSpace(Code))
+                where = where.And(a => a.Code.Contains(Code));
+
+            if (!string.IsNullOrWhiteSpace(Name))
+                where = where.And(a => a.Name.Contains(Name));
+
+            //if (!string.IsNullOrWhiteSpace(Owner))
+            //    where = where.And(a => a.Owner.Contains(Owner));
+
+            if (!string.IsNullOrWhiteSpace(Department))
+                where = where.And(a => a.Department.Contains(Department));
+
+            //if (!string.IsNullOrWhiteSpace(CreateDateTime))
+            //    where = where.And(a => a.CreateDateTime.Contains(CreateDateTime));
+
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
                 var query = TrizDB.tbl_ProjectInfo.Where(where.Compile());
@@ -169,14 +184,7 @@ namespace Triz.DAL
         public ProjectInfo GetBusinessObject(tbl_ProjectInfo ProjectInfoEntity)
         {
             ProjectInfo ProjectInfo = new ProjectInfo();
-            ProjectInfo.ID = ProjectInfoEntity.ID;
-            ProjectInfo.Name = ProjectInfoEntity.Name;
 
-            return ProjectInfo;
-        }
-
-        public void SetDataEntity(tbl_ProjectInfo ProjectInfoEntity, ProjectInfo ProjectInfo)
-        {
             if (ProjectInfo.ID != null)
                 ProjectInfoEntity.ID = ProjectInfo.ID ?? 0;
 
@@ -186,8 +194,33 @@ namespace Triz.DAL
             if (ProjectInfo.Name != null)
                 ProjectInfoEntity.Name = ProjectInfo.Name;
 
+            //if (ProjectInfo.Owner != null)
+            //    ProjectInfoEntity.Owner = ProjectInfo.Owner;
+
             if (ProjectInfo.Department != null)
                 ProjectInfoEntity.Department = ProjectInfo.Department;
+
+            //if (ProjectInfo.CreateDateTime != null)
+            //    ProjectInfoEntity.CreateDateTime = ProjectInfo.CreateDateTime;
+
+
+            return ProjectInfo;
+        }
+
+        public void SetDataEntity(tbl_ProjectInfo ProjectInfoEntity, ProjectInfo ProjectInfo)
+        {
+
+            ProjectInfo.ID = ProjectInfoEntity.ID;
+
+            ProjectInfo.Code = ProjectInfoEntity.Code;
+
+            ProjectInfo.Name = ProjectInfoEntity.Name;
+
+            //ProjectInfo.Owner = ProjectInfoEntity.Owner;
+
+            ProjectInfo.Department = ProjectInfoEntity.Department;
+
+            ProjectInfo.CreateDateTime = ProjectInfoEntity.CreateDateTime;
 
         }
 
@@ -202,3 +235,5 @@ namespace Triz.DAL
         }
     }
 }
+
+

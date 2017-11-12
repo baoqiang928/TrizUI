@@ -9,8 +9,7 @@ namespace CodesTool
     public class BLLCodes
     {
         #region codes
-        string codes = @"
-using System;
+        string codes = @"using System;
 using System.Collections.Generic;
 using Triz.DAL;
 using Triz.Model;

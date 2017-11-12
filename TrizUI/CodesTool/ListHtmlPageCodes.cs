@@ -9,8 +9,7 @@ namespace CodesTool
     public class ListHtmlPageCodes
     {
         #region codes
-        string codes = @"
-<div class=""page-content"" ng-controller=""{BusinessObjectInfo.ObjName}Ctrl"">
+        string codes = @"<div class=""page-content"" ng-controller=""{BusinessObjectInfo.ObjName}Ctrl"">
     <div class=""row"">
         <div class=""col-xs-12"">
             <!-- PAGE CONTENT BEGINS -->
@@ -98,6 +97,7 @@ namespace CodesTool
         {
             string CodeSection = "";
             int i = 0;
+            bool HaveEnded = false;
             foreach (BusinessObjectInfo BusinessObjectInfo in BusinessObjectInfoList)
             {
                 //BusinessObjectInfo.Name
@@ -117,11 +117,19 @@ namespace CodesTool
                 if (i == 1)
                 {
                     CodeSection += "</p>";
+                    HaveEnded = true;
                     i = 0;
                     continue;
                 }
                 i = i + 1;
+                HaveEnded = false;
             }
+
+            if (!HaveEnded)
+            {
+                CodeSection += "</p>";
+            }
+
             codes = codes.Replace("{QueryControl}", CodeSection);
 
             //列头
@@ -151,7 +159,7 @@ namespace CodesTool
                 {
                     CodeSection += @"
                                     <td>
-                                        <a href=""#"" ng-click=""Update({BusinessObjectInfo.ObjName}.ID)"">{{{BusinessObjectInfo.ObjName}.Name}}</a>
+                                        <a href=""#"" ng-click=""Update({BusinessObjectInfo.ObjName}.ID)"">{{{BusinessObjectInfo.ObjName}.{BusinessObjectInfo.Name}}}</a>
                                     </td>
                     ".Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name).Replace("{BusinessObjectInfo.Description}", BusinessObjectInfo.Description);
                     i = i + 1;

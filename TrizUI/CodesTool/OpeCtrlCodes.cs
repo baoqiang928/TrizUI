@@ -9,8 +9,7 @@ namespace CodesTool
     public class OpeCtrlCodes
     {
         #region codes
-        string codes = @"
-angular.module(""myApp"")
+        string codes = @"angular.module(""myApp"")
     .controller('{BusinessObjectInfo.ObjName}OpeCtrl', function ($scope, $location, requestService, $stateParams, $state) {
         var Sources = ""{BusinessObjectInfo.ObjName}s"";
         $scope.data = {

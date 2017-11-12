@@ -2,4 +2,3 @@ F:\TrizUI\TrizUI\Triz.Model\bin\Debug\Triz.Model.dll
 F:\TrizUI\TrizUI\Triz.Model\bin\Debug\Triz.Model.pdb
 F:\TrizUI\TrizUI\Triz.Model\obj\Debug\Triz.Model.dll
 F:\TrizUI\TrizUI\Triz.Model\obj\Debug\Triz.Model.pdb
-F:\TrizUI\TrizUI\Triz.Model\obj\Debug\Triz.Model.csprojResolveAssemblyReference.cache

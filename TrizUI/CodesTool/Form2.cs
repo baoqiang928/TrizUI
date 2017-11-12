@@ -30,6 +30,7 @@ namespace CodesTool
             txtListCtrl.Text = new ListCtrlCodes().Generate(objectList);
             txtOperateHtml.Text = new OperateHtmlPageCodes().Generate(objectList);
             txtOpeCtrl.Text = new OpeCtrlCodes().Generate(objectList);
+            txtSQL.Text = new SqlCodes().Generate(objectList);
         }
 
         

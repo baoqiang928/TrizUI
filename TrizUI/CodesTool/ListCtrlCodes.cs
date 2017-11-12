@@ -9,8 +9,7 @@ namespace CodesTool
     public class ListCtrlCodes
     {
         #region codes
-        string codes = @"
-angular.module(""myApp"")
+        string codes = @"angular.module(""myApp"")
     .controller('{BusinessObjectInfo.ObjName}Ctrl', function ($scope, $location, requestService, $state) {
         var Sources = ""{BusinessObjectInfo.ObjName}s"";
         $scope.paginationConf = {

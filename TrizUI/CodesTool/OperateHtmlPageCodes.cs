@@ -9,8 +9,7 @@ namespace CodesTool
     public class OperateHtmlPageCodes
     {
         #region codes
-        string codes = @"
-<div class=""page-content"" ng-controller=""{BusinessObjectInfo.ObjName}OpeCtrl"">
+        string codes = @"<div class=""page-content"" ng-controller=""{BusinessObjectInfo.ObjName}OpeCtrl"">
     <div class=""page-header"">
         <h1>项目信息维护
         </h1>

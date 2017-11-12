@@ -11,18 +11,18 @@ namespace MvcApplication1.Controllers
 {
     public class ProjectsController : ApiController
     {
-        // GET api/projects/5
+        // GET api/Projects/5
         public ProjectInfo Get(string id)
         {
             return new ProjectLogic().GetByID(id);
         }
 
-        // GET api/projects
-        public object Get([FromUri]string Name, string Code, string Owner, string Department, string FromDate, string ToDate, int currentPage, int itemsPerPage)
+        // GET api/Projects
+        public object Get([FromUri]string Code, string Name, string Owner, string Department, string CreateDateTime, int currentPage, int itemsPerPage)
         {
             int TotalItems = 0;
             int PagesLength = 0;
-            List<ProjectInfo> ProjectInfoList = new ProjectLogic().Query(Name, currentPage, itemsPerPage, ref TotalItems,ref PagesLength);
+            List<ProjectInfo> ProjectInfoList = new ProjectLogic().Query(Code, Name, Owner, Department, CreateDateTime, currentPage, itemsPerPage, ref TotalItems, ref PagesLength);
             return new
             {
                 TotalItems = TotalItems,
@@ -31,7 +31,7 @@ namespace MvcApplication1.Controllers
             };
         }
 
-        // POST api/projects
+        // POST api/Projects
         public void Post([FromBody]ProjectInfo ProjectInfo)
         {
             new ProjectLogic().SaveProject(ProjectInfo);
@@ -42,13 +42,13 @@ namespace MvcApplication1.Controllers
             new ProjectLogic().SaveProject(ProjectInfo);
         }
 
-        // DELETE api/projects/5
+        // DELETE api/Projects/5
         public void Delete(int id)
         {
             new ProjectLogic().DeleteProject(id);
         }
 
-        // DELETE api/projects/5
+        // DELETE api/Projects/5
         public void Delete(string ids)
         {
             new ProjectLogic().DeleteProject(ids);
@@ -56,3 +56,4 @@ namespace MvcApplication1.Controllers
 
     }
 }
+

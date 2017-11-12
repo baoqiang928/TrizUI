@@ -9,8 +9,7 @@ namespace CodesTool
     public class WebAPIControlerCodes
     {
         #region codes
-        string codes = @"
-using System;
+        string codes = @"using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;

@@ -9,8 +9,7 @@ namespace CodesTool
     public class DALCodes
     {
         #region codes
-        string codes = @"
-using System;
+        string codes = @"using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -215,13 +214,13 @@ namespace Triz.DAL
                 {
                     CodeSection += @"
                                         if ({BusinessObjectInfo.ObjName}Info.ID != null)
-                                            {BusinessObjectInfo.ObjName}Entity.ID = {BusinessObjectInfo.ObjName}Info.ID ?? 0;
+                                            {BusinessObjectInfo.ObjName}InfoEntity.ID = {BusinessObjectInfo.ObjName}Info.ID ?? 0;
                     ";
                     continue;
                 }
                 CodeSection += @"
                                         if ({BusinessObjectInfo.ObjName}Info.{BusinessObjectInfo.Name} != null)
-                                            {BusinessObjectInfo.ObjName}Entity.{BusinessObjectInfo.Name} = {BusinessObjectInfo.ObjName}Info.{BusinessObjectInfo.Name};
+                                            {BusinessObjectInfo.ObjName}InfoEntity.{BusinessObjectInfo.Name} = {BusinessObjectInfo.ObjName}Info.{BusinessObjectInfo.Name};
                     ";
                 CodeSection = CodeSection.Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name);
             }
@@ -250,8 +249,8 @@ namespace Triz.DAL
                 CodeSection += "string " + BusinessObjectInfo.Name + ",";
                 CodeSection1 += BusinessObjectInfo.Name + ",";
             }
-            CodeSection = CodeSection.TrimEnd(',');
-            CodeSection1 = CodeSection1.TrimEnd(',');
+            //CodeSection = CodeSection.TrimEnd(',');
+            //CodeSection1 = CodeSection1.TrimEnd(',');
 
             codes = codes.Replace("{QueryParamsDefine}", CodeSection);
             codes = codes.Replace("{QueryParams}", CodeSection1);

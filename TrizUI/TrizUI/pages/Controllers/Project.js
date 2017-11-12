@@ -14,19 +14,18 @@
         $scope.data = {
             currentPage: "",
             itemsPerPage: "",
-            Name: "",
             Code: "",
+            Name: "",
             Owner: "",
             Department: "",
-            FromDate: "",
-            ToDate: ""
+            CreateDateTime: ""
         };
 
         var GetProjects = function () {
             $scope.data.currentPage = $scope.paginationConf.currentPage;
             $scope.data.itemsPerPage = $scope.paginationConf.itemsPerPage;
             requestService.lists(Sources, $scope.data).then(function (data) {
-                $scope.projects = data.Results;
+                $scope.Projects = data.Results;
                 $scope.paginationConf.totalItems = data.TotalItems;
                 $scope.paginationConf.pagesLength = data.PagesLength;
             });

@@ -38,19 +38,21 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtModel = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
             this.txtDAL = new System.Windows.Forms.TextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.txtBLL = new System.Windows.Forms.TextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.txtAPIControler = new System.Windows.Forms.TextBox();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.txtListHtml = new System.Windows.Forms.TextBox();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.txtOperateHtml = new System.Windows.Forms.TextBox();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
             this.txtListCtrl = new System.Windows.Forms.TextBox();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
             this.txtOpeCtrl = new System.Windows.Forms.TextBox();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.txtSQL = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -65,6 +67,7 @@
             this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.tabPage8.SuspendLayout();
+            this.tabPage10.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -115,7 +118,9 @@
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage8);
+            this.tabControl1.Controls.Add(this.tabPage10);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("宋体", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -125,10 +130,10 @@
             // tabPage9
             // 
             this.tabPage9.Controls.Add(this.txtSource);
-            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Location = new System.Drawing.Point(4, 45);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(1072, 667);
+            this.tabPage9.Size = new System.Drawing.Size(1072, 644);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "Source";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -139,7 +144,7 @@
             this.txtSource.Location = new System.Drawing.Point(3, 3);
             this.txtSource.Multiline = true;
             this.txtSource.Name = "txtSource";
-            this.txtSource.Size = new System.Drawing.Size(1066, 661);
+            this.txtSource.Size = new System.Drawing.Size(1066, 638);
             this.txtSource.TabIndex = 1;
             this.txtSource.Text = resources.GetString("txtSource.Text");
             // 
@@ -176,72 +181,6 @@
             this.tabPage2.Text = "DAL";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.txtBLL);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1072, 667);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "BLL";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.txtAPIControler);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1072, 667);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "APIControler";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.txtListHtml);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1072, 667);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "ListHtmlPage";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.txtOperateHtml);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1072, 667);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "OperateHtmlPage";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Controls.Add(this.txtListCtrl);
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(1072, 667);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "ListCtrl";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.Controls.Add(this.txtOpeCtrl);
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(1072, 667);
-            this.tabPage8.TabIndex = 7;
-            this.tabPage8.Text = "OpeCtrl";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
             // txtDAL
             // 
             this.txtDAL.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -252,6 +191,17 @@
             this.txtDAL.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDAL.Size = new System.Drawing.Size(1066, 661);
             this.txtDAL.TabIndex = 3;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.txtBLL);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1072, 667);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "BLL";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // txtBLL
             // 
@@ -264,6 +214,17 @@
             this.txtBLL.Size = new System.Drawing.Size(1066, 661);
             this.txtBLL.TabIndex = 3;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.txtAPIControler);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1072, 667);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "APIControler";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // txtAPIControler
             // 
             this.txtAPIControler.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -274,6 +235,17 @@
             this.txtAPIControler.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtAPIControler.Size = new System.Drawing.Size(1066, 661);
             this.txtAPIControler.TabIndex = 3;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.txtListHtml);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1072, 667);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "ListHtmlPage";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // txtListHtml
             // 
@@ -286,6 +258,17 @@
             this.txtListHtml.Size = new System.Drawing.Size(1066, 661);
             this.txtListHtml.TabIndex = 3;
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.txtOperateHtml);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1072, 667);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "OperateHtmlPage";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
             // txtOperateHtml
             // 
             this.txtOperateHtml.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -296,6 +279,17 @@
             this.txtOperateHtml.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtOperateHtml.Size = new System.Drawing.Size(1066, 661);
             this.txtOperateHtml.TabIndex = 3;
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.txtListCtrl);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(1072, 667);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "ListCtrl";
+            this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // txtListCtrl
             // 
@@ -308,6 +302,17 @@
             this.txtListCtrl.Size = new System.Drawing.Size(1066, 661);
             this.txtListCtrl.TabIndex = 3;
             // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.txtOpeCtrl);
+            this.tabPage8.Location = new System.Drawing.Point(4, 45);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(1072, 644);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "OpeCtrl";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
             // txtOpeCtrl
             // 
             this.txtOpeCtrl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -316,8 +321,30 @@
             this.txtOpeCtrl.Multiline = true;
             this.txtOpeCtrl.Name = "txtOpeCtrl";
             this.txtOpeCtrl.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtOpeCtrl.Size = new System.Drawing.Size(1066, 661);
+            this.txtOpeCtrl.Size = new System.Drawing.Size(1066, 638);
             this.txtOpeCtrl.TabIndex = 3;
+            // 
+            // tabPage10
+            // 
+            this.tabPage10.Controls.Add(this.txtSQL);
+            this.tabPage10.Location = new System.Drawing.Point(4, 45);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage10.Size = new System.Drawing.Size(1072, 644);
+            this.tabPage10.TabIndex = 9;
+            this.tabPage10.Text = "SQL";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // txtSQL
+            // 
+            this.txtSQL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSQL.Font = new System.Drawing.Font("宋体", 24F);
+            this.txtSQL.Location = new System.Drawing.Point(3, 3);
+            this.txtSQL.Multiline = true;
+            this.txtSQL.Name = "txtSQL";
+            this.txtSQL.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtSQL.Size = new System.Drawing.Size(1066, 638);
+            this.txtSQL.TabIndex = 4;
             // 
             // Form2
             // 
@@ -352,6 +379,8 @@
             this.tabPage7.PerformLayout();
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
+            this.tabPage10.ResumeLayout(false);
+            this.tabPage10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -380,6 +409,8 @@
         private System.Windows.Forms.TextBox txtOperateHtml;
         private System.Windows.Forms.TextBox txtListCtrl;
         private System.Windows.Forms.TextBox txtOpeCtrl;
+        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.TextBox txtSQL;
 
     }
 }

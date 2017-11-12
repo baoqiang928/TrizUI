@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using Triz.DAL;
 using Triz.Model;
@@ -34,11 +35,12 @@ namespace Triz.BLL
 
         public ProjectInfo GetByID(string ID)
         {
-           return new ProjectDAL().GetByID(int.Parse(ID));
+            return new ProjectDAL().GetByID(int.Parse(ID));
         }
-        public List<ProjectInfo> Query(string name, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
+        public List<ProjectInfo> Query(string Code, string Name, string Owner, string Department, string CreateDateTime, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
-            return new ProjectDAL().Query(name, pageIndex, pageSize, ref totalItems, ref PagesLength);
+            return new ProjectDAL().Query(Code, Name, Owner, Department, CreateDateTime, pageIndex, pageSize, ref totalItems, ref PagesLength);
         }
     }
 }
+
