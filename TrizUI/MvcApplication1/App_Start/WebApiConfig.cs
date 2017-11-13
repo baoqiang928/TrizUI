@@ -14,6 +14,11 @@ namespace MvcApplication1
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Formatters.JsonFormatter.SerializerSettings.Converters.Add(new JsonDateTimeConverter()
+            {
+                DateTimeFormat = "yyyy-MM-dd HH:mm:ss"
+            });
         }
     }
 }
