@@ -8,3 +8,6 @@ F:\TrizUI\TrizUI\CodesTool\obj\Debug\CodesTool.exe
 F:\TrizUI\TrizUI\CodesTool\obj\Debug\CodesTool.pdb
 F:\TrizUI\TrizUI\CodesTool\obj\Debug\CodesTool.Form2.resources
 F:\TrizUI\TrizUI\CodesTool\obj\Debug\CodesTool.csprojResolveAssemblyReference.cache
+E:\sourcecode\TrizUI\TrizUI\CodesTool\bin\Debug\CodesTool.exe.config
+E:\sourcecode\TrizUI\TrizUI\CodesTool\obj\Debug\CodesTool.exe
+E:\sourcecode\TrizUI\TrizUI\CodesTool\obj\Debug\CodesTool.pdb
