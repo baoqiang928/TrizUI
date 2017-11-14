@@ -113,8 +113,7 @@ namespace CodesTool
                 {
                     if (string.IsNullOrWhiteSpace(BusinessObjectInfo.Mondantory) && (BusinessObjectInfo.Name != "CreateDateTime"))
                     {
-                        CodeSection1 += @"
-                                    {BusinessObjectInfo.Name}: {
+                        CodeSection1 += @"{BusinessObjectInfo.Name}: {
                                         maxlength: {BusinessObjectInfo.Length}
                                     },
                     ";
@@ -123,8 +122,7 @@ namespace CodesTool
                         continue;
                     }
 
-                    CodeSection1 += @"
-                                    {BusinessObjectInfo.Name}: {
+                    CodeSection1 += @"{BusinessObjectInfo.Name}: {
                                         required: true,
                                         maxlength: {BusinessObjectInfo.Length}
                                     },
@@ -134,10 +132,9 @@ namespace CodesTool
                 }
                 //{messages}
                 if (BusinessObjectInfo.Name == "CreateDateTime") continue;
-                CodeSection2 += @"
-                                    {BusinessObjectInfo.Name}: {
+                CodeSection2 += @"{BusinessObjectInfo.Name}: {
                                         required: ""请填写{BusinessObjectInfo.Description}。"",
-                                    },                                           
+                                    },
                     ";
                 CodeSection2 = CodeSection2.Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name).Replace("{BusinessObjectInfo.Description}", BusinessObjectInfo.Description);
             }

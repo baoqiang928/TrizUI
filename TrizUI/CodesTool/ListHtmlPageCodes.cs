@@ -15,7 +15,7 @@ namespace CodesTool
             <!-- PAGE CONTENT BEGINS -->
             <div class=""row"">
                 <div class=""col-xs-12"">
-                    <h3 class=""header smaller lighter blue"">项目管理</h3>
+                    <h3 class=""header smaller lighter blue"">{BusinessObjectInfo.ObjDes}信息管理</h3>
                     {QueryControl}
 
                     <p>
@@ -61,13 +61,7 @@ namespace CodesTool
                                                 <i class=""icon-trash bigger-130"">删除</i>
                                             </a>
 
-                                            <a class=""red"" href=""#"">
-                                                <i class=""icon-legal bigger-130"">当前项目</i>
-                                            </a>
-
                                         </div>
-
-
                                     </td>
                                 </tr>
 
@@ -174,7 +168,7 @@ namespace CodesTool
 
 
 
-            codes = codes.Replace("{BusinessObjectInfo.ObjName}", BusinessObjectInfoList[0].ObjName);
+            codes = codes.Replace("{BusinessObjectInfo.ObjName}", BusinessObjectInfoList[0].ObjName).Replace("{BusinessObjectInfo.ObjDes}", BusinessObjectInfoList[0].ObjDes);
             return codes;
         }
     }

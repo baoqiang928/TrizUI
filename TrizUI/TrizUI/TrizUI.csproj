@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -533,6 +534,8 @@
     <Content Include="pages\Controllers\StandardSolution.js" />
     <Content Include="pages\Controllers\tm.pagination.js" />
     <Content Include="pages\Controllers\Tree.js" />
+    <Content Include="pages\Controllers\User.js" />
+    <Content Include="pages\Controllers\UserOpeCtrl.js" />
     <Content Include="pages\Evolve\demo.png" />
     <Content Include="pages\Evolve\EvolveList.html" />
     <Content Include="pages\Evolve\EvolveOperate.html" />
@@ -566,6 +569,8 @@
     <Content Include="pages\test\pagination.html" />
     <Content Include="pages\test\pagination.js" />
     <Content Include="pages\test\test.html" />
+    <Content Include="pages\User\UserList.html" />
+    <Content Include="pages\User\UserOperate.html" />
     <Content Include="pricing.html" />
     <Content Include="profile.html" />
     <Content Include="tables.html" />

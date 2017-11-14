@@ -50,12 +50,12 @@
                     </div>
                 </div>                                        
                     
-                <div class="form-group">
+                <div class="form-group" ng-if="data.CreateDateTime!=''">
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1">创建时间</label>
 
                     <div class="col-sm-9">
                         <div class="clearfix">
-                            <input type="text" id="CreateDateTime" name="CreateDateTime" class="col-xs-10 col-sm-5" data-ng-model="data.CreateDateTime" />
+                            <input type="text" id="CreateDateTime" name="CreateDateTime" class="col-xs-10 col-sm-5" data-ng-model="data.CreateDateTime" disabled />
                         </div>
                     </div>
                 </div>                                        

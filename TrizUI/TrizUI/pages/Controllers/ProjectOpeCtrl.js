@@ -1,5 +1,6 @@
 ﻿angular.module("myApp")
-    .controller('ProjectOpeCtrl', function ($scope, $location, requestService, $stateParams, $state) {
+    .controller('ProjectOpeCtrl', function ($scope, $location, requestService, $stateParams, $state, locals) {
+        //alert(locals.get("firstpos"));
         var Sources = "Projects";
         $scope.data = {
             Code: "",

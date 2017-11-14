@@ -11,7 +11,7 @@ namespace CodesTool
         #region codes
         string codes = @"<div class=""page-content"" ng-controller=""{BusinessObjectInfo.ObjName}OpeCtrl"">
     <div class=""page-header"">
-        <h1>项目信息维护
+        <h1>{BusinessObjectInfo.ObjDes}信息维护
         </h1>
     </div>
     <!-- /.page-header -->
@@ -58,9 +58,10 @@ namespace CodesTool
                 //BusinessObjectInfo.Name
                 //BusinessObjectInfo.ObjName
                 if (string.IsNullOrWhiteSpace(BusinessObjectInfo.Operate)) continue;
-
+                string ngif = "";
+                if (BusinessObjectInfo.Name.Contains("CreateDateTime")) ngif = "ng-if=\"data.CreateDateTime != ''\"";
                 CodeSection += @"
-                <div class=""form-group"">
+                <div class=""form-group"" {ng-if}>
                     <label class=""col-sm-3 control-label no-padding-right"" for=""form-field-1"">{BusinessObjectInfo.Description}</label>
 
                     <div class=""col-sm-9"">
@@ -69,12 +70,11 @@ namespace CodesTool
                         </div>
                     </div>
                 </div>                                        
-                    ".Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name).Replace("{BusinessObjectInfo.Description}", BusinessObjectInfo.Description).Replace("{id}", BusinessObjectInfo.Name).Replace("{name}", BusinessObjectInfo.Name);
-                
+                    ".Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name).Replace("{BusinessObjectInfo.Description}", BusinessObjectInfo.Description).Replace("{id}", BusinessObjectInfo.Name).Replace("{name}", BusinessObjectInfo.Name).Replace("{ng-if}", ngif);
             }
 
             codes = codes.Replace("{OperateItem}", CodeSection);
-            codes = codes.Replace("{BusinessObjectInfo.ObjName}", BusinessObjectInfoList[0].ObjName);
+            codes = codes.Replace("{BusinessObjectInfo.ObjName}", BusinessObjectInfoList[0].ObjName).Replace("{BusinessObjectInfo.ObjDes}", BusinessObjectInfoList[0].ObjDes);
             return codes;
         }
     }

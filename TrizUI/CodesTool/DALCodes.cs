@@ -70,7 +70,7 @@ namespace Triz.DAL
             {
                 try
                 {
-                    var Query = TrizDB.tbl_{BusinessObjectInfo.ObjName}Info.Where(o => o.ID == {BusinessObjectInfo.ObjName}Info.ID).First();
+                    var Query = TrizDB.tbl_{BusinessObjectInfo.ObjName}Info.Where(o => o.ID == {BusinessObjectInfo.ObjName}Info.ID).FirstOrDefault();
                     if (Query == null) return false;
                     SetDataEntity(Query, {BusinessObjectInfo.ObjName}Info);
                     TrizDB.SaveChanges();
@@ -108,7 +108,7 @@ namespace Triz.DAL
             {
                 try
                 {
-                    var Query = TrizDB.tbl_{BusinessObjectInfo.ObjName}Info.Where(o => o.ID == id).First();
+                    var Query = TrizDB.tbl_{BusinessObjectInfo.ObjName}Info.Where(o => o.ID == id).FirstOrDefault();
                     if (Query == null) return 0;
                     TrizDB.tbl_{BusinessObjectInfo.ObjName}Info.Remove(Query);
                     return TrizDB.SaveChanges();
@@ -138,7 +138,7 @@ namespace Triz.DAL
             {
                 try
                 {
-                    var Query = TrizDB.tbl_{BusinessObjectInfo.ObjName}Info.Where(o => o.ID == ID).First();
+                    var Query = TrizDB.tbl_{BusinessObjectInfo.ObjName}Info.Where(o => o.ID == ID).FirstOrDefault();
                     if (Query == null) return new {BusinessObjectInfo.ObjName}Info();
                     return GetBusinessObject(Query);
                 }

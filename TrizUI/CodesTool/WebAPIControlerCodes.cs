@@ -84,11 +84,8 @@ namespace MvcApplication1.Controllers
             }
             CodeSection = CodeSection.TrimEnd(',');
             CodeSection1 = CodeSection1.TrimEnd(',');
-
             codes = codes.Replace("{QueryParamsDefine}", CodeSection);
             codes = codes.Replace("{QueryParams}", CodeSection1);
-
-
             codes = codes.Replace("{BusinessObjectInfo.ObjName}", BusinessObjectInfoList[0].ObjName);
             return codes;
         }

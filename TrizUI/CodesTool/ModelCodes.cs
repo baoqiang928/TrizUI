@@ -19,8 +19,7 @@ namespace CodesTool
 
                 if (BusinessObjectInfo.Name == "ID")
                 {
-                    codes = @"
-                                    private int? id;
+                    codes = @"int? id;
                                     public int? ID
                                     {
                                         get { return id; }

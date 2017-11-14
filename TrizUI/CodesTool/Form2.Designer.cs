@@ -30,29 +30,30 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.txtSource = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.txtModel = new System.Windows.Forms.TextBox();
+            this.txtModel = new System.Windows.Forms.RichTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.txtDAL = new System.Windows.Forms.TextBox();
+            this.txtDAL = new System.Windows.Forms.RichTextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.txtBLL = new System.Windows.Forms.TextBox();
+            this.txtBLL = new System.Windows.Forms.RichTextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.txtAPIControler = new System.Windows.Forms.TextBox();
+            this.txtAPIControler = new System.Windows.Forms.RichTextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.txtListHtml = new System.Windows.Forms.TextBox();
+            this.txtListHtml = new System.Windows.Forms.RichTextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.txtOperateHtml = new System.Windows.Forms.TextBox();
+            this.txtOperateHtml = new System.Windows.Forms.RichTextBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.txtListCtrl = new System.Windows.Forms.TextBox();
+            this.txtListCtrl = new System.Windows.Forms.RichTextBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.txtOpeCtrl = new System.Windows.Forms.TextBox();
+            this.txtOpeCtrl = new System.Windows.Forms.RichTextBox();
             this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.txtSQL = new System.Windows.Forms.TextBox();
+            this.txtSQL = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -79,7 +80,8 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.txtName);
+            this.splitContainer1.Panel1.Controls.Add(this.button3);
+            this.splitContainer1.Panel1.Controls.Add(this.button2);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             // 
             // splitContainer1.Panel2
@@ -89,13 +91,25 @@
             this.splitContainer1.SplitterDistance = 41;
             this.splitContainer1.TabIndex = 1;
             // 
-            // txtName
+            // button3
             // 
-            this.txtName.Location = new System.Drawing.Point(116, 12);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(155, 21);
-            this.txtName.TabIndex = 1;
-            this.txtName.Text = "Project";
+            this.button3.Location = new System.Drawing.Point(438, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 36);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "OpenDir";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(338, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 36);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Files";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -162,13 +176,11 @@
             // txtModel
             // 
             this.txtModel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtModel.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtModel.Location = new System.Drawing.Point(3, 3);
-            this.txtModel.Multiline = true;
             this.txtModel.Name = "txtModel";
-            this.txtModel.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtModel.Size = new System.Drawing.Size(1066, 638);
-            this.txtModel.TabIndex = 2;
+            this.txtModel.TabIndex = 3;
+            this.txtModel.Text = "";
             // 
             // tabPage2
             // 
@@ -184,13 +196,11 @@
             // txtDAL
             // 
             this.txtDAL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDAL.Font = new System.Drawing.Font("宋体", 24F);
             this.txtDAL.Location = new System.Drawing.Point(3, 3);
-            this.txtDAL.Multiline = true;
             this.txtDAL.Name = "txtDAL";
-            this.txtDAL.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDAL.Size = new System.Drawing.Size(1066, 638);
-            this.txtDAL.TabIndex = 3;
+            this.txtDAL.TabIndex = 4;
+            this.txtDAL.Text = "";
             // 
             // tabPage3
             // 
@@ -206,13 +216,11 @@
             // txtBLL
             // 
             this.txtBLL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtBLL.Font = new System.Drawing.Font("宋体", 24F);
             this.txtBLL.Location = new System.Drawing.Point(3, 3);
-            this.txtBLL.Multiline = true;
             this.txtBLL.Name = "txtBLL";
-            this.txtBLL.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtBLL.Size = new System.Drawing.Size(1066, 638);
-            this.txtBLL.TabIndex = 3;
+            this.txtBLL.TabIndex = 5;
+            this.txtBLL.Text = "";
             // 
             // tabPage4
             // 
@@ -228,13 +236,11 @@
             // txtAPIControler
             // 
             this.txtAPIControler.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtAPIControler.Font = new System.Drawing.Font("宋体", 24F);
             this.txtAPIControler.Location = new System.Drawing.Point(3, 3);
-            this.txtAPIControler.Multiline = true;
             this.txtAPIControler.Name = "txtAPIControler";
-            this.txtAPIControler.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtAPIControler.Size = new System.Drawing.Size(1066, 638);
-            this.txtAPIControler.TabIndex = 3;
+            this.txtAPIControler.TabIndex = 6;
+            this.txtAPIControler.Text = "";
             // 
             // tabPage5
             // 
@@ -250,13 +256,11 @@
             // txtListHtml
             // 
             this.txtListHtml.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtListHtml.Font = new System.Drawing.Font("宋体", 24F);
             this.txtListHtml.Location = new System.Drawing.Point(3, 3);
-            this.txtListHtml.Multiline = true;
             this.txtListHtml.Name = "txtListHtml";
-            this.txtListHtml.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtListHtml.Size = new System.Drawing.Size(1066, 638);
-            this.txtListHtml.TabIndex = 3;
+            this.txtListHtml.TabIndex = 7;
+            this.txtListHtml.Text = "";
             // 
             // tabPage6
             // 
@@ -272,13 +276,11 @@
             // txtOperateHtml
             // 
             this.txtOperateHtml.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtOperateHtml.Font = new System.Drawing.Font("宋体", 24F);
             this.txtOperateHtml.Location = new System.Drawing.Point(3, 3);
-            this.txtOperateHtml.Multiline = true;
             this.txtOperateHtml.Name = "txtOperateHtml";
-            this.txtOperateHtml.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtOperateHtml.Size = new System.Drawing.Size(1066, 638);
-            this.txtOperateHtml.TabIndex = 3;
+            this.txtOperateHtml.TabIndex = 8;
+            this.txtOperateHtml.Text = "";
             // 
             // tabPage7
             // 
@@ -294,13 +296,11 @@
             // txtListCtrl
             // 
             this.txtListCtrl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtListCtrl.Font = new System.Drawing.Font("宋体", 24F);
             this.txtListCtrl.Location = new System.Drawing.Point(3, 3);
-            this.txtListCtrl.Multiline = true;
             this.txtListCtrl.Name = "txtListCtrl";
-            this.txtListCtrl.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtListCtrl.Size = new System.Drawing.Size(1066, 638);
-            this.txtListCtrl.TabIndex = 3;
+            this.txtListCtrl.TabIndex = 9;
+            this.txtListCtrl.Text = "";
             // 
             // tabPage8
             // 
@@ -316,13 +316,11 @@
             // txtOpeCtrl
             // 
             this.txtOpeCtrl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtOpeCtrl.Font = new System.Drawing.Font("宋体", 24F);
             this.txtOpeCtrl.Location = new System.Drawing.Point(3, 3);
-            this.txtOpeCtrl.Multiline = true;
             this.txtOpeCtrl.Name = "txtOpeCtrl";
-            this.txtOpeCtrl.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtOpeCtrl.Size = new System.Drawing.Size(1066, 638);
-            this.txtOpeCtrl.TabIndex = 3;
+            this.txtOpeCtrl.TabIndex = 10;
+            this.txtOpeCtrl.Text = "";
             // 
             // tabPage10
             // 
@@ -338,13 +336,11 @@
             // txtSQL
             // 
             this.txtSQL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSQL.Font = new System.Drawing.Font("宋体", 24F);
             this.txtSQL.Location = new System.Drawing.Point(3, 3);
-            this.txtSQL.Multiline = true;
             this.txtSQL.Name = "txtSQL";
-            this.txtSQL.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtSQL.Size = new System.Drawing.Size(1066, 638);
-            this.txtSQL.TabIndex = 4;
+            this.txtSQL.TabIndex = 11;
+            this.txtSQL.Text = "";
             // 
             // Form2
             // 
@@ -356,7 +352,6 @@
             this.Text = "Form2";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -364,23 +359,14 @@
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
             this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
             this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
             this.tabPage8.ResumeLayout(false);
-            this.tabPage8.PerformLayout();
             this.tabPage10.ResumeLayout(false);
-            this.tabPage10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -400,17 +386,17 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.TextBox txtSource;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtModel;
-        private System.Windows.Forms.TextBox txtDAL;
-        private System.Windows.Forms.TextBox txtBLL;
-        private System.Windows.Forms.TextBox txtAPIControler;
-        private System.Windows.Forms.TextBox txtListHtml;
-        private System.Windows.Forms.TextBox txtOperateHtml;
-        private System.Windows.Forms.TextBox txtListCtrl;
-        private System.Windows.Forms.TextBox txtOpeCtrl;
         private System.Windows.Forms.TabPage tabPage10;
-        private System.Windows.Forms.TextBox txtSQL;
-
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RichTextBox txtModel;
+        private System.Windows.Forms.RichTextBox txtDAL;
+        private System.Windows.Forms.RichTextBox txtBLL;
+        private System.Windows.Forms.RichTextBox txtAPIControler;
+        private System.Windows.Forms.RichTextBox txtListHtml;
+        private System.Windows.Forms.RichTextBox txtOperateHtml;
+        private System.Windows.Forms.RichTextBox txtListCtrl;
+        private System.Windows.Forms.RichTextBox txtOpeCtrl;
+        private System.Windows.Forms.RichTextBox txtSQL;
+        private System.Windows.Forms.Button button3;
     }
 }

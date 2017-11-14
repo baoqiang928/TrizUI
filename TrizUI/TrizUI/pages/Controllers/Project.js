@@ -1,5 +1,10 @@
 ﻿angular.module("myApp")
-    .controller('ProjectCtrl', function ($scope, $location, requestService, $state) {
+    .controller('ProjectCtrl', function ($scope, $location, requestService, $state, locals) {
+
+        //存
+        locals.set("firstpos", "aaaaaaa");//字符串
+        //locals.setObject("secondpos", secondpos);//对象
+
         var Sources = "Projects";
         $scope.paginationConf = {
             currentPage: 1,

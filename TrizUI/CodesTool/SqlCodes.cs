@@ -50,6 +50,11 @@ GO
                 {
                     isnull = "NOT NULL";
                 }
+                if (BusinessObjectInfo.Name.Contains("CreateDateTime"))
+                {
+                    isnull = "NOT NULL";
+                }
+
                 if (BusinessObjectInfo.Type == "String")
                 {
                     fieldtype = "nvarchar";

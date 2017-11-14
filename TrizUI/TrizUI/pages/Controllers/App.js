@@ -12,6 +12,16 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
            url: "/ProjectAdd",
            templateUrl: "/pages/Project/ProjectOperate.html"
        })
+        .state("UserList", {
+            url: "/UserList",
+            templateUrl: "/pages/User/UserList.html",
+            module: "tm.pagination"
+        })
+       .state("UserAdd", {
+           params: { "ID": null },
+           url: "/UserAdd",
+           templateUrl: "/pages/User/UserOperate.html"
+       })
        .state("ResolveDetail", {
            url: "/ResolveDetail",
            templateUrl: "/pages/Conflict/ResolveDetail.html"
@@ -156,3 +166,23 @@ function requestService($http, $q, request) {
     });
     return deferred.promise;   // 返回承诺，这里并不是最终数据，而是访问最终数据的API  
 };
+
+
+//=========本地存储数据服务============
+myApp.factory('locals', ['$window', function ($window) {
+    return {        //存储单个属性
+        set: function (key, value) {
+            $window.localStorage[key] = value;
+        },        //读取单个属性
+        get: function (key, defaultValue) {
+            return $window.localStorage[key] || defaultValue;
+        },        //存储对象，以JSON格式存储
+        setObject: function (key, value) {
+            $window.localStorage[key] = JSON.stringify(value);//将对象以字符串保存
+        },        //读取对象
+        getObject: function (key) {
+            return JSON.parse($window.localStorage[key] || '{}');//获取字符串并解析成对象
+        }
+
+    }
+}]);

@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="ProjectLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Triz.DAL\Triz.DAL.csproj">

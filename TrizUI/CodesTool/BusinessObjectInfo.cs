@@ -16,6 +16,14 @@ namespace CodesTool
             set { objName = value; }
         }
 
+        private string objDes;
+
+        public string ObjDes
+        {
+            get { return objDes; }
+            set { objDes = value; }
+        }
+
         private string name;
         /// <summary>
         /// 业务类属性名称

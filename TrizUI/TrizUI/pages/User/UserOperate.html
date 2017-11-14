@@ -1,0 +1,109 @@
+<div class="page-content" ng-controller="UserOpeCtrl">
+    <div class="page-header">
+        <h1>用戶信息维护
+        </h1>
+    </div>
+    <!-- /.page-header -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <form class="form-horizontal" id="validation-form" role="form">
+            
+                
+                <div class="form-group" >
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">姓名</label>
+
+                    <div class="col-sm-9">
+                        <div class="clearfix">
+                            <input type="text" id="Name" name="Name" class="col-xs-10 col-sm-5" data-ng-model="data.Name" />
+                        </div>
+                    </div>
+                </div>                                        
+                    
+                <div class="form-group" >
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">公司</label>
+
+                    <div class="col-sm-9">
+                        <div class="clearfix">
+                            <input type="text" id="Company" name="Company" class="col-xs-10 col-sm-5" data-ng-model="data.Company" />
+                        </div>
+                    </div>
+                </div>                                        
+                    
+                <div class="form-group" >
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">手机</label>
+
+                    <div class="col-sm-9">
+                        <div class="clearfix">
+                            <input type="text" id="Mobile" name="Mobile" class="col-xs-10 col-sm-5" data-ng-model="data.Mobile" />
+                        </div>
+                    </div>
+                </div>                                        
+                    
+                <div class="form-group" >
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">邮箱</label>
+
+                    <div class="col-sm-9">
+                        <div class="clearfix">
+                            <input type="text" id="Email" name="Email" class="col-xs-10 col-sm-5" data-ng-model="data.Email" />
+                        </div>
+                    </div>
+                </div>                                        
+                    
+                <div class="form-group" >
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">账号</label>
+
+                    <div class="col-sm-9">
+                        <div class="clearfix">
+                            <input type="text" id="Account" name="Account" class="col-xs-10 col-sm-5" data-ng-model="data.Account" />
+                        </div>
+                    </div>
+                </div>                                        
+                    
+                <div class="form-group" >
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">密码</label>
+
+                    <div class="col-sm-9">
+                        <div class="clearfix">
+                            <input type="text" id="Password" name="Password" class="col-xs-10 col-sm-5" data-ng-model="data.Password" />
+                        </div>
+                    </div>
+                </div>                                        
+                    
+                <div class="form-group" >
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">备注</label>
+
+                    <div class="col-sm-9">
+                        <div class="clearfix">
+                            <input type="text" id="Remark" name="Remark" class="col-xs-10 col-sm-5" data-ng-model="data.Remark" />
+                        </div>
+                    </div>
+                </div>                                        
+                    
+
+                <div class="space-4"></div>
+
+                <div class="clearfix form-actions">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button class="btn btn-info" type="button" ng-click="Save()">
+                            <i class="icon-ok bigger-110"></i>
+                            保存
+                        </button>
+                        &nbsp; &nbsp; &nbsp;
+						<button class="btn" id="BtnGetQRCode" type="reset" onclick="window.history.back()">
+                            <i class="icon-arrow-left bigger-110"></i>
+                            返回
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+
+            <!-- PAGE CONTENT ENDS -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</div>
+
+
