@@ -25,7 +25,6 @@ angular.module("myApp")
                 return false;
             }
             $scope.data.ProjectID = locals.get("ProjectID");
-            alert($scope.data.ProjectID);
             requestService.add(Sources, $scope.data).then(function (data) {
                 Alert("保存成功。");
                 return;

@@ -1,307 +1,308 @@
-﻿<div class="page-content" ng-controller="ProjectCtrl">
-    <div class="page-header">
-        <h1>问题分析</h1>
-    </div>
-    <!-- /.page-header -->
+﻿<div class="page-content" ng-controller="QuestionAnalyseOpeCtrl">
+    <form class="form-horizontal" id="validation-form" role="form">
 
-    <div class="row">
-        <div class="col-xs-12 col-sm-4">
-            <div class="widget-box">
-                <div class="widget-header">
-                    <h4>问题的理想解</h4>
-
-                    <div class="widget-toolbar">
-                        <a href="#" data-action="collapse">
-                            <i class="icon-chevron-up"></i>
-                        </a>
-
-                        <a href="#" data-action="close">
-                            <i class="icon-remove"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="widget-body">
-                    <div class="widget-main">
-                        <div>
-                            <label for="form-field-8">步骤1：系统的理想目标</label>
-
-                            <textarea class="form-control" id="form-field-8"></textarea>
-                        </div>
-
-                        <div>
-                            <label for="form-field-9">步骤2：系统的当前目标</label>
-
-                            <textarea class="form-control limited" id="form-field-9" maxlength="50"></textarea>
-                        </div>
-
-                        <div>
-                            <label for="form-field-11">步骤3：系统当前目标的持续性</label>
-
-                            <textarea id="form-field-11" class="autosize-transition form-control"></textarea>
-                        </div>
-
-                        <div>
-                            <label for="form-field-11">步骤4：系统当前目标的意义</label>
-
-                            <textarea id="Textarea1" class="autosize-transition form-control"></textarea>
-                        </div>
-
-                        <div>
-                            <label for="form-field-11">步骤5：解决这个问题与企业的战略一致吗？</label>
-
-                            <textarea id="Textarea2" class="autosize-transition form-control"></textarea>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
+        <div class="page-header">
+            <h1>问题分析</h1>
         </div>
-        <!-- /span -->
+        <!-- /.page-header -->
 
-    </div>
-    <!-- /row -->
-
-	<h4 class="header green">系统的相关要求：绞车无论何时都能正常排绳</h4>
-
-    <div class="row">
-        <div class="col-xs-12 col-sm-4">
-            <div class="widget-box">
-                <div class="widget-header">
-                    <h4>确定基本问题</h4>
-
-                    <div class="widget-toolbar">
-                        <a href="#" data-action="collapse">
-                            <i class="icon-chevron-up"></i>
-                        </a>
-
-                        <a href="#" data-action="close">
-                            <i class="icon-remove"></i>
-                        </a>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <div class="widget-box">
+                    <div class="widget-header">
+                        <h4>问题的理想解</h4>
                     </div>
-                </div>
 
-                <div class="widget-body">
-                    <div class="widget-main">
-                        <div>
-                            <label for="form-field-8">步骤1：确定必须改进的主要参数</label>
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div>
+                                <label for="form-field-8">步骤1：系统的理想目标</label>
+                                <div class="clearfix">
+                                    <textarea class="form-control" id="IdealResolution1" name="IdealResolution1" data-ng-model="data.IdealResolution1" ></textarea>
+                                </div>
+                            </div>
 
-                            <textarea class="form-control" id="Textarea7"></textarea>
-                        </div>
+                            <div>
+                                <label for="form-field-9">步骤2：系统的当前目标</label>
 
-                        <div>
-                            <label for="form-field-9">步骤2：该级别问题下的原因及其可控性</label>
+                                <div class="clearfix">
+                                    <textarea class="form-control limited" id="IdealResolution2" name="IdealResolution2"  data-ng-model="data.IdealResolution2" ></textarea>
+                                </div>
+                            </div>
 
-                            <textarea class="form-control limited" id="Textarea8" maxlength="50"></textarea>
-                        </div>
+                            <div>
+                                <label for="form-field-11">步骤3：系统当前目标的持续性</label>
 
-                        <div>
-                            <label for="form-field-11">步骤3：客户是否关心在这个级别解决问题？</label>
+                                <div class="clearfix">
+                                    <textarea id="form-field-11" id="IdealResolution3" name="IdealResolution3" class="autosize-transition form-control" data-ng-model="data.IdealResolution3" ></textarea>
+                                </div>
+                            </div>
 
-                            <textarea id="Textarea9" class="autosize-transition form-control"></textarea>
-                        </div>
+                            <div>
+                                <label for="form-field-11">步骤4：系统当前目标的意义</label>
 
-                        <div>
-                            <label for="form-field-11">步骤4：描述基本问题</label>
+                                <div class="clearfix">
+                                    <textarea id="Textarea1" id="IdealResolution4" name="IdealResolution4" class="autosize-transition form-control" data-ng-model="data.IdealResolution4" ></textarea>
+                                </div>
+                            </div>
 
-                            <textarea id="Textarea5" class="autosize-transition form-control"></textarea>
+                            <div>
+                                <label for="form-field-11">步骤5：解决这个问题与企业的战略一致吗？</label>
+
+                                <div class="clearfix">
+                                    <textarea id="Textarea2" id="IdealResolution5" name="IdealResolution5" class="autosize-transition form-control" data-ng-model="data.IdealResolution5" ></textarea>
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- /span -->
+
         </div>
-        <!-- /span -->
+        <!-- /row -->
 
-        <div class="col-xs-12 col-sm-4">
-            <div class="widget-box">
-                <img src="/pages/QuestionAnalyse/wentifenxi.jpg" width="500" />
-            </div>
-        </div>
-        <!-- /span -->
+        <h4 class="header green">系统的相关要求：绞车无论何时都能正常排绳</h4>
 
-    </div>
-    <!-- /row -->
-
-	<h4 class="header purple">初始问题：排缆器对钢缆的引导作用不足，导致空载时收排绳混乱，出现压绳乱绳现象</h4>
-    <div class="row">
-        <div class="col-xs-12 col-sm-4">
-            <div class="widget-box">
-                <div class="widget-header">
-                    <h4>系统作用对象</h4>
-
-                    <div class="widget-toolbar">
-                        <a href="#" data-action="collapse">
-                            <i class="icon-chevron-up"></i>
-                        </a>
-
-                        <a href="#" data-action="close">
-                            <i class="icon-remove"></i>
-                        </a>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <div class="widget-box">
+                    <div class="widget-header">
+                        <h4>确定基本问题</h4>
                     </div>
-                </div>
 
-                <div class="widget-body">
-                    <div class="widget-main">
-                        <div>
-                            <label for="form-field-8">步骤1：受影响对象及其主要工作是什么？</label>
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div>
+                                <label for="form-field-8">步骤1：确定必须改进的主要参数</label>
 
-                            <textarea class="form-control" id="Textarea16"></textarea>
-                        </div>
+                                <div class="clearfix">
+                                    <textarea class="form-control" id="BasicQuestion1" name="BasicQuestion1" data-ng-model="data.BasicQuestion1" ></textarea>
+                                </div>
+                            </div>
 
-                        <div>
-                            <label for="form-field-9">步骤2：工作进行时特殊的情况是什么？</label>
+                            <div>
+                                <label for="form-field-9">步骤2：该级别问题下的原因及其可控性</label>
 
-                            <textarea class="form-control limited" id="Textarea17" maxlength="50"></textarea>
-                        </div>
+                                <div class="clearfix">
+                                    <textarea class="form-control limited" id="BasicQuestion2" name="BasicQuestion2"  data-ng-model="data.BasicQuestion2" ></textarea>
+                                </div>
+                            </div>
 
-                        <div>
-                            <label for="form-field-11">步骤3：对象的典型属性是什么？</label>
+                            <div>
+                                <label for="form-field-11">步骤3：客户是否关心在这个级别解决问题？</label>
 
-                            <textarea id="Textarea18" class="autosize-transition form-control"></textarea>
-                        </div>
+                                <div class="clearfix">
+                                    <textarea id="BasicQuestion3" name="BasicQuestion3" class="autosize-transition form-control" data-ng-model="data.BasicQuestion3" ></textarea>
+                                </div>
+                            </div>
 
-                        <div>
-                            <label for="form-field-11">步骤4：对象的典型属性所影响的系统其他属性？</label>
+                            <div>
+                                <label for="form-field-11">步骤4：描述基本问题</label>
 
-                            <textarea id="Textarea6" class="autosize-transition form-control"></textarea>
-                        </div>
-
-                        <div>
-                            <label for="form-field-11">步骤5：影响该对象的典型属性的系统属性？</label>
-
-                            <textarea id="Textarea10" class="autosize-transition form-control"></textarea>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /span -->
-
-        <div class="col-xs-12 col-sm-4">
-            <div class="widget-box">
-                <div class="widget-header">
-                    <h4>问题的约束</h4>
-
-                    <div class="widget-toolbar">
-                        <a href="#" data-action="collapse">
-                            <i class="icon-chevron-up"></i>
-                        </a>
-
-                        <a href="#" data-action="close">
-                            <i class="icon-remove"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="widget-body">
-                    <div class="widget-main">
-                        <div>
-                            <label for="form-field-8">步骤1：解决问题的周期有多长？</label>
-
-                            <textarea class="form-control" id="Textarea19"></textarea>
-                        </div>
-
-                        <div>
-                            <label for="form-field-9">步骤2：解决问题的成本</label>
-
-                            <textarea class="form-control limited" id="Textarea20" maxlength="50"></textarea>
-                        </div>
-
-                        <div>
-                            <label for="form-field-11">步骤3：解决问题后系统的变化</label>
-
-                            <textarea id="Textarea21" class="autosize-transition form-control"></textarea>
-                        </div>
-                        <div>
-                            <label for="form-field-11">步骤4：解决问题时超系统的约束？</label>
-
-                            <textarea id="Textarea11" class="autosize-transition form-control"></textarea>
-                        </div>
-
-                        <div>
-                            <label for="form-field-11">步骤5：问题系统作用对象的约束？</label>
-
-                            <textarea id="Textarea12" class="autosize-transition form-control"></textarea>
+                                <div class="clearfix">
+                                    <textarea id="BasicQuestion4" name="BasicQuestion4" class="autosize-transition form-control" data-ng-model="data.BasicQuestion4" ></textarea>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- /span -->
+            <!-- /span -->
 
-        <div class="col-xs-12 col-sm-4">
-            <div class="widget-box">
-                <div class="widget-header">
-                    <h4>解决问题的重要性</h4>
-
-                    <div class="widget-toolbar">
-                        <a href="#" data-action="collapse">
-                            <i class="icon-chevron-up"></i>
-                        </a>
-
-                        <a href="#" data-action="close">
-                            <i class="icon-remove"></i>
-                        </a>
-                    </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="widget-box">
+                    <img src="/pages/QuestionAnalyse/wentifenxi.jpg" width="500" />
                 </div>
+            </div>
+            <!-- /span -->
 
-                <div class="widget-body">
-                    <div class="widget-main">
-                        <div>
-                            <label for="form-field-8">步骤1：该问题导致的相关缺陷和成本损失</label>
+        </div>
+        <!-- /row -->
 
-                            <textarea class="form-control" id="Textarea22"></textarea>
+        <h4 class="header purple">初始问题：排缆器对钢缆的引导作用不足，导致空载时收排绳混乱，出现压绳乱绳现象</h4>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <div class="widget-box">
+                    <div class="widget-header">
+                        <h4>系统作用对象</h4>
+                    </div>
+
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div>
+                                <label for="form-field-8">步骤1：受影响对象及其主要工作是什么？</label>
+
+                                <div class="clearfix">
+                                    <textarea class="form-control" id="AgainstObject1" name="AgainstObject1" data-ng-model="data.AgainstObject1" ></textarea>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="form-field-9">步骤2：工作进行时特殊的情况是什么？</label>
+
+                                <div class="clearfix">
+                                    <textarea class="form-control limited" id="AgainstObject2" name="AgainstObject2"  data-ng-model="data.AgainstObject2" ></textarea>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="form-field-11">步骤3：对象的典型属性是什么？</label>
+
+                                <div class="clearfix">
+                                    <textarea id="AgainstObject3" name="AgainstObject3" class="autosize-transition form-control" data-ng-model="data.AgainstObject3" ></textarea>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="form-field-11">步骤4：对象的典型属性所影响的系统其他属性？</label>
+                                <div class="clearfix">
+                                    <textarea id="AgainstObject4" name="AgainstObject4" class="autosize-transition form-control" data-ng-model="data.BasicQuestion4" ></textarea>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="form-field-11">步骤5：影响该对象的典型属性的系统属性？</label>
+
+                                <div class="clearfix">
+                                    <textarea id="AgainstObject5" name="AgainstObject5" class="autosize-transition form-control" data-ng-model="data.AgainstObject5" ></textarea>
+                                </div>
+                            </div>
+
                         </div>
-
-                        <div>
-                            <label for="form-field-9">步骤2：该问题对系统的具体需求</label>
-
-                            <textarea class="form-control limited" id="Textarea23" maxlength="50"></textarea>
-                        </div>
-
-                        <div>
-                            <label for="form-field-11">步骤3：关注该问题的客户群体</label>
-
-                            <textarea id="Textarea24" class="autosize-transition form-control"></textarea>
-                        </div>
-
-                        <div>
-                            <label for="form-field-11">步骤4：问题值的价值与意义</label>
-
-                            <textarea id="Textarea3" class="autosize-transition form-control"></textarea>
-                        </div>
-
-                        <div>
-                            <label for="form-field-11">步骤5：解决这个问题与企业的战略一致吗？</label>
-
-                            <textarea id="Textarea4" class="autosize-transition form-control"></textarea>
-                        </div>
-
                     </div>
                 </div>
             </div>
+            <!-- /span -->
+
+            <div class="col-xs-12 col-sm-4">
+                <div class="widget-box">
+                    <div class="widget-header">
+                        <h4>问题的约束</h4>
+                    </div>
+
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div>
+                                <label for="form-field-8">步骤1：解决问题的周期有多长？</label>
+
+                                <div class="clearfix">
+                                    <textarea class="form-control" id="Constriction1" name="Constriction1" data-ng-model="data.Constriction1" ></textarea>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="form-field-9">步骤2：解决问题的成本</label>
+
+                                <div class="clearfix">
+                                    <textarea class="form-control limited" id="Constriction2" name="Constriction2"  data-ng-model="data.Constriction2" ></textarea>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="form-field-11">步骤3：解决问题后系统的变化</label>
+
+                                <div class="clearfix">
+                                    <textarea id="Constriction3" name="Constriction3" class="autosize-transition form-control" data-ng-model="data.Constriction3" ></textarea>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="form-field-11">步骤4：解决问题时超系统的约束？</label>
+
+                                <div class="clearfix">
+                                    <textarea id="Constriction4" name="Constriction4" class="autosize-transition form-control" data-ng-model="data.Constriction4" ></textarea>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="form-field-11">步骤5：问题系统作用对象的约束？</label>
+
+                                <div class="clearfix">
+                                    <textarea id="Constriction5" name="Constriction5" class="autosize-transition form-control" data-ng-model="data.Constriction5" ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /span -->
+
+            <div class="col-xs-12 col-sm-4">
+                <div class="widget-box">
+                    <div class="widget-header">
+                        <h4>解决问题的重要性</h4>
+                    </div>
+
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div>
+                                <label for="form-field-8">步骤1：该问题导致的相关缺陷和成本损失</label>
+
+                                <div class="clearfix">
+                                    <textarea class="form-control" id="ResolutionImportance1" name="ResolutionImportance1" data-ng-model="data.ResolutionImportance1" ></textarea>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="form-field-9">步骤2：该问题对系统的具体需求</label>
+
+                                <div class="clearfix">
+                                    <textarea class="form-control limited" id="ResolutionImportance2" name="ResolutionImportance2"  data-ng-model="data.ResolutionImportance2" ></textarea>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="form-field-11">步骤3：关注该问题的客户群体</label>
+
+                                <div class="clearfix">
+                                    <textarea id="ResolutionImportance3" name="ResolutionImportance3" class="autosize-transition form-control" data-ng-model="data.ResolutionImportance3" ></textarea>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="form-field-11">步骤4：问题值的价值与意义</label>
+
+                                <div class="clearfix">
+                                    <textarea id="ResolutionImportance4" name="ResolutionImportance4" class="autosize-transition form-control" data-ng-model="data.ResolutionImportance4" ></textarea>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="form-field-11">步骤5：解决这个问题与企业的战略一致吗？</label>
+
+                                <div class="clearfix">
+                                    <textarea id="ResolutionImportance5" name="ResolutionImportance5" class="autosize-transition form-control" data-ng-model="data.ResolutionImportance5" ></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /span -->
+
         </div>
-        <!-- /span -->
+        <!-- /row -->
 
-    </div>
-    <!-- /row -->
+        <div class="space-4"></div>
 
-    <div class="space-4"></div>
-
-    <div class="clearfix form-actions">
-        <div class="col-md-offset-3 col-md-9">
-            <button class="btn btn-info" type="button" onclick="window.history.back()">
-                <i class="icon-ok bigger-110"></i>
-                保存
-            </button>
-            &nbsp; &nbsp; &nbsp;
+        <div class="clearfix form-actions">
+            <div class="col-md-offset-3 col-md-9">
+                <button class="btn btn-info" type="button" ng-click="Save()">
+                    <i class="icon-ok bigger-110"></i>
+                    保存
+                </button>
+                &nbsp; &nbsp; &nbsp;
+           
             <button class="btn btn-info" type="button">
                 <i class="icon-cloud-download bigger-110"></i>
                 导出文档
+           
             </button>
+            </div>
         </div>
-    </div>
-    <!-- /.row -->
+        <!-- /.row -->
+    </form>
 </div>

@@ -11,6 +11,38 @@
     <Property Name="Department" Type="nvarchar" MaxLength="50" />
     <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
   </EntityType>
+  <EntityType Name="tbl_QuestionAnalyseInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="IdealResolution1" Type="nvarchar" MaxLength="500" />
+    <Property Name="IdealResolution2" Type="nvarchar" MaxLength="500" />
+    <Property Name="IdealResolution3" Type="nvarchar" MaxLength="500" />
+    <Property Name="IdealResolution4" Type="nvarchar" MaxLength="500" />
+    <Property Name="IdealResolution5" Type="nvarchar" MaxLength="500" />
+    <Property Name="BasicQuestion1" Type="nvarchar" MaxLength="500" />
+    <Property Name="BasicQuestion2" Type="nvarchar" MaxLength="500" />
+    <Property Name="BasicQuestion3" Type="nvarchar" MaxLength="500" />
+    <Property Name="BasicQuestion4" Type="nvarchar" MaxLength="500" />
+    <Property Name="AgainstObject1" Type="nvarchar" MaxLength="500" />
+    <Property Name="AgainstObject2" Type="nvarchar" MaxLength="500" />
+    <Property Name="AgainstObject3" Type="nvarchar" MaxLength="500" />
+    <Property Name="AgainstObject4" Type="nvarchar" MaxLength="500" />
+    <Property Name="AgainstObject5" Type="nvarchar" MaxLength="500" />
+    <Property Name="Constriction1" Type="nvarchar" MaxLength="500" />
+    <Property Name="Constriction2" Type="nvarchar" MaxLength="500" />
+    <Property Name="Constriction3" Type="nvarchar" MaxLength="500" />
+    <Property Name="Constriction4" Type="nvarchar" MaxLength="500" />
+    <Property Name="Constriction5" Type="nvarchar" MaxLength="500" />
+    <Property Name="ResolutionImportance1" Type="nvarchar" MaxLength="500" />
+    <Property Name="ResolutionImportance2" Type="nvarchar" MaxLength="500" />
+    <Property Name="ResolutionImportance3" Type="nvarchar" MaxLength="500" />
+    <Property Name="ResolutionImportance4" Type="nvarchar" MaxLength="500" />
+    <Property Name="ResolutionImportance5" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
   <EntityType Name="tbl_QuestionDescriptionInfo">
     <Key>
       <PropertyRef Name="ID" />
@@ -51,6 +83,7 @@
   </EntityType>
   <EntityContainer Name="TrizDBModelStoreContainer">
     <EntitySet Name="tbl_ProjectInfo" EntityType="Self.tbl_ProjectInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QuestionAnalyseInfo" EntityType="Self.tbl_QuestionAnalyseInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_QuestionDescriptionInfo" EntityType="Self.tbl_QuestionDescriptionInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_UserInfo" EntityType="Self.tbl_UserInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_UserProjectInfo" EntityType="Self.tbl_UserProjectInfo" Schema="dbo" store:Type="Tables" />

@@ -65,8 +65,8 @@ namespace CodesTool
                 if (BusinessObjectInfo.Type == "Int")
                 {
                     codes = @"
-                                    private int {0};
-                                    public int {1}
+                                    private int? {0};
+                                    public int? {1}
                                     {
                                         get { return {0}; }
                                         set { {0} = value; }

@@ -54,5 +54,38 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbl_QuestionAnalyseInfo">
+      <EntityTypeMapping TypeName="TrizDBModel.tbl_QuestionAnalyseInfo">
+        <MappingFragment StoreEntitySet="tbl_QuestionAnalyseInfo">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="ResolutionImportance5" ColumnName="ResolutionImportance5" />
+          <ScalarProperty Name="ResolutionImportance4" ColumnName="ResolutionImportance4" />
+          <ScalarProperty Name="ResolutionImportance3" ColumnName="ResolutionImportance3" />
+          <ScalarProperty Name="ResolutionImportance2" ColumnName="ResolutionImportance2" />
+          <ScalarProperty Name="ResolutionImportance1" ColumnName="ResolutionImportance1" />
+          <ScalarProperty Name="Constriction5" ColumnName="Constriction5" />
+          <ScalarProperty Name="Constriction4" ColumnName="Constriction4" />
+          <ScalarProperty Name="Constriction3" ColumnName="Constriction3" />
+          <ScalarProperty Name="Constriction2" ColumnName="Constriction2" />
+          <ScalarProperty Name="Constriction1" ColumnName="Constriction1" />
+          <ScalarProperty Name="AgainstObject5" ColumnName="AgainstObject5" />
+          <ScalarProperty Name="AgainstObject4" ColumnName="AgainstObject4" />
+          <ScalarProperty Name="AgainstObject3" ColumnName="AgainstObject3" />
+          <ScalarProperty Name="AgainstObject2" ColumnName="AgainstObject2" />
+          <ScalarProperty Name="AgainstObject1" ColumnName="AgainstObject1" />
+          <ScalarProperty Name="BasicQuestion4" ColumnName="BasicQuestion4" />
+          <ScalarProperty Name="BasicQuestion3" ColumnName="BasicQuestion3" />
+          <ScalarProperty Name="BasicQuestion2" ColumnName="BasicQuestion2" />
+          <ScalarProperty Name="BasicQuestion1" ColumnName="BasicQuestion1" />
+          <ScalarProperty Name="IdealResolution5" ColumnName="IdealResolution5" />
+          <ScalarProperty Name="IdealResolution4" ColumnName="IdealResolution4" />
+          <ScalarProperty Name="IdealResolution3" ColumnName="IdealResolution3" />
+          <ScalarProperty Name="IdealResolution2" ColumnName="IdealResolution2" />
+          <ScalarProperty Name="IdealResolution1" ColumnName="IdealResolution1" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

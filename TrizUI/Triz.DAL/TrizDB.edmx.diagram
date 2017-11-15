@@ -9,6 +9,7 @@
         <EntityTypeShape EntityType="TrizDBModel.tbl_UserProjectInfo" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="TrizDBModel.tbl_QuestionDescriptionInfo" Width="1.5" PointX="5.125" PointY="2.75" />
         <EntityTypeShape EntityType="TrizDBModel.tbl_UserInfo" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TrizDBModel.tbl_QuestionAnalyseInfo" Width="1.5" PointX="1" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

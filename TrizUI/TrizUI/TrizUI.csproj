@@ -530,6 +530,7 @@
     <Content Include="pages\Conflict\TechConflictOperate.html" />
     <Content Include="pages\Conflict\TechConflictResolveList.html" />
     <Content Include="pages\Controllers\DataPicker.js" />
+    <Content Include="pages\Controllers\QuestionAnalyseOpeCtrl.js" />
     <Content Include="pages\Controllers\MasterCtrl.js" />
     <Content Include="pages\Controllers\ProjectOpeCtrl.js" />
     <Content Include="pages\Controllers\QuestionDescriptionOpeCtrl.js" />
