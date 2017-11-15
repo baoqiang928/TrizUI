@@ -150,23 +150,23 @@ namespace Triz.DAL
             return new UserInfo();
         }
 
-        public List<UserInfo> Query(string Name,string Mobile,string Email,string Account, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
+        public List<UserInfo> Query(string Name, string Mobile, string Email, string Account, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
             int startRow = (pageIndex - 1) * pageSize;
             Expression<Func<tbl_UserInfo, bool>> where = PredicateExtensionses.True<tbl_UserInfo>();
-            
-                    if (!string.IsNullOrWhiteSpace(Name))
-                        where = where.And(a => a.Name.Contains(Name));
-                
-                    if (!string.IsNullOrWhiteSpace(Mobile))
-                        where = where.And(a => a.Mobile.Contains(Mobile));
-                
-                    if (!string.IsNullOrWhiteSpace(Email))
-                        where = where.And(a => a.Email.Contains(Email));
-                
-                    if (!string.IsNullOrWhiteSpace(Account))
-                        where = where.And(a => a.Account.Contains(Account));
-                
+
+            if (!string.IsNullOrWhiteSpace(Name))
+                where = where.And(a => a.Name.Contains(Name));
+
+            if (!string.IsNullOrWhiteSpace(Mobile))
+                where = where.And(a => a.Mobile.Contains(Mobile));
+
+            if (!string.IsNullOrWhiteSpace(Email))
+                where = where.And(a => a.Email.Contains(Email));
+
+            if (!string.IsNullOrWhiteSpace(Account))
+                where = where.And(a => a.Account.Contains(Account));
+
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
                 var query = TrizDB.tbl_UserInfo.Where(where.Compile());
@@ -180,56 +180,56 @@ namespace Triz.DAL
         public UserInfo GetBusinessObject(tbl_UserInfo UserInfoEntity)
         {
             UserInfo UserInfo = new UserInfo();
-            
-                                     UserInfo.ID = UserInfoEntity.ID;
-                    
-                                     UserInfo.Name = UserInfoEntity.Name;
-                    
-                                     UserInfo.Company = UserInfoEntity.Company;
-                    
-                                     UserInfo.Mobile = UserInfoEntity.Mobile;
-                    
-                                     UserInfo.Email = UserInfoEntity.Email;
-                    
-                                     UserInfo.Account = UserInfoEntity.Account;
-                    
-                                     UserInfo.Password = UserInfoEntity.Password;
-                    
-                                     UserInfo.Remark = UserInfoEntity.Remark;
-                    
-                                     UserInfo.CreateDateTime = UserInfoEntity.CreateDateTime;
-                    
+
+            UserInfo.ID = UserInfoEntity.ID;
+
+            UserInfo.Name = UserInfoEntity.Name;
+
+            UserInfo.CompanyID = UserInfoEntity.CompanyID;
+
+            UserInfo.Mobile = UserInfoEntity.Mobile;
+
+            UserInfo.Email = UserInfoEntity.Email;
+
+            UserInfo.Account = UserInfoEntity.Account;
+
+            UserInfo.Password = UserInfoEntity.Password;
+
+            UserInfo.Remark = UserInfoEntity.Remark;
+
+            UserInfo.CreateDateTime = UserInfoEntity.CreateDateTime;
+
 
             return UserInfo;
         }
 
         public void SetDataEntity(tbl_UserInfo UserInfoEntity, UserInfo UserInfo)
         {
-             
-                                        if (UserInfo.ID != null)
-                                            UserInfoEntity.ID = UserInfo.ID ?? 0;
-                    
-                                        if (UserInfo.Name != null)
-                                            UserInfoEntity.Name = UserInfo.Name;
-                    
-                                        if (UserInfo.Company != null)
-                                            UserInfoEntity.Company = UserInfo.Company;
-                    
-                                        if (UserInfo.Mobile != null)
-                                            UserInfoEntity.Mobile = UserInfo.Mobile;
-                    
-                                        if (UserInfo.Email != null)
-                                            UserInfoEntity.Email = UserInfo.Email;
-                    
-                                        if (UserInfo.Account != null)
-                                            UserInfoEntity.Account = UserInfo.Account;
-                    
-                                        if (UserInfo.Password != null)
-                                            UserInfoEntity.Password = UserInfo.Password;
-                    
-                                        if (UserInfo.Remark != null)
-                                            UserInfoEntity.Remark = UserInfo.Remark;
-                    
+
+            if (UserInfo.ID != null)
+                UserInfoEntity.ID = UserInfo.ID ?? 0;
+
+            if (UserInfo.Name != null)
+                UserInfoEntity.Name = UserInfo.Name;
+
+            if (UserInfo.CompanyID != null)
+                UserInfoEntity.CompanyID = UserInfo.CompanyID;
+
+            if (UserInfo.Mobile != null)
+                UserInfoEntity.Mobile = UserInfo.Mobile;
+
+            if (UserInfo.Email != null)
+                UserInfoEntity.Email = UserInfo.Email;
+
+            if (UserInfo.Account != null)
+                UserInfoEntity.Account = UserInfo.Account;
+
+            if (UserInfo.Password != null)
+                UserInfoEntity.Password = UserInfo.Password;
+
+            if (UserInfo.Remark != null)
+                UserInfoEntity.Remark = UserInfo.Remark;
+
         }
 
         public List<UserInfo> GetGetBusinessObjectList(List<tbl_UserInfo> UserInfoEntityList)

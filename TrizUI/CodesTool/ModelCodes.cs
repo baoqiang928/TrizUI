@@ -20,18 +20,24 @@ namespace CodesTool
                 if (BusinessObjectInfo.Name == "ID")
                 {
                     codes = @"int? id;
+                                    /// <summary>
+                                    /// ID
+                                    /// </summary>
                                     public int? ID
                                     {
                                         get { return id; }
                                         set { id = value; }
                                     }";
                     CodeSectionList += codes;
+                    continue;
                 }
                 if (BusinessObjectInfo.Type == "DateTime")
                 {
                     codes = @"
                                     private DateTime? {0};
-
+                                    /// <summary>
+                                    /// 創建時間
+                                    /// </summary>
                                     public DateTime? {1}
                                     {
                                         get { return {0}; }
@@ -45,12 +51,15 @@ namespace CodesTool
                 {
                     codes = @"
                                     private string {0};
+                                    /// <summary>
+                                    /// {BusinessObjectInfo.Description}
+                                    /// </summary>
                                     public string {1}
                                     {
                                         get { return {0}; }
                                         set { {0} = value; }
                                     }";
-                    codes = codes.Replace("{0}", FirstLowerLetter).Replace("{1}", BusinessObjectInfo.Name);
+                    codes = codes.Replace("{0}", FirstLowerLetter).Replace("{1}", BusinessObjectInfo.Name).Replace("{BusinessObjectInfo.Description}", BusinessObjectInfo.Description);
                     CodeSectionList += codes;
                 }
                 if (BusinessObjectInfo.Type == "Int")

@@ -16,13 +16,28 @@
           <Property Name="Department" Type="nvarchar" MaxLength="50" />
           <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
+        <EntityType Name="tbl_QuestionDescriptionInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectID" Type="int" />
+          <Property Name="Note" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="CustomerDes" Type="nvarchar" MaxLength="500" />
+          <Property Name="Environment" Type="nvarchar" MaxLength="500" />
+          <Property Name="InitialProblemDes" Type="nvarchar" MaxLength="500" />
+          <Property Name="RelativeDemand" Type="nvarchar" MaxLength="500" />
+          <Property Name="PotentialProblem" Type="nvarchar" MaxLength="500" />
+          <Property Name="GapOfPerformanceRequirment" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
         <EntityType Name="tbl_UserInfo">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Company" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyID" Type="int" />
           <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="Account" Type="nvarchar" MaxLength="50" />
@@ -41,6 +56,7 @@
         </EntityType>
         <EntityContainer Name="TrizDBModelStoreContainer">
           <EntitySet Name="tbl_ProjectInfo" EntityType="Self.tbl_ProjectInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_QuestionDescriptionInfo" EntityType="Self.tbl_QuestionDescriptionInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_UserInfo" EntityType="Self.tbl_UserInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_UserProjectInfo" EntityType="Self.tbl_UserProjectInfo" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -50,8 +66,9 @@
       <Schema Namespace="TrizDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="TrizDBEntities" p1:LazyLoadingEnabled="true">
           <EntitySet Name="tbl_ProjectInfo" EntityType="TrizDBModel.tbl_ProjectInfo" />
-          <EntitySet Name="tbl_UserInfo" EntityType="TrizDBModel.tbl_UserInfo" />
           <EntitySet Name="tbl_UserProjectInfo" EntityType="TrizDBModel.tbl_UserProjectInfo" />
+          <EntitySet Name="tbl_QuestionDescriptionInfo" EntityType="TrizDBModel.tbl_QuestionDescriptionInfo" />
+          <EntitySet Name="tbl_UserInfo" EntityType="TrizDBModel.tbl_UserInfo" />
         </EntityContainer>
         <EntityType Name="tbl_ProjectInfo">
           <Key>
@@ -64,20 +81,6 @@
           <Property Type="String" Name="Department" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="CreateDateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
-        <EntityType Name="tbl_UserInfo">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
-        </EntityType>
         <EntityType Name="tbl_UserProjectInfo">
           <Key>
             <PropertyRef Name="ID" />
@@ -85,6 +88,35 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tbl_QuestionDescriptionInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="Int32" />
+          <Property Name="Note" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerDes" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Environment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="InitialProblemDes" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="RelativeDemand" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PotentialProblem" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="GapOfPerformanceRequirment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tbl_UserInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
       </Schema>
@@ -105,6 +137,32 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tbl_UserProjectInfo">
+            <EntityTypeMapping TypeName="TrizDBModel.tbl_UserProjectInfo">
+              <MappingFragment StoreEntitySet="tbl_UserProjectInfo">
+                <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_QuestionDescriptionInfo">
+            <EntityTypeMapping TypeName="TrizDBModel.tbl_QuestionDescriptionInfo">
+              <MappingFragment StoreEntitySet="tbl_QuestionDescriptionInfo">
+                <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+                <ScalarProperty Name="GapOfPerformanceRequirment" ColumnName="GapOfPerformanceRequirment" />
+                <ScalarProperty Name="PotentialProblem" ColumnName="PotentialProblem" />
+                <ScalarProperty Name="RelativeDemand" ColumnName="RelativeDemand" />
+                <ScalarProperty Name="InitialProblemDes" ColumnName="InitialProblemDes" />
+                <ScalarProperty Name="Environment" ColumnName="Environment" />
+                <ScalarProperty Name="CustomerDes" ColumnName="CustomerDes" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tbl_UserInfo">
             <EntityTypeMapping TypeName="TrizDBModel.tbl_UserInfo">
               <MappingFragment StoreEntitySet="tbl_UserInfo">
@@ -114,18 +172,8 @@
                 <ScalarProperty Name="Account" ColumnName="Account" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Mobile" ColumnName="Mobile" />
-                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tbl_UserProjectInfo">
-            <EntityTypeMapping TypeName="TrizDBModel.tbl_UserProjectInfo">
-              <MappingFragment StoreEntitySet="tbl_UserProjectInfo">
-                <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
-                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

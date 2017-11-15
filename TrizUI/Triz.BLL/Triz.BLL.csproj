@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="ProjectLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestionDescriptionLogic.cs" />
     <Compile Include="UserLogic.cs" />
     <Compile Include="UserProjectLogic.cs" />
   </ItemGroup>

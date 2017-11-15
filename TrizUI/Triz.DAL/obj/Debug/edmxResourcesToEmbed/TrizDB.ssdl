@@ -11,13 +11,28 @@
     <Property Name="Department" Type="nvarchar" MaxLength="50" />
     <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
   </EntityType>
+  <EntityType Name="tbl_QuestionDescriptionInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="Note" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="CustomerDes" Type="nvarchar" MaxLength="500" />
+    <Property Name="Environment" Type="nvarchar" MaxLength="500" />
+    <Property Name="InitialProblemDes" Type="nvarchar" MaxLength="500" />
+    <Property Name="RelativeDemand" Type="nvarchar" MaxLength="500" />
+    <Property Name="PotentialProblem" Type="nvarchar" MaxLength="500" />
+    <Property Name="GapOfPerformanceRequirment" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
   <EntityType Name="tbl_UserInfo">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="Company" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyID" Type="int" />
     <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" />
     <Property Name="Account" Type="nvarchar" MaxLength="50" />
@@ -36,6 +51,7 @@
   </EntityType>
   <EntityContainer Name="TrizDBModelStoreContainer">
     <EntitySet Name="tbl_ProjectInfo" EntityType="Self.tbl_ProjectInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QuestionDescriptionInfo" EntityType="Self.tbl_QuestionDescriptionInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_UserInfo" EntityType="Self.tbl_UserInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_UserProjectInfo" EntityType="Self.tbl_UserProjectInfo" Schema="dbo" store:Type="Tables" />
   </EntityContainer>

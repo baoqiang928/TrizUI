@@ -532,6 +532,7 @@
     <Content Include="pages\Controllers\DataPicker.js" />
     <Content Include="pages\Controllers\MasterCtrl.js" />
     <Content Include="pages\Controllers\ProjectOpeCtrl.js" />
+    <Content Include="pages\Controllers\QuestionDescriptionOpeCtrl.js" />
     <Content Include="pages\Controllers\SplitPage.js" />
     <Content Include="pages\Controllers\StandardSolution.js" />
     <Content Include="pages\Controllers\tm.pagination.js" />
