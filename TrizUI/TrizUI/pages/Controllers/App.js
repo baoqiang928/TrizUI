@@ -5,7 +5,8 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("ProjectList", {
             url: "/ProjectList",
             templateUrl: "/pages/List.html",
-            module: "tm.pagination"
+            module: "tm.pagination",
+            controller: "datepicker-Controller"
         })
        .state("ProjectAdd", {
            params: { "ID": null },

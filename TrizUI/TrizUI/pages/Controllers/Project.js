@@ -1,6 +1,6 @@
 ﻿angular.module("myApp")
     .controller('ProjectCtrl', function ($scope, $location, requestService, $state, locals) {
-
+        $scope.submitTime = ""
         //存
         locals.set("UserID", "1");//字符串
         //locals.setObject("secondpos", secondpos);//对象
@@ -26,6 +26,7 @@
             Owner: "",
             Department: "",
             FromDateTime:"",
+            submitTime: "",
             ToDateTime:""
         };
 

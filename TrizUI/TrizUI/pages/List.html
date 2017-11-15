@@ -21,9 +21,11 @@
                     </p>
                     <p>
                         <label style="display: inline-block; width: 60px; text-align: right;">创建时间</label>
-                        <input type="text" ng-model="data.FromDateTime" />
-                        <label style="display: inline-block; width: 60px; text-align: center;">至</label>
-                        <input type="text" ng-model="data.ToDateTime" />
+                        <input class="date-picker" id="id-date-picker-1" type="text" ng-model="data.FromDateTime" readonly data-date-format="yyyy-mm-dd" />
+                        <i class="icon-calendar"></i>
+                        <label style="display: inline-block; width: 43px; text-align: center;">至</label>
+                        <input class="date-picker" id="id-date-picker-2" type="text" ng-model="data.ToDateTime" readonly data-date-format="yyyy-mm-dd" />
+                        <i class="icon-calendar"></i>
                     </p>
 
                     <p>
