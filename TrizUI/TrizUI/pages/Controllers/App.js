@@ -117,18 +117,21 @@ StoreService.factory('requestService', function ($http, $q) {
         lists: function (resource, params) {
             request.method = "get";
             request.params = params;
+            request.data = {};
             request.url = ApiUrl + resource;
             return requestService($http, $q, request);
         },
         add: function (resource, data) {
             request.method = "post";
             request.url = ApiUrl + resource;
+            request.params = {};
             request.data = data;
             return requestService($http, $q, request);
         },
         update: function (resource, data) {
             request.method = "put";
             request.url = ApiUrl + resource;
+            request.params = {};
             request.data = data;
             return requestService($http, $q, request);
         },
@@ -136,18 +139,21 @@ StoreService.factory('requestService', function ($http, $q) {
             request.method = "delete";
             request.url = ApiUrl + resource + "/" + id;
             request.params = {};
+            request.data = {};
             return requestService($http, $q, request);
         },
         batchdelete: function (resource, ids) {
             request.method = "delete";
             request.url = ApiUrl + resource + "/?ids=" + ids;
             request.params = {};
+            request.data = {};
             return requestService($http, $q, request);
         },
         getobj: function (resource, id) {
             request.method = "get";
             request.url = ApiUrl + resource + "/" + id;
             request.params = {};
+            request.data = {};
             return requestService($http, $q, request);
         },
 

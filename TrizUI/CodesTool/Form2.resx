@@ -117,22 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="txtSource.Text" xml:space="preserve">
-    <value>Name	Description	Type	Length	Query	List	Operate	Mondantory	
-ID	ID	Int						
-Code	編號	String	50					
-Name	名稱	String	50	1	1	1	1	
-Department	部門	DateTime		1	1	1	1	
-								
-								
-								
-								
-								
-								
-								
-								
-								
-								
-</value>
-  </data>
 </root>

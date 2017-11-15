@@ -2,8 +2,9 @@
     .controller('ProjectCtrl', function ($scope, $location, requestService, $state, locals) {
 
         //存
-        locals.set("firstpos", "aaaaaaa");//字符串
+        locals.set("UserID", "1");//字符串
         //locals.setObject("secondpos", secondpos);//对象
+        $scope.CurrentProjectID = locals.get("ProjectID");
 
         var Sources = "Projects";
         $scope.paginationConf = {
@@ -20,10 +21,16 @@
             currentPage: "",
             itemsPerPage: "",
             Code: "",
+            Code123: "",
             Name: "",
             Owner: "",
             Department: "",
             CreateDateTime: ""
+        };
+
+        $scope.UserProjectData = {
+            UserID: "",
+            ProjectID: ""
         };
 
         var GetProjects = function () {
@@ -76,5 +83,14 @@
             $state.go("ProjectAdd", { ID: ID });
         }
 
+        $scope.SetCurrent = function (ProjectID) {
+            $scope.UserProjectData.ProjectID = ProjectID;
+            $scope.UserProjectData.UserID = locals.get("UserID");
+            requestService.add("UserProjects", $scope.UserProjectData).then(function (aaa) {
+                alert('设置成功。');
+                locals.set("ProjectID", ProjectID);//字符串
+                $scope.CurrentProjectID = ProjectID;
+            });
+        }
     });//end
 

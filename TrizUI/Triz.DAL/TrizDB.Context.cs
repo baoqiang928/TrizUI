@@ -36,6 +36,8 @@ public partial class TrizDBEntities : DbContext
 
     public DbSet<tbl_UserInfo> tbl_UserInfo { get; set; }
 
+    public DbSet<tbl_UserProjectInfo> tbl_UserProjectInfo { get; set; }
+
 }
 
 }

@@ -7,19 +7,21 @@
                     <h3 class="header smaller lighter blue">项目管理</h3>
                     <p>
                         <label style="display: inline-block; width: 60px; text-align: right;">编号</label>
-                        <input type="text" ng-model="data.Code" />                    
-                    
+                        <input type="text" ng-model="data.Code" />
+
                         <label style="display: inline-block; width: 60px; text-align: right;">名称</label>
-                        <input type="text" ng-model="data.Name" />                    
-                    </p><p>
+                        <input type="text" ng-model="data.Name" />
+                    </p>
+                    <p>
                         <label style="display: inline-block; width: 60px; text-align: right;">负责人</label>
-                        <input type="text" ng-model="data.Owner" />                    
-                    
+                        <input type="text" ng-model="data.Owner" />
+
                         <label style="display: inline-block; width: 60px; text-align: right;">工作部门</label>
-                        <input type="text" ng-model="data.Department" />                    
-                    </p><p>
+                        <input type="text" ng-model="data.Department" />
+                    </p>
+                    <p>
                         <label style="display: inline-block; width: 60px; text-align: right;">创建时间</label>
-                        <input type="text" ng-model="data.CreateDateTime" />                    
+                        <input type="text" ng-model="data.CreateDateTime" />
                     </p>
 
                     <p>
@@ -33,27 +35,21 @@
                                 <tr>
                                     <th class="center">
                                         <label>
-                                            <input type="checkbox" class="ace" ng-model="all" ng-checked="one"/>
+                                            <input type="checkbox" class="ace" ng-model="all" ng-checked="one" />
                                             <span class="lbl"></span>
                                         </label>
                                     </th>
-                                    
-                        <th>编号</th>                  
-                    
-                        <th>名称</th>                  
-                    
-                        <th>负责人</th>                  
-                    
-                        <th>工作部门</th>                  
-                    
-                        <th>创建时间</th>                  
-                    
+                                    <th>编号</th>
+                                    <th>名称</th>
+                                    <th>负责人</th>
+                                    <th>工作部门</th>
+                                    <th>创建时间</th>
                                     <th></th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                
+
                                 <tr ng-repeat="Project in Projects">
                                     <td class="center">
                                         <label>
@@ -62,19 +58,19 @@
                                         </label>
                                     </td>
 
-                                    
+
                                     <td>
                                         <a href="" ng-click="Update(Project.ID)">{{Project.Code}}</a>
                                     </td>
-                    
-                        <td>{{Project.Name}}</td>                  
-                    
-                        <td>{{Project.Owner}}</td>                  
-                    
-                        <td>{{Project.Department}}</td>                  
-                    
-                        <td>{{Project.CreateDateTime}}</td>                  
-                    
+
+                                    <td>{{Project.Name}}</td>
+
+                                    <td>{{Project.Owner}}</td>
+
+                                    <td>{{Project.Department}}</td>
+
+                                    <td>{{Project.CreateDateTime}}</td>
+
 
                                     <td>
                                         <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
@@ -87,8 +83,8 @@
                                                 <i class="icon-trash bigger-130">删除</i>
                                             </a>
 
-                                            <a class="red" href="#">
-                                                <i class="icon-legal bigger-130">当前项目</i>
+                                            <a class="red" href="#" ng-click="SetCurrent(Project.ID)" ng-if="Project.ID!=CurrentProjectID">
+                                                <i class="icon-legal bigger-130">设置为当前项目</i>
                                             </a>
 
                                         </div>

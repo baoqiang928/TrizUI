@@ -56,6 +56,9 @@
     <Compile Include="tbl_UserInfo.cs">
       <DependentUpon>TrizDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="tbl_UserProjectInfo.cs">
+      <DependentUpon>TrizDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="TrizDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -72,6 +75,7 @@
       <DependentUpon>TrizDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="UserDAL.cs" />
+    <Compile Include="UserProjectDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="TrizDB.edmx">

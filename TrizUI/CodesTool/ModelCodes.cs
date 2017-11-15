@@ -53,7 +53,18 @@ namespace CodesTool
                     codes = codes.Replace("{0}", FirstLowerLetter).Replace("{1}", BusinessObjectInfo.Name);
                     CodeSectionList += codes;
                 }
-
+                if (BusinessObjectInfo.Type == "Int")
+                {
+                    codes = @"
+                                    private int {0};
+                                    public int {1}
+                                    {
+                                        get { return {0}; }
+                                        set { {0} = value; }
+                                    }";
+                    codes = codes.Replace("{0}", FirstLowerLetter).Replace("{1}", BusinessObjectInfo.Name);
+                    CodeSectionList += codes;
+                }
             }
             codes = @"using System;
 using System.Collections.Generic;

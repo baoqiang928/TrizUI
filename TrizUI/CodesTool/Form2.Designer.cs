@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -93,7 +92,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(438, 3);
+            this.button3.Location = new System.Drawing.Point(231, 1);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 36);
             this.button3.TabIndex = 3;
@@ -103,7 +102,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(338, 3);
+            this.button2.Location = new System.Drawing.Point(131, 1);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 36);
             this.button2.TabIndex = 2;
@@ -160,7 +159,6 @@
             this.txtSource.Name = "txtSource";
             this.txtSource.Size = new System.Drawing.Size(1066, 638);
             this.txtSource.TabIndex = 1;
-            this.txtSource.Text = resources.GetString("txtSource.Text");
             // 
             // tabPage1
             // 

@@ -3,6 +3,7 @@
   <EntityContainer Name="TrizDBEntities" p1:LazyLoadingEnabled="true">
     <EntitySet Name="tbl_ProjectInfo" EntityType="TrizDBModel.tbl_ProjectInfo" />
     <EntitySet Name="tbl_UserInfo" EntityType="TrizDBModel.tbl_UserInfo" />
+    <EntitySet Name="tbl_UserProjectInfo" EntityType="TrizDBModel.tbl_UserProjectInfo" />
   </EntityContainer>
   <EntityType Name="tbl_ProjectInfo">
     <Key>
@@ -27,6 +28,15 @@
     <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_UserProjectInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
     <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
 </Schema>

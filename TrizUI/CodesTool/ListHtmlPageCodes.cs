@@ -134,8 +134,7 @@ namespace CodesTool
                 //BusinessObjectInfo.ObjName
                 if (string.IsNullOrWhiteSpace(BusinessObjectInfo.List)) continue;
 
-                CodeSection += @"
-                        <th>{BusinessObjectInfo.Description}</th>                  
+                CodeSection += @"<th>{BusinessObjectInfo.Description}</th>                  
                     ".Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name).Replace("{BusinessObjectInfo.Description}", BusinessObjectInfo.Description);
             }
             codes = codes.Replace("{ListItems}", CodeSection);
@@ -151,8 +150,7 @@ namespace CodesTool
 
                 if (i == 0)
                 {
-                    CodeSection += @"
-                                    <td>
+                    CodeSection += @"<td>
                                         <a href="""" ng-click=""Update({BusinessObjectInfo.ObjName}.ID)"">{{{BusinessObjectInfo.ObjName}.{BusinessObjectInfo.Name}}}</a>
                                     </td>
                     ".Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name).Replace("{BusinessObjectInfo.Description}", BusinessObjectInfo.Description);
@@ -160,8 +158,7 @@ namespace CodesTool
                     continue;
                 }
 
-                CodeSection += @"
-                        <td>{{{BusinessObjectInfo.ObjName}.{BusinessObjectInfo.Name}}}</td>                  
+                CodeSection += @"<td>{{{BusinessObjectInfo.ObjName}.{BusinessObjectInfo.Name}}}</td>                  
                     ".Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name).Replace("{BusinessObjectInfo.Description}", BusinessObjectInfo.Description);
             }
             codes = codes.Replace("{ListColNames}", CodeSection);
