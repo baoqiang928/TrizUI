@@ -64,6 +64,7 @@ angular.module("myApp")
             messages: {
                 Note: {
                     required: "请填写问题描述。",
+                    maxlength: "输入内容过多，请重新输入。"
                 }
             },
 

@@ -42,7 +42,7 @@
             }
             $scope.data.ProjectID = locals.get("ProjectID");
             requestService.add(Sources, $scope.data).then(function (data) {
-                Alert("保存成功。");
+                alert("保存成功。");
                 return;
             });
 
@@ -129,8 +129,80 @@
             },
 
             messages: {
+                ProjectID: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
                 IdealResolution1: {
-                    maxlength: "aaaaaaaaaaaaaaaaaaaa"
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                IdealResolution2: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                IdealResolution3: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                IdealResolution4: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                IdealResolution5: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                BasicQuestion1: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                BasicQuestion2: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                BasicQuestion3: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                BasicQuestion4: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                AgainstObject1: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                AgainstObject2: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                AgainstObject3: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                AgainstObject4: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                AgainstObject5: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                Constriction1: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                Constriction2: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                Constriction3: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                Constriction4: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                Constriction5: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                ResolutionImportance1: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                ResolutionImportance2: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                ResolutionImportance3: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                ResolutionImportance4: {
+                    maxlength: "输入内容过多，请重新输入。"
+                },
+                ResolutionImportance5: {
+                    maxlength: "输入内容过多，请重新输入。"
                 }
             },
 

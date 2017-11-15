@@ -176,6 +176,7 @@
     <Content Include="blank.html" />
     <Content Include="buttons.html" />
     <Content Include="calendar.html" />
+    <Content Include="Doc\tasks.txt" />
     <Content Include="dropzone.html" />
     <Content Include="elements.html" />
     <Content Include="Enterprise\Controllers\App.js" />
