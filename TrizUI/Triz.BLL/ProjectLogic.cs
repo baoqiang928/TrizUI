@@ -37,9 +37,9 @@ namespace Triz.BLL
         {
             return new ProjectDAL().GetByID(int.Parse(ID));
         }
-        public List<ProjectInfo> Query(string Code, string Name, string Owner, string Department, string CreateDateTime, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
+        public List<ProjectInfo> Query(string Code, string Name, string Owner, string Department, string FromDateTime, string ToDateTime, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
-            return new ProjectDAL().Query(Code, Name, Owner, Department, CreateDateTime, pageIndex, pageSize, ref totalItems, ref PagesLength);
+            return new ProjectDAL().Query(Code, Name, Owner, Department, FromDateTime, ToDateTime, pageIndex, pageSize, ref totalItems, ref PagesLength);
         }
     }
 }

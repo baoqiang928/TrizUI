@@ -150,7 +150,7 @@ namespace Triz.DAL
             return new ProjectInfo();
         }
 
-        public List<ProjectInfo> Query(string Code, string Name, string Owner, string Department, string CreateDateTime, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
+        public List<ProjectInfo> Query(string Code, string Name, string Owner, string Department,string FromDateTime, string ToDateTime, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
             int startRow = (pageIndex - 1) * pageSize;
             Expression<Func<tbl_ProjectInfo, bool>> where = PredicateExtensionses.True<tbl_ProjectInfo>();
@@ -167,8 +167,12 @@ namespace Triz.DAL
             if (!string.IsNullOrWhiteSpace(Department))
                 where = where.And(a => a.Department.Contains(Department));
 
-            //if (!string.IsNullOrWhiteSpace(CreateDateTime))
-            //    where = where.And(a => a.CreateDateTime.Contains(CreateDateTime));
+            if (!string.IsNullOrWhiteSpace(FromDateTime))
+                where = where.And(a => a.CreateDateTime.CompareTo(DateTime.Parse(FromDateTime)) >= 0);
+
+            if (!string.IsNullOrWhiteSpace(ToDateTime))
+                where = where.And(a => a.CreateDateTime.CompareTo(DateTime.Parse(ToDateTime)) <= 0);
+
 
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {

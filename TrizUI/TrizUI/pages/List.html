@@ -21,7 +21,9 @@
                     </p>
                     <p>
                         <label style="display: inline-block; width: 60px; text-align: right;">创建时间</label>
-                        <input type="text" ng-model="data.CreateDateTime" />
+                        <input type="text" ng-model="data.FromDateTime" />
+                        <label style="display: inline-block; width: 60px; text-align: center;">至</label>
+                        <input type="text" ng-model="data.ToDateTime" />
                     </p>
 
                     <p>
@@ -83,7 +85,7 @@
                                                 <i class="icon-trash bigger-130">删除</i>
                                             </a>
 
-                                            <a class="red" href="#" ng-click="SetCurrent(Project.ID)" ng-if="Project.ID!=CurrentProjectID">
+                                            <a class="red" href="#" ng-click="SetCurrent(Project.ID,Project.Name)" ng-if="Project.ID!=CurrentProjectID">
                                                 <i class="icon-legal bigger-130">设置为当前项目</i>
                                             </a>
 

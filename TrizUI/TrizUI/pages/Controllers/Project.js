@@ -25,7 +25,8 @@
             Name: "",
             Owner: "",
             Department: "",
-            CreateDateTime: ""
+            FromDateTime:"",
+            ToDateTime:""
         };
 
         $scope.UserProjectData = {
@@ -83,13 +84,15 @@
             $state.go("ProjectAdd", { ID: ID });
         }
 
-        $scope.SetCurrent = function (ProjectID) {
+        $scope.SetCurrent = function (ProjectID, ProjectName) {
             $scope.UserProjectData.ProjectID = ProjectID;
             $scope.UserProjectData.UserID = locals.get("UserID");
             requestService.add("UserProjects", $scope.UserProjectData).then(function (aaa) {
                 alert('设置成功。');
-                locals.set("ProjectID", ProjectID);//字符串
+                locals.set("ProjectID", ProjectID);
+                locals.set("ProjectName", ProjectName);
                 $scope.CurrentProjectID = ProjectID;
+                $scope.$emit("change", ProjectName);
             });
         }
     });//end

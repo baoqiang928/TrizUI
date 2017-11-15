@@ -97,6 +97,9 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
            url: "/Page3",
            templateUrl: "/pages/Page3.html"
        });
+
+
+
 });
 
 

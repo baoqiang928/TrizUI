@@ -18,11 +18,11 @@ namespace MvcApplication1.Controllers
         }
 
         // GET api/Projects
-        public object Get([FromUri]string Code, string Name, string Owner, string Department, string CreateDateTime, int currentPage, int itemsPerPage)
+        public object Get([FromUri]string Code, string Name, string Owner, string Department, string FromDateTime, string ToDateTime, int currentPage, int itemsPerPage)
         {
             int TotalItems = 0;
             int PagesLength = 0;
-            List<ProjectInfo> ProjectInfoList = new ProjectLogic().Query(Code, Name, Owner, Department, CreateDateTime, currentPage, itemsPerPage, ref TotalItems, ref PagesLength);
+            List<ProjectInfo> ProjectInfoList = new ProjectLogic().Query(Code, Name, Owner, Department, FromDateTime, ToDateTime, currentPage, itemsPerPage, ref TotalItems, ref PagesLength);
             return new
             {
                 TotalItems = TotalItems,

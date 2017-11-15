@@ -529,6 +529,7 @@
     <Content Include="pages\Conflict\TechConflictList.html" />
     <Content Include="pages\Conflict\TechConflictOperate.html" />
     <Content Include="pages\Conflict\TechConflictResolveList.html" />
+    <Content Include="pages\Controllers\MasterCtrl.js" />
     <Content Include="pages\Controllers\ProjectOpeCtrl.js" />
     <Content Include="pages\Controllers\SplitPage.js" />
     <Content Include="pages\Controllers\StandardSolution.js" />
