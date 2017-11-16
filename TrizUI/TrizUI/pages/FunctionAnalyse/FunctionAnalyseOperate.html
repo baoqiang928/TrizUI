@@ -10,6 +10,48 @@
     </div>
     <!-- /.page-header -->
 
+    <!-- Nested node template -->
+    <script type="text/ng-template" id="nodes_renderer.html">
+  <div ui-tree-handle class="tree-node tree-node-content">
+    <a class="btn btn-success btn-xs" ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)"><span
+        class="glyphicon"
+        ng-class="{
+          'glyphicon-chevron-right': collapsed,
+          'glyphicon-chevron-down': !collapsed
+        }"></span></a>
+    {{node.title}}
+    <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)"><span
+        class="glyphicon glyphicon-remove"></span></a>
+    <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span
+        class="glyphicon glyphicon-plus"></span></a>
+  </div>
+  <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+    <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+    </li>
+  </ol>
+</script>
+
+    <!--<div class="row">
+  <div class="col-sm-6">
+    <div ui-tree id="tree-root">
+      <ol ui-tree-nodes ng-model="data">
+        <li ng-repeat="node in data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="info">
+      {{info}}
+    </div>
+    <pre class="code">{{ data | json }}</pre>
+  </div>
+</div>-->
+
+
+
+
+
     <div class="row">
         <div class="col-sm-4">
             <div class="widget-box">
@@ -22,248 +64,9 @@
                     <div class="widget-main">
                         <div class="row">
                             <div class="col-xs-12">
-                                <div class="dd">
-                                    <ol class="dd-list">
-
-                                        <li class="dd-item" data-id="13">
-                                            <div class="dd2-content">
-                                                <span class="orange">整体系统</span>
-                                                <div class="pull-right action-buttons">
-                                                    <a class="blue" href="#">
-                                                        <i class="icon-plus bigger-130"></i>
-                                                    </a>
-                                                </div>
-
-                                            </div>
-                                            <ol class="dd-list">
-                                                <li class="dd-item" data-id="16">
-                                                    <div class="dd2-content">
-                                                        动力源
-                                           
-                                                        <div class="pull-right action-buttons">
-                                                            <a class="blue" href="#">
-                                                                <i class="icon-plus bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="blue" href="#">
-                                                                <i class="icon-pencil bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="red" href="#">
-                                                                <i class="icon-trash bigger-130"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <ol class="dd-list">
-                                                        <li class="dd-item" data-id="16">
-                                                            <div class="dd2-content">
-                                                                电机                                           
-                                                   
-                                                                <div class="pull-right action-buttons">
-                                                                    <a class="blue" href="#">
-                                                                        <i class="icon-plus bigger-130"></i>
-                                                                    </a>
-
-                                                                    <a class="blue" href="#">
-                                                                        <i class="icon-pencil bigger-130"></i>
-                                                                    </a>
-
-                                                                    <a class="red" href="#">
-                                                                        <i class="icon-trash bigger-130"></i>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                        <li class="dd-item" data-id="17">
-                                                            <div class="dd2-content">
-                                                                大链轮                                           
-                                                   
-                                                                <div class="pull-right action-buttons">
-                                                                    <a class="blue" href="#">
-                                                                        <i class="icon-plus bigger-130"></i>
-                                                                    </a>
-
-                                                                    <a class="blue" href="#">
-                                                                        <i class="icon-pencil bigger-130"></i>
-                                                                    </a>
-
-                                                                    <a class="red" href="#">
-                                                                        <i class="icon-trash bigger-130"></i>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ol>
-                                                </li>
-                                            </ol>
-                                            <ol class="dd-list">
-                                                <li class="dd-item" data-id="16">
-                                                    <div class="dd2-content">
-                                                        传动机构                                           
-                                           
-                                                        <div class="pull-right action-buttons">
-                                                            <a class="blue" href="#">
-                                                                <i class="icon-plus bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="blue" href="#">
-                                                                <i class="icon-pencil bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="red" href="#">
-                                                                <i class="icon-trash bigger-130"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <ol class="dd-list">
-                                                        <li class="dd-item" data-id="16">
-                                                            <div class="dd2-content">
-                                                                小链轮                                           
-                                                   
-                                                                <div class="pull-right action-buttons">
-                                                                    <a class="blue" href="#">
-                                                                        <i class="icon-plus bigger-130"></i>
-                                                                    </a>
-
-                                                                    <a class="blue" href="#">
-                                                                        <i class="icon-pencil bigger-130"></i>
-                                                                    </a>
-
-                                                                    <a class="red" href="#">
-                                                                        <i class="icon-trash bigger-130"></i>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                        <li class="dd-item" data-id="17">
-                                                            <div class="dd2-content">
-                                                                链条                                           
-                                                   
-                                                                <div class="pull-right action-buttons">
-                                                                    <a class="blue" href="#">
-                                                                        <i class="icon-plus bigger-130"></i>
-                                                                    </a>
-
-                                                                    <a class="blue" href="#">
-                                                                        <i class="icon-pencil bigger-130"></i>
-                                                                    </a>
-
-                                                                    <a class="red" href="#">
-                                                                        <i class="icon-trash bigger-130"></i>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ol>
-                                                </li>
-                                            </ol>
-                                        </li>
-
-                                        <li class="dd-item" data-id="15">
-                                            <div class="dd2-content">
-                                                <span class="orange">制品</span>
-                                                <div class="pull-right action-buttons">
-                                                    <a class="blue" href="#">
-                                                        <i class="icon-plus bigger-130"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <ol class="dd-list">
-                                                <li class="dd-item dd2-item" data-id="16">
-                                                    <div class="dd2-content">
-                                                        制品1                                           
-                                           
-                                                        <div class="pull-right action-buttons">
-                                                            <a class="blue" href="#">
-                                                                <i class="icon-plus bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="blue" href="#">
-                                                                <i class="icon-pencil bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="red" href="#">
-                                                                <i class="icon-trash bigger-130"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <li class="dd-item dd2-item" data-id="18">
-                                                    <div class="dd2-content">
-                                                        制品2                                           
-                                           
-                                                        <div class="pull-right action-buttons">
-                                                            <a class="blue" href="#">
-                                                                <i class="icon-plus bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="blue" href="#">
-                                                                <i class="icon-pencil bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="red" href="#">
-                                                                <i class="icon-trash bigger-130"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ol>
-                                        </li>
-
-                                        <li class="dd-item" data-id="19">
-                                            <div class="dd2-content">
-                                                <span class="orange">超系统元件</span>
-                                                <div class="pull-right action-buttons">
-                                                    <a class="blue" href="#">
-                                                        <i class="icon-plus bigger-130"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <ol class="dd-list">
-                                                <li class="dd-item dd2-item" data-id="16">
-                                                    <div class="dd2-content">
-                                                        超系统元件1                                           
-                                           
-                                                        <div class="pull-right action-buttons">
-                                                            <a class="blue" href="#">
-                                                                <i class="icon-plus bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="blue" href="#">
-                                                                <i class="icon-pencil bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="red" href="#">
-                                                                <i class="icon-trash bigger-130"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <li class="dd-item dd2-item" data-id="18">
-                                                    <div class="dd2-content">
-                                                        超系统元件2                                           
-                                           
-                                                        <div class="pull-right action-buttons">
-                                                            <a class="blue" href="#">
-                                                                <i class="icon-plus bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="blue" href="#">
-                                                                <i class="icon-pencil bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="red" href="#">
-                                                                <i class="icon-trash bigger-130"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ol>
-                                        </li>
+                                <div ui-tree id="tree-root">
+                                    <ol ui-tree-nodes ng-model="data">
+                                        <li ng-repeat="node in data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
                                     </ol>
                                 </div>
                             </div>

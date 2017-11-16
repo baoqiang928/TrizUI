@@ -48,7 +48,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
        .state("FunctionAnalyseAdd", {
            url: "/FunctionAnalyseAdd",
            templateUrl: "/pages/FunctionAnalyse/FunctionAnalyseOperate.html",
-           controller: 'tree-Controller'
+           controller: "BasicExampleCtrl"
        })
        .state("StandardSolutionList", {
            url: "/StandardSolutionList",
