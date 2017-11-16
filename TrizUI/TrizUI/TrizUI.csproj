@@ -622,8 +622,42 @@
     <Content Include="pages\Evolve\demo.png" />
     <Content Include="pages\Evolve\EvolveList.html" />
     <Content Include="pages\Evolve\EvolveOperate.html" />
+    <Content Include="pages\FunctionAnalyse\fk1.html" />
     <Content Include="pages\FunctionAnalyse\FunctionAnalyseOperate.html" />
+    <Content Include="pages\FunctionAnalyse\index.html" />
     <Content Include="pages\FunctionAnalyse\t.png" />
+    <Content Include="pages\FunctionAnalyse\t\angular-route.min.js" />
+    <Content Include="pages\FunctionAnalyse\t\angular-ui-tree.css" />
+    <Content Include="pages\FunctionAnalyse\t\angular.min.js" />
+    <Content Include="pages\FunctionAnalyse\t\app.css" />
+    <Content Include="pages\FunctionAnalyse\t\app.js" />
+    <Content Include="pages\FunctionAnalyse\t\basic-example.js" />
+    <Content Include="pages\FunctionAnalyse\t\bootstrap.min.css" />
+    <Content Include="pages\FunctionAnalyse\t\cloning.js" />
+    <Content Include="pages\FunctionAnalyse\t\connected-trees.js" />
+    <Content Include="pages\FunctionAnalyse\t\drop-confirmation.js" />
+    <Content Include="pages\FunctionAnalyse\t\expand-on-hover.js" />
+    <Content Include="pages\FunctionAnalyse\t\filter-nodes.js" />
+    <Content Include="pages\FunctionAnalyse\t\handleCtrl.js" />
+    <Content Include="pages\FunctionAnalyse\t\helper.js" />
+    <Content Include="pages\FunctionAnalyse\t\main.js" />
+    <Content Include="pages\FunctionAnalyse\t\nodeCtrl.js" />
+    <Content Include="pages\FunctionAnalyse\t\nodesCtrl.js" />
+    <Content Include="pages\FunctionAnalyse\t\table-example.js" />
+    <Content Include="pages\FunctionAnalyse\t\treeCtrl.js" />
+    <Content Include="pages\FunctionAnalyse\t\ui-bootstrap-tpls.js" />
+    <Content Include="pages\FunctionAnalyse\t\uiTree.js" />
+    <Content Include="pages\FunctionAnalyse\t\uiTreeHandle.js" />
+    <Content Include="pages\FunctionAnalyse\t\uiTreeNode.js" />
+    <Content Include="pages\FunctionAnalyse\t\uiTreeNodes.js" />
+    <Content Include="pages\FunctionAnalyse\views\basic-example.html" />
+    <Content Include="pages\FunctionAnalyse\views\cloning.html" />
+    <Content Include="pages\FunctionAnalyse\views\connected-trees.html" />
+    <Content Include="pages\FunctionAnalyse\views\drop-confirmation.html" />
+    <Content Include="pages\FunctionAnalyse\views\expand-on-hover.html" />
+    <Content Include="pages\FunctionAnalyse\views\filter-nodes.html" />
+    <Content Include="pages\FunctionAnalyse\views\nodrop.html" />
+    <Content Include="pages\FunctionAnalyse\views\table-example.html" />
     <Content Include="pages\HtmlPage1.html" />
     <Content Include="pages\QuestionAnalyse\QuestionAnalyseOperate.html" />
     <Content Include="pages\QuestionAnalyse\wentifenxi.jpg" />
@@ -743,6 +777,7 @@
     <Content Include="pages\angular-ui-tree-master\package.json" />
     <Content Include="pages\angular-ui-tree-master\README.md" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
