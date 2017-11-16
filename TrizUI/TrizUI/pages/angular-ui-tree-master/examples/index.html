@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AngularJS UI Tree demo</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/pages/angular-ui-tree-master/examples/t/bootstrap.min.css">
+  <link rel="stylesheet" href="/pages/angular-ui-tree-master/examples/t/angular-ui-tree.css">
+  <link rel="stylesheet" href="/pages/angular-ui-tree-master/examples/t/app.css">
+</head>
+
+<body ng-app="demoApp">
+<div class="container">
+  <div>
+    <div class="jumbotron">
+      <h1>Tree component</h1>
+
+      <p class="lead">The AngularJS Tree component with drag and drop support.</p>
+
+      <p><a class="btn btn-lg btn-success" href="https://github.com/angular-ui-tree/angular-ui-tree" role="button">Code on
+        GitHub</a></p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <h2>View Examples</h2>
+        <ol>
+          <li><a href="#/basic-example">Basic example</a></li>
+          <li><a href="#/filter-nodes">Filter nodes</a></li>
+          <li><a href="#/nodrop">Prevent drop</a></li>
+          <li><a href="#/connected-trees">Connected trees</a></li>
+          <li><a href="#/cloning">Cloning</a></li>
+          <li><a href="#/table-example">Table example</a></li>
+          <li><a href="#/drop-confirmation">Drop confirmation</a></li>
+          <li><a href="#/expand-on-hover">Expand parent node on drag hover</a></li>
+        </ol>
+      </div>
+
+      <div class="col-md-4">
+        <h2>What?</h2>
+        <p>
+          Angular Tree is an AngularJS UI component that can sort nested lists, provides drag &amp; drop support and
+          doesn't depend on jQuery.
+        </p>
+      </div>
+      <div class="col-md-4">
+        <h2>Features</h2>
+        <ul>
+          <li>Uses the native AngularJS scope for data binding</li>
+          <li>Sorted and move items through the entire tree</li>
+          <li>Prevent elements from accepting child nodes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>See it in action</h2>
+      <ng-view></ng-view>
+    </div>
+  </div>
+
+</div>
+
+<!-- JavaScript -->
+<!--[if IE 8]>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/3.4.0/es5-shim.min.js"></script>
+<![endif]-->
+
+<script src="/pages/angular-ui-tree-master/examples/t/angular.min.js"></script>
+<script src="/pages/angular-ui-tree-master/examples/t/angular-route.min.js"></script>
+<script src="/pages/angular-ui-tree-master/examples/t/ui-bootstrap-tpls.js"></script>
+
+<script src="/pages/angular-ui-tree-master/examples/t/main.js"></script>
+<script src="/pages/angular-ui-tree-master/examples/t/handleCtrl.js"></script>
+<script src="/pages/angular-ui-tree-master/examples/t/nodeCtrl.js"></script>
+<script src="/pages/angular-ui-tree-master/examples/t/nodesCtrl.js"></script>
+<script src="/pages/angular-ui-tree-master/examples/t/treeCtrl.js"></script>
+<script src="/pages/angular-ui-tree-master/examples/t/uiTree.js"></script>
+<script src="/pages/angular-ui-tree-master/examples/t/uiTreeHandle.js"></script>
+<script src="/pages/angular-ui-tree-master/examples/t/uiTreeNode.js"></script>
+<script src="/pages/angular-ui-tree-master/examples/t/uiTreeNodes.js"></script>
+<script src="/pages/angular-ui-tree-master/examples/t/helper.js"></script>
+
+<script src="/pages/angular-ui-tree-master/examples/t/app.js"></script>
+<script src="/pages/angular-ui-tree-master/examples/t/basic-example.js"></script>
+<script src="/pages/angular-ui-tree-master/examples/t/filter-nodes.js"></script>
+<script src="/pages/angular-ui-tree-master/examples/t/cloning.js"></script>
+<script src="/pages/angular-ui-tree-master/examples/t/connected-trees.js"></script>
+<script src="/pages/angular-ui-tree-master/examples/t/table-example.js"></script>
+<script src="/pages/angular-ui-tree-master/examples/t/drop-confirmation.js"></script>
+<script src="/pages/angular-ui-tree-master/examples/t/expand-on-hover.js"></script>    
+</body>
+</html>
