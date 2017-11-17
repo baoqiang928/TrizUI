@@ -609,6 +609,7 @@
     <Content Include="pages\Conflict\TechConflictOperate.html" />
     <Content Include="pages\Conflict\TechConflictResolveList.html" />
     <Content Include="pages\Controllers\DataPicker.js" />
+    <Content Include="pages\Controllers\FunctionAnalyseCtrl.js" />
     <Content Include="pages\Controllers\QuestionAnalyseOpeCtrl.js" />
     <Content Include="pages\Controllers\MasterCtrl.js" />
     <Content Include="pages\Controllers\ProjectOpeCtrl.js" />
@@ -708,6 +709,22 @@
     <Content Include="Talent\Personnel\TechRequest\TechRequestDetail.html" />
     <Content Include="Talent\Personnel\TechRequest\TechRequestList.html" />
     <Content Include="Talent\Personnel\timg.jpg" />
+    <Content Include="testsvg\css\bootstrap.min.css" />
+    <Content Include="testsvg\css\custom.css" />
+    <Content Include="testsvg\css\default.css" />
+    <Content Include="testsvg\css\material-wfont.css" />
+    <Content Include="testsvg\css\material-wfont.min.css" />
+    <Content Include="testsvg\css\print.css" />
+    <Content Include="testsvg\css\ripples.min.css" />
+    <Content Include="testsvg\css\stylesheet.css" />
+    <Content Include="testsvg\fonts\icomoon.svg" />
+    <Content Include="testsvg\HtmlPage1.html" />
+    <Content Include="testsvg\index.html" />
+    <Content Include="testsvg\js\handlers.js" />
+    <Content Include="testsvg\js\svg.draggy.js" />
+    <Content Include="testsvg\js\svg.js" />
+    <Content Include="testsvg\src\svg.draggy.js" />
+    <Content Include="testsvg\src\svg.draggy.min.js" />
     <Content Include="Test\Controllers\App.js" />
     <Content Include="Test\Main.html" />
     <Content Include="Test\Page1.html" />
@@ -778,6 +795,11 @@
     <Content Include="pages\angular-ui-tree-master\README.md" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="testsvg\fonts\icomoon.eot" />
+    <Content Include="testsvg\fonts\icomoon.ttf" />
+    <Content Include="testsvg\fonts\icomoon.woff" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

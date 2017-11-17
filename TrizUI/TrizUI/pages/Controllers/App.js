@@ -5,7 +5,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
        .state("aaa", {
            url: "/aaa",
            templateUrl: "/pages/FunctionAnalyse/views/basic-example.html",
-           controller: "BasicExampleCtrl"
+           controller: "FunctionAnalyseCtrl"
 })
         .state("ProjectList", {
             url: "/ProjectList",
@@ -48,7 +48,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
        .state("FunctionAnalyseAdd", {
            url: "/FunctionAnalyseAdd",
            templateUrl: "/pages/FunctionAnalyse/FunctionAnalyseOperate.html",
-           controller: "BasicExampleCtrl"
+           controller: "FunctionAnalyseCtrl"
        })
        .state("StandardSolutionList", {
            url: "/StandardSolutionList",

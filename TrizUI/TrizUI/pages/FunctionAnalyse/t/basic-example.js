@@ -1,6 +1,5 @@
 angular.module('myApp')
     .controller('BasicExampleCtrl', ['$scope', function ($scope) {
-        alert(1);
       $scope.remove = function (scope) {
         scope.remove();
       };
@@ -21,6 +20,10 @@ angular.module('myApp')
           title: nodeData.title + '.' + (nodeData.nodes.length + 1),
           nodes: []
         });
+      };
+
+      $scope.aaa = function () {
+          alert('click');
       };
 
       $scope.collapseAll = function () {
