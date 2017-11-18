@@ -22,8 +22,8 @@
             link.target = nodes[link.target] || (nodes[link.target] = { name: link.target, showType: getShowType(link, "target") });
 
         });
-        var width = 1560,
-        height = 800;
+        var width = 1000,
+        height = 900;
 
         var force = d3.layout.force()//layout将json格式转化为力学图可用的格式
         .nodes(d3.values(nodes))//设定节点数组
@@ -568,6 +568,14 @@
                 showType = 'YJ';
             }
             return showType;
+        }
+
+        $rootScope.$on("CallParentMethod", function () {
+            $scope.aa();
+        });
+        function aa()
+        {
+            alert(2);
         }
 
     });

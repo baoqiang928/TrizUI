@@ -599,6 +599,7 @@
     <Content Include="pages\assets\images\step3.jpg" />
     <Content Include="pages\assets\images\step3.png" />
     <Content Include="pages\assets\images\step3_rect4.png" />
+    <Content Include="pages\assets\js\ad9caecb87.js" />
     <Content Include="pages\CauseEffect\1.png" />
     <Content Include="pages\CauseEffect\2.png" />
     <Content Include="pages\CauseEffect\3.png" />
