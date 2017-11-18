@@ -42,6 +42,8 @@ public partial class TrizDBEntities : DbContext
 
     public DbSet<tbl_QuestionAnalyseInfo> tbl_QuestionAnalyseInfo { get; set; }
 
+    public DbSet<tbl_FunEleMutualReactInfo> tbl_FunEleMutualReactInfo { get; set; }
+
 }
 
 }

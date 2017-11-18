@@ -1,5 +1,7 @@
 ﻿<!DOCTYPE html>
 <meta charset="utf-8">
+    <script src="\assets\js\jquery-2.0.3.min.js"></script>
+
 <style>
     .link
     {
@@ -43,6 +45,10 @@
     }
 </style>
 <body>
+    <div class="content_wrap3_right">
+        <div class="wrap3_graph">
+        </div>
+    </div>
     <script src="d3.v3.min.js"></script>
     <script>
         function getShowType(link, type) {
@@ -62,38 +68,19 @@
     </script>
     <script>
 
-        // http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/
-        //        var links = [
-        //  { source: "同花顺", target: "IFIND", type: "resolved", rela: "主营产品" },
-        //  { source: "同花顺", target: "手机金融信息服务", type: "resolved", rela: "主营产品" },
-        //  { source: "同花顺", target: "互联网金融信息服务", type: "resolved", rela: "主营产品" },
-        //  { source: "同花顺", target: "网上行情交易系统", type: "resolved", rela: "主营产品" },
-        //  { source: "同花顺", target: "金融资讯及数据服务", type: "resolved", rela: "主营产品" },
-        //  { source: "同花顺", target: "互联网金融", type: "resolved", rela: "主营产品" },
-        //  { source: "同花顺", target: "金融服务", type: "resolved", rela: "主营产品" },
-        //  { source: "手机金融信息服务", target: "金融信息服务", type: "resolved", rela: "上位产品" },
-        //  { source: "互联网金融信息服务", target: "金融信息服务", type: "resolved", rela: "上位产品" },
-        //  { source: "二三四五002195", target: "金融信息服务", type: "resolved", rela: "主营产品" },
-        //  { source: "大智慧601519", target: "金融信息服务", type: "resolved", rela: "主营产品" },
-        //  { source: "大智慧601519", target: "互联网金融信息服务", type: "resolved", rela: "主营产品" },
-        //  { source: "金融服务", target: "移动互联网", type: "resolved", rela: "上游" },
-        //  { source: "金融服务", target: "互联网金融服务", type: "resolved", rela: "下位产品" },
-        //  { source: "金融服务", target: "综合金融服务", type: "resolved", rela: "下位产品" }
-        //];
-
         var links = [
-        { ID: "yuanjian197", source: "电机", target: "大链轮", effect: "1", type: "转动" },
-        { ID: "yuanjian198", source: "小链轮", target: "滚筒", effect: "2", type: "转动" },
-        { ID: "yuanjian199", source: "大链轮", target: "链条", effect: "1", type: "驱动" },
-        { ID: "yuanjian201", source: "螺母", target: "导向架", effect: "1", type: "带动" },
-        { ID: "yuanjian202", source: "丝杠", target: "螺母", effect: "1", type: "移动" },
-        { ID: "yuanjian203", source: "链轮轴", target: "丝杠", effect: "1", type: "转动" },
+        { ID: "197", source: "电机", target: "大链轮", effect: "1", type: "转动" },
+        { ID: "198", source: "小链轮", target: "滚筒", effect: "2", type: "转动" },
+        { ID: "199", source: "大链轮", target: "链条", effect: "1", type: "驱动" },
+        { ID: "201", source: "螺母", target: "导向架", effect: "1", type: "带动" },
+        { ID: "202", source: "丝杠", target: "螺母", effect: "1", type: "移动" },
+        { ID: "203", source: "链轮轴", target: "丝杠", effect: "1", type: "转动" },
         { ID: "yuanjian204", source: "小链轮", target: "链轮轴", effect: "1", type: "转动" },
         { ID: "yuanjian232", source: "电机", target: "链条", effect: "2", type: "驱动" },
         { ID: "yuanjian241", source: "滚筒", target: "链条", effect: "1", type: "12" },
         { ID: "yuanjian244", source: "导向架", target: "电机", effect: "1", type: "23" },
         { ID: "YuanJian113", source: "超系统元件", target: "电机", effect: "1", type: "222", direction: "CXT2YJ" },
-        { ID: "YuanJian114", source: "超系统元件", target: "大链轮", effect: "1", type: "33", direction: "CXT2YJ"}];
+        { ID: "YuanJian114", source: "超系统元件", target: "大链轮", effect: "1", type: "33", direction: "CXT2YJ" }];
 
         var nodes = {};
 
@@ -115,9 +102,12 @@
     .on("tick", tick)//指时间间隔，隔一段时间刷新一次画面
     .start(); //开始转换
 
-        var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
+        //    var svg = d3.select("body").append("svg")
+        //.attr("width", width)
+        //.attr("height", height);
+
+        $(".wrap3_graph").children("svg").remove();
+        var svg = d3.select(".wrap3_graph").append("svg").attr("width", width).attr("height", height);
 
         //箭头
         var marker =
@@ -254,7 +244,7 @@
 
          .style("pointer-events", "none")
           .style("padding-left", "50px")
-         ;
+        ;
 
 
         //设置线条上的文字
@@ -332,7 +322,7 @@
         var drag = force.drag()
                         .on("dragstart", function (d, i) {
                             d.fixed = true;
-                            
+
                             console.log(d.x);
                         })
                         .on("dragend", function (d, i) {
@@ -342,73 +332,73 @@
                         .on("drag", function (d, i) {
                             //console.log("拖拽状态：进行中");
                         });
-                        var circle = svg.append("g").selectAll("image")
-        .data(force.nodes())//表示使用force.nodes数据
-        .enter().append("image")
-        .attr({
-            "width": 100, "height": 40
-        })
-                        //        .attr({
-                        //            "px": 10, "py": 10
-                        //        })
-                        //        .attr({
-                        //            "fixed": true
-                        //        })
+        var circle = svg.append("g").selectAll("image")
+.data(force.nodes())//表示使用force.nodes数据
+.enter().append("image")
+.attr({
+    "width": 100, "height": 40
+})
+        //        .attr({
+        //            "px": 10, "py": 10
+        //        })
+        //        .attr({
+        //            "fixed": true
+        //        })
 
-                        //.attr("xlink:href", "rect.png")
-        .attr(
-            "xlink:href", function (node) {
-                //node.px = 10;
-//                node.fixed = true;  //这里可以固定，并且设置位置----baoqiang
-//                node.px = 10;
-                var result = 'rect.png';
-                if (node.showType == 'ZP') {
+        //.attr("xlink:href", "rect.png")
+.attr(
+"xlink:href", function (node) {
+    //node.px = 10;
+    //                node.fixed = true;  //这里可以固定，并且设置位置----baoqiang
+    //                node.px = 10;
+    var result = 'rect.png';
+    if (node.showType == 'ZP') {
 
-                    result = 'rect2.png';
-                }
-                else if (node.showType == 'CXT') {
-                    result = 'rect3.png';
-                }
-                else {
-                    result = 'rect.png';
-                }
-                return result
-            } //水平圆角
-        )
-        .attr(
-            "ry", function (node) {
-                var rx = 0;
-                if (node.showType == 'ZP') {
-                    rx = 12.5;
-                }
-                else if (node.showType == 'CXT') {
-                    rx = 0;
-                }
-                else {
-                    rx = 0;
-                }
-                return rx
-            } //水平圆角
-        )
-                        //        .style("fill", function (node) {
-                        //            var color; //圆圈背景色
-                        //            var link = links[node.index];
-                        //            color = "#F9EBF9";
-                        //            return color;
-                        //        })
-                        //        .style('stroke', function (node) {
-                        //            var color; //圆圈线条的颜色
-                        //            var link = links[node.index];
-                        //            if (typeof (link) == undefined) {
-                        //                if (link.source.name && node.name == link.source.name && link.effect == 1) {
-                        //                    color = "#B43232";
-                        //                } else {
-                        //                    color = "#A254A2";
-                        //                }
-                        //            }
-                        //            return color;
-                        //        })
-        .call(force.drag);         //将当前选中的元素传到drag函数中，使顶点可以被拖动
+        result = 'rect2.png';
+    }
+    else if (node.showType == 'CXT') {
+        result = 'rect3.png';
+    }
+    else {
+        result = 'rect.png';
+    }
+    return result
+} //水平圆角
+)
+.attr(
+"ry", function (node) {
+    var rx = 0;
+    if (node.showType == 'ZP') {
+        rx = 12.5;
+    }
+    else if (node.showType == 'CXT') {
+        rx = 0;
+    }
+    else {
+        rx = 0;
+    }
+    return rx
+} //水平圆角
+)
+        //        .style("fill", function (node) {
+        //            var color; //圆圈背景色
+        //            var link = links[node.index];
+        //            color = "#F9EBF9";
+        //            return color;
+        //        })
+        //        .style('stroke', function (node) {
+        //            var color; //圆圈线条的颜色
+        //            var link = links[node.index];
+        //            if (typeof (link) == undefined) {
+        //                if (link.source.name && node.name == link.source.name && link.effect == 1) {
+        //                    color = "#B43232";
+        //                } else {
+        //                    color = "#A254A2";
+        //                }
+        //            }
+        //            return color;
+        //        })
+.call(force.drag);         //将当前选中的元素传到drag函数中，使顶点可以被拖动
 
 
 
@@ -434,16 +424,16 @@
         }); */
 
         //圆圈的提示文字
-            circle.append("svg:title")
-        .text(function (node) {
-            var link = links[node.index];
-            if (typeof (link) == undefined) {
-                if (node.name == link.source.name && link.effect == "主营产品") {
-                    return "双击可查看详情"
-                }
+        circle.append("svg:title")
+    .text(function (node) {
+        var link = links[node.index];
+        if (typeof (link) == undefined) {
+            if (node.name == link.source.name && link.effect == "主营产品") {
+                return "双击可查看详情"
             }
+        }
 
-        });
+    });
 
         /* 绘制右下角箭头*/
         var rect01 = svg.append("marker")
@@ -542,7 +532,7 @@
                     .attr('y', 2)
                     .text(function () { return d.name; });
             }
-            //如果小于四个字符，不换行
+                //如果小于四个字符，不换行
             else if (d.name.length <= 6) {
                 d3.select(this).append('tspan')
                     .attr('x', 0)
@@ -635,3 +625,4 @@
         }
 
     </script>
+</body>

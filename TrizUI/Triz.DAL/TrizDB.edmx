@@ -5,6 +5,21 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="TrizDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_FunEleMutualReactInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PositiveEleID" Type="int" />
+          <Property Name="PositiveEleName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="FunctionName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PassiveEleID" Type="int" />
+          <Property Name="PassiveEleName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="FunctionType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="FunctionGrade" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ElementType" Type="nvarchar" MaxLength="10" />
+          <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
         <EntityType Name="tbl_ProjectInfo">
           <Key>
             <PropertyRef Name="ID" />
@@ -87,6 +102,7 @@
           <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityContainer Name="TrizDBModelStoreContainer">
+          <EntitySet Name="tbl_FunEleMutualReactInfo" EntityType="Self.tbl_FunEleMutualReactInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ProjectInfo" EntityType="Self.tbl_ProjectInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_QuestionAnalyseInfo" EntityType="Self.tbl_QuestionAnalyseInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_QuestionDescriptionInfo" EntityType="Self.tbl_QuestionDescriptionInfo" Schema="dbo" store:Type="Tables" />
@@ -103,6 +119,7 @@
           <EntitySet Name="tbl_QuestionDescriptionInfo" EntityType="TrizDBModel.tbl_QuestionDescriptionInfo" />
           <EntitySet Name="tbl_UserInfo" EntityType="TrizDBModel.tbl_UserInfo" />
           <EntitySet Name="tbl_QuestionAnalyseInfo" EntityType="TrizDBModel.tbl_QuestionAnalyseInfo" />
+          <EntitySet Name="tbl_FunEleMutualReactInfo" EntityType="TrizDBModel.tbl_FunEleMutualReactInfo" />
         </EntityContainer>
         <EntityType Name="tbl_ProjectInfo">
           <Key>
@@ -183,6 +200,21 @@
           <Property Name="ResolutionImportance3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="ResolutionImportance4" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="ResolutionImportance5" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tbl_FunEleMutualReactInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PositiveEleID" Type="Int32" />
+          <Property Name="PositiveEleName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FunctionName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PassiveEleID" Type="Int32" />
+          <Property Name="PassiveEleName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FunctionType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FunctionGrade" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ElementType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
       </Schema>
@@ -273,6 +305,22 @@
                 <ScalarProperty Name="IdealResolution2" ColumnName="IdealResolution2" />
                 <ScalarProperty Name="IdealResolution1" ColumnName="IdealResolution1" />
                 <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_FunEleMutualReactInfo">
+            <EntityTypeMapping TypeName="TrizDBModel.tbl_FunEleMutualReactInfo">
+              <MappingFragment StoreEntitySet="tbl_FunEleMutualReactInfo">
+                <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+                <ScalarProperty Name="ElementType" ColumnName="ElementType" />
+                <ScalarProperty Name="FunctionGrade" ColumnName="FunctionGrade" />
+                <ScalarProperty Name="FunctionType" ColumnName="FunctionType" />
+                <ScalarProperty Name="PassiveEleName" ColumnName="PassiveEleName" />
+                <ScalarProperty Name="PassiveEleID" ColumnName="PassiveEleID" />
+                <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+                <ScalarProperty Name="PositiveEleName" ColumnName="PositiveEleName" />
+                <ScalarProperty Name="PositiveEleID" ColumnName="PositiveEleID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

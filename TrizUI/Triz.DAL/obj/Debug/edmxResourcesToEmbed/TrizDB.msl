@@ -87,5 +87,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbl_FunEleMutualReactInfo">
+      <EntityTypeMapping TypeName="TrizDBModel.tbl_FunEleMutualReactInfo">
+        <MappingFragment StoreEntitySet="tbl_FunEleMutualReactInfo">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="ElementType" ColumnName="ElementType" />
+          <ScalarProperty Name="FunctionGrade" ColumnName="FunctionGrade" />
+          <ScalarProperty Name="FunctionType" ColumnName="FunctionType" />
+          <ScalarProperty Name="PassiveEleName" ColumnName="PassiveEleName" />
+          <ScalarProperty Name="PassiveEleID" ColumnName="PassiveEleID" />
+          <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+          <ScalarProperty Name="PositiveEleName" ColumnName="PositiveEleName" />
+          <ScalarProperty Name="PositiveEleID" ColumnName="PositiveEleID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
