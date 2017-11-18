@@ -1,6 +1,7 @@
 ﻿angular.module('myApp')
-    .controller('FunctionAnalyseCtrl', ['$scope', function ($scope) {
+    .controller('FunctionAnalyseCtrl', function ($scope, $location, requestService, $state, locals) {
 
+        $scope.Sources = "FunEleMutualReacts";
 
         $scope.remove = function (scope) {
             scope.remove();
@@ -86,9 +87,31 @@
         }];
 
         //map
+        $scope.nnodes;
         $scope.SaveMap = function () {
-            alert(1);
+            console.log($scope.nnodes);
+            requestService.add($scope.Sources, $scope.nnodes).then(function (data) {
+                alert(1);
+            });
+
+
+
+
         };
+
+        var links111 = [
+{ ID: "197", x: "12", y: "122", source: "电机", target: "大链轮", effect: "1", type: "转动" },
+{ ID: "198", x: "212", y: "22", source: "小链轮", target: "滚筒", effect: "2", type: "转动" },
+{ ID: "199", x: "1212", y: "111", source: "大链轮", target: "链条", effect: "1", type: "驱动" },
+{ ID: "201", x: "12", y: "899", source: "螺母", target: "导向架", effect: "1", type: "带动" },
+{ ID: "202", x: "12", y: "89", source: "丝杠", target: "螺母", effect: "1", type: "移动" },
+{ ID: "203", x: "232", y: "23", source: "链轮轴", target: "丝杠", effect: "1", type: "转动" },
+{ ID: "yuanjian204", x: "23", y: "8", source: "小链轮", target: "链轮轴", effect: "1", type: "转动" },
+{ ID: "yuanjian232", x: "23", y: "89", source: "电机", target: "链条", effect: "2", type: "驱动" },
+{ ID: "yuanjian241", x: "235", y: "2", source: "滚筒", target: "链条", effect: "1", type: "12" },
+{ ID: "yuanjian244", x: "56", y: "23", source: "导向架", target: "电机", effect: "1", type: "23" },
+{ ID: "YuanJian113", x: "78", y: "343", source: "超系统元件", target: "电机", effect: "1", type: "222", direction: "CXT2YJ" },
+{ ID: "YuanJian114", x: "989", y: "22", source: "超系统元件", target: "大链轮", effect: "1", type: "33", direction: "CXT2YJ" }];
 
         var links = [
  { ID: "197", source: "电机", target: "大链轮", effect: "1", type: "转动" },
@@ -147,18 +170,6 @@
             .append("path")
             .attr("d", "M0,-5L10,0L0,5")//箭头的路径
             .attr('fill', '#a3a3a3'); //箭头颜色
-
-        /* 将连接线设置为曲线
-        var path = svg.append("g").selectAll("path")
-        .data(force.links())
-        .enter().append("path")
-        .attr("class", function(d) { return "link " + d.type; })
-        .style("stroke",function(d){
-        //console.log(d);
-        return "#A254A2";//连接线的颜色
-        })
-        .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
-        */
 
         //设置连接线
         var edges_line = svg.selectAll(".edgepath")
@@ -256,12 +267,11 @@
 
 
 
-
-
         var drag = force.drag()
                         .on("dragstart", function (d, i) {
                             d.fixed = true;
 
+                            console.log(d.ID);
                             console.log(d.x);
                         })
                         .on("dragend", function (d, i) {
@@ -281,8 +291,15 @@
         .attr(
         "xlink:href", function (node) {
             //node.px = 10;
-            //                node.fixed = true;  //这里可以固定，并且设置位置----baoqiang
+            node.fixed = true;  //这里可以固定，并且设置位置----baoqiang
             //                node.px = 10;
+            var ElementNode = GetNodePos(node.name);
+            if (ElementNode != null) {
+                node.px = ElementNode.x;
+                node.py = ElementNode.y;
+                //console.log(node.px);
+            }
+
             var result = '/pages/assets/images/rect.png';
             if (node.showType == 'ZP') {
 
@@ -313,9 +330,6 @@
         } //水平圆角
         )
         .call(force.drag);         //将当前选中的元素传到drag函数中，使顶点可以被拖动
-
-
-
 
         //圆圈的提示文字
         circle.append("svg:title")
@@ -395,28 +409,8 @@
                     .text(function () { return bot; });
             }
 
-            // }
-
-            //直接显示文字    
-            /*.text(function(d) { 
-            return d.name; */
         });
 
-        /*  将文字显示在圆圈的外面 
-        var text2 = svg.append("g").selectAll("text")
-        .data(force.links())
-        //返回缺失元素的占位对象（placeholder），指向绑定的数据中比选定元素集多出的一部分元素。
-        .enter()
-        .append("text")
-        .attr("x", 150)//设置文字坐标
-        .attr("y", ".50em")
-        .text(function(d) { 
-        //console.log(d);
-        //return d.name; 
-        //return d.effect;
-        console.log(d);
-        return  '1111';
-        });*/
         function tick() {
             if (typeof (circle.attr()) != undefined && typeof (text.attr()) != undefined) {
                 circle.attr("transform", transform1); //圆圈
@@ -478,11 +472,25 @@
             return showType;
         }
 
+        function GetNodePos(name)
+        {
+            for (var n in links111)
+            {
+                //alert(links111[n].source);
+                if (links111[n].source == name)
+                {
+                    //alert(links111[n]);
+                    return links111[n];
+                }
+            }
+        }
+
+        $scope.nnodes = force.nodes();
         //map  end
 
 
 
 
 
-    }]);
+    });//end
 

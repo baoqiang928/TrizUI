@@ -114,7 +114,7 @@ StoreService.factory('requestService', function ($http, $q) {
     var request = {
         method: 'POST',
         url: '',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json;charset=utf-8' },
         data: {}
     };
     var postData = {
