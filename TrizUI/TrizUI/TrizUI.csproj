@@ -627,6 +627,15 @@
     <Content Include="pages\FunctionAnalyse\FunctionAnalyseOperate.html" />
     <Content Include="pages\FunctionAnalyse\index.html" />
     <Content Include="pages\FunctionAnalyse\t.png" />
+    <Content Include="pages\FunctionAnalyse\TestSVG\d3.v3.min.js" />
+    <Content Include="pages\FunctionAnalyse\TestSVG\my.htm" />
+    <Content Include="pages\FunctionAnalyse\TestSVG\my.js" />
+    <Content Include="pages\FunctionAnalyse\TestSVG\rect.png" />
+    <Content Include="pages\FunctionAnalyse\TestSVG\rect2.png" />
+    <Content Include="pages\FunctionAnalyse\TestSVG\rect3.png" />
+    <Content Include="pages\FunctionAnalyse\TestSVG\step3.jpg" />
+    <Content Include="pages\FunctionAnalyse\TestSVG\step3.png" />
+    <Content Include="pages\FunctionAnalyse\TestSVG\step3_rect4.png" />
     <Content Include="pages\FunctionAnalyse\t\angular-route.min.js" />
     <Content Include="pages\FunctionAnalyse\t\angular-ui-tree.css" />
     <Content Include="pages\FunctionAnalyse\t\angular.min.js" />
@@ -709,22 +718,6 @@
     <Content Include="Talent\Personnel\TechRequest\TechRequestDetail.html" />
     <Content Include="Talent\Personnel\TechRequest\TechRequestList.html" />
     <Content Include="Talent\Personnel\timg.jpg" />
-    <Content Include="testsvg\css\bootstrap.min.css" />
-    <Content Include="testsvg\css\custom.css" />
-    <Content Include="testsvg\css\default.css" />
-    <Content Include="testsvg\css\material-wfont.css" />
-    <Content Include="testsvg\css\material-wfont.min.css" />
-    <Content Include="testsvg\css\print.css" />
-    <Content Include="testsvg\css\ripples.min.css" />
-    <Content Include="testsvg\css\stylesheet.css" />
-    <Content Include="testsvg\fonts\icomoon.svg" />
-    <Content Include="testsvg\HtmlPage1.html" />
-    <Content Include="testsvg\index.html" />
-    <Content Include="testsvg\js\handlers.js" />
-    <Content Include="testsvg\js\svg.draggy.js" />
-    <Content Include="testsvg\js\svg.js" />
-    <Content Include="testsvg\src\svg.draggy.js" />
-    <Content Include="testsvg\src\svg.draggy.min.js" />
     <Content Include="Test\Controllers\App.js" />
     <Content Include="Test\Main.html" />
     <Content Include="Test\Page1.html" />
@@ -794,11 +787,8 @@
     <Content Include="pages\angular-ui-tree-master\package.json" />
     <Content Include="pages\angular-ui-tree-master\README.md" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="testsvg\fonts\icomoon.eot" />
-    <Content Include="testsvg\fonts\icomoon.ttf" />
-    <Content Include="testsvg\fonts\icomoon.woff" />
+    <Content Include="pages\FunctionAnalyse\TestSVG\step3.psd" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
