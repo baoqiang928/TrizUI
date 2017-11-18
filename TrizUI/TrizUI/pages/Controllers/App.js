@@ -2,11 +2,6 @@
 myApp.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.when("", "/ProjectList");
     $stateProvider
-       .state("aaa", {
-           url: "/aaa",
-           templateUrl: "/pages/FunctionAnalyse/views/basic-example.html",
-           controller: "FunctionAnalyseCtrl"
-})
         .state("ProjectList", {
             url: "/ProjectList",
             templateUrl: "/pages/List.html",
@@ -48,8 +43,8 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
        .state("FunctionAnalyseAdd", {
            url: "/FunctionAnalyseAdd",
            templateUrl: "/pages/FunctionAnalyse/FunctionAnalyseOperate.html",
-           controller: "FunctionAnalyseCtrl"
-       })
+           controller: 'DrawController'
+})
        .state("StandardSolutionList", {
            url: "/StandardSolutionList",
            templateUrl: "/pages/StandardSolution/StandardSolutionList.html"

@@ -1,5 +1,7 @@
 ﻿angular.module('myApp')
     .controller('FunctionAnalyseCtrl', ['$scope', function ($scope) {
+
+
         $scope.remove = function (scope) {
             scope.remove();
         };

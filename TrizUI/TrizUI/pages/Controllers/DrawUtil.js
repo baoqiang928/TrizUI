@@ -1,70 +1,5 @@
-﻿<!DOCTYPE html>
-<meta charset="utf-8">
-<script src="\assets\js\jquery-2.0.3.min.js"></script>
-
-<style>
-    .link
-    {
-        fill: none;
-        stroke: #666;
-        stroke-width: 1.5px;
-    }
-    
-    #licensing
-    {
-        fill: green;
-    }
-    
-    .link.licensing
-    {
-        stroke: green;
-    }
-    
-    .link.resolved
-    {
-        stroke-dasharray: 0,2 1;
-    }
-    
-    circle
-    {
-        fill: #ccc;
-        stroke: #333;
-        stroke-width: 1.5px;
-    }
-    
-    text
-    {
-        font: 12px Microsoft YaHei;
-        pointer-events: none;
-        text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
-    }
-    
-    .linetext
-    {
-        font-size: 12px Microsoft YaHei;
-    }
-</style>
-<body>
-    <div class="wrap3_graph">
-    </div>
-    <script src="d3.v3.min.js"></script>
-    <script>
-        function getShowType(link, type) {
-            var showType = "YJ";
-            if (link.direction == "YJ2ZP" && type == "target") {
-                showType = 'ZP';
-            }
-            else if (link.direction == "CXT2YJ" && type == "source") {
-                showType = 'CXT';
-            }
-            else {
-                showType = 'YJ';
-            }
-            return showType;
-        }
-
-    </script>
-    <script>
+﻿angular.module("myApp")
+    .controller('DrawController', function ($scope) {
 
         var links = [
         { ID: "197", source: "电机", target: "大链轮", effect: "1", type: "转动" },
@@ -87,18 +22,17 @@
             link.target = nodes[link.target] || (nodes[link.target] = { name: link.target, showType: getShowType(link, "target") });
 
         });
-
         var width = 1560,
-    height = 800;
+        height = 800;
 
         var force = d3.layout.force()//layout将json格式转化为力学图可用的格式
-    .nodes(d3.values(nodes))//设定节点数组
-    .links(links)//设定连线数组
-    .size([width, height])//作用域的大小
-    .linkDistance(150)//连接线长度
-    .charge(-1500)//顶点的电荷数。该参数决定是排斥还是吸引，数值越小越互相排斥
-    .on("tick", tick)//指时间间隔，隔一段时间刷新一次画面
-    .start(); //开始转换
+        .nodes(d3.values(nodes))//设定节点数组
+        .links(links)//设定连线数组
+        .size([width, height])//作用域的大小
+        .linkDistance(150)//连接线长度
+        .charge(-1500)//顶点的电荷数。该参数决定是排斥还是吸引，数值越小越互相排斥
+        .on("tick", tick)//指时间间隔，隔一段时间刷新一次画面
+        .start(); //开始转换
 
         //    var svg = d3.select("body").append("svg")
         //.attr("width", width)
@@ -331,11 +265,11 @@
                             //console.log("拖拽状态：进行中");
                         });
         var circle = svg.append("g").selectAll("image")
-.data(force.nodes())//表示使用force.nodes数据
-.enter().append("image")
-.attr({
-    "width": 100, "height": 40
-})
+        .data(force.nodes())//表示使用force.nodes数据
+        .enter().append("image")
+        .attr({
+            "width": 100, "height": 40
+        })
         //        .attr({
         //            "px": 10, "py": 10
         //        })
@@ -344,40 +278,40 @@
         //        })
 
         //.attr("xlink:href", "rect.png")
-.attr(
-"xlink:href", function (node) {
-    //node.px = 10;
-    //                node.fixed = true;  //这里可以固定，并且设置位置----baoqiang
-    //                node.px = 10;
-    var result = 'rect.png';
-    if (node.showType == 'ZP') {
+        .attr(
+        "xlink:href", function (node) {
+            //node.px = 10;
+            //                node.fixed = true;  //这里可以固定，并且设置位置----baoqiang
+            //                node.px = 10;
+            var result = '/pages/assets/images/rect.png';
+            if (node.showType == 'ZP') {
 
-        result = 'rect2.png';
-    }
-    else if (node.showType == 'CXT') {
-        result = 'rect3.png';
-    }
-    else {
-        result = 'rect.png';
-    }
-    return result
-} //水平圆角
-)
-.attr(
-"ry", function (node) {
-    var rx = 0;
-    if (node.showType == 'ZP') {
-        rx = 12.5;
-    }
-    else if (node.showType == 'CXT') {
-        rx = 0;
-    }
-    else {
-        rx = 0;
-    }
-    return rx
-} //水平圆角
-)
+                result = '/pages/assets/images/rect2.png';
+            }
+            else if (node.showType == 'CXT') {
+                result = '/pages/assets/images/rect3.png';
+            }
+            else {
+                result = '/pages/assets/images/rect.png';
+            }
+            return result
+        } //水平圆角
+        )
+        .attr(
+        "ry", function (node) {
+            var rx = 0;
+            if (node.showType == 'ZP') {
+                rx = 12.5;
+            }
+            else if (node.showType == 'CXT') {
+                rx = 0;
+            }
+            else {
+                rx = 0;
+            }
+            return rx
+        } //水平圆角
+        )
         //        .style("fill", function (node) {
         //            var color; //圆圈背景色
         //            var link = links[node.index];
@@ -396,7 +330,7 @@
         //            }
         //            return color;
         //        })
-.call(force.drag);         //将当前选中的元素传到drag函数中，使顶点可以被拖动
+        .call(force.drag);         //将当前选中的元素传到drag函数中，使顶点可以被拖动
 
 
 
@@ -423,15 +357,15 @@
 
         //圆圈的提示文字
         circle.append("svg:title")
-    .text(function (node) {
-        var link = links[node.index];
-        if (typeof (link) == undefined) {
-            if (node.name == link.source.name && link.effect == "主营产品") {
-                return "双击可查看详情"
+        .text(function (node) {
+            var link = links[node.index];
+            if (typeof (link) == undefined) {
+                if (node.name == link.source.name && link.effect == "主营产品") {
+                    return "双击可查看详情"
+                }
             }
-        }
 
-    });
+        });
 
         /* 绘制右下角箭头*/
         var rect01 = svg.append("marker")
@@ -622,5 +556,18 @@
             return "translate(" + (d.x) + "," + d.y + ")";
         }
 
-    </script>
-</body>
+        function getShowType(link, type) {
+            var showType = "YJ";
+            if (link.direction == "YJ2ZP" && type == "target") {
+                showType = 'ZP';
+            }
+            else if (link.direction == "CXT2YJ" && type == "source") {
+                showType = 'CXT';
+            }
+            else {
+                showType = 'YJ';
+            }
+            return showType;
+        }
+
+    });

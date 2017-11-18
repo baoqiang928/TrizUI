@@ -593,6 +593,12 @@
     <Content Include="pages\AngularJs-UI-master\lib\bootstrap\3.2.0\js\bootstrap.js" />
     <Content Include="pages\AngularJs-UI-master\lib\bootstrap\3.2.0\js\bootstrap.min.js" />
     <Content Include="pages\AngularJs-UI-master\src\pagination\tm.pagination.js" />
+    <Content Include="pages\assets\images\rect.png" />
+    <Content Include="pages\assets\images\rect2.png" />
+    <Content Include="pages\assets\images\rect3.png" />
+    <Content Include="pages\assets\images\step3.jpg" />
+    <Content Include="pages\assets\images\step3.png" />
+    <Content Include="pages\assets\images\step3_rect4.png" />
     <Content Include="pages\CauseEffect\1.png" />
     <Content Include="pages\CauseEffect\2.png" />
     <Content Include="pages\CauseEffect\3.png" />
@@ -609,6 +615,7 @@
     <Content Include="pages\Conflict\TechConflictOperate.html" />
     <Content Include="pages\Conflict\TechConflictResolveList.html" />
     <Content Include="pages\Controllers\DataPicker.js" />
+    <Content Include="pages\Controllers\DrawUtil.js" />
     <Content Include="pages\Controllers\FunctionAnalyseCtrl.js" />
     <Content Include="pages\Controllers\QuestionAnalyseOpeCtrl.js" />
     <Content Include="pages\Controllers\MasterCtrl.js" />
@@ -626,6 +633,12 @@
     <Content Include="pages\FunctionAnalyse\fk1.html" />
     <Content Include="pages\FunctionAnalyse\FunctionAnalyseOperate.html" />
     <Content Include="pages\FunctionAnalyse\index.html" />
+    <Content Include="pages\FunctionAnalyse\rect.png" />
+    <Content Include="pages\FunctionAnalyse\rect2.png" />
+    <Content Include="pages\FunctionAnalyse\rect3.png" />
+    <Content Include="pages\FunctionAnalyse\step3.jpg" />
+    <Content Include="pages\FunctionAnalyse\step3.png" />
+    <Content Include="pages\FunctionAnalyse\step3_rect4.png" />
     <Content Include="pages\FunctionAnalyse\t.png" />
     <Content Include="pages\FunctionAnalyse\TestSVG\d3.v3.min.js" />
     <Content Include="pages\FunctionAnalyse\TestSVG\my.htm" />
@@ -686,6 +699,7 @@
     <Content Include="pages\QuestionDescription\QuestionDescriptionOperate.html" />
     <Content Include="pages\Scripts\angular-ui-router.js" />
     <Content Include="pages\Scripts\angular.min.js" />
+    <Content Include="pages\Scripts\d3.v3.min.js" />
     <Content Include="pages\Scripts\jquery.min.js" />
     <Content Include="pages\Scripts\jquery.pagination.js" />
     <Content Include="pages\Scripts\pagination.css" />
@@ -789,6 +803,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="pages\FunctionAnalyse\TestSVG\step3.psd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="pages\assets\images\step3.psd" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
