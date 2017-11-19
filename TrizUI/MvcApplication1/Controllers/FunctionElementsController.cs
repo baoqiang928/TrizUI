@@ -18,13 +18,13 @@ namespace MvcApplication1.Controllers
         }
 
         // GET api/FunctionElements/5
-        public object Get([FromUri]int projectID)
+        public object Get([FromUri]int ProjectID)
         {
-            string json = new FunctionElementLogic().ScanTree(projectID.ToString());
+            string json = new FunctionElementLogic().ScanTree(ProjectID.ToString());
             return new
             {
                 json = json,
-                ProjectID = projectID
+                ProjectID = ProjectID
             };
         }
 

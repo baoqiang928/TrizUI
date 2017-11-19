@@ -11,6 +11,17 @@
             Remark: "",
             FatherID: ""
         };
+        $scope.data = [];
+        var GetTreeNodes = function () {
+            $scope.ElementData.ProjectID = "31";
+            requestService.lists("FunctionElements", $scope.ElementData).then(function (data) {
+                alert(2);
+                $scope.data = data.json;
+            });
+        }
+        GetTreeNodes();
+
+
         $scope.remove = function (scope) {
             scope.remove();
         };
@@ -71,8 +82,8 @@
             $scope.$broadcast('angular-ui-tree:expand-all');
         };
 
-        $scope.data = [{ 'id': 61, 'title': '丝杠', 'nodes': [{ 'id': 64, 'title': '超系统元件', 'nodes': [{ 'id': 67, 'title': '导向架', 'nodes': [{ 'id': 63, 'title': '大链轮', 'nodes': [{ 'id': 65, 'title': '小链轮', 'nodes': [{ 'id': 70, 'title': '链条', 'nodes': [{ 'id': 62, 'title': '滚筒', 'nodes': [{ 'id': 71, 'title': '43434', 'nodes': [] }] }] }, { 'id': 66, 'title': '链轮轴', 'nodes': [{ 'id': 69, 'title': '电机', 'nodes': [] }, { 'id': 68, 'title': '螺母', 'nodes': [] }] }] }] }] }] }] }, { 'id': 74, 'title': '通天塔', 'nodes': [{ 'id': 75, 'title': '的点点滴滴', 'nodes': [] }] }];
-
+        //$scope.data = [{ 'id': 61, 'title': '丝杠', 'nodes': [{ 'id': 64, 'title': '超系统元件', 'nodes': [{ 'id': 67, 'title': '导向架', 'nodes': [{ 'id': 63, 'title': '大链轮', 'nodes': [{ 'id': 65, 'title': '小链轮', 'nodes': [{ 'id': 70, 'title': '链条', 'nodes': [{ 'id': 62, 'title': '滚筒', 'nodes': [{ 'id': 71, 'title': '43434', 'nodes': [] }] }] }, { 'id': 66, 'title': '链轮轴', 'nodes': [{ 'id': 69, 'title': '电机', 'nodes': [] }, { 'id': 68, 'title': '螺母', 'nodes': [] }] }] }] }] }] }] }, { 'id': 74, 'title': '通天塔', 'nodes': [{ 'id': 75, 'title': '的点点滴滴', 'nodes': [] }] }];
+        
 
         //$scope.data = [{
         //    'id': 1,
