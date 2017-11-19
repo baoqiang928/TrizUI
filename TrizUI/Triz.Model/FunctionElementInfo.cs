@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Triz.Model
 {
@@ -81,6 +79,25 @@ namespace Triz.Model
         {
             get { return createDateTime; }
             set { createDateTime = value; }
+        }
+
+        private List<string> sonIDs = new List<string>();
+        public List<string> SonIDs
+        {
+            get
+            {
+                return sonIDs;
+            }
+
+            set
+            {
+                sonIDs = value;
+            }
+        }
+
+        public void Add(string id)
+        {
+            sonIDs.Add(id);
         }
 
     }

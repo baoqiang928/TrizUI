@@ -150,6 +150,33 @@ namespace Triz.DAL
             return new FunctionElementInfo();
         }
 
+        public List<FunctionElementInfo> GetFathers(string ProjectID)
+        {
+            Expression<Func<tbl_FunctionElementInfo, bool>> where = PredicateExtensionses.True<tbl_FunctionElementInfo>();
+            where = where.And(a => a.ProjectID == int.Parse(ProjectID));
+            where = where.And(a => a.FatherID == null);
+            using (TrizDBEntities TrizDB = new TrizDBEntities())
+            {
+                var query = TrizDB.tbl_FunctionElementInfo.Where(where.Compile());
+
+                return GetGetBusinessObjectList(query.ToList());
+            }
+
+        }
+
+        public List<FunctionElementInfo> GetSons(string fatherID)
+        {
+            Expression<Func<tbl_FunctionElementInfo, bool>> where = PredicateExtensionses.True<tbl_FunctionElementInfo>();
+            where = where.And(a => a.FatherID == int.Parse(fatherID));
+            using (TrizDBEntities TrizDB = new TrizDBEntities())
+            {
+                var query = TrizDB.tbl_FunctionElementInfo.Where(where.Compile());
+
+                return GetGetBusinessObjectList(query.ToList());
+            }
+
+        }
+
         public List<FunctionElementInfo> Query(string ProjectID, string EleName, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
             int startRow = (pageIndex - 1) * pageSize;

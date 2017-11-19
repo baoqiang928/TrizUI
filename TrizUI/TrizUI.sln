@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrizUI", "TrizUI\TrizUI.csproj", "{28334988-C996-4778-8F19-80F042311557}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Triz.BLL", "Triz.BLL\Triz.BLL.csproj", "{C0DD3C2E-75A5-43EF-87C3-DF5E2D9BF0F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodesTool", "CodesTool\CodesTool.csproj", "{926B4886-1178-4912-B268-E9840775610C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Triz.BLLTests", "Triz.BLLTests\Triz.BLLTests.csproj", "{451D383D-1B64-43E2-B315-08809E15B0F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{926B4886-1178-4912-B268-E9840775610C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{926B4886-1178-4912-B268-E9840775610C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{926B4886-1178-4912-B268-E9840775610C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{451D383D-1B64-43E2-B315-08809E15B0F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{451D383D-1B64-43E2-B315-08809E15B0F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{451D383D-1B64-43E2-B315-08809E15B0F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{451D383D-1B64-43E2-B315-08809E15B0F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

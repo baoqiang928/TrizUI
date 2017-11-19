@@ -1,0 +1,17 @@
+E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\Triz.BLLTests.dll
+E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\Triz.BLLTests.pdb
+E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\Triz.BLL.dll
+E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\Triz.Model.dll
+E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\Triz.DAL.dll
+E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\EntityFramework.dll
+E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\Triz.BLL.pdb
+E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\Triz.Model.pdb
+E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\Triz.DAL.pdb
+E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\EntityFramework.xml
+E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\zh-Hans\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\obj\Debug\Triz.BLLTests.csprojResolveAssemblyReference.cache
+E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\obj\Debug\Triz.BLLTests.dll
+E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\obj\Debug\Triz.BLLTests.pdb
+E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\Triz.BLLTests.dll.config

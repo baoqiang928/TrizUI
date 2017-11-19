@@ -54,7 +54,53 @@ namespace Triz.BLL
             return new FunctionElementDAL().Query(ProjectID, EleName, pageIndex, pageSize, ref totalItems, ref PagesLength);
         }
 
+        public List<FunctionElementInfo> ScanTree(string ProjectID)
+        {
+            List<FunctionElementInfo> Fathers = GetFathers(ProjectID);
+            foreach (FunctionElementInfo Father in Fathers)
+            {
+                Json = Json + GetJson(Father) + ",";
+                FindSons(Father);
+            }
+            Json = "[" + Json.TrimEnd(',').Replace(",]", "]") + "]";
+            return Fathers;
+        }
+        //public string json = "{'id':{id},'title':'{title}','nodes':[]}";
+        public string Json = "";
+        private string GetJson(FunctionElementInfo ElementInfo)
+        {
+            return "{'id':" + ElementInfo.ID + ",'title':'" + ElementInfo.EleName + "','nodes':[]}";
+        }
+
+        private void AddSon(FunctionElementInfo fatherElementInfo, FunctionElementInfo sonElementInfo)
+        {
+            string str = "{'id':"+ fatherElementInfo.ID + ",'title':'"+fatherElementInfo.EleName+"','nodes':["; //故意少了2个】}替换使用。
+            int i = Json.IndexOf(str);
+            string aa = GetJson(sonElementInfo);
+            Json = Json.Replace(str, str + GetJson(sonElementInfo) + ",");
+        }
+
+        public void FindSons(FunctionElementInfo ElementInfo)
+        {
+            List<FunctionElementInfo> SonList = GetSons(ElementInfo.ID.ToString());
+            if (SonList.Count == 0) return;
+            foreach (FunctionElementInfo Son in SonList)
+            {
+                AddSon(ElementInfo,Son);
+                FindSons(Son);
+            }
+        }
+
+        private List<FunctionElementInfo> GetFathers(string ProjectID)
+        {
+            return new FunctionElementDAL().GetFathers(ProjectID);
+        }
+        private List<FunctionElementInfo> GetSons(string ProjectID)
+        {
+            return new FunctionElementDAL().GetSons(ProjectID);
+        }
     }
 }
+
 
 
