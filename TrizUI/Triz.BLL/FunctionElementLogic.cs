@@ -54,7 +54,7 @@ namespace Triz.BLL
             return new FunctionElementDAL().Query(ProjectID, EleName, pageIndex, pageSize, ref totalItems, ref PagesLength);
         }
 
-        public List<FunctionElementInfo> ScanTree(string ProjectID)
+        public string ScanTree(string ProjectID)
         {
             List<FunctionElementInfo> Fathers = GetFathers(ProjectID);
             foreach (FunctionElementInfo Father in Fathers)
@@ -63,7 +63,7 @@ namespace Triz.BLL
                 FindSons(Father);
             }
             Json = "[" + Json.TrimEnd(',').Replace(",]", "]") + "]";
-            return Fathers;
+            return Json;
         }
         //public string json = "{'id':{id},'title':'{title}','nodes':[]}";
         public string Json = "";

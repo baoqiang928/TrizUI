@@ -17,6 +17,17 @@ namespace MvcApplication1.Controllers
             return new FunctionElementLogic().GetByID(id);
         }
 
+        // GET api/FunctionElements/5
+        public object Get([FromUri]int projectID)
+        {
+            string json = new FunctionElementLogic().ScanTree(projectID.ToString());
+            return new
+            {
+                json = json,
+                ProjectID = projectID
+            };
+        }
+
         // GET api/FunctionElements
         public object Get([FromUri]string ProjectID, string EleName, int currentPage, int itemsPerPage)
         {
