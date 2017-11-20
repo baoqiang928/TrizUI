@@ -36,6 +36,7 @@
         };
 
         $scope.moveLastToTheBeginning = function () {
+            alert(1);
             var a = $scope.data.pop();
             $scope.data.splice(0, 0, a);
         };
@@ -71,8 +72,26 @@
             $('#modal-table').modal('hide');
         };
 
+        function save(fatherid, sons)
+        {
+            for (var i=0;i<sons.length;i++)
+            {
+                console.log(fatherid + "     " + sons[i].id);
+                if (sons[i].nodes.length > 0)
+                {
+                    save(sons[i].id, sons[i].nodes);
+                }
+            }
 
+        }
 
+        $scope.SaveTreeNodes = function () {
+            console.log($scope.TreeData);
+            for (var i=0;i<$scope.TreeData.length;i++)
+            {
+                save($scope.TreeData[i].id, $scope.TreeData[i].nodes);
+            }
+        }
 
         $scope.aaa = function () {
             alert('click');
