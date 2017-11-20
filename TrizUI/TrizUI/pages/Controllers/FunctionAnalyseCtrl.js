@@ -11,29 +11,17 @@
             Remark: "",
             FatherID: ""
         };
-        $scope.f = {
-            data: []
-        };
 
-        $scope.data = [];
-        $scope.bbb = [{ 'id': 22, 'title': '444555', 'nodes': [] }];
-        $scope.bbb2= { 'id': 22, 'title': '444555', 'nodes': [] };
-        $scope.bbb1 = [{ 'id': 61, 'title': '丝杠', 'nodes': [{ 'id': 64, 'title': '超系统元件', 'nodes': [{ 'id': 67, 'title': '导向架', 'nodes': [{ 'id': 63, 'title': '大链轮', 'nodes': [{ 'id': 65, 'title': '小链轮', 'nodes': [{ 'id': 70, 'title': '链条', 'nodes': [{ 'id': 76, 'title': '33223', 'nodes': [] }, { 'id': 62, 'title': '滚筒', 'nodes': [{ 'id': 71, 'title': '43434', 'nodes': [] }] }] }, { 'id': 66, 'title': '链轮轴', 'nodes': [{ 'id': 69, 'title': '电机', 'nodes': [] }, { 'id': 68, 'title': '螺母', 'nodes': [] }] }] }] }] }] }] }, { 'id': 74, 'title': '通天塔', 'nodes': [{ 'id': 75, 'title': '的点点滴滴', 'nodes': [] }] }];
-        //$scope.bbb1 = [{ 'id': 2, 'title': '1', 'nodes': [] }];
-        //$scope.bbb = [{ 'id': 61, 'title': '1丝杠', 'nodes': [{ 'id': 64, 'title': '超系统元件', 'nodes': [{ 'id': 67, 'title': '导向架', 'nodes': [{ 'id': 63, 'title': '大链轮', 'nodes': [{ 'id': 65, 'title': '小链轮', 'nodes': [{ 'id': 70, 'title': '链条', 'nodes': [{ 'id': 62, 'title': '滚筒', 'nodes': [{ 'id': 71, 'title': '43434', 'nodes': [] }] }] }, { 'id': 66, 'title': '链轮轴', 'nodes': [{ 'id': 69, 'title': '电机', 'nodes': [] }, { 'id': 68, 'title': '螺母', 'nodes': [] }] }] }] }] }] }] }, { 'id': 74, 'title': '通天塔', 'nodes': [{ 'id': 75, 'title': '的点点滴滴', 'nodes': [] }] }];
-        $scope.GetTreeNodes = function () {
+        $scope.TreeData = [];
+        var GetTreeNodes = function () {
             $scope.ElementData.ProjectID = "31";
             requestService.lists("FunctionElements", $scope.ElementData).then(function (data) {
-                console.log(data.json);
-
-                var scope = $scope.s;
-                var nodeData = scope.$modelValue;
-                $scope.bbb = strToJson(data.json);
-                console.log($scope.bbb);
+                $scope.TreeData = strToJson(data.json);
             });
         };
 
-        //GetTreeNodes();
+        GetTreeNodes();
+
         function strToJson(str) {
             var json = (new Function("return " + str))();
             return json;
@@ -52,9 +40,9 @@
             $scope.data.splice(0, 0, a);
         };
 
-        $scope.s = "";
-        $scope.newSubItem = function (scope) {
-            $scope.s = scope;
+        $scope.CurrentNode = "";
+        $scope.newSubItem = function (CurrentNode) {
+            $scope.CurrentNode = CurrentNode;
             $scope.ElementData.EleName = "";
             $('#modal-table').modal('show');
             return;
@@ -62,11 +50,11 @@
 
 
         $scope.SaveEleName = function () {
-            var scope = $scope.s;
+            var CurrentNode = $scope.CurrentNode;
             console.log(nodeData);
             console.log($scope.ElementData.EleName);
             $scope.ElementData.ProjectID = locals.get("ProjectID");
-            var nodeData = scope.$modelValue;
+            var nodeData = CurrentNode.$modelValue;
             $scope.ElementData.FatherID = nodeData.id;
 
             nodeData.nodes.push({
@@ -79,7 +67,6 @@
             requestService.add("FunctionElements", $scope.ElementData).then(function (data) {
                 Alert("保存成功。");
             });
-
 
             $('#modal-table').modal('hide');
         };
