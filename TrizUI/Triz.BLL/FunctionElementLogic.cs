@@ -21,6 +21,11 @@ namespace Triz.BLL
             }
         }
 
+        public void SetElementGod(string id)
+        {
+            new FunctionElementDAL().SetElementGod(int.Parse(id));
+        }
+
         public void SaveFunctionElement(FunctionElementInfo FunctionElementInfo)
         {
             if (FunctionElementInfo.ID == null)

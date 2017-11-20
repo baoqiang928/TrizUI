@@ -72,11 +72,13 @@
             $('#modal-table').modal('hide');
         };
 
+        $scope.FatherSonIDs = "";
         function save(fatherid, sons)
         {
             for (var i=0;i<sons.length;i++)
             {
-                console.log(fatherid + "     " + sons[i].id);
+                console.log(fatherid + "|" + sons[i].id);
+                $scope.FatherSonIDs = $scope.FatherSonIDs + fatherid + "|" + sons[i].id + "^";
                 if (sons[i].nodes.length > 0)
                 {
                     save(sons[i].id, sons[i].nodes);
@@ -87,10 +89,15 @@
 
         $scope.SaveTreeNodes = function () {
             console.log($scope.TreeData);
+            $scope.FatherSonIDs = "";
             for (var i=0;i<$scope.TreeData.length;i++)
             {
+                $scope.FatherSonIDs = $scope.FatherSonIDs + 0 + "|" + $scope.TreeData[i].id + "^";
                 save($scope.TreeData[i].id, $scope.TreeData[i].nodes);
             }
+            requestService.updateMutiple("FunctionElements", "FatherSonIDs=" + $scope.FatherSonIDs).then(function (data) {
+                Alert("保存成功");
+            });
         }
 
         $scope.aaa = function () {

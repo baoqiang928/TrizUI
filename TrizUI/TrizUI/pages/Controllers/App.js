@@ -139,6 +139,13 @@ StoreService.factory('requestService', function ($http, $q) {
             request.data = data;
             return requestService($http, $q, request);
         },
+        updateMutiple: function (resource, param) {
+            request.method = "put";
+            request.url = ApiUrl + resource + "/?" + param;
+            request.params = {};
+            request.data = {};
+            return requestService($http, $q, request);
+        },
         delete: function (resource, id) {
             request.method = "delete";
             request.url = ApiUrl + resource + "/" + id;

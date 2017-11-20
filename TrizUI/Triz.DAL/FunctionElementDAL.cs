@@ -121,6 +121,40 @@ namespace Triz.DAL
             return 0;
         }
 
+        public bool SetElementGod(int id)
+        {
+            bool result = false;
+            using (TrizDBEntities TrizDB = new TrizDBEntities())
+            {
+                try
+                {
+                    var Query = TrizDB.tbl_FunctionElementInfo.Where(o => o.ID == id).FirstOrDefault();
+                    if (Query == null) return false;
+                    Query.FatherID = null;
+                    TrizDB.SaveChanges();
+                    if (TrizDB.SaveChanges() > 0)
+                        result = true;
+                    return result;
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+                {
+                    Exception raise = dbEx;
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            string message = string.Format("{0},{1}",
+                                validationErrors.Entry.Entity.ToString(),
+                                validationError.ErrorMessage);
+                            raise = new InvalidOperationException(message, raise);
+                            throw raise;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
         public FunctionElementInfo GetByID(int ID)
         {
             using (TrizDBEntities TrizDB = new TrizDBEntities())

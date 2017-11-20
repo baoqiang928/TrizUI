@@ -53,6 +53,23 @@ namespace MvcApplication1.Controllers
             new FunctionElementLogic().SaveFunctionElement(FunctionElementInfo);
         }
 
+        public void Put([FromUri]string FatherSonIDs)
+        {
+            string aa = FatherSonIDs;
+            foreach (string rel in FatherSonIDs.Split('^'))
+            {
+                if (!rel.Contains('|')) continue;
+
+                if (rel.Split('|')[0] == "0")
+                {
+                    new FunctionElementLogic().SetElementGod(rel.Split('|')[1]);
+                    continue;
+                }
+
+                new FunctionElementLogic().SaveFunctionElement(new FunctionElementInfo() { ID = int.Parse(rel.Split('|')[1]), FatherID = int.Parse(rel.Split('|')[0]) });
+            }
+        }
+
         // DELETE api/FunctionElements/5
         public void Delete(int id)
         {
