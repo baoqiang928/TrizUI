@@ -53,14 +53,14 @@ namespace MvcApplication1.Controllers
         }
 
         // POST api/FunctionElements
-        public void Post([FromBody]FunctionElementInfo FunctionElementInfo)
+        public int Post([FromBody]FunctionElementInfo FunctionElementInfo)
         {
-            new FunctionElementLogic().SaveFunctionElement(FunctionElementInfo);
+            return new FunctionElementLogic().SaveFunctionElement(FunctionElementInfo);
         }
 
-        public void Put([FromBody]FunctionElementInfo FunctionElementInfo)
+        public int Put([FromBody]FunctionElementInfo FunctionElementInfo)
         {
-            new FunctionElementLogic().SaveFunctionElement(FunctionElementInfo);
+            return new FunctionElementLogic().SaveFunctionElement(FunctionElementInfo);
         }
 
         public void Put([FromUri]string FatherSonIDs)

@@ -41,15 +41,6 @@
         function RemoveRel(RelIDs) {
             var PositiveObj = GetElement(RelIDs.split("_")[0]);
             var PassiveObj = GetElement(RelIDs.split("_")[1]);
-            console.log("RelIDs");
-            console.log(RelIDs);
-            console.log("PositiveObj");
-            console.log(PositiveObj);
-            console.log("PassiveObj");
-            console.log(PassiveObj);
-            console.log("RelElementData");
-            console.log($scope.RelElementData);
-
             for (var i = 0; i < $scope.RelElementData.length; i++) {
                 if ($scope.RelElementData[i].PositiveEleID == PositiveObj.ID)
                     if ($scope.RelElementData[i].PassiveEleID == PassiveObj.ID)
@@ -57,7 +48,6 @@
                         $scope.RelElementData.splice(i, 1);
                     }
             }
-
         }
 
 
@@ -132,11 +122,6 @@
 
 
 
-        
-
-
-
-
         function strToJson(str) {
             var json = (new Function("return " + str))();
             return json;
@@ -156,32 +141,50 @@
         };
 
         $scope.CurrentNode = "";
+        $scope.CurrentOperate = "";
         $scope.newSubItem = function (CurrentNode) {
             $scope.CurrentNode = CurrentNode;
             $scope.EleName = "";
+            $scope.CurrentOperate = "Add";
             $('#modal-table').modal('show');
             return;
         };
-
+        $scope.UpdateSubItem = function (CurrentNode) {
+            $scope.CurrentNode = CurrentNode;
+            var nodeData = CurrentNode.$modelValue;
+            $scope.EleName = nodeData.title;
+            $scope.CurrentOperate = "Update";
+            $('#modal-table').modal('show');
+        };
         //新增一个节点的保存事件
         $scope.EleName = "";
         $scope.SaveEleName = function () {
-            var CurrentNode = $scope.CurrentNode;
             var FunctionElementInfo = {};
             FunctionElementInfo.ProjectID = locals.get("ProjectID");
-            var nodeData = CurrentNode.$modelValue;
-            FunctionElementInfo.FatherID = nodeData.id;
             FunctionElementInfo.EleName = $scope.EleName;
-            nodeData.nodes.push({
-                id: nodeData.id * 10 + nodeData.nodes.length,
-                title: $scope.EleName,
-                nodes: []
-            });
+            var nodeData = $scope.CurrentNode.$modelValue;
             //add
-            requestService.add("FunctionElements", FunctionElementInfo).then(function (data) {
-                Alert("保存成功。");
-            });
+            if ($scope.CurrentOperate == "Add") {
+                FunctionElementInfo.FatherID = nodeData.id;
+                requestService.add("FunctionElements", FunctionElementInfo).then(function (data) {
+                    nodeData.nodes.push({
+                        id: data,
+                        title: $scope.EleName,
+                        nodes: []
+                    });
+                    alert("保存成功。");
+                });
+            }
 
+            //update
+            if ($scope.CurrentOperate == "Update") {
+                FunctionElementInfo.ID = nodeData.id;
+                requestService.update("FunctionElements", FunctionElementInfo).then(function (data) {
+                    console.log(data);
+                    nodeData.title = $scope.EleName;
+                    alert("保存成功。");
+                });
+            }
             $('#modal-table').modal('hide');
         };
         //新增一个节点的保存事件  --end
@@ -210,9 +213,7 @@
             });
         }
 
-        $scope.aaa = function () {
-            alert('click');
-        };
+
 
         $scope.collapseAll = function () {
             $scope.$broadcast('angular-ui-tree:collapse-all');

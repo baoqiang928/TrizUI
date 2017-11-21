@@ -16,7 +16,7 @@ namespace Triz.DAL
         /// </summary>
         /// <param name="FunctionElementInfo"></param>
         /// <returns></returns>
-        public bool Add(FunctionElementInfo FunctionElementInfo)
+        public int Add(FunctionElementInfo FunctionElementInfo)
         {
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
@@ -26,7 +26,7 @@ namespace Triz.DAL
                     SetDataEntity(FunctionElementInfoEntity, FunctionElementInfo);
                     TrizDB.tbl_FunctionElementInfo.Add(FunctionElementInfoEntity);
                     if (TrizDB.SaveChanges() > 0)
-                        return true;
+                        return FunctionElementInfoEntity.ID;
                 }
                 catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
                 {
@@ -44,7 +44,7 @@ namespace Triz.DAL
                     }
                 }
             }
-            return false;
+            return 0;
         }
 
         /// <summary>

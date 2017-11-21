@@ -30,7 +30,7 @@ namespace Triz.BLL
             new FunctionElementDAL().SetElementGod(int.Parse(id));
         }
 
-        public void SaveFunctionElement(FunctionElementInfo FunctionElementInfo)
+        public int SaveFunctionElement(FunctionElementInfo FunctionElementInfo)
         {
             if (FunctionElementInfo.ID == null)
             {
@@ -39,17 +39,16 @@ namespace Triz.BLL
                 int pageslenth = 0;
                 List<FunctionElementInfo> FunctionElementList = Query(FunctionElementInfo.ProjectID.ToString(), FunctionElementInfo.EleName, 1, 9999, ref total, ref pageslenth);
                 if (FunctionElementList.Count > 1)
-                    return;
+                    return 0;
                 if (FunctionElementList.Count == 0)
                 {
-                    new FunctionElementDAL().Add(FunctionElementInfo);
-                    return;
+                    return new FunctionElementDAL().Add(FunctionElementInfo);
                 }
                 if (FunctionElementList.Count == 1)
                     FunctionElementInfo.ID = FunctionElementList[0].ID;
             }
             new FunctionElementDAL().Update(FunctionElementInfo);
-            return;
+            return FunctionElementInfo.ID ?? 0;
         }
 
 

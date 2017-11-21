@@ -20,11 +20,13 @@
           'glyphicon-chevron-down': !collapsed
         }"></span></a>
     {{node.title}}
-    <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="aaa(this)" style="margin-left: 8px;"><span
+    <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)" style="margin-right: 3px;"><span
         class="glyphicon glyphicon-remove"></span></a>
-    <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)"><span
-        class="glyphicon glyphicon-remove"></span></a>
-    <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span
+
+    <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="UpdateSubItem(this)" style="margin-right: 3px;"><span
+        class="glyphicon glyphicon-edit"></span></a>
+
+    <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 3px;"><span
         class="glyphicon glyphicon-plus"></span></a>
   </div>
   <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
