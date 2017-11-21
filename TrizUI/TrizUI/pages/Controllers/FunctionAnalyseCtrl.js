@@ -209,7 +209,7 @@
                 save($scope.TreeData[i].id, $scope.TreeData[i].nodes);
             }
             requestService.updateMutiple("FunctionElements", "FatherSonIDs=" + $scope.FatherSonIDs).then(function (data) {
-                Alert("保存成功");
+                alert("保存成功");
             });
         }
 
@@ -298,7 +298,7 @@
 
                 });
             }
-            Alert("操作成功。");
+            alert("操作成功。");
         };
 
         var links111 = [
