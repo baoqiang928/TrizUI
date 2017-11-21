@@ -11,6 +11,10 @@ namespace Triz.BLL
         {
             new FunctionElementDAL().Delete(id);
         }
+        public List<FunctionElementInfo> QueryLeafs(string projectID)
+        {
+           return new FunctionElementDAL().QueryLeafs(int.Parse(projectID));
+        }
 
         public void DeleteFunctionElement(string ids)
         {
@@ -79,7 +83,7 @@ namespace Triz.BLL
 
         private void AddSon(FunctionElementInfo fatherElementInfo, FunctionElementInfo sonElementInfo)
         {
-            string str = "{'id':"+ fatherElementInfo.ID + ",'title':'"+fatherElementInfo.EleName+"','nodes':["; //故意少了2个】}替换使用。
+            string str = "{'id':" + fatherElementInfo.ID + ",'title':'" + fatherElementInfo.EleName + "','nodes':["; //故意少了2个】}替换使用。
             int i = Json.IndexOf(str);
             string aa = GetJson(sonElementInfo);
             Json = Json.Replace(str, str + GetJson(sonElementInfo) + ",");
@@ -91,7 +95,7 @@ namespace Triz.BLL
             if (SonList.Count == 0) return;
             foreach (FunctionElementInfo Son in SonList)
             {
-                AddSon(ElementInfo,Son);
+                AddSon(ElementInfo, Son);
                 FindSons(Son);
             }
         }

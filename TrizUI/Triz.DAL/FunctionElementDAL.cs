@@ -121,6 +121,37 @@ namespace Triz.DAL
             return 0;
         }
 
+        public List<FunctionElementInfo> QueryLeafs(int projectID)
+        {
+            Expression<Func<tbl_FunctionElementInfo, bool>> where = PredicateExtensionses.True<tbl_FunctionElementInfo>();
+            where = where.And(a => a.ProjectID == projectID);
+
+            using (TrizDBEntities TrizDB = new TrizDBEntities())
+            {
+                var query = from p in TrizDB.tbl_FunctionElementInfo
+                            where !(from q in TrizDB.tbl_FunctionElementInfo
+                                    where q.FatherID != null
+                                    select q.FatherID).Contains(p.ID)
+                            select new FunctionElementInfo
+                            {
+                                ID = p.ID,
+                                ProjectID = p.ProjectID,
+                                EleName = p.EleName,
+                                ElementType = p.ElementType,
+                                EleX = p.EleX,
+                                EleY = p.EleY,
+                                Remark = p.Remark,
+                                FatherID = p.FatherID,
+                                CreateDateTime = p.CreateDateTime
+                            };
+                //var query = TrizDB.tbl_FunctionElementInfo.Where(where.Compile());
+                //Dictionary<int, int> fatherids = new Dictionary<int, int>();
+                //List<
+                //query.ToList()
+                return query.ToList();
+            }
+        }
+
         public bool SetElementGod(int id)
         {
             bool result = false;

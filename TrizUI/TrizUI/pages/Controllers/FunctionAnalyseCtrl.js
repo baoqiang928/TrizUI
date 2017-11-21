@@ -2,25 +2,140 @@
     .controller('FunctionAnalyseCtrl', function ($scope, $location, requestService, $state, locals) {
 
         $scope.Sources = "FunEleMutualReacts";
-        $scope.ElementData = {
+
+        //相互作用关系维护表
+        $scope.RelElementData = [];
+        $scope.RelElement = {
+            ID: "",
             ProjectID: "",
-            EleName: "",
+            PositiveEleID: "",
+            PositiveEleName: "",
+            FunctionName: "",
+            PassiveEleID: "",
+            PassiveEleName: "",
+            FunctionType: "",
+            FunctionGrade: "",
             ElementType: "",
-            EleX: "",
-            EleY: "",
-            Remark: "",
-            FatherID: ""
+            CreateDateTime: ""
         };
 
+        //check
+        function AddRel(RelIDs) {
+            //
+            var PositiveObj = GetElement(RelIDs.split("_")[0]);
+            var PassiveObj = GetElement(RelIDs.split("_")[1]);
+
+            var RelElementInfo = {};
+            RelElementInfo.ProjectID = "31";
+            RelElementInfo.PositiveEleID = PositiveObj.ID;
+            RelElementInfo.PositiveEleName = PositiveObj.EleName;
+            RelElementInfo.FunctionName = "";
+            RelElementInfo.PassiveEleID = PassiveObj.ID;
+            RelElementInfo.PassiveEleName = PassiveObj.EleName;
+            RelElementInfo.FunctionType = "";
+            RelElementInfo.FunctionGrade = "";
+            RelElementInfo.ElementType = "";
+            $scope.RelElementData.push(RelElementInfo);
+        }
+
+        function RemoveRel(RelIDs) {
+            var PositiveObj = GetElement(RelIDs.split("_")[0]);
+            var PassiveObj = GetElement(RelIDs.split("_")[1]);
+            console.log("RelIDs");
+            console.log(RelIDs);
+            console.log("PositiveObj");
+            console.log(PositiveObj);
+            console.log("PassiveObj");
+            console.log(PassiveObj);
+            console.log("RelElementData");
+            console.log($scope.RelElementData);
+
+            for (var i = 0; i < $scope.RelElementData.length; i++) {
+                if ($scope.RelElementData[i].PositiveEleID == PositiveObj.ID)
+                    if ($scope.RelElementData[i].PassiveEleID == PassiveObj.ID)
+                    {
+                        $scope.RelElementData.splice(i, 1);
+                    }
+            }
+
+        }
+
+
+        function GetElement(ID)
+        {
+            console.log("1:");
+            console.log($scope.TreeLeafs);
+            for (var i = 0; i < $scope.TreeLeafs.length; i++) {
+                if ($scope.TreeLeafs[i].ID == ID)
+                    return $scope.TreeLeafs[i];
+            }
+        }
+
+        $scope.selected = [];
+
+        var updateSelected = function (action, id, name) {
+            if (action == 'add' && $scope.selected.indexOf(id) == -1) {
+                $scope.selected.push(id);
+                AddRel(id);//增加作用关系
+            }
+            if (action == 'remove' && $scope.selected.indexOf(id) != -1) {
+                var idx = $scope.selected.indexOf(id);
+                $scope.selected.splice(idx, 1);
+                RemoveRel(id);
+            }
+        }
+
+        $scope.updateSelection = function ($event, id) {
+            var checkbox = $event.target;
+            var action = (checkbox.checked ? 'add' : 'remove');
+            updateSelected(action, id, checkbox.name);
+        }
+
+        $scope.isSelected = function (id) {
+            return $scope.selected.indexOf(id) >= 0;
+        }
+
+        //check -- end
+
+
+        //相互作用关系维护表 -- end
+
+        //获得所有节点，左侧树使用
         $scope.TreeData = [];
         var GetTreeNodes = function () {
-            $scope.ElementData.ProjectID = "31";
-            requestService.lists("FunctionElements", $scope.ElementData).then(function (data) {
+            $scope.QueryData = {
+                ProjectID: ""
+            };
+            $scope.QueryData.ProjectID = "31";
+            requestService.lists("FunctionElements", $scope.QueryData).then(function (data) {
                 $scope.TreeData = strToJson(data.json);
             });
         };
-
         GetTreeNodes();
+        //获得所有节点，左侧树使用 --end
+
+
+
+        //获得所有叶子节点，对应表使用
+        $scope.TreeLeafs = [];
+        var GetTreeLeafs = function () {
+            var QueryData = {};
+            QueryData.ProjectID = "31";
+            QueryData.EleName = "";
+            requestService.lists("FunctionElements", QueryData).then(function (data) {
+                $scope.TreeLeafs = data;
+                console.log($scope.TreeLeafs);
+            });
+        };
+        GetTreeLeafs();
+        //获得所有叶子节点，对应表使用 --end
+
+
+
+        
+
+
+
 
         function strToJson(str) {
             var json = (new Function("return " + str))();
@@ -36,7 +151,6 @@
         };
 
         $scope.moveLastToTheBeginning = function () {
-            alert(1);
             var a = $scope.data.pop();
             $scope.data.splice(0, 0, a);
         };
@@ -44,43 +158,40 @@
         $scope.CurrentNode = "";
         $scope.newSubItem = function (CurrentNode) {
             $scope.CurrentNode = CurrentNode;
-            $scope.ElementData.EleName = "";
+            $scope.EleName = "";
             $('#modal-table').modal('show');
             return;
         };
 
-
+        //新增一个节点的保存事件
+        $scope.EleName = "";
         $scope.SaveEleName = function () {
             var CurrentNode = $scope.CurrentNode;
-            console.log(nodeData);
-            console.log($scope.ElementData.EleName);
-            $scope.ElementData.ProjectID = locals.get("ProjectID");
+            var FunctionElementInfo = {};
+            FunctionElementInfo.ProjectID = locals.get("ProjectID");
             var nodeData = CurrentNode.$modelValue;
-            $scope.ElementData.FatherID = nodeData.id;
-
+            FunctionElementInfo.FatherID = nodeData.id;
+            FunctionElementInfo.EleName = $scope.EleName;
             nodeData.nodes.push({
                 id: nodeData.id * 10 + nodeData.nodes.length,
-                title: $scope.ElementData.EleName,
+                title: $scope.EleName,
                 nodes: []
             });
-
             //add
-            requestService.add("FunctionElements", $scope.ElementData).then(function (data) {
+            requestService.add("FunctionElements", FunctionElementInfo).then(function (data) {
                 Alert("保存成功。");
             });
 
             $('#modal-table').modal('hide');
         };
+        //新增一个节点的保存事件  --end
 
         $scope.FatherSonIDs = "";
-        function save(fatherid, sons)
-        {
-            for (var i=0;i<sons.length;i++)
-            {
+        function save(fatherid, sons) {
+            for (var i = 0; i < sons.length; i++) {
                 console.log(fatherid + "|" + sons[i].id);
                 $scope.FatherSonIDs = $scope.FatherSonIDs + fatherid + "|" + sons[i].id + "^";
-                if (sons[i].nodes.length > 0)
-                {
+                if (sons[i].nodes.length > 0) {
                     save(sons[i].id, sons[i].nodes);
                 }
             }
@@ -90,8 +201,7 @@
         $scope.SaveTreeNodes = function () {
             console.log($scope.TreeData);
             $scope.FatherSonIDs = "";
-            for (var i=0;i<$scope.TreeData.length;i++)
-            {
+            for (var i = 0; i < $scope.TreeData.length; i++) {
                 $scope.FatherSonIDs = $scope.FatherSonIDs + 0 + "|" + $scope.TreeData[i].id + "^";
                 save($scope.TreeData[i].id, $scope.TreeData[i].nodes);
             }

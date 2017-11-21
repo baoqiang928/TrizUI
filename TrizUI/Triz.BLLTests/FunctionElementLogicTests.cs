@@ -17,7 +17,13 @@ namespace Triz.BLL.Tests
         {
             FunctionElementLogic FunctionElementLogic = new FunctionElementLogic();
             FunctionElementLogic.ScanTree("31");
+        }
 
+        [TestMethod()]
+        public void QueryLeafsTest()
+        {
+            FunctionElementLogic FunctionElementLogic = new FunctionElementLogic();
+            List<FunctionElementInfo> aaa = FunctionElementLogic.QueryLeafs("31");
         }
     }
 }

@@ -42,6 +42,16 @@ namespace MvcApplication1.Controllers
             };
         }
 
+        /// <summary>
+        /// 所有叶子节点,作用关系 使用
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <returns></returns>
+        public IEnumerable<FunctionElementInfo> Get([FromUri]string ProjectID, string EleName)
+        {
+            return new FunctionElementLogic().QueryLeafs(ProjectID);
+        }
+
         // POST api/FunctionElements
         public void Post([FromBody]FunctionElementInfo FunctionElementInfo)
         {
