@@ -36,9 +36,9 @@ namespace Triz.BLL
         {
            return new FunEleMutualReactDAL().GetByID(int.Parse(ID));
         }
-        public List<FunEleMutualReactInfo> Query(string PositiveEleName, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
+        public List<FunEleMutualReactInfo> Query(string ProjectID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
-            return new FunEleMutualReactDAL().Query(PositiveEleName, pageIndex, pageSize, ref totalItems, ref PagesLength);
+            return new FunEleMutualReactDAL().Query(int.Parse(ProjectID), pageIndex, pageSize, ref totalItems, ref PagesLength);
         }
     }
 }

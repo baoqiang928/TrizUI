@@ -150,14 +150,13 @@ namespace Triz.DAL
             return new FunEleMutualReactInfo();
         }
 
-        public List<FunEleMutualReactInfo> Query(string PositiveEleName, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
+        public List<FunEleMutualReactInfo> Query(int ProjectID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
             int startRow = (pageIndex - 1) * pageSize;
             Expression<Func<tbl_FunEleMutualReactInfo, bool>> where = PredicateExtensionses.True<tbl_FunEleMutualReactInfo>();
-            
-                    if (!string.IsNullOrWhiteSpace(PositiveEleName))
-                        where = where.And(a => a.PositiveEleName.Contains(PositiveEleName));
-                
+            where = where.And(a => a.ProjectID == ProjectID);
+
+
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
                 var query = TrizDB.tbl_FunEleMutualReactInfo.Where(where.Compile());
@@ -171,61 +170,64 @@ namespace Triz.DAL
         public FunEleMutualReactInfo GetBusinessObject(tbl_FunEleMutualReactInfo FunEleMutualReactInfoEntity)
         {
             FunEleMutualReactInfo FunEleMutualReactInfo = new FunEleMutualReactInfo();
-            
-                                     FunEleMutualReactInfo.ID = FunEleMutualReactInfoEntity.ID;
-                    
-                                     FunEleMutualReactInfo.PositiveEleID = FunEleMutualReactInfoEntity.PositiveEleID;
-                    
-                                     FunEleMutualReactInfo.PositiveEleName = FunEleMutualReactInfoEntity.PositiveEleName;
-                    
-                                     FunEleMutualReactInfo.FunctionName = FunEleMutualReactInfoEntity.FunctionName;
-                    
-                                     FunEleMutualReactInfo.PassiveEleID = FunEleMutualReactInfoEntity.PassiveEleID;
-                    
-                                     FunEleMutualReactInfo.PassiveEleName = FunEleMutualReactInfoEntity.PassiveEleName;
-                    
-                                     FunEleMutualReactInfo.FunctionType = FunEleMutualReactInfoEntity.FunctionType;
-                    
-                                     FunEleMutualReactInfo.FunctionGrade = FunEleMutualReactInfoEntity.FunctionGrade;
-                    
-                                     FunEleMutualReactInfo.ElementType = FunEleMutualReactInfoEntity.ElementType;
-                    
-                                     FunEleMutualReactInfo.CreateDateTime = FunEleMutualReactInfoEntity.CreateDateTime;
-                    
+
+            FunEleMutualReactInfo.ID = FunEleMutualReactInfoEntity.ID;
+            FunEleMutualReactInfo.ProjectID = FunEleMutualReactInfoEntity.ProjectID;
+            FunEleMutualReactInfo.PositiveEleID = FunEleMutualReactInfoEntity.PositiveEleID;
+
+            FunEleMutualReactInfo.PositiveEleName = FunEleMutualReactInfoEntity.PositiveEleName;
+
+            FunEleMutualReactInfo.FunctionName = FunEleMutualReactInfoEntity.FunctionName;
+
+            FunEleMutualReactInfo.PassiveEleID = FunEleMutualReactInfoEntity.PassiveEleID;
+
+            FunEleMutualReactInfo.PassiveEleName = FunEleMutualReactInfoEntity.PassiveEleName;
+
+            FunEleMutualReactInfo.FunctionType = FunEleMutualReactInfoEntity.FunctionType;
+
+            FunEleMutualReactInfo.FunctionGrade = FunEleMutualReactInfoEntity.FunctionGrade;
+
+            FunEleMutualReactInfo.ElementType = FunEleMutualReactInfoEntity.ElementType;
+
+            FunEleMutualReactInfo.CreateDateTime = FunEleMutualReactInfoEntity.CreateDateTime;
+
 
             return FunEleMutualReactInfo;
         }
 
         public void SetDataEntity(tbl_FunEleMutualReactInfo FunEleMutualReactInfoEntity, FunEleMutualReactInfo FunEleMutualReactInfo)
         {
-             
-                                        if (FunEleMutualReactInfo.ID != null)
-                                            FunEleMutualReactInfoEntity.ID = FunEleMutualReactInfo.ID ?? 0;
-                    
-                                        if (FunEleMutualReactInfo.PositiveEleID != null)
-                                            FunEleMutualReactInfoEntity.PositiveEleID = FunEleMutualReactInfo.PositiveEleID;
-                    
-                                        if (FunEleMutualReactInfo.PositiveEleName != null)
-                                            FunEleMutualReactInfoEntity.PositiveEleName = FunEleMutualReactInfo.PositiveEleName;
-                    
-                                        if (FunEleMutualReactInfo.FunctionName != null)
-                                            FunEleMutualReactInfoEntity.FunctionName = FunEleMutualReactInfo.FunctionName;
-                    
-                                        if (FunEleMutualReactInfo.PassiveEleID != null)
-                                            FunEleMutualReactInfoEntity.PassiveEleID = FunEleMutualReactInfo.PassiveEleID;
-                    
-                                        if (FunEleMutualReactInfo.PassiveEleName != null)
-                                            FunEleMutualReactInfoEntity.PassiveEleName = FunEleMutualReactInfo.PassiveEleName;
-                    
-                                        if (FunEleMutualReactInfo.FunctionType != null)
-                                            FunEleMutualReactInfoEntity.FunctionType = FunEleMutualReactInfo.FunctionType;
-                    
-                                        if (FunEleMutualReactInfo.FunctionGrade != null)
-                                            FunEleMutualReactInfoEntity.FunctionGrade = FunEleMutualReactInfo.FunctionGrade;
-                    
-                                        if (FunEleMutualReactInfo.ElementType != null)
-                                            FunEleMutualReactInfoEntity.ElementType = FunEleMutualReactInfo.ElementType;
-                    
+
+            if (FunEleMutualReactInfo.ID != null)
+                FunEleMutualReactInfoEntity.ID = FunEleMutualReactInfo.ID ?? 0;
+
+            if (FunEleMutualReactInfo.ProjectID != null)
+                FunEleMutualReactInfoEntity.ProjectID = FunEleMutualReactInfo.ProjectID;
+
+            if (FunEleMutualReactInfo.PositiveEleID != null)
+                FunEleMutualReactInfoEntity.PositiveEleID = FunEleMutualReactInfo.PositiveEleID;
+
+            if (FunEleMutualReactInfo.PositiveEleName != null)
+                FunEleMutualReactInfoEntity.PositiveEleName = FunEleMutualReactInfo.PositiveEleName;
+
+            if (FunEleMutualReactInfo.FunctionName != null)
+                FunEleMutualReactInfoEntity.FunctionName = FunEleMutualReactInfo.FunctionName;
+
+            if (FunEleMutualReactInfo.PassiveEleID != null)
+                FunEleMutualReactInfoEntity.PassiveEleID = FunEleMutualReactInfo.PassiveEleID;
+
+            if (FunEleMutualReactInfo.PassiveEleName != null)
+                FunEleMutualReactInfoEntity.PassiveEleName = FunEleMutualReactInfo.PassiveEleName;
+
+            if (FunEleMutualReactInfo.FunctionType != null)
+                FunEleMutualReactInfoEntity.FunctionType = FunEleMutualReactInfo.FunctionType;
+
+            if (FunEleMutualReactInfo.FunctionGrade != null)
+                FunEleMutualReactInfoEntity.FunctionGrade = FunEleMutualReactInfo.FunctionGrade;
+
+            if (FunEleMutualReactInfo.ElementType != null)
+                FunEleMutualReactInfoEntity.ElementType = FunEleMutualReactInfo.ElementType;
+
         }
 
         public List<FunEleMutualReactInfo> GetGetBusinessObjectList(List<tbl_FunEleMutualReactInfo> FunEleMutualReactInfoEntityList)

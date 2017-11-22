@@ -12,10 +12,18 @@ namespace MvcApplication1.Controllers
     public class FunEleMutualReactsController : ApiController
     {
         // GET api/FunEleMutualReacts/5
-        public FunEleMutualReactInfo Get(string id)
+        //public FunEleMutualReactInfo Get(string id)
+        //{
+        //    return new FunEleMutualReactLogic().GetByID(id);
+        //}
+
+        public List<FunEleMutualReactInfo> Get([FromUri]string ProjectID)
         {
-            return new FunEleMutualReactLogic().GetByID(id);
+            int TotalItems = 0;
+            int PagesLength = 0;
+            return new FunEleMutualReactLogic().Query(ProjectID, 1, 9999, ref TotalItems, ref PagesLength);
         }
+
 
         // GET api/FunEleMutualReacts
         public object Get([FromUri]string PositiveEleName, int currentPage, int itemsPerPage)
@@ -37,10 +45,16 @@ namespace MvcApplication1.Controllers
             new FunEleMutualReactLogic().SaveFunEleMutualReact(FunEleMutualReactInfo);
         }
 
-        public void Put([FromBody]FunEleMutualReactInfo FunEleMutualReactInfo)
+        public void Put([FromBody]List<FunEleMutualReactInfo> FunEleMutualReactList)
         {
-            new FunEleMutualReactLogic().SaveFunEleMutualReact(FunEleMutualReactInfo);
+            foreach(FunEleMutualReactInfo FunEleMutualReactInfo in FunEleMutualReactList)
+               new FunEleMutualReactLogic().SaveFunEleMutualReact(FunEleMutualReactInfo);
         }
+
+        //public void Put([FromBody]FunEleMutualReactInfo FunEleMutualReactInfo)
+        //{
+        //    new FunEleMutualReactLogic().SaveFunEleMutualReact(FunEleMutualReactInfo);
+        //}
 
         // DELETE api/FunEleMutualReacts/5
         public void Delete(int id)

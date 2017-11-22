@@ -20,6 +20,8 @@ public partial class tbl_FunEleMutualReactInfo
 
     public int ID { get; set; }
 
+    public Nullable<int> ProjectID { get; set; }
+
     public Nullable<int> PositiveEleID { get; set; }
 
     public string PositiveEleName { get; set; }

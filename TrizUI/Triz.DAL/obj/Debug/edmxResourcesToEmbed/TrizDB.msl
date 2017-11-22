@@ -87,6 +87,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbl_FunctionElementInfo">
+      <EntityTypeMapping TypeName="TrizDBModel.tbl_FunctionElementInfo">
+        <MappingFragment StoreEntitySet="tbl_FunctionElementInfo">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="FatherID" ColumnName="FatherID" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="EleY" ColumnName="EleY" />
+          <ScalarProperty Name="EleX" ColumnName="EleX" />
+          <ScalarProperty Name="ElementType" ColumnName="ElementType" />
+          <ScalarProperty Name="EleName" ColumnName="EleName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="tbl_FunEleMutualReactInfo">
       <EntityTypeMapping TypeName="TrizDBModel.tbl_FunEleMutualReactInfo">
         <MappingFragment StoreEntitySet="tbl_FunEleMutualReactInfo">
@@ -99,20 +114,6 @@
           <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
           <ScalarProperty Name="PositiveEleName" ColumnName="PositiveEleName" />
           <ScalarProperty Name="PositiveEleID" ColumnName="PositiveEleID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tbl_FunctionElementInfo">
-      <EntityTypeMapping TypeName="TrizDBModel.tbl_FunctionElementInfo">
-        <MappingFragment StoreEntitySet="tbl_FunctionElementInfo">
-          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
-          <ScalarProperty Name="FatherID" ColumnName="FatherID" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-          <ScalarProperty Name="EleY" ColumnName="EleY" />
-          <ScalarProperty Name="EleX" ColumnName="EleX" />
-          <ScalarProperty Name="ElementType" ColumnName="ElementType" />
-          <ScalarProperty Name="EleName" ColumnName="EleName" />
           <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>

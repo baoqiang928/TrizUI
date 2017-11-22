@@ -19,6 +19,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" />
     <Property Name="PositiveEleID" Type="int" />
     <Property Name="PositiveEleName" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="FunctionName" Type="nvarchar" MaxLength="10" Nullable="false" />

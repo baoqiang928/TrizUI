@@ -84,42 +84,11 @@
 
                                     <tr ng-repeat="Element2 in TreeLeafs">
                                         <td>{{Element2.EleName}}</td>
-                                        <td ng-repeat="Element3 in TreeLeafs"><input type="checkbox" id="{{Element2.ID}}_{{Element3.ID}}" name="{{Element3.EleName}}" ng-checked="isSelected(Element2.ID+'_'+Element3.ID)" ng-click="updateSelection($event,Element2.ID+'_'+Element3.ID)" ng-if="$index!=$parent.$index"/></td>                                        
-                                    </tr>
-                                    <!--<tr>
-                                        <td>大链轮</td>
-                                        <td>
-                                            <input type="checkbox" />
-                                        </td>
-                                        <td></td>
-                                        <td>
-                                            <input type="checkbox" /></td>
-                                        <td>
-                                            <input type="checkbox" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>小链轮</td>
-                                        <td>
-                                            <input type="checkbox" />
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" /></td>
-                                        <td></td>
-                                        <td>
-                                            <input type="checkbox" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>链条</td>
-                                        <td>
-                                            <input type="checkbox" />
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" /></td>
-                                        <td>
-                                            <input type="checkbox" /></td>
-                                        <td></td>
-                                    </tr>-->
+                                        <td ng-repeat="Element3 in TreeLeafs">
+                                            <input type="checkbox" id="{{Element2.ID}}_{{Element3.ID}}" name="{{Element3.EleName}}" ng-checked="isSelected(Element2.ID+'_'+Element3.ID)" ng-click="updateSelection($event,Element2.ID+'_'+Element3.ID)" ng-if="$index!=$parent.$index" /></td>
 
+
+                                    </tr>
                                 </table>
                             </div>
                         </div>
@@ -133,7 +102,11 @@
                     <div class="widget-box">
                         <div class="widget-header widget-header-flat">
                             <h4 class="smaller">相互作用表</h4>
-
+                            <span class="widget-toolbar">
+                                <a href="" ng-click="SaveRelOperate()">
+                                    <i class="icon-save"></i>
+                                </a>
+                            </span>
                         </div>
 
                         <div class="widget-body">
@@ -153,61 +126,24 @@
                                     <tbody>
                                         <tr ng-repeat="RelElement in RelElementData">
                                             <td>{{RelElement.PositiveEleName}}</td>
-                                            <td>转动</td>
+                                            <td>
+                                                <input type="text" id="FunctionName" name="FunctionName" class="col-xs-12 col-sm-12" data-ng-model="RelElement.FunctionName" /></td>
                                             <td>{{RelElement.PassiveEleName}}</td>
-                                            <td>有害功能</td>
-                                            <td>正常功能</td>
+                                            <td>
+                                                <select class="col-xs-12 col-sm-12" id="FunctionType" ng-options="FunctionType.name as FunctionType.name for FunctionType in FunctionTypes" data-ng-model="RelElement.FunctionType">
+                                                </select></td>
+                                            <td>
+                                                <select class="col-xs-12 col-sm-12" id="FunctionGrade" ng-options="v.name as v.name for v in FunctionGrades" data-ng-model="RelElement.FunctionGrade">
+                                                </select></td>
                                             <td>
                                                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                    <a class="blue" href="#">
-                                                        <i class="icon-plus bigger-130"></i>
+                                                    <a class="red" href="" ng-click="DeleteRelElement(RelElement)">
+                                                        <i class="icon-trash bigger-130">删除</i>
                                                     </a>
-
-                                                    <a class="green" href="#">
-                                                        <i class="icon-pencil bigger-130"></i>
-                                                    </a>
-
-                                                    <a class="red" href="#">
-                                                        <i class="icon-trash bigger-130"></i>
-                                                    </a>
-                                                </div>
-
-                                                <div class="visible-xs visible-sm hidden-md hidden-lg">
-                                                    <div class="inline position-relative">
-                                                        <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown">
-                                                            <i class="icon-caret-down icon-only bigger-120"></i>
-                                                        </button>
-
-                                                        <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
-                                                            <li>
-                                                                <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-                                                                    <span class="blue">
-                                                                        <i class="icon-plus bigger-120"></i>
-                                                                    </span>
-                                                                </a>
-                                                            </li>
-
-                                                            <li>
-                                                                <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-                                                                    <span class="green">
-                                                                        <i class="icon-edit bigger-120"></i>
-                                                                    </span>
-                                                                </a>
-                                                            </li>
-
-                                                            <li>
-                                                                <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-                                                                    <span class="red">
-                                                                        <i class="icon-trash bigger-120"></i>
-                                                                    </span>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>
-                                        
+
 
                                     </tbody>
                                 </table>

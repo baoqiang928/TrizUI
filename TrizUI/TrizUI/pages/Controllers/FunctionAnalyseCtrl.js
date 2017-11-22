@@ -2,7 +2,7 @@
     .controller('FunctionAnalyseCtrl', function ($scope, $location, requestService, $state, locals) {
 
         $scope.Sources = "FunEleMutualReacts";
-
+        $scope.CurrentProjectID = locals.get("ProjectID");
         //相互作用关系维护表
         $scope.RelElementData = [];
         $scope.RelElement = {
@@ -18,6 +18,50 @@
             ElementType: "",
             CreateDateTime: ""
         };
+        $scope.FunctionTypes = [{ id: 1, name: '基本功能' }, { id: 2, name: '附加功能' }, { id: 3, name: '辅助功能' }, { id: 4, name: '有害功能' }];
+        $scope.FunctionGrades = [{ id: 1, name: '正常功能' }, { id: 2, name: '不足功能' }, { id: 3, name: '过剩功能' }, { id: 4, name: '有害功能' }];
+
+        //相互作用表维护
+        $scope.SaveRelOperate = function () {
+            //alert(JSON.stringify($scope.RelElementData));
+            //alert($scope.RelElementData);
+
+            requestService.update("FunEleMutualReacts", $scope.RelElementData).then(function (data) {
+
+            });
+
+
+        }
+
+        $scope.DeleteRelElement = function (obj) {
+            bootbox.confirm("要删除当前的记录？", function (result) {
+                if (result) {
+                    if (obj.ID > 0) {
+                        requestService.delete("FunEleMutualReacts", obj.ID).then(function (data) {
+                            Alert("删除成功。");
+                        });
+                        $scope.RelElementData.splice(obj, 1);
+                        $scope.$apply();
+                    }
+                }
+            });
+        };
+
+        $scope.GetFunEleMutualReacts = function () {
+            var querydata = {};
+            querydata.ProjectID = $scope.CurrentProjectID;
+            console.log(querydata);
+            requestService.lists("FunEleMutualReacts", querydata).then(function (data) {
+                $scope.RelElementData = data;
+            });
+
+        }
+        $scope.GetFunEleMutualReacts();
+
+        //相互作用表维护  -- end
+
+
+
 
         //check
         function AddRel(RelIDs) {
@@ -32,8 +76,8 @@
             RelElementInfo.FunctionName = "";
             RelElementInfo.PassiveEleID = PassiveObj.ID;
             RelElementInfo.PassiveEleName = PassiveObj.EleName;
-            RelElementInfo.FunctionType = "";
-            RelElementInfo.FunctionGrade = "";
+            RelElementInfo.FunctionType = "基本功能";
+            RelElementInfo.FunctionGrade = "正常功能";
             RelElementInfo.ElementType = "";
             $scope.RelElementData.push(RelElementInfo);
         }
