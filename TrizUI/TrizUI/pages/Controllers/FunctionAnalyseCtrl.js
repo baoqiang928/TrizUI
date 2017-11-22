@@ -43,16 +43,14 @@
             var PassiveObj = GetElement(RelIDs.split("_")[1]);
             for (var i = 0; i < $scope.RelElementData.length; i++) {
                 if ($scope.RelElementData[i].PositiveEleID == PositiveObj.ID)
-                    if ($scope.RelElementData[i].PassiveEleID == PassiveObj.ID)
-                    {
+                    if ($scope.RelElementData[i].PassiveEleID == PassiveObj.ID) {
                         $scope.RelElementData.splice(i, 1);
                     }
             }
         }
 
 
-        function GetElement(ID)
-        {
+        function GetElement(ID) {
             console.log("1:");
             console.log($scope.TreeLeafs);
             for (var i = 0; i < $scope.TreeLeafs.length; i++) {
@@ -128,7 +126,20 @@
         }
 
         $scope.remove = function (scope) {
-            scope.remove();
+            bootbox.confirm("要删除当前的记录: " + scope.$modelValue.title + " ？", function (result) {
+                if (result) {
+                    if (scope.$modelValue.nodes.length > 0) {
+                        alert("存在子节点不能删除。");
+                        return false;
+                    }
+                    console.log("scope.$modelValue.id");
+                    console.log(scope.$modelValue.id);
+                    requestService.delete("FunctionElements", scope.$modelValue.id).then(function (data) {
+                        Alert("删除成功。");
+                        return scope.$parentNodesScope.removeNode(scope);
+                    });
+                }
+            });
         };
 
         $scope.toggle = function (scope) {

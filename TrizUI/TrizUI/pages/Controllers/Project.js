@@ -53,9 +53,12 @@
 
         $scope.Delete = function (ID) {
             bootbox.confirm("要删除当前的记录？", function (result) {
-                requestService.delete(Sources, ID).then(function (data) {
-                    GetProjects();
-                });
+                if (result) {
+                    requestService.delete(Sources, ID).then(function (data) {
+                        GetProjects();
+                    });
+                }
+
             });
         }
 

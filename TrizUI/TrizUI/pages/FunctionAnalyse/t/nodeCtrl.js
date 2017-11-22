@@ -90,9 +90,10 @@
             $scope.$childNodesScope.accept(sourceNode, destIndex);
         };
 
-        $scope.remove = function () {
-          return $scope.$parentNodesScope.removeNode($scope);
-        };
+        //$scope.remove = function () {
+        //    alert(1);
+        //  return $scope.$parentNodesScope.removeNode($scope);
+        //};
 
         $scope.toggle = function () {
           $scope.collapsed = !$scope.collapsed;
