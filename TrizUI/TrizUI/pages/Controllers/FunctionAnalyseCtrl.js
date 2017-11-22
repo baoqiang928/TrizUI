@@ -27,7 +27,7 @@
             //alert($scope.RelElementData);
 
             requestService.update("FunEleMutualReacts", $scope.RelElementData).then(function (data) {
-
+                alert("保存成功。");
             });
 
 
@@ -40,9 +40,9 @@
                         requestService.delete("FunEleMutualReacts", obj.ID).then(function (data) {
                             Alert("删除成功。");
                         });
-                        $scope.RelElementData.splice(obj, 1);
-                        $scope.$apply();
                     }
+                    $scope.RelElementData.splice(obj, 1);
+                    $scope.$apply();
                 }
             });
         };
@@ -123,10 +123,18 @@
             updateSelected(action, id, checkbox.name);
         }
 
-        $scope.isSelected = function (id) {
-            return $scope.selected.indexOf(id) >= 0;
+        $scope.isSelected = function (PositiveEleID, PassiveEleID) {
+            for (var i = 0; i < $scope.RelElementData.length; i++) {
+                if ($scope.RelElementData[i].PositiveEleID == PositiveEleID)
+                    if ($scope.RelElementData[i].PassiveEleID == PassiveEleID) {
+                        return true;
+                    }
+            }
+            return false;
         }
 
+
+        
         //check -- end
 
 

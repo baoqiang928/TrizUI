@@ -85,7 +85,7 @@
                                     <tr ng-repeat="Element2 in TreeLeafs">
                                         <td>{{Element2.EleName}}</td>
                                         <td ng-repeat="Element3 in TreeLeafs">
-                                            <input type="checkbox" id="{{Element2.ID}}_{{Element3.ID}}" name="{{Element3.EleName}}" ng-checked="isSelected(Element2.ID+'_'+Element3.ID)" ng-click="updateSelection($event,Element2.ID+'_'+Element3.ID)" ng-if="$index!=$parent.$index" /></td>
+                                            <input type="checkbox" id="{{Element2.ID}}_{{Element3.ID}}" ng-checked="isSelected(Element2.ID,Element3.ID)" name="{{Element3.EleName}}" ng-checked="isSelected(Element2.ID+'_'+Element3.ID)" ng-click="updateSelection($event,Element2.ID+'_'+Element3.ID)" ng-if="$index!=$parent.$index" /></td>
 
 
                                     </tr>
