@@ -11,7 +11,14 @@ namespace Triz.BLL
         {
             new FunEleMutualReactDAL().Delete(id);
         }
-
+        /// <summary>
+        /// 根據元素ID刪除作用關係
+        /// </summary>
+        /// <param name="elementID"></param>
+        public void DeleteByElementID(int elementID)
+        {
+            new FunEleMutualReactDAL().DeleteByElementID(elementID);
+        }
         public void DeleteFunEleMutualReact(string ids)
         {
             foreach (string id in ids.Split('^'))
@@ -20,6 +27,13 @@ namespace Triz.BLL
                 new FunEleMutualReactDAL().Delete(int.Parse(id));
             }
         }
+
+        public void DeleteAllNoWithinLeafs(List<FunctionElementInfo> Leafs)
+        {
+            new FunEleMutualReactDAL().DeleteAllNoWithinLeafs(Leafs);
+        }
+
+
 
         public void SaveFunEleMutualReact(FunEleMutualReactInfo FunEleMutualReactInfo)
         {

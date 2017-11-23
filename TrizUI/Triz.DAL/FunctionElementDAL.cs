@@ -121,6 +121,11 @@ namespace Triz.DAL
             return 0;
         }
 
+        /// <summary>
+        /// 獲得所有葉子節點
+        /// </summary>
+        /// <param name="projectID"></param>
+        /// <returns></returns>
         public List<FunctionElementInfo> QueryLeafs(int projectID)
         {
             Expression<Func<tbl_FunctionElementInfo, bool>> where = PredicateExtensionses.True<tbl_FunctionElementInfo>();

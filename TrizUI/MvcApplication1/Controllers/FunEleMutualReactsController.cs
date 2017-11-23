@@ -59,7 +59,7 @@ namespace MvcApplication1.Controllers
         // DELETE api/FunEleMutualReacts/5
         public void Delete(int id)
         {
-            new FunEleMutualReactLogic().DeleteFunEleMutualReact(id);
+            new FunEleMutualReactLogic().DeleteFunEleMutualReact(id);            
         }
 
         // DELETE api/FunEleMutualReacts/5

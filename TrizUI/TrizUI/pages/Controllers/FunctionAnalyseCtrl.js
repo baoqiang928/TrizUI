@@ -50,7 +50,6 @@
         $scope.GetFunEleMutualReacts = function () {
             var querydata = {};
             querydata.ProjectID = $scope.CurrentProjectID;
-            console.log(querydata);
             requestService.lists("FunEleMutualReacts", querydata).then(function (data) {
                 $scope.RelElementData = data;
             });
@@ -95,8 +94,6 @@
 
 
         function GetElement(ID) {
-            console.log("1:");
-            console.log($scope.TreeLeafs);
             for (var i = 0; i < $scope.TreeLeafs.length; i++) {
                 if ($scope.TreeLeafs[i].ID == ID)
                     return $scope.TreeLeafs[i];
@@ -133,7 +130,13 @@
             return false;
         }
 
-
+        //刷新checkbox from db
+        $scope.Refresh = function () {
+            $scope.GetTreeLeafs();
+            $scope.GetFunEleMutualReacts();
+            console.log($scope.TreeLeafs);
+            $scope.$apply();
+        }
         
         //check -- end
 
@@ -158,7 +161,7 @@
 
         //获得所有叶子节点，对应表使用
         $scope.TreeLeafs = [];
-        var GetTreeLeafs = function () {
+        $scope.GetTreeLeafs = function () {
             var QueryData = {};
             QueryData.ProjectID = "31";
             QueryData.EleName = "";
@@ -167,7 +170,7 @@
                 console.log($scope.TreeLeafs);
             });
         };
-        GetTreeLeafs();
+        $scope.GetTreeLeafs();
         //获得所有叶子节点，对应表使用 --end
 
 
@@ -184,8 +187,6 @@
                         alert("存在子节点不能删除。");
                         return false;
                     }
-                    console.log("scope.$modelValue.id");
-                    console.log(scope.$modelValue.id);
                     requestService.delete("FunctionElements", scope.$modelValue.id).then(function (data) {
                         Alert("删除成功。");
                         return scope.$parentNodesScope.removeNode(scope);

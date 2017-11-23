@@ -120,6 +120,83 @@ namespace Triz.DAL
             }
             return 0;
         }
+        public void DeleteAllNoWithinLeafs(List<FunctionElementInfo> Leafs)
+        {
+            using (TrizDBEntities TrizDB = new TrizDBEntities())
+            {
+                try
+                {
+                    int?[] ids = new int?[Leafs.Count];
+                    int i = 0;
+                    foreach (FunctionElementInfo leaf in Leafs)
+                    {
+                        ids[i] = leaf.ID ?? 0;
+                        i++;
+                    }
+
+                    var Query = from f in TrizDB.tbl_FunEleMutualReactInfo
+                                where !ids.Contains(f.PositiveEleID) && !ids.Contains(f.PassiveEleID)
+                                select f;
+
+                    if (Query == null) return;
+                    foreach (tbl_FunEleMutualReactInfo f in Query)
+                    {
+                        TrizDB.tbl_FunEleMutualReactInfo.Remove(f);
+                    }
+                    TrizDB.SaveChanges();
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+                {
+                    Exception raise = dbEx;
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            string message = string.Format("{0},{1}",
+                                validationErrors.Entry.Entity.ToString(),
+                                validationError.ErrorMessage);
+                            raise = new InvalidOperationException(message, raise);
+                            throw raise;
+                        }
+                    }
+                }
+            }
+        }
+        /// <summary>
+        /// 根據元素ID刪除作用關係
+        /// </summary>
+        /// <param name="elementID"></param>
+        /// <returns></returns>
+        public int DeleteByElementID(int elementID)
+        {
+            using (TrizDBEntities TrizDB = new TrizDBEntities())
+            {
+                try
+                {
+                    var Query = TrizDB.tbl_FunEleMutualReactInfo.Where(o => (o.PositiveEleID == elementID) || (o.PassiveEleID == elementID)).FirstOrDefault();
+                    if (Query == null) return 0;
+                    TrizDB.tbl_FunEleMutualReactInfo.Remove(Query);
+                    return TrizDB.SaveChanges();
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+                {
+                    Exception raise = dbEx;
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            string message = string.Format("{0},{1}",
+                                validationErrors.Entry.Entity.ToString(),
+                                validationError.ErrorMessage);
+                            raise = new InvalidOperationException(message, raise);
+                            throw raise;
+                        }
+                    }
+                }
+            }
+            return 0;
+        }
+
 
         public FunEleMutualReactInfo GetByID(int ID)
         {

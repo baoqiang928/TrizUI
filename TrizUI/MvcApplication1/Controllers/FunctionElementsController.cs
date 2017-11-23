@@ -84,6 +84,8 @@ namespace MvcApplication1.Controllers
         public void Delete(int id)
         {
             new FunctionElementLogic().DeleteFunctionElement(id);
+            //„h³ý×÷ÓÃêP‚S
+            new FunEleMutualReactLogic().DeleteByElementID(id);
         }
 
         // DELETE api/FunctionElements/5
