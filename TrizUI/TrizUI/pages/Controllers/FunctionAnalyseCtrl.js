@@ -139,15 +139,26 @@
         $scope.updateSelection = function ($event, id) {
             var checkbox = $event.target;
             var action = (checkbox.checked ? 'add' : 'remove');
+            console.log("action", action);
+            console.log("id", id);
+            console.log("checkbox.name", checkbox.name);
             updateSelected(action, id, checkbox.name);
         }
 
+        //多选按钮 自动选择事件
         $scope.isSelected = function (PositiveEleID, PassiveEleID) {
             for (var i = 0; i < $scope.RelElementData.length; i++) {
                 if ($scope.RelElementData[i].PositiveEleID == PositiveEleID)
                     if ($scope.RelElementData[i].PassiveEleID == PassiveEleID) {
+                        if ($scope.selected.indexOf(PositiveEleID + "_" + PassiveEleID) == -1) {
+                            $scope.selected.push(PositiveEleID + "_" + PassiveEleID);
+                        }
                         return true;
                     }
+            }
+            if ($scope.selected.indexOf(PositiveEleID + "_" + PassiveEleID) != -1) {
+                var idx = $scope.selected.indexOf(PositiveEleID + "_" + PassiveEleID);
+                $scope.selected.splice(idx, 1);
             }
             return false;
         }
