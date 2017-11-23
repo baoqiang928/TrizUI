@@ -134,7 +134,6 @@
         $scope.Refresh = function () {
             $scope.GetTreeLeafs();
             $scope.GetFunEleMutualReacts();
-            console.log($scope.TreeLeafs);
             $scope.$apply();
         }
         
@@ -167,7 +166,6 @@
             QueryData.EleName = "";
             requestService.lists("FunctionElements", QueryData).then(function (data) {
                 $scope.TreeLeafs = data;
-                console.log($scope.TreeLeafs);
             });
         };
         $scope.GetTreeLeafs();
@@ -244,7 +242,6 @@
             if ($scope.CurrentOperate == "Update") {
                 FunctionElementInfo.ID = nodeData.id;
                 requestService.update("FunctionElements", FunctionElementInfo).then(function (data) {
-                    console.log(data);
                     nodeData.title = $scope.EleName;
                     alert("保存成功。");
                 });
@@ -256,7 +253,6 @@
         $scope.FatherSonIDs = "";
         function save(fatherid, sons) {
             for (var i = 0; i < sons.length; i++) {
-                console.log(fatherid + "|" + sons[i].id);
                 $scope.FatherSonIDs = $scope.FatherSonIDs + fatherid + "|" + sons[i].id + "^";
                 if (sons[i].nodes.length > 0) {
                     save(sons[i].id, sons[i].nodes);
@@ -266,7 +262,6 @@
         }
 
         $scope.SaveTreeNodes = function () {
-            console.log($scope.TreeData);
             $scope.FatherSonIDs = "";
             for (var i = 0; i < $scope.TreeData.length; i++) {
                 $scope.FatherSonIDs = $scope.FatherSonIDs + 0 + "|" + $scope.TreeData[i].id + "^";
@@ -357,7 +352,6 @@
                 $scope.NodeData.EleName = EleNodes[n].name;
                 $scope.NodeData.EleX = EleNodes[n].x;
                 $scope.NodeData.EleY = EleNodes[n].y;
-                console.log($scope.NodeData);
                 requestService.update("FunctionElements", $scope.NodeData).then(function (data) {
 
                 });
@@ -400,6 +394,12 @@
             link.target = nodes[link.target] || (nodes[link.target] = { name: link.target, showType: getShowType(link, "target") });
 
         });
+
+        console.log("links");
+        console.log(links);
+        console.log("nodes");
+        console.log(nodes);
+        
         var width = 1000,
         height = 900;
 
