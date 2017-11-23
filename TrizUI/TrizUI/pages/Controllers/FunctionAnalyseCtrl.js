@@ -64,12 +64,11 @@
 
         //check
         function AddRel(RelIDs) {
-            //
             var PositiveObj = GetElement(RelIDs.split("_")[0]);
             var PassiveObj = GetElement(RelIDs.split("_")[1]);
 
             var RelElementInfo = {};
-            RelElementInfo.ProjectID = "31";
+            RelElementInfo.ProjectID = $scope.CurrentProjectID;
             RelElementInfo.PositiveEleID = PositiveObj.ID;
             RelElementInfo.PositiveEleName = PositiveObj.EleName;
             RelElementInfo.FunctionName = "";
@@ -92,12 +91,12 @@
             }
         }
 
-
         function GetElement(ID) {
-            for (var i = 0; i < $scope.TreeLeafs.length; i++) {
-                if ($scope.TreeLeafs[i].ID == ID)
-                    return $scope.TreeLeafs[i];
-            }
+            //for (var i = 0; i < $scope.TreeLeafs.length; i++) {
+            //    if ($scope.TreeLeafs[i].ID == ID)
+            //        return $scope.TreeLeafs[i];
+            //}
+            return $scope.LeafNodes["n" + ID];
         }
 
         $scope.selected = [];
@@ -148,7 +147,7 @@
             $scope.QueryData = {
                 ProjectID: ""
             };
-            $scope.QueryData.ProjectID = "31";
+            $scope.QueryData.ProjectID = $scope.CurrentProjectID;
             requestService.lists("FunctionElements", $scope.QueryData).then(function (data) {
                 $scope.TreeData = strToJson(data.json);
             });
@@ -160,12 +159,17 @@
 
         //获得所有叶子节点，对应表使用
         $scope.TreeLeafs = [];
+        $scope.LeafNodes = {};//檢索使用
         $scope.GetTreeLeafs = function () {
             var QueryData = {};
-            QueryData.ProjectID = "31";
+            QueryData.ProjectID = $scope.CurrentProjectID;
             QueryData.EleName = "";
             requestService.lists("FunctionElements", QueryData).then(function (data) {
                 $scope.TreeLeafs = data;
+                $scope.LeafNodes = {};
+                for (var i = 0; i < $scope.TreeLeafs.length; i++) {
+                    $scope.LeafNodes["n" + $scope.TreeLeafs[i].ID] = $scope.TreeLeafs[i];
+                }
             });
         };
         $scope.GetTreeLeafs();
@@ -395,10 +399,18 @@
 
         });
 
+        var n = {};
+        n["11"] = "aaa";
+        n["12"] = "bbb";
+        console.log(n);
+
         console.log("links");
         console.log(links);
         console.log("nodes");
         console.log(nodes);
+        console.log("leaf");
+        console.log($scope.TreeLeafs);
+
         
         var width = 1000,
         height = 900;
