@@ -209,7 +209,7 @@
             return json;
         }
 
-        $scope.remove = function (scope) {
+        $scope.DeleteSubItem = function (scope) {
             bootbox.confirm("要删除当前的记录: " + scope.$modelValue.title + " ？", function (result) {
                 if (result) {
                     if (scope.$modelValue.nodes.length > 0) {
