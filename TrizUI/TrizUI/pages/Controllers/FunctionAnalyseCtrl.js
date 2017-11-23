@@ -394,20 +394,6 @@
             console.log($scope.links);
 
 
-            var links111 = [
-    { ID: "197", x: "12", y: "122", source: "电机", target: "大链轮", effect: "1", type: "转动" },
-    { ID: "198", x: "212", y: "22", source: "小链轮", target: "滚筒", effect: "2", type: "转动" },
-    { ID: "199", x: "1212", y: "111", source: "大链轮", target: "链条", effect: "1", type: "驱动" },
-    { ID: "201", x: "12", y: "899", source: "螺母", target: "导向架", effect: "1", type: "带动" },
-    { ID: "202", x: "12", y: "89", source: "丝杠", target: "螺母", effect: "1", type: "移动" },
-    { ID: "203", x: "232", y: "23", source: "链轮轴", target: "丝杠", effect: "1", type: "转动" },
-    { ID: "yuanjian204", x: "23", y: "8", source: "小链轮", target: "链轮轴", effect: "1", type: "转动" },
-    { ID: "yuanjian232", x: "23", y: "89", source: "电机", target: "链条", effect: "2", type: "驱动" },
-    { ID: "yuanjian241", x: "235", y: "2", source: "滚筒", target: "链条", effect: "1", type: "12" },
-    { ID: "yuanjian244", x: "56", y: "23", source: "导向架", target: "电机", effect: "1", type: "23" },
-    { ID: "YuanJian113", x: "78", y: "343", source: "超系统元件", target: "电机", effect: "1", type: "222", direction: "CXT2YJ" },
-    { ID: "YuanJian114", x: "989", y: "22", source: "超系统元件", target: "大链轮", effect: "1", type: "33", direction: "CXT2YJ" }];
-
             //       var links = [
             //{ ID: "197", source: "电机", target: "大链轮", effect: "1", type: "转动" },
             //{ ID: "198", source: "小链轮", target: "滚筒", effect: "2", type: "转动" },
@@ -600,10 +586,10 @@
             .attr(
             "xlink:href", function (node) {
                 var ElementNode = $scope.LeafNodes["n" + node.id];
-                if (!IsNum(ElementNode.EleX) && (!IsNum(ElementNode.EleY))) {
+                if (IsNum(ElementNode.EleX) && (IsNum(ElementNode.EleY))) {
                     node.fixed = true;  //这里可以固定，并且设置位置----baoqiang
-                    node.px = ElementNode.x;
-                    node.py = ElementNode.y;
+                    node.px = ElementNode.EleX;
+                    node.py = ElementNode.EleY;
                 }
 
                 var result = '/pages/assets/images/rect.png';
@@ -776,16 +762,6 @@
                     showType = 'YJ';
                 }
                 return showType;
-            }
-
-            function GetNodePos(name) {
-                for (var n in links111) {
-                    //alert(links111[n].source);
-                    if (links111[n].source == name) {
-                        //alert(links111[n]);
-                        return links111[n];
-                    }
-                }
             }
 
             //判断是否为数字
