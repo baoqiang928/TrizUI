@@ -84,6 +84,7 @@
         function ConvertToMapLinks() {
             console.log("$scope.RelElementData");
             console.log($scope.RelElementData);
+            $scope.links = [];
             for (var i = 0; i < $scope.RelElementData.length; i++) {
                 var link = {};
                 link.ID = i;
@@ -367,9 +368,11 @@
         //map
 
         $scope.SaveMap = function () {
-            var EleNodes = force.nodes();
+
+            var EleNodes = $scope.force.nodes();
             for (var n in EleNodes) {
-                $scope.NodeData = {
+                var NodeData = {
+                    ID: "",
                     ProjectID: "",
                     EleName: "",
                     ElementType: "",
@@ -378,12 +381,12 @@
                     Remark: "",
                     FatherID: ""
                 };
-                $scope.NodeData.ProjectID = locals.get("ProjectID");
-                $scope.NodeData.EleName = EleNodes[n].name;
-                $scope.NodeData.EleX = EleNodes[n].x;
-                $scope.NodeData.EleY = EleNodes[n].y;
-                requestService.update("FunctionElements", $scope.NodeData).then(function (data) {
-
+                NodeData.ProjectID = locals.get("ProjectID");
+                NodeData.ID = EleNodes[n].id;
+                NodeData.EleX = EleNodes[n].x;
+                NodeData.EleY = EleNodes[n].y;
+                console.log("$scope.NodeData", NodeData);
+                requestService.update("FunctionElements", NodeData).then(function (data) {
                 });
             }
             alert("操作成功。");
@@ -432,7 +435,7 @@
             var width = 1000,
             height = 900;
 
-            var force = d3.layout.force()//layout将json格式转化为力学图可用的格式
+            $scope.force = d3.layout.force()//layout将json格式转化为力学图可用的格式
             .nodes(d3.values(nodes))//设定节点数组
             .links($scope.links)//设定连线数组
             .size([width, height])//作用域的大小
@@ -468,7 +471,7 @@
 
             //设置连接线
             var edges_line = svg.selectAll(".edgepath")
-            .data(force.links())
+            .data($scope.force.links())
             .enter()
             .append("path")
             .attr({
@@ -525,7 +528,7 @@
 
 
             var edges_text = svg.append("g").selectAll(".edgelabel")
-            .data(force.links())
+            .data($scope.force.links())
             .enter()
             .append("text")
             .append('textPath')
@@ -562,7 +565,7 @@
 
 
 
-            var drag = force.drag()
+            var drag = $scope.force.drag()
                             .on("dragstart", function (d, i) {
                                 d.fixed = true;
 
@@ -578,7 +581,7 @@
                             });
 
             var circle = svg.append("g").selectAll("image")
-            .data(force.nodes())//表示使用force.nodes数据
+            .data($scope.force.nodes())//表示使用force.nodes数据
             .enter().append("image")
             .attr({
                 "width": 100, "height": 40
@@ -621,7 +624,7 @@
                 return rx
             } //水平圆角
             )
-            .call(force.drag);         //将当前选中的元素传到drag函数中，使顶点可以被拖动
+            .call($scope.force.drag);         //将当前选中的元素传到drag函数中，使顶点可以被拖动
 
             //圆圈的提示文字
             circle.append("svg:title")
@@ -650,7 +653,7 @@
 
 
             var text = svg.append("g").selectAll("text")
-            .data(force.nodes())
+            .data($scope.force.nodes())
             //返回缺失元素的占位对象（placeholder），指向绑定的数据中比选定元素集多出的一部分元素。
             .enter()
             .append("text")
