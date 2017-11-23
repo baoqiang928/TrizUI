@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="FunctionElementInfo.cs" />
     <Compile Include="FunEleMutualReactInfo.cs" />
+    <Compile Include="MapLinkInfo.cs" />
     <Compile Include="ProjectInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionAnalyseInfo.cs" />
