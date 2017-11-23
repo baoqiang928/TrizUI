@@ -13,7 +13,12 @@ namespace Triz.BLL
         }
         public List<FunctionElementInfo> QueryLeafs(string projectID)
         {
-           return new FunctionElementDAL().QueryLeafs(int.Parse(projectID));
+            //清除所有非叶子节点的坐标
+            ClearCoordinationNotLeaf(int.Parse(projectID));
+            List<FunctionElementInfo> leaflist = new FunctionElementDAL().QueryLeafs(int.Parse(projectID));
+            //删除所有非叶子节点关系
+            new FunEleMutualReactLogic().DeleteAllNoWithinLeafs(leaflist);
+            return leaflist;
         }
 
         public void DeleteFunctionElement(string ids)
@@ -80,6 +85,14 @@ namespace Triz.BLL
             return "{'id':" + ElementInfo.ID + ",'title':'" + ElementInfo.EleName + "','nodes':[]}";
         }
 
+        /// <summary>
+        /// 清除所有非叶子节点的坐标
+        /// </summary>
+        /// <param name="projectID"></param>
+        public void ClearCoordinationNotLeaf(int projectID)
+        {
+            new FunctionElementDAL().ClearCoordinationNotLeaf(projectID);
+        }
         private void AddSon(FunctionElementInfo fatherElementInfo, FunctionElementInfo sonElementInfo)
         {
             string str = "{'id':" + fatherElementInfo.ID + ",'title':'" + fatherElementInfo.EleName + "','nodes':["; //故意少了2个】}替换使用。

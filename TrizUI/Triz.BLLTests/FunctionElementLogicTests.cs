@@ -25,5 +25,12 @@ namespace Triz.BLL.Tests
             FunctionElementLogic FunctionElementLogic = new FunctionElementLogic();
             List<FunctionElementInfo> aaa = FunctionElementLogic.QueryLeafs("31");
         }
+
+        [TestMethod()]
+        public void ClearCoordinationNotLeafTest()
+        {
+            FunctionElementLogic FunctionElementLogic = new FunctionElementLogic();
+            FunctionElementLogic.ClearCoordinationNotLeaf(31);
+        }
     }
 }

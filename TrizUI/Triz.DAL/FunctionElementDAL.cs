@@ -157,6 +157,31 @@ namespace Triz.DAL
             }
         }
 
+        /// <summary>
+        /// 清除所有非叶子节点的坐标
+        /// </summary>
+        /// <param name="projectID"></param>
+        public void ClearCoordinationNotLeaf(int projectID)
+        {
+            Expression<Func<tbl_FunctionElementInfo, bool>> where = PredicateExtensionses.True<tbl_FunctionElementInfo>();
+            where = where.And(a => a.ProjectID == projectID);
+
+            using (TrizDBEntities TrizDB = new TrizDBEntities())
+            {
+                var query = from p in TrizDB.tbl_FunctionElementInfo
+                            where (from q in TrizDB.tbl_FunctionElementInfo
+                                    where q.FatherID != null
+                                    select q.FatherID).Contains(p.ID)
+                            select p;
+                foreach (var q in query)
+                {
+                    q.EleX = null;
+                    q.EleY = null;
+                }
+                TrizDB.SaveChanges();
+            }
+        }
+
         public bool SetElementGod(int id)
         {
             bool result = false;

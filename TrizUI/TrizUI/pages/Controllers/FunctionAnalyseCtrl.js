@@ -119,10 +119,6 @@
         }
 
         function GetElement(ID) {
-            //for (var i = 0; i < $scope.TreeLeafs.length; i++) {
-            //    if ($scope.TreeLeafs[i].ID == ID)
-            //        return $scope.TreeLeafs[i];
-            //}
             return $scope.LeafNodes["n" + ID];
         }
 
@@ -160,7 +156,7 @@
         $scope.Refresh = function () {
             $scope.GetTreeLeafs();
             $scope.GetFunEleMutualReacts();
-            $scope.$apply();
+            //$scope.$apply();
         }
 
         //check -- end
@@ -366,20 +362,28 @@
         //}];
 
         //map
+        //$scope.Refresh = function () {
+        //    //clear coordination
+
+
+        //    $scope.Draw();
+        //}
+        
+
 
         $scope.SaveMap = function () {
 
             var EleNodes = $scope.force.nodes();
             for (var n in EleNodes) {
                 var NodeData = {
-                    ID: "",
-                    ProjectID: "",
-                    EleName: "",
-                    ElementType: "",
-                    EleX: "",
-                    EleY: "",
-                    Remark: "",
-                    FatherID: ""
+                    //ID: "",
+                    //ProjectID: "",
+                    //EleName: "",
+                    //ElementType: "",
+                    //EleX: "",
+                    //EleY: "",
+                    //Remark: "",
+                    //FatherID: ""
                 };
                 NodeData.ProjectID = locals.get("ProjectID");
                 NodeData.ID = EleNodes[n].id;
@@ -395,21 +399,6 @@
         $scope.Draw = function () {
             ConvertToMapLinks();
             console.log($scope.links);
-
-
-            //       var links = [
-            //{ ID: "197", source: "电机", target: "大链轮", effect: "1", type: "转动" },
-            //{ ID: "198", source: "小链轮", target: "滚筒", effect: "2", type: "转动" },
-            //{ ID: "199", source: "大链轮", target: "链条", effect: "1", type: "驱动" },
-            //{ ID: "201", source: "螺母", target: "导向架", effect: "1", type: "带动" },
-            //{ ID: "202", source: "丝杠", target: "螺母", effect: "1", type: "移动" },
-            //{ ID: "203", source: "链轮轴", target: "丝杠", effect: "1", type: "转动" },
-            //{ ID: "yuanjian204", source: "小链轮", target: "链轮轴", effect: "1", type: "转动" },
-            //{ ID: "yuanjian232", source: "电机", target: "链条", effect: "2", type: "驱动" },
-            //{ ID: "yuanjian241", source: "滚筒", target: "链条", effect: "1", type: "12" },
-            //{ ID: "yuanjian244", source: "导向架", target: "电机", effect: "1", type: "23" },
-            //{ ID: "YuanJian113", source: "超系统元件", target: "电机", effect: "1", type: "222", direction: "CXT2YJ" },
-            //{ ID: "YuanJian114", source: "超系统元件", target: "大链轮", effect: "1", type: "33", direction: "CXT2YJ" }];
 
             var nodes = {};
 

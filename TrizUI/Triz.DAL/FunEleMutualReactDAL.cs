@@ -135,11 +135,11 @@ namespace Triz.DAL
                     }
 
                     var Query = from f in TrizDB.tbl_FunEleMutualReactInfo
-                                where !ids.Contains(f.PositiveEleID) && !ids.Contains(f.PassiveEleID)
+                                where !ids.Contains(f.PositiveEleID) || !ids.Contains(f.PassiveEleID)
                                 select f;
 
                     if (Query == null) return;
-                    foreach (tbl_FunEleMutualReactInfo f in Query)
+                    foreach (tbl_FunEleMutualReactInfo f in Query.ToList())
                     {
                         TrizDB.tbl_FunEleMutualReactInfo.Remove(f);
                     }
