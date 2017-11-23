@@ -162,6 +162,49 @@ namespace Triz.DAL
                 }
             }
         }
+
+        /// <summary>
+        /// 删除指定ID之外的作用关系
+        /// </summary>
+        /// <param name="ids"></param>
+        public void DeleteNoInIDs(int?[] ids)
+        {
+            using (TrizDBEntities TrizDB = new TrizDBEntities())
+            {
+                try
+                {
+                    var Query = from f in TrizDB.tbl_FunEleMutualReactInfo
+                                where !ids.Contains(f.ID)
+                                select f;
+
+                    if (Query == null) return;
+                    foreach (tbl_FunEleMutualReactInfo f in Query.ToList())
+                    {
+                        TrizDB.tbl_FunEleMutualReactInfo.Remove(f);
+                    }
+                    TrizDB.SaveChanges();
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+                {
+                    Exception raise = dbEx;
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            string message = string.Format("{0},{1}",
+                                validationErrors.Entry.Entity.ToString(),
+                                validationError.ErrorMessage);
+                            raise = new InvalidOperationException(message, raise);
+                            throw raise;
+                        }
+                    }
+                }
+            }
+
+
+
+        }
+
         /// <summary>
         /// 根據元素ID刪除作用關係
         /// </summary>

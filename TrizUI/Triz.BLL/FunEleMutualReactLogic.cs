@@ -19,6 +19,24 @@ namespace Triz.BLL
         {
             new FunEleMutualReactDAL().DeleteByElementID(elementID);
         }
+
+        public void DeleteNoInIDs(List<FunEleMutualReactInfo> FunEleMutualReactList)
+        {
+            int?[] ids = new int?[FunEleMutualReactList.Count];
+            int i = 0;
+            foreach (FunEleMutualReactInfo FunEleMutualReactInfo in FunEleMutualReactList)
+            {
+                ids[i] = FunEleMutualReactInfo.ID ?? 0;
+                i++;
+            }
+            new FunEleMutualReactDAL().DeleteNoInIDs(ids);
+        }
+
+        public void DeleteNoInIDs(int?[] ids)
+        {
+            new FunEleMutualReactDAL().DeleteNoInIDs(ids);
+        }
+
         public void DeleteFunEleMutualReact(string ids)
         {
             foreach (string id in ids.Split('^'))
@@ -48,7 +66,7 @@ namespace Triz.BLL
 
         public FunEleMutualReactInfo GetByID(string ID)
         {
-           return new FunEleMutualReactDAL().GetByID(int.Parse(ID));
+            return new FunEleMutualReactDAL().GetByID(int.Parse(ID));
         }
         public List<FunEleMutualReactInfo> Query(string ProjectID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {

@@ -47,7 +47,10 @@ namespace MvcApplication1.Controllers
 
         public void Put([FromBody]List<FunEleMutualReactInfo> FunEleMutualReactList)
         {
-            foreach(FunEleMutualReactInfo FunEleMutualReactInfo in FunEleMutualReactList)
+            //删除所有此范围之外的，因为已经被删除了（unchecked，按删除按钮）
+            new FunEleMutualReactLogic().DeleteNoInIDs(FunEleMutualReactList);
+
+            foreach (FunEleMutualReactInfo FunEleMutualReactInfo in FunEleMutualReactList)
                new FunEleMutualReactLogic().SaveFunEleMutualReact(FunEleMutualReactInfo);
         }
 
