@@ -52,6 +52,7 @@
             querydata.ProjectID = $scope.CurrentProjectID;
             requestService.lists("FunEleMutualReacts", querydata).then(function (data) {
                 $scope.RelElementData = data;
+                console.log("$scope.RelElementData", data);
             });
 
         }
@@ -204,6 +205,12 @@
                 for (var i = 0; i < $scope.TreeLeafs.length; i++) {
                     $scope.LeafNodes["n" + $scope.TreeLeafs[i].ID] = $scope.TreeLeafs[i];
                 }
+
+                //刷新地图
+                $scope.Draw();
+                $scope.$watch('RelElementData.length', function () {
+                    $scope.Draw();
+                });
             });
         };
         $scope.GetTreeLeafs();
@@ -372,30 +379,43 @@
         //    ]
         //}];
 
+
+
+
         //map
-        //$scope.Refresh = function () {
-        //    //clear coordination
+        $scope.RefreshMap = function () {
+            //$scope.$watch('RelElementData.length', function () {
+                //alert(1);
+                $scope.Draw();
+            //});
+            //bootbox.confirm("要重新生成功能模型图吗？", function (result) {
+            //    if (result) {
+            //        //clear coordination
+            //        var EleNodes = $scope.force.nodes();
+            //        for (var n in EleNodes) {
+            //            var NodeData = {
+            //            };
+            //            NodeData.ProjectID = locals.get("ProjectID");
+            //            NodeData.ID = EleNodes[n].id;
+            //            NodeData.EleX = "";
+            //            NodeData.EleY = "";
+            //            console.log("$scope.NodeData", NodeData);
+            //            requestService.update("FunctionElements", NodeData).then(function (data) {
+            //            });
+            //        }
+            //        alert("操作成功。");
 
-
-        //    $scope.Draw();
-        //}
-        
+            //        $scope.Draw();
+            //    }
+            //});
+        }
 
 
         $scope.SaveMap = function () {
 
             var EleNodes = $scope.force.nodes();
             for (var n in EleNodes) {
-                var NodeData = {
-                    //ID: "",
-                    //ProjectID: "",
-                    //EleName: "",
-                    //ElementType: "",
-                    //EleX: "",
-                    //EleY: "",
-                    //Remark: "",
-                    //FatherID: ""
-                };
+                var NodeData = {};
                 NodeData.ProjectID = locals.get("ProjectID");
                 NodeData.ID = EleNodes[n].id;
                 NodeData.EleX = EleNodes[n].x;
@@ -408,8 +428,14 @@
         };
 
         $scope.Draw = function () {
+
+            //$scope.$watch('RelElementData.length', function () {
+            //    //alert(1);
+            //    $scope.Draw();
+            //});
+
             ConvertToMapLinks();
-            console.log($scope.links);
+            console.log("$scope.links", $scope.links);
 
             var nodes = {};
 
