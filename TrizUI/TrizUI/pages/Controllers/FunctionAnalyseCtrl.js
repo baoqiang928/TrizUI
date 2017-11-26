@@ -23,14 +23,10 @@
 
         //相互作用表维护
         $scope.SaveRelOperate = function () {
-            //alert(JSON.stringify($scope.RelElementData));
-            //alert($scope.RelElementData);
-
+            alert(1);
             requestService.update("FunEleMutualReacts", $scope.RelElementData).then(function (data) {
                 alert("保存成功。");
             });
-
-
         }
 
         $scope.DeleteRelElement = function (obj) {
@@ -52,7 +48,6 @@
             querydata.ProjectID = $scope.CurrentProjectID;
             requestService.lists("FunEleMutualReacts", querydata).then(function (data) {
                 $scope.RelElementData = data;
-                console.log("$scope.RelElementData", data);
             });
 
         }
@@ -83,8 +78,6 @@
 
         $scope.links = [];
         function ConvertToMapLinks() {
-            console.log("$scope.RelElementData");
-            console.log($scope.RelElementData);
             $scope.links = [];
             for (var i = 0; i < $scope.RelElementData.length; i++) {
                 var link = {};
@@ -140,9 +133,6 @@
         $scope.updateSelection = function ($event, id) {
             var checkbox = $event.target;
             var action = (checkbox.checked ? 'add' : 'remove');
-            console.log("action", action);
-            console.log("id", id);
-            console.log("checkbox.name", checkbox.name);
             updateSelected(action, id, checkbox.name);
         }
 
@@ -185,37 +175,75 @@
             $scope.QueryData.ProjectID = $scope.CurrentProjectID;
             requestService.lists("FunctionElements", $scope.QueryData).then(function (data) {
                 $scope.TreeData = strToJson(data.json);
+
+                //开始监视
+                $scope.MonitorChanging();
+
             });
         };
         GetTreeNodes();
         //获得所有节点，左侧树使用 --end
 
+        //设置监视内容
+        $scope.MonitorChanging = function () {
+            //树节点发生变化，checkboxlist跟着变化。
+            $scope.$watch('TreeData', function () {
+                $scope.GetTreeLeafs();
+            }, true);
+
+            //所有叶子节点发生变化，对应表跟着变化
+            $scope.$watch('LeafNodes', function () {
+                $scope.GetFunEleMutualReacts();
+            }, true);
+
+            $scope.$watch('RelElementData', function () {
+                $scope.Draw();
+            }, true);
+
+        };
 
 
         //获得所有叶子节点，对应表使用
         $scope.TreeLeafs = [];
         $scope.LeafNodes = {};//檢索使用
         $scope.GetTreeLeafs = function () {
-            var QueryData = {};
-            QueryData.ProjectID = $scope.CurrentProjectID;
-            QueryData.EleName = "";
-            requestService.lists("FunctionElements", QueryData).then(function (data) {
-                $scope.TreeLeafs = data;
-                $scope.LeafNodes = {};
-                for (var i = 0; i < $scope.TreeLeafs.length; i++) {
-                    $scope.LeafNodes["n" + $scope.TreeLeafs[i].ID] = $scope.TreeLeafs[i];
-                }
-
-                //刷新地图
-                $scope.Draw();
-                $scope.$watch('RelElementData.length', function () {
-                    $scope.Draw();
-                });
-            });
+            $scope.LeafNodes = {};//檢索使用
+            GetSon($scope.TreeData);
+            console.log("TreeLeafs", $scope.TreeLeafs);
+            //var QueryData = {};
+            //QueryData.ProjectID = $scope.CurrentProjectID;
+            //QueryData.EleName = "";
+            //requestService.lists("FunctionElements", QueryData).then(function (data) {
+            //    $scope.TreeLeafs = data;
+            //    $scope.LeafNodes = {};
+            //    for (var i = 0; i < $scope.TreeLeafs.length; i++) {
+            //        $scope.LeafNodes["n" + $scope.TreeLeafs[i].ID] = $scope.TreeLeafs[i];
+            //    }
+            //});
         };
         $scope.GetTreeLeafs();
         //获得所有叶子节点，对应表使用 --end
 
+
+        function GetSon(node) {
+            if (typeof (node.length) == "undefined") {
+                if (node.nodes.length == 0) {
+                    $scope.TreeLeafs.push(node);
+                    return;
+                }
+                for (var i = 0; i < node.nodes.length; i++) {
+                    GetSon(node.nodes[i]);
+                }
+                return;
+            }
+            for (var i = 0; i < node.length; i++) {
+                if (node[i].nodes.length == 0) {
+                    $scope.TreeLeafs.push(node[i]);
+                    continue;
+                }
+                GetSon(node[i]);
+            }
+        }
 
 
         function strToJson(str) {
@@ -385,8 +413,8 @@
         //map
         $scope.RefreshMap = function () {
             //$scope.$watch('RelElementData.length', function () {
-                //alert(1);
-                $scope.Draw();
+            //alert(1);
+            $scope.Draw();
             //});
             //bootbox.confirm("要重新生成功能模型图吗？", function (result) {
             //    if (result) {
@@ -420,7 +448,6 @@
                 NodeData.ID = EleNodes[n].id;
                 NodeData.EleX = EleNodes[n].x;
                 NodeData.EleY = EleNodes[n].y;
-                console.log("$scope.NodeData", NodeData);
                 requestService.update("FunctionElements", NodeData).then(function (data) {
                 });
             }
@@ -435,7 +462,6 @@
             //});
 
             ConvertToMapLinks();
-            console.log("$scope.links", $scope.links);
 
             var nodes = {};
 
@@ -448,14 +474,6 @@
             //var n = {};
             //n["11"] = "aaa";
             //n["12"] = "bbb";
-            //console.log(n);
-
-            //console.log("links");
-            //console.log(links);
-            //console.log("nodes");
-            //console.log(nodes);
-            //console.log("leaf");
-            //console.log($scope.TreeLeafs);
 
 
             var width = 1000,
@@ -594,9 +612,6 @@
             var drag = $scope.force.drag()
                             .on("dragstart", function (d, i) {
                                 d.fixed = true;
-
-                                console.log(d.ID);
-                                console.log(d.x);
                             })
                             .on("dragend", function (d, i) {
                                 //console.log("拖拽状态：结束");

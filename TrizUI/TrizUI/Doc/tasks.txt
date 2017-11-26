@@ -1,5 +1,3 @@
-發佈説明中，rabbitmq安裝截圖。
-部署培訓文檔，rabbitmq安裝截圖。
 
 1.问题描述
 1.1 批量上传

@@ -72,7 +72,7 @@ namespace Triz.BLL
             List<FunctionElementInfo> Fathers = GetFathers(ProjectID);
             foreach (FunctionElementInfo Father in Fathers)
             {
-                Json = Json + GetJson(Father) + ",";
+                Json = Json + GetJson(Father, false) + ",";
                 FindSons(Father);
             }
             Json = "[" + Json.TrimEnd(',').Replace(",]", "]") + "]";
@@ -80,9 +80,18 @@ namespace Triz.BLL
         }
         //public string json = "{'id':{id},'title':'{title}','nodes':[]}";
         public string Json = "";
-        private string GetJson(FunctionElementInfo ElementInfo)
+        private string GetJson(FunctionElementInfo ElementInfo, bool half)
         {
-            return "{'id':" + ElementInfo.ID + ",'title':'" + ElementInfo.EleName + "','nodes':[]}";
+            //return "{'id':" + ElementInfo.ID + ",'title':'" + ElementInfo.EleName + "','nodes':[]}";
+            string halfJsonItem = "{'id':{id},'title':'{title}','ID':'{DID}','ProjectID':'{ProjectID}','EleName':'{EleName}','ElementType':'{ElementType}','EleX':'{EleX}','EleY':'{EleY}','Remark':'{Remark}','nodes':[";
+            if (half)
+            {
+                return halfJsonItem.Replace("{id}", ElementInfo.ID.ToString()).Replace("{title}", ElementInfo.EleName).Replace("{ProjectID}", ElementInfo.ProjectID.ToString()).Replace("{EleName}", ElementInfo.EleName).Replace("{ElementType}", ElementInfo.ElementType).Replace("{EleX}", ElementInfo.EleX).Replace("{EleY}", ElementInfo.EleY).Replace("{Remark}", ElementInfo.Remark);
+
+            }
+            string jsonItem = halfJsonItem + "]}";
+            //return "{'id':" + ElementInfo.ID + ",'title':'" + ElementInfo.EleName + "','ID':'" + ElementInfo.ID + "','ProjectID':'" + ElementInfo.ProjectID + "','EleName':'" + ElementInfo.EleName + "','ElementType':'" + ElementInfo.ElementType + "','EleX':'" + ElementInfo.EleX + "','EleY':'" + ElementInfo.EleY + "','Remark':'" + ElementInfo.Remark + "','nodes':[]}";
+            return jsonItem.Replace("{id}", ElementInfo.ID.ToString()).Replace("{title}", ElementInfo.EleName).Replace("{ProjectID}", ElementInfo.ProjectID.ToString()).Replace("{EleName}", ElementInfo.EleName).Replace("{ElementType}", ElementInfo.ElementType).Replace("{EleX}", ElementInfo.EleX).Replace("{EleY}", ElementInfo.EleY).Replace("{Remark}", ElementInfo.Remark);
         }
 
         /// <summary>
@@ -95,10 +104,11 @@ namespace Triz.BLL
         }
         private void AddSon(FunctionElementInfo fatherElementInfo, FunctionElementInfo sonElementInfo)
         {
-            string str = "{'id':" + fatherElementInfo.ID + ",'title':'" + fatherElementInfo.EleName + "','nodes':["; //故意少了2个】}替换使用。
+            //string str = "{'id':" + fatherElementInfo.ID + ",'title':'" + fatherElementInfo.EleName + "','nodes':["; //故意少了2个】}替换使用。
+            string str = GetJson(fatherElementInfo, true);
             int i = Json.IndexOf(str);
-            string aa = GetJson(sonElementInfo);
-            Json = Json.Replace(str, str + GetJson(sonElementInfo) + ",");
+            string aa = GetJson(sonElementInfo, false);
+            Json = Json.Replace(str, str + GetJson(sonElementInfo, false) + ",");
         }
 
         public void FindSons(FunctionElementInfo ElementInfo)
