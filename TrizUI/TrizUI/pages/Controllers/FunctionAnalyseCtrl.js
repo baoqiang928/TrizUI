@@ -191,9 +191,9 @@
                 $scope.GetTreeLeafs();
             }, true);
 
-            //$scope.$watch('RelElementData', function () {
-            //    $scope.Draw();
-            //}, true);
+            $scope.$watch('RelElementData', function () {
+                $scope.Draw();
+            }, true);
 
         };
 
