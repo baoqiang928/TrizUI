@@ -153,13 +153,6 @@
             return false;
         }
 
-        //刷新checkbox from db
-        $scope.Refresh = function () {
-            $scope.GetTreeLeafs();
-            $scope.GetFunEleMutualReacts();
-            //$scope.$apply();
-        }
-
         //check -- end
 
 
@@ -177,7 +170,6 @@
 
                 //开始监视
                 $scope.MonitorChanging();
-                //$scope.GetTreeLeafs();
 
             });
         };
@@ -218,7 +210,6 @@
             //}
             //});
         };
-        //$scope.GetTreeLeafs();
         //获得所有叶子节点，对应表使用 --end
 
         function GenerateLeafNodesForMapNodeXY() {
