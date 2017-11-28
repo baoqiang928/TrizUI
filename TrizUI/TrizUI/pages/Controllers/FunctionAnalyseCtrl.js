@@ -191,11 +191,6 @@
                 $scope.GetTreeLeafs();
             }, true);
 
-            ////所有叶子节点发生变化，对应表跟着变化
-            //$scope.$watch('LeafNodesForMapNodeXY', function () {
-            //    $scope.GetFunEleMutualReacts();
-            //}, true);
-
             //$scope.$watch('RelElementData', function () {
             //    $scope.Draw();
             //}, true);
@@ -232,13 +227,14 @@
                 $scope.LeafNodesForMapNodeXY["n" + $scope.TempTreeLeafs[i].ID] = $scope.TempTreeLeafs[i];
             }
         }
-        
+
         $scope.DeleteIndexs = [];
+        //根据左侧树变化，自动生成同步的叶子节点
         function SyncToTreeLeafs() {
             var exist = false;
             for (var i = 0; i < $scope.TempTreeLeafs.length; i++) {
                 for (var j = 0; j < $scope.TreeLeafs.length; j++) {
-                    if ($scope.TreeLeafs[j].ID==$scope.TempTreeLeafs[i].ID) {
+                    if ($scope.TreeLeafs[j].ID == $scope.TempTreeLeafs[i].ID) {
                         $scope.TreeLeafs[j].title = $scope.TempTreeLeafs[i].title;
                         exist = true;
                         break;
@@ -254,8 +250,7 @@
             console.log("TempTreeLeafs", $scope.TempTreeLeafs);
             console.log("TreeLeafs", $scope.TreeLeafs);
         }
-        function deleteTreeLeafs(k)
-        {
+        function deleteTreeLeafs(k) {
             var exist = false;
             for (var i = k; i < $scope.TreeLeafs.length; i++) {
                 for (var j = 0; j < $scope.TempTreeLeafs.length; j++) {
@@ -264,13 +259,24 @@
                         break;
                     }
                 }
-                if (!exist)
-                {
+                if (!exist) {
                     exist = false;
+                    deleteRelElementData($scope.TreeLeafs[i].ID, 0);//同步删除 对应作用关系
                     $scope.TreeLeafs.splice(i, 1);
                     deleteTreeLeafs(i);
                 }
                 exist = false;
+            }
+        }
+
+        function deleteRelElementData(id, k) {
+            console.log("$scope.RelElementData.length", $scope.RelElementData.length);
+            console.log("$scope.RelElementData", $scope.RelElementData);
+            for (var j = k; j < $scope.RelElementData.length; j++) {
+                if (($scope.RelElementData[j].PassiveEleID == id) || ($scope.RelElementData[j].PositiveEleID == id)) {
+                    $scope.RelElementData.splice(j, 1);
+                    deleteRelElementData(id, j);
+                }
             }
         }
 
