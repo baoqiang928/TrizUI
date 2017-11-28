@@ -23,8 +23,9 @@
         //相互作用表维护
         $scope.SaveRelOperate = function () {
             requestService.update("FunEleMutualReacts", $scope.RelElementData).then(function (data) {
-                alert("保存成功。");
+                Alert("保存相互作用成功。");
             });
+            SaveMap();
         }
 
         $scope.DeleteRelElement = function (obj) {
@@ -382,16 +383,17 @@
 
         }
 
-        $scope.SaveTreeNodes = function () {
-            $scope.FatherSonIDs = "";
-            for (var i = 0; i < $scope.TreeData.length; i++) {
-                $scope.FatherSonIDs = $scope.FatherSonIDs + 0 + "|" + $scope.TreeData[i].id + "^";
-                save($scope.TreeData[i].id, $scope.TreeData[i].nodes);
-            }
-            requestService.updateMutiple("FunctionElements", "FatherSonIDs=" + $scope.FatherSonIDs).then(function (data) {
-                alert("保存成功");
-            });
-        }
+        //左侧树保存事件
+        //$scope.SaveTreeNodes = function () {
+        //    $scope.FatherSonIDs = "";
+        //    for (var i = 0; i < $scope.TreeData.length; i++) {
+        //        $scope.FatherSonIDs = $scope.FatherSonIDs + 0 + "|" + $scope.TreeData[i].id + "^";
+        //        save($scope.TreeData[i].id, $scope.TreeData[i].nodes);
+        //    }
+        //    requestService.updateMutiple("FunctionElements", "FatherSonIDs=" + $scope.FatherSonIDs).then(function (data) {
+        //        alert("保存成功");
+        //    });
+        //}
 
 
 
@@ -484,7 +486,7 @@
                 requestService.update("FunctionElements", NodeData).then(function (data) {
                 });
             }
-            alert("操作成功。");
+            Alert("保存功能模型图成功。");
         };
 
         function SaveMapNodesPosition() {
