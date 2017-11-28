@@ -362,7 +362,7 @@
                         id: data,
                         ID: data,
                         title: $scope.EleName,
-                        EleName: "",
+                        EleName: $scope.EleName,
                         ElementType: "",
                         EleX: "",
                         EleY: "",
