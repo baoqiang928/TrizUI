@@ -183,7 +183,7 @@
             }, true);
 
             $scope.$watch('RelElementData', function () {
-                $scope.Draw();
+                $scope.Draw(false);
             }, true);
 
         };
@@ -455,27 +455,18 @@
         //    ]
         //}];
 
-
-
-
         //map
         $scope.RefreshMap = function () {
             bootbox.confirm("要重新生成功能模型图吗？", function (result) {
                 if (result) {
-                    //clear coordination
+                    if ($scope.force == null) return;
                     var EleNodes = $scope.force.nodes();
-                    for (var n in EleNodes) {
-                        var NodeData = {
-                        };
-                        NodeData.ProjectID = locals.get("ProjectID");
-                        NodeData.ID = EleNodes[n].id;
-                        NodeData.EleX = "";
-                        NodeData.EleY = "";
-                        n.fixed = false;
-                        requestService.update("FunctionElements", NodeData).then(function (data) {
-                        });
+                    for (var i = 0; i < EleNodes.length; i++) {
+                        if ($scope.LeafNodesForMapNodeXY["n" + EleNodes[i].id] == null) continue;
+                        $scope.LeafNodesForMapNodeXY["n" + EleNodes[i].id].EleX = "";
+                        $scope.LeafNodesForMapNodeXY["n" + EleNodes[i].id].EleY = "";
                     }
-                    $scope.Draw();
+                    $scope.Draw(true);
                 }
             });
         }
@@ -507,8 +498,10 @@
         }
 
 
-        $scope.Draw = function () {
-            SaveMapNodesPosition();
+        $scope.Draw = function (ClearXY) {
+            if (!ClearXY) {
+                SaveMapNodesPosition();
+            }
 
             ConvertToMapLinks();
 
