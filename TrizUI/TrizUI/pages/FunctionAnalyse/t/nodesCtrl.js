@@ -12,7 +12,7 @@
         $scope.$type = 'uiTreeNodes';
         $scope.$nodesMap = {};
 
-        $scope.nodropEnabled = false;
+        $scope.nodropEnabled = true;
         $scope.maxDepth = 0;
         $scope.cloneEnabled = false;
 

@@ -1,6 +1,5 @@
 ﻿angular.module('myApp')
     .controller('FunctionAnalyseCtrl', function ($scope, $location, requestService, $state, locals) {
-
         $scope.Sources = "FunEleMutualReacts";
         $scope.CurrentProjectID = locals.get("ProjectID");
         //相互作用关系维护表
