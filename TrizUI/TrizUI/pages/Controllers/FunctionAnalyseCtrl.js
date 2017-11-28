@@ -194,7 +194,6 @@
         $scope.TempTreeLeafs = [];
         $scope.LeafNodesForMapNodeXY = {};//檢索使用
         $scope.GetTreeLeafs = function () {
-            console.log("$scope.TreeData", $scope.TreeData);
             $scope.TempTreeLeafs = [];
             GenerateTempLeafNodes($scope.TreeData);
             GenerateLeafNodesForMapNodeXY();
@@ -237,8 +236,6 @@
             }
 
             deleteTreeLeafs(0);
-            console.log("TempTreeLeafs", $scope.TempTreeLeafs);
-            console.log("TreeLeafs", $scope.TreeLeafs);
         }
         function deleteTreeLeafs(k) {
             var exist = false;
@@ -260,8 +257,6 @@
         }
 
         function deleteRelElementData(id, k) {
-            console.log("$scope.RelElementData.length", $scope.RelElementData.length);
-            console.log("$scope.RelElementData", $scope.RelElementData);
             for (var j = k; j < $scope.RelElementData.length; j++) {
                 if (($scope.RelElementData[j].PassiveEleID == id) || ($scope.RelElementData[j].PositiveEleID == id)) {
                     $scope.RelElementData.splice(j, 1);
@@ -480,7 +475,6 @@
                         requestService.update("FunctionElements", NodeData).then(function (data) {
                         });
                     }
-                    console.log("$scope.force.nodes()", $scope.force.nodes());
                     $scope.Draw();
                 }
             });
@@ -502,7 +496,19 @@
             alert("操作成功。");
         };
 
+        function SaveMapNodesPosition() {
+            if ($scope.force == null) return;
+            var EleNodes = $scope.force.nodes();
+            for (var i = 0; i < EleNodes.length;i++) {
+                if ($scope.LeafNodesForMapNodeXY["n" + EleNodes[i].id] == null) continue;
+                $scope.LeafNodesForMapNodeXY["n" + EleNodes[i].id].EleX = EleNodes[i].px;
+                $scope.LeafNodesForMapNodeXY["n" + EleNodes[i].id].EleY = EleNodes[i].py;
+            }
+        }
+
+
         $scope.Draw = function () {
+            SaveMapNodesPosition();
 
             ConvertToMapLinks();
 
@@ -653,7 +659,7 @@
                             })
                             .on("dragend", function (d, i) {
                                 //console.log("拖拽状态：结束");
-                                d.x = 50
+                                //d.x = 50
                             })
                             .on("drag", function (d, i) {
                                 //console.log("拖拽状态：进行中");
@@ -856,7 +862,6 @@
 
             //map  end
         }
-
 
 
 
