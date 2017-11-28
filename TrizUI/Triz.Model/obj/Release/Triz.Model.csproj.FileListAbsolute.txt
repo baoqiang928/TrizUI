@@ -1,0 +1,4 @@
+E:\sourcecode\TrizUI\TrizUI\Triz.Model\bin\Release\Triz.Model.dll
+E:\sourcecode\TrizUI\TrizUI\Triz.Model\bin\Release\Triz.Model.pdb
+E:\sourcecode\TrizUI\TrizUI\Triz.Model\obj\Release\Triz.Model.dll
+E:\sourcecode\TrizUI\TrizUI\Triz.Model\obj\Release\Triz.Model.pdb

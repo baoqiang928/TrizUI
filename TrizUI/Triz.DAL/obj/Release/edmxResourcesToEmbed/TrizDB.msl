@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TrizDBModelStoreContainer" CdmEntityContainer="TrizDBEntities">
+    <EntitySetMapping Name="tbl_ProjectInfo">
+      <EntityTypeMapping TypeName="TrizDBModel.tbl_ProjectInfo">
+        <MappingFragment StoreEntitySet="tbl_ProjectInfo">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_UserProjectInfo">
+      <EntityTypeMapping TypeName="TrizDBModel.tbl_UserProjectInfo">
+        <MappingFragment StoreEntitySet="tbl_UserProjectInfo">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_QuestionDescriptionInfo">
+      <EntityTypeMapping TypeName="TrizDBModel.tbl_QuestionDescriptionInfo">
+        <MappingFragment StoreEntitySet="tbl_QuestionDescriptionInfo">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="GapOfPerformanceRequirment" ColumnName="GapOfPerformanceRequirment" />
+          <ScalarProperty Name="PotentialProblem" ColumnName="PotentialProblem" />
+          <ScalarProperty Name="RelativeDemand" ColumnName="RelativeDemand" />
+          <ScalarProperty Name="InitialProblemDes" ColumnName="InitialProblemDes" />
+          <ScalarProperty Name="Environment" ColumnName="Environment" />
+          <ScalarProperty Name="CustomerDes" ColumnName="CustomerDes" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_UserInfo">
+      <EntityTypeMapping TypeName="TrizDBModel.tbl_UserInfo">
+        <MappingFragment StoreEntitySet="tbl_UserInfo">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_QuestionAnalyseInfo">
+      <EntityTypeMapping TypeName="TrizDBModel.tbl_QuestionAnalyseInfo">
+        <MappingFragment StoreEntitySet="tbl_QuestionAnalyseInfo">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="ResolutionImportance5" ColumnName="ResolutionImportance5" />
+          <ScalarProperty Name="ResolutionImportance4" ColumnName="ResolutionImportance4" />
+          <ScalarProperty Name="ResolutionImportance3" ColumnName="ResolutionImportance3" />
+          <ScalarProperty Name="ResolutionImportance2" ColumnName="ResolutionImportance2" />
+          <ScalarProperty Name="ResolutionImportance1" ColumnName="ResolutionImportance1" />
+          <ScalarProperty Name="Constriction5" ColumnName="Constriction5" />
+          <ScalarProperty Name="Constriction4" ColumnName="Constriction4" />
+          <ScalarProperty Name="Constriction3" ColumnName="Constriction3" />
+          <ScalarProperty Name="Constriction2" ColumnName="Constriction2" />
+          <ScalarProperty Name="Constriction1" ColumnName="Constriction1" />
+          <ScalarProperty Name="AgainstObject5" ColumnName="AgainstObject5" />
+          <ScalarProperty Name="AgainstObject4" ColumnName="AgainstObject4" />
+          <ScalarProperty Name="AgainstObject3" ColumnName="AgainstObject3" />
+          <ScalarProperty Name="AgainstObject2" ColumnName="AgainstObject2" />
+          <ScalarProperty Name="AgainstObject1" ColumnName="AgainstObject1" />
+          <ScalarProperty Name="BasicQuestion4" ColumnName="BasicQuestion4" />
+          <ScalarProperty Name="BasicQuestion3" ColumnName="BasicQuestion3" />
+          <ScalarProperty Name="BasicQuestion2" ColumnName="BasicQuestion2" />
+          <ScalarProperty Name="BasicQuestion1" ColumnName="BasicQuestion1" />
+          <ScalarProperty Name="IdealResolution5" ColumnName="IdealResolution5" />
+          <ScalarProperty Name="IdealResolution4" ColumnName="IdealResolution4" />
+          <ScalarProperty Name="IdealResolution3" ColumnName="IdealResolution3" />
+          <ScalarProperty Name="IdealResolution2" ColumnName="IdealResolution2" />
+          <ScalarProperty Name="IdealResolution1" ColumnName="IdealResolution1" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_FunctionElementInfo">
+      <EntityTypeMapping TypeName="TrizDBModel.tbl_FunctionElementInfo">
+        <MappingFragment StoreEntitySet="tbl_FunctionElementInfo">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="FatherID" ColumnName="FatherID" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="EleY" ColumnName="EleY" />
+          <ScalarProperty Name="EleX" ColumnName="EleX" />
+          <ScalarProperty Name="ElementType" ColumnName="ElementType" />
+          <ScalarProperty Name="EleName" ColumnName="EleName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_FunEleMutualReactInfo">
+      <EntityTypeMapping TypeName="TrizDBModel.tbl_FunEleMutualReactInfo">
+        <MappingFragment StoreEntitySet="tbl_FunEleMutualReactInfo">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="ElementType" ColumnName="ElementType" />
+          <ScalarProperty Name="FunctionGrade" ColumnName="FunctionGrade" />
+          <ScalarProperty Name="FunctionType" ColumnName="FunctionType" />
+          <ScalarProperty Name="PassiveEleName" ColumnName="PassiveEleName" />
+          <ScalarProperty Name="PassiveEleID" ColumnName="PassiveEleID" />
+          <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+          <ScalarProperty Name="PositiveEleName" ColumnName="PositiveEleName" />
+          <ScalarProperty Name="PositiveEleID" ColumnName="PositiveEleID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

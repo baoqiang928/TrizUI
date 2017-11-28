@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TrizDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="TrizDBEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_ProjectInfo" EntityType="TrizDBModel.tbl_ProjectInfo" />
+    <EntitySet Name="tbl_UserProjectInfo" EntityType="TrizDBModel.tbl_UserProjectInfo" />
+    <EntitySet Name="tbl_QuestionDescriptionInfo" EntityType="TrizDBModel.tbl_QuestionDescriptionInfo" />
+    <EntitySet Name="tbl_UserInfo" EntityType="TrizDBModel.tbl_UserInfo" />
+    <EntitySet Name="tbl_QuestionAnalyseInfo" EntityType="TrizDBModel.tbl_QuestionAnalyseInfo" />
+    <EntitySet Name="tbl_FunctionElementInfo" EntityType="TrizDBModel.tbl_FunctionElementInfo" />
+    <EntitySet Name="tbl_FunEleMutualReactInfo" EntityType="TrizDBModel.tbl_FunEleMutualReactInfo" />
+  </EntityContainer>
+  <EntityType Name="tbl_ProjectInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Owner" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Department" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateDateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_UserProjectInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_QuestionDescriptionInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" />
+    <Property Name="Note" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerDes" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Environment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="InitialProblemDes" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="RelativeDemand" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PotentialProblem" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="GapOfPerformanceRequirment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_UserInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_QuestionAnalyseInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" />
+    <Property Name="IdealResolution1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IdealResolution2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IdealResolution3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IdealResolution4" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IdealResolution5" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="BasicQuestion1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="BasicQuestion2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="BasicQuestion3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="BasicQuestion4" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AgainstObject1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AgainstObject2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AgainstObject3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AgainstObject4" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AgainstObject5" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Constriction1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Constriction2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Constriction3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Constriction4" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Constriction5" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ResolutionImportance1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ResolutionImportance2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ResolutionImportance3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ResolutionImportance4" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ResolutionImportance5" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_FunctionElementInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" />
+    <Property Name="EleName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ElementType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EleX" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="EleY" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FatherID" Type="Int32" />
+    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_FunEleMutualReactInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" />
+    <Property Name="PositiveEleID" Type="Int32" />
+    <Property Name="PositiveEleName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="FunctionName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PassiveEleID" Type="Int32" />
+    <Property Name="PassiveEleName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="FunctionType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="FunctionGrade" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ElementType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+</Schema>

@@ -25,7 +25,7 @@
             requestService.update("FunEleMutualReacts", $scope.RelElementData).then(function (data) {
                 Alert("保存相互作用成功。");
             });
-            SaveMap();
+            $scope.SaveMap();
         }
 
         $scope.DeleteRelElement = function (obj) {
@@ -475,7 +475,6 @@
 
 
         $scope.SaveMap = function () {
-
             var EleNodes = $scope.force.nodes();
             for (var n in EleNodes) {
                 var NodeData = {};

@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TrizDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_FunctionElementInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="EleName" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ElementType" Type="nvarchar" MaxLength="10" />
+    <Property Name="EleX" Type="nvarchar" MaxLength="300" />
+    <Property Name="EleY" Type="nvarchar" MaxLength="300" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+    <Property Name="FatherID" Type="int" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_FunEleMutualReactInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="PositiveEleID" Type="int" />
+    <Property Name="PositiveEleName" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="FunctionName" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="PassiveEleID" Type="int" />
+    <Property Name="PassiveEleName" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="FunctionType" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="FunctionGrade" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ElementType" Type="nvarchar" MaxLength="10" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_ProjectInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Owner" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Department" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_QuestionAnalyseInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="IdealResolution1" Type="nvarchar" MaxLength="500" />
+    <Property Name="IdealResolution2" Type="nvarchar" MaxLength="500" />
+    <Property Name="IdealResolution3" Type="nvarchar" MaxLength="500" />
+    <Property Name="IdealResolution4" Type="nvarchar" MaxLength="500" />
+    <Property Name="IdealResolution5" Type="nvarchar" MaxLength="500" />
+    <Property Name="BasicQuestion1" Type="nvarchar" MaxLength="500" />
+    <Property Name="BasicQuestion2" Type="nvarchar" MaxLength="500" />
+    <Property Name="BasicQuestion3" Type="nvarchar" MaxLength="500" />
+    <Property Name="BasicQuestion4" Type="nvarchar" MaxLength="500" />
+    <Property Name="AgainstObject1" Type="nvarchar" MaxLength="500" />
+    <Property Name="AgainstObject2" Type="nvarchar" MaxLength="500" />
+    <Property Name="AgainstObject3" Type="nvarchar" MaxLength="500" />
+    <Property Name="AgainstObject4" Type="nvarchar" MaxLength="500" />
+    <Property Name="AgainstObject5" Type="nvarchar" MaxLength="500" />
+    <Property Name="Constriction1" Type="nvarchar" MaxLength="500" />
+    <Property Name="Constriction2" Type="nvarchar" MaxLength="500" />
+    <Property Name="Constriction3" Type="nvarchar" MaxLength="500" />
+    <Property Name="Constriction4" Type="nvarchar" MaxLength="500" />
+    <Property Name="Constriction5" Type="nvarchar" MaxLength="500" />
+    <Property Name="ResolutionImportance1" Type="nvarchar" MaxLength="500" />
+    <Property Name="ResolutionImportance2" Type="nvarchar" MaxLength="500" />
+    <Property Name="ResolutionImportance3" Type="nvarchar" MaxLength="500" />
+    <Property Name="ResolutionImportance4" Type="nvarchar" MaxLength="500" />
+    <Property Name="ResolutionImportance5" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_QuestionDescriptionInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="Note" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="CustomerDes" Type="nvarchar" MaxLength="500" />
+    <Property Name="Environment" Type="nvarchar" MaxLength="500" />
+    <Property Name="InitialProblemDes" Type="nvarchar" MaxLength="500" />
+    <Property Name="RelativeDemand" Type="nvarchar" MaxLength="500" />
+    <Property Name="PotentialProblem" Type="nvarchar" MaxLength="500" />
+    <Property Name="GapOfPerformanceRequirment" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_UserInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CompanyID" Type="int" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Account" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="20" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_UserProjectInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityContainer Name="TrizDBModelStoreContainer">
+    <EntitySet Name="tbl_FunctionElementInfo" EntityType="Self.tbl_FunctionElementInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_FunEleMutualReactInfo" EntityType="Self.tbl_FunEleMutualReactInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ProjectInfo" EntityType="Self.tbl_ProjectInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QuestionAnalyseInfo" EntityType="Self.tbl_QuestionAnalyseInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QuestionDescriptionInfo" EntityType="Self.tbl_QuestionDescriptionInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_UserInfo" EntityType="Self.tbl_UserInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_UserProjectInfo" EntityType="Self.tbl_UserProjectInfo" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
