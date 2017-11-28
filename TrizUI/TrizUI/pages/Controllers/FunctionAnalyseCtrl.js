@@ -84,7 +84,7 @@
                 link.source = $scope.RelElementData[i].PositiveEleName;
                 link.target = $scope.RelElementData[i].PassiveEleName;
                 link.effect = "1";//$scope.RelElementData[i].FunctionGrade;
-                link.type = $scope.RelElementData[i].FunctionType;
+                link.type = $scope.RelElementData[i].FunctionName;
                 link.direction = "";
                 link.ProjectID = $scope.CurrentProjectID;
                 link.PositiveEleID = $scope.RelElementData[i].PositiveEleID;
@@ -510,11 +510,6 @@
 
         $scope.Draw = function () {
 
-            //$scope.$watch('RelElementData.length', function () {
-            //    //alert(1);
-            //    $scope.Draw();
-            //});
-
             ConvertToMapLinks();
 
             var nodes = {};
@@ -524,11 +519,6 @@
                 link.target = nodes[link.target] || (nodes[link.target] = { id: link.PassiveEleID, name: link.target, showType: getShowType(link, "target") });
 
             });
-
-            //var n = {};
-            //n["11"] = "aaa";
-            //n["12"] = "bbb";
-
 
             var width = 1000,
             height = 900;
