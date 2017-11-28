@@ -23,7 +23,6 @@
 
         //相互作用表维护
         $scope.SaveRelOperate = function () {
-            alert(1);
             requestService.update("FunEleMutualReacts", $scope.RelElementData).then(function (data) {
                 alert("保存成功。");
             });
@@ -113,7 +112,7 @@
         }
 
         function GetElement(ID) {
-            return $scope.LeafNodes["n" + ID];
+            return $scope.LeafNodesForMapNodeXY["n" + ID];
         }
 
         $scope.selected = [];
@@ -178,12 +177,13 @@
 
                 //开始监视
                 $scope.MonitorChanging();
+                //$scope.GetTreeLeafs();
 
             });
         };
         GetTreeNodes();
         //获得所有节点，左侧树使用 --end
-
+        //$scope.MonitorChanging();
         //设置监视内容
         $scope.MonitorChanging = function () {
             //树节点发生变化，checkboxlist跟着变化。
@@ -191,57 +191,106 @@
                 $scope.GetTreeLeafs();
             }, true);
 
-            //所有叶子节点发生变化，对应表跟着变化
-            $scope.$watch('LeafNodes', function () {
-                $scope.GetFunEleMutualReacts();
-            }, true);
+            ////所有叶子节点发生变化，对应表跟着变化
+            //$scope.$watch('LeafNodesForMapNodeXY', function () {
+            //    $scope.GetFunEleMutualReacts();
+            //}, true);
 
-            $scope.$watch('RelElementData', function () {
-                $scope.Draw();
-            }, true);
+            //$scope.$watch('RelElementData', function () {
+            //    $scope.Draw();
+            //}, true);
 
         };
 
 
         //获得所有叶子节点，对应表使用
         $scope.TreeLeafs = [];
-        $scope.LeafNodes = {};//檢索使用
+        $scope.TempTreeLeafs = [];
+        $scope.LeafNodesForMapNodeXY = {};//檢索使用
         $scope.GetTreeLeafs = function () {
-            $scope.LeafNodes = {};//檢索使用
-            GetSon($scope.TreeData);
-            console.log("TreeLeafs", $scope.TreeLeafs);
+            console.log("$scope.TreeData", $scope.TreeData);
+            $scope.TempTreeLeafs = [];
+            GenerateTempLeafNodes($scope.TreeData);
+            GenerateLeafNodesForMapNodeXY();
+            SyncToTreeLeafs();//更新叶子节点信息（增加、修改、删除）
+            //AddToTreeLeafFromTempNodes();
             //var QueryData = {};
             //QueryData.ProjectID = $scope.CurrentProjectID;
             //QueryData.EleName = "";
             //requestService.lists("FunctionElements", QueryData).then(function (data) {
-            //    $scope.TreeLeafs = data;
-            //    $scope.LeafNodes = {};
-            //    for (var i = 0; i < $scope.TreeLeafs.length; i++) {
-            //        $scope.LeafNodes["n" + $scope.TreeLeafs[i].ID] = $scope.TreeLeafs[i];
-            //    }
+            //for (var i = 0; i < $scope.TreeLeafs.length; i++) {
+            //    $scope.LeafNodesForMapNodeXY["n" + $scope.TreeLeafs[i].ID] = $scope.TreeLeafs[i];
+            //}
             //});
         };
-        $scope.GetTreeLeafs();
+        //$scope.GetTreeLeafs();
         //获得所有叶子节点，对应表使用 --end
 
+        function GenerateLeafNodesForMapNodeXY() {
+            $scope.LeafNodesForMapNodeXY = {};//檢索使用
+            for (var i = 0; i < $scope.TempTreeLeafs.length; i++) {
+                $scope.LeafNodesForMapNodeXY["n" + $scope.TempTreeLeafs[i].ID] = $scope.TempTreeLeafs[i];
+            }
+        }
+        
+        $scope.DeleteIndexs = [];
+        function SyncToTreeLeafs() {
+            var exist = false;
+            for (var i = 0; i < $scope.TempTreeLeafs.length; i++) {
+                for (var j = 0; j < $scope.TreeLeafs.length; j++) {
+                    if ($scope.TreeLeafs[j].ID==$scope.TempTreeLeafs[i].ID) {
+                        $scope.TreeLeafs[j].title = $scope.TempTreeLeafs[i].title;
+                        exist = true;
+                        break;
+                    }
+                }
+                if (!exist) {
+                    $scope.TreeLeafs.push($scope.TempTreeLeafs[i]);
+                }
+                exist = false;
+            }
 
-        function GetSon(node) {
+            deleteTreeLeafs(0);
+            console.log("TempTreeLeafs", $scope.TempTreeLeafs);
+            console.log("TreeLeafs", $scope.TreeLeafs);
+        }
+        function deleteTreeLeafs(k)
+        {
+            var exist = false;
+            for (var i = k; i < $scope.TreeLeafs.length; i++) {
+                for (var j = 0; j < $scope.TempTreeLeafs.length; j++) {
+                    if ($scope.TreeLeafs[i].ID == $scope.TempTreeLeafs[j].ID) {
+                        exist = true;
+                        break;
+                    }
+                }
+                if (!exist)
+                {
+                    exist = false;
+                    $scope.TreeLeafs.splice(i, 1);
+                    deleteTreeLeafs(i);
+                }
+                exist = false;
+            }
+        }
+
+        function GenerateTempLeafNodes(node) {
             if (typeof (node.length) == "undefined") {
                 if (node.nodes.length == 0) {
-                    $scope.TreeLeafs.push(node);
+                    $scope.TempTreeLeafs.push(node);
                     return;
                 }
                 for (var i = 0; i < node.nodes.length; i++) {
-                    GetSon(node.nodes[i]);
+                    GenerateTempLeafNodes(node.nodes[i]);
                 }
                 return;
             }
             for (var i = 0; i < node.length; i++) {
                 if (node[i].nodes.length == 0) {
-                    $scope.TreeLeafs.push(node[i]);
+                    $scope.TempTreeLeafs.push(node[i]);
                     continue;
                 }
-                GetSon(node[i]);
+                GenerateTempLeafNodes(node[i]);
             }
         }
 
@@ -302,9 +351,17 @@
             if ($scope.CurrentOperate == "Add") {
                 FunctionElementInfo.FatherID = nodeData.id;
                 requestService.add("FunctionElements", FunctionElementInfo).then(function (data) {
+                    var oDate = new Date();
                     nodeData.nodes.push({
                         id: data,
+                        ID: data,
                         title: $scope.EleName,
+                        EleName: "",
+                        ElementType: "",
+                        EleX: "",
+                        EleY: "",
+                        Remark: "",
+                        FatherID: "",
                         nodes: []
                     });
                     alert("保存成功。");
@@ -629,7 +686,7 @@
             })
             .attr(
             "xlink:href", function (node) {
-                var ElementNode = $scope.LeafNodes["n" + node.id];
+                var ElementNode = $scope.LeafNodesForMapNodeXY["n" + node.id];
                 if (IsNum(ElementNode.EleX) && (IsNum(ElementNode.EleY))) {
                     node.fixed = true;  //这里可以固定，并且设置位置----baoqiang
                     node.px = ElementNode.EleX;

@@ -86,12 +86,12 @@ namespace Triz.BLL
             string halfJsonItem = "{'id':{id},'title':'{title}','ID':'{DID}','ProjectID':'{ProjectID}','EleName':'{EleName}','ElementType':'{ElementType}','EleX':'{EleX}','EleY':'{EleY}','Remark':'{Remark}','nodes':[";
             if (half)
             {
-                return halfJsonItem.Replace("{id}", ElementInfo.ID.ToString()).Replace("{title}", ElementInfo.EleName).Replace("{ProjectID}", ElementInfo.ProjectID.ToString()).Replace("{EleName}", ElementInfo.EleName).Replace("{ElementType}", ElementInfo.ElementType).Replace("{EleX}", ElementInfo.EleX).Replace("{EleY}", ElementInfo.EleY).Replace("{Remark}", ElementInfo.Remark);
+                return halfJsonItem.Replace("{id}", ElementInfo.ID.ToString()).Replace("{title}", ElementInfo.EleName).Replace("{DID}", ElementInfo.ID.ToString()).Replace("{ProjectID}", ElementInfo.ProjectID.ToString()).Replace("{EleName}", ElementInfo.EleName).Replace("{ElementType}", ElementInfo.ElementType).Replace("{EleX}", ElementInfo.EleX).Replace("{EleY}", ElementInfo.EleY).Replace("{Remark}", ElementInfo.Remark);
 
             }
             string jsonItem = halfJsonItem + "]}";
             //return "{'id':" + ElementInfo.ID + ",'title':'" + ElementInfo.EleName + "','ID':'" + ElementInfo.ID + "','ProjectID':'" + ElementInfo.ProjectID + "','EleName':'" + ElementInfo.EleName + "','ElementType':'" + ElementInfo.ElementType + "','EleX':'" + ElementInfo.EleX + "','EleY':'" + ElementInfo.EleY + "','Remark':'" + ElementInfo.Remark + "','nodes':[]}";
-            return jsonItem.Replace("{id}", ElementInfo.ID.ToString()).Replace("{title}", ElementInfo.EleName).Replace("{ProjectID}", ElementInfo.ProjectID.ToString()).Replace("{EleName}", ElementInfo.EleName).Replace("{ElementType}", ElementInfo.ElementType).Replace("{EleX}", ElementInfo.EleX).Replace("{EleY}", ElementInfo.EleY).Replace("{Remark}", ElementInfo.Remark);
+            return jsonItem.Replace("{id}", ElementInfo.ID.ToString()).Replace("{title}", ElementInfo.EleName).Replace("{DID}", ElementInfo.ID.ToString()).Replace("{ProjectID}", ElementInfo.ProjectID.ToString()).Replace("{EleName}", ElementInfo.EleName).Replace("{ElementType}", ElementInfo.ElementType).Replace("{EleX}", ElementInfo.EleX).Replace("{EleY}", ElementInfo.EleY).Replace("{Remark}", ElementInfo.Remark);
         }
 
         /// <summary>
