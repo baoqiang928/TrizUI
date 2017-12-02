@@ -615,6 +615,7 @@
     <Content Include="pages\Conflict\TechConflictList.html" />
     <Content Include="pages\Conflict\TechConflictOperate.html" />
     <Content Include="pages\Conflict\TechConflictResolveList.html" />
+    <Content Include="pages\Controllers\CauseEffectCtrl.js" />
     <Content Include="pages\Controllers\DataPicker.js" />
     <Content Include="pages\Controllers\DrawUtil.js" />
     <Content Include="pages\Controllers\FunctionAnalyseCtrl.js" />

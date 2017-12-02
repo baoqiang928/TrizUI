@@ -1,4 +1,4 @@
-﻿<div class="page-content">
+﻿<div class="page-content" ng-controller="CauseEffectCtrl">
     <div class="page-header">
         <h1>因果分析
 			<small>
@@ -9,7 +9,7 @@
     </div>
     <div class="page-header">
         <div class="col-sm-9">
-            <input type="text" id="Text3" class="col-xs-10 col-sm-5" placeholder="请输入目前问题" onblur="#modal-table" />
+            <input type="text" id="Text3" class="col-xs-10 col-sm-5" placeholder="请输入目前问题" />
             <button class="blue" data-toggle="modal" data-target="#modal-table">保存</button>
         </div>
     </div>
@@ -226,7 +226,7 @@
     </div>
 
 
-    <div class="row">
+    <div class="row" ng-repeat="FunctionImpactRelList in FunctionImpactRelSectionList">
         <div class="col-xs-12">
 
             <div class="col-sm-6">
@@ -251,15 +251,15 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td>导向架</td>
+                                    <tr ng-repeat="FunctionImpactRelInfo in FunctionImpactRelList">
+                                        <td>导向架{{FunctionImpactRelInfo.ProblemElementName}}</td>
                                         <td>移动速度</td>
                                         <td>丝杠</td>
                                         <td>转速</td>
                                         <td>非独立变量</td>
                                         <td>
                                             <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                <a class="blue" data-toggle="modal" style="cursor: pointer" data-target="#modal-table2">
+                                                <a href="" ng-click="AddDependentParam($index,FunctionImpactRelInfo.ProblemElementID,FunctionImpactRelInfo.ProblemElementName,FunctionImpactRelInfo.ProblemElementParam)" class="blue" data-toggle="modal" style="cursor: pointer" >
                                                     <i class="icon-plus bigger-130"></i>
                                                 </a>
 
