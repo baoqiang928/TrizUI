@@ -94,18 +94,20 @@
                 ImpactElementID: "",//影响该参数元件ID
                 ImpactElementName: "",//影响该参数元件
                 ImpactElementParam: "",//元件特征参数
-                ImpactElementType: ""//参数类型
+                ImpactElementType: "独立变量"//参数类型
             }
 
             //如果不存在组参数列表，则增加。
             var NextSectionIndex = CurrentSectionIndex + 1;
 
-            if ($scope.FunctionImpactRelSectionList.length > NextSectionIndex) {
+            if ($scope.FunctionImpactRelSectionList.length >= (NextSectionIndex+1)) {
                 $scope.FunctionImpactRelSectionList[NextSectionIndex].push($scope.FunctionImpactRelInfo);
                 return;
             }
 
             AddNewSection(NextSectionIndex);
+
+            console.log($scope.FunctionImpactRelSectionList);
 
         };
 
