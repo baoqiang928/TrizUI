@@ -2,6 +2,7 @@
     .controller('CauseEffectCtrl', function ($scope, $location, requestService, $state, locals) {
         $scope.Sources = "FunEleMutualReacts";
         $scope.CurrentProjectID = locals.get("ProjectID");
+        $scope.ParamTypes = [{ id: 1, name: '独立变量' }, { id: 2, name: '非独立变量' }];
 
         $scope.FunctionImpactRelInfo = {
             ID: "",
@@ -25,7 +26,7 @@
             ImpactElementID: "",//影响该参数元件ID
             ImpactElementName: "",//影响该参数元件
             ImpactElementParam: "",//元件特征参数
-            ImpactElementType: ""//参数类型
+            ImpactElementType: "独立变量"//参数类型
         }
         $scope.FunctionImpactRelList.push($scope.FunctionImpactRelInfo);
         $scope.FunctionImpactRelInfo = {
@@ -36,13 +37,19 @@
             ImpactElementID: "",//影响该参数元件ID
             ImpactElementName: "",//影响该参数元件
             ImpactElementParam: "",//元件特征参数
-            ImpactElementType: ""//参数类型
+            ImpactElementType: "独立变量"//参数类型
         }
         $scope.FunctionImpactRelList.push($scope.FunctionImpactRelInfo);
 
         $scope.FunctionImpactRelSectionList.push($scope.FunctionImpactRelList);
 
-
+        $scope.Change = function (index, ImpactElementType, ProblemElementID, ProblemElementName, ProblemElementParam)
+        {
+            if (ImpactElementType == "非独立变量")
+            {
+                $scope.AddDependentParam(index, ProblemElementID, ProblemElementName, ProblemElementParam)
+            }
+        }
 
         //$scope.FunctionImpactRelList1 = [];
 
@@ -76,9 +83,6 @@
 
         //console.log($scope.FunctionImpactRelSectionList);
 
-
-
-
         //增加一个非独立变量，会自动增加一组参数列表，并在下一个参数列表增加一行
         $scope.AddDependentParam = function (CurrentSectionIndex, ElementID, ElementName, ElementParam) {
 
@@ -98,19 +102,14 @@
 
             if ($scope.FunctionImpactRelSectionList.length > NextSectionIndex) {
                 $scope.FunctionImpactRelSectionList[NextSectionIndex].push($scope.FunctionImpactRelInfo);
+                return;
             }
 
             AddNewSection(NextSectionIndex);
 
         };
 
-        //function ExistSection(SectionIndex) {
-        //    if ($scope.FunctionImpactRelSectionList.length >= SectionIndex) {
-        //        return true;
-        //    }
-        //    return false;
-        //}
-
+        //增加新的 功能参数列表 
         function AddNewSection(SectionIndex) {
             eval("$scope.FunctionImpactRelList" + SectionIndex + "= [];");
             eval("$scope.FunctionImpactRelList" + SectionIndex + ".push($scope.FunctionImpactRelInfo);");
