@@ -118,4 +118,9 @@
             eval("$scope.FunctionImpactRelSectionList.push($scope.FunctionImpactRelList" + SectionIndex + ");");
         }
 
+        $scope.DeleteFunctionImpactRelInfo = function (SectionIndex,index) {
+            $scope.FunctionImpactRelSectionList[SectionIndex].splice(index,1);
+        }
+
+
     });//end
