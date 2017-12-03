@@ -124,12 +124,21 @@
         //删除其他的相关的作用关系
         function DeleteOtherImpactRelInFollowSections(SectionIndex, ImpactElementName) {
             for (var i = SectionIndex + 1; i < $scope.FunctionImpactRelSectionList.length; i++) {
+                if ($scope.FunctionImpactRelSectionList == null) continue;
+                if ($scope.FunctionImpactRelSectionList[i] == null) continue;
                 for (var j = 0; j < $scope.FunctionImpactRelSectionList[i].length; j++) {
+                    if ($scope.FunctionImpactRelSectionList[i] == null) continue;
                     if ($scope.FunctionImpactRelSectionList[i][j] == null) continue;
                     if ($scope.FunctionImpactRelSectionList[i][j].ProblemElementName == ImpactElementName) {
                         var ImpactElementName = $scope.FunctionImpactRelSectionList[i][j].ImpactElementName;
                         $scope.FunctionImpactRelSectionList[i].splice(j, 1);
+                        if (typeof ($scope.FunctionImpactRelSectionList[i].length) != "undefined") {
+                            if ($scope.FunctionImpactRelSectionList[i].length == 0) {
+                                $scope.FunctionImpactRelSectionList.splice(i, 1);
+                            }
+                        }
                         DeleteOtherImpactRelInFollowSections(i, ImpactElementName);
+                        if ($scope.FunctionImpactRelSectionList[i] == null) break;
                     }
                 }
             }
