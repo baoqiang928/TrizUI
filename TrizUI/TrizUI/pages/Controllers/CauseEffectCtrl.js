@@ -43,9 +43,12 @@
 
         $scope.FunctionImpactRelSectionList.push($scope.FunctionImpactRelList);
 
-        $scope.Change = function (index, ImpactElementType, ProblemElementID, ProblemElementName, ProblemElementParam) {
+        $scope.Change = function (CurrentSectionIndex, ImpactElementType, ImpactElementID, ImpactElementName, ImpactElementParam) {
             if (ImpactElementType == "非独立变量") {
-                $scope.AddDependentParam(index, ProblemElementID, ProblemElementName, ProblemElementParam)
+                $scope.AddDependentParam(CurrentSectionIndex, ImpactElementID, ImpactElementName, ImpactElementParam)
+            }
+            else {
+                DeleteOtherImpactRelInFollowSections(CurrentSectionIndex, ImpactElementName);
             }
         }
 
