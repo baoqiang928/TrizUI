@@ -145,14 +145,16 @@
                         if ($scope.FunctionImpactRelSectionList[i] == null) continue;
                         if ($scope.FunctionImpactRelSectionList[i][j] == null) continue;
                         if ($scope.FunctionImpactRelSectionList[i][j].ProblemElementName == ImpactElementName) {
-                            var ImpactElementName = $scope.FunctionImpactRelSectionList[i][j].ImpactElementName;
+                            var CurImpactElementName = $scope.FunctionImpactRelSectionList[i][j].ProblemElementName;
+                            //$scope.FunctionImpactRelSectionList[i][j].ImpactElementParam = "delete";
                             $scope.FunctionImpactRelSectionList[i].splice(j, 1);
+                            j = j - 1;
                             if (typeof ($scope.FunctionImpactRelSectionList[i].length) != "undefined") {
                                 if ($scope.FunctionImpactRelSectionList[i].length == 0) {
                                     $scope.FunctionImpactRelSectionList.splice(i, 1);
                                 }
                             }
-                            DeleteOtherImpactRelInFollowSections(i, ImpactElementName);
+                            DeleteOtherImpactRelInFollowSections(i, CurImpactElementName);
                             if ($scope.FunctionImpactRelSectionList[i] == null) break;
                         }
                     }
