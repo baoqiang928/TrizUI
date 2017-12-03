@@ -116,32 +116,47 @@
             eval("$scope.FunctionImpactRelSectionList.push($scope.FunctionImpactRelList" + SectionIndex + ");");
         }
 
+        //删除按钮事件
         $scope.DeleteFunctionImpactRelInfo = function (SectionIndex, index) {
-            //$scope.FunctionImpactRelSectionList[SectionIndex].splice(index,1);
             DeleteOtherImpactRelInFollowSections(SectionIndex, $scope.FunctionImpactRelSectionList[SectionIndex][index].ImpactElementName);
         }
 
-        //删除其他的相关的作用关系
-        function DeleteOtherImpactRelInFollowSections(SectionIndex, ImpactElementName) {
-            for (var i = SectionIndex + 1; i < $scope.FunctionImpactRelSectionList.length; i++) {
-                if ($scope.FunctionImpactRelSectionList == null) continue;
-                if ($scope.FunctionImpactRelSectionList[i] == null) continue;
-                for (var j = 0; j < $scope.FunctionImpactRelSectionList[i].length; j++) {
+        //增加并列功能参数
+        $scope.AddBrother = function (SectionIndex, index, ElementID, ElementName, ElementParam) {
+            $scope.FunctionImpactRelInfo = {
+                ID: "",
+                ProblemElementID: ElementID,
+                ProblemElementName: ElementName,//问题相关元件
+                ProblemElementParam: ElementParam,//元件特征参数
+                ImpactElementID: "",//影响该参数元件ID
+                ImpactElementName: "",//影响该参数元件
+                ImpactElementParam: "",//元件特征参数
+                ImpactElementType: "独立变量"//参数类型
+            }
+            $scope.FunctionImpactRelSectionList[SectionIndex].splice(index + 1, 0, $scope.FunctionImpactRelInfo);
+        }
+
+            //删除其他的相关的作用关系
+            function DeleteOtherImpactRelInFollowSections(SectionIndex, ImpactElementName) {
+                for (var i = SectionIndex + 1; i < $scope.FunctionImpactRelSectionList.length; i++) {
+                    if ($scope.FunctionImpactRelSectionList == null) continue;
                     if ($scope.FunctionImpactRelSectionList[i] == null) continue;
-                    if ($scope.FunctionImpactRelSectionList[i][j] == null) continue;
-                    if ($scope.FunctionImpactRelSectionList[i][j].ProblemElementName == ImpactElementName) {
-                        var ImpactElementName = $scope.FunctionImpactRelSectionList[i][j].ImpactElementName;
-                        $scope.FunctionImpactRelSectionList[i].splice(j, 1);
-                        if (typeof ($scope.FunctionImpactRelSectionList[i].length) != "undefined") {
-                            if ($scope.FunctionImpactRelSectionList[i].length == 0) {
-                                $scope.FunctionImpactRelSectionList.splice(i, 1);
+                    for (var j = 0; j < $scope.FunctionImpactRelSectionList[i].length; j++) {
+                        if ($scope.FunctionImpactRelSectionList[i] == null) continue;
+                        if ($scope.FunctionImpactRelSectionList[i][j] == null) continue;
+                        if ($scope.FunctionImpactRelSectionList[i][j].ProblemElementName == ImpactElementName) {
+                            var ImpactElementName = $scope.FunctionImpactRelSectionList[i][j].ImpactElementName;
+                            $scope.FunctionImpactRelSectionList[i].splice(j, 1);
+                            if (typeof ($scope.FunctionImpactRelSectionList[i].length) != "undefined") {
+                                if ($scope.FunctionImpactRelSectionList[i].length == 0) {
+                                    $scope.FunctionImpactRelSectionList.splice(i, 1);
+                                }
                             }
+                            DeleteOtherImpactRelInFollowSections(i, ImpactElementName);
+                            if ($scope.FunctionImpactRelSectionList[i] == null) break;
                         }
-                        DeleteOtherImpactRelInFollowSections(i, ImpactElementName);
-                        if ($scope.FunctionImpactRelSectionList[i] == null) break;
                     }
                 }
             }
-        }
 
-    });//end
+        });//end
