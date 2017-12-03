@@ -43,10 +43,8 @@
 
         $scope.FunctionImpactRelSectionList.push($scope.FunctionImpactRelList);
 
-        $scope.Change = function (index, ImpactElementType, ProblemElementID, ProblemElementName, ProblemElementParam)
-        {
-            if (ImpactElementType == "非独立变量")
-            {
+        $scope.Change = function (index, ImpactElementType, ProblemElementID, ProblemElementName, ProblemElementParam) {
+            if (ImpactElementType == "非独立变量") {
                 $scope.AddDependentParam(index, ProblemElementID, ProblemElementName, ProblemElementParam)
             }
         }
@@ -100,7 +98,7 @@
             //如果不存在组参数列表，则增加。
             var NextSectionIndex = CurrentSectionIndex + 1;
 
-            if ($scope.FunctionImpactRelSectionList.length >= (NextSectionIndex+1)) {
+            if ($scope.FunctionImpactRelSectionList.length >= (NextSectionIndex + 1)) {
                 $scope.FunctionImpactRelSectionList[NextSectionIndex].push($scope.FunctionImpactRelInfo);
                 return;
             }
@@ -118,9 +116,23 @@
             eval("$scope.FunctionImpactRelSectionList.push($scope.FunctionImpactRelList" + SectionIndex + ");");
         }
 
-        $scope.DeleteFunctionImpactRelInfo = function (SectionIndex,index) {
-            $scope.FunctionImpactRelSectionList[SectionIndex].splice(index,1);
+        $scope.DeleteFunctionImpactRelInfo = function (SectionIndex, index) {
+            //$scope.FunctionImpactRelSectionList[SectionIndex].splice(index,1);
+            DeleteOtherImpactRelInFollowSections(SectionIndex, $scope.FunctionImpactRelSectionList[SectionIndex][index].ImpactElementName);
         }
 
+        //删除其他的相关的作用关系
+        function DeleteOtherImpactRelInFollowSections(SectionIndex, ImpactElementName) {
+            for (var i = SectionIndex + 1; i < $scope.FunctionImpactRelSectionList.length; i++) {
+                for (var j = 0; j < $scope.FunctionImpactRelSectionList[i].length; j++) {
+                    if ($scope.FunctionImpactRelSectionList[i][j] == null) continue;
+                    if ($scope.FunctionImpactRelSectionList[i][j].ProblemElementName == ImpactElementName) {
+                        var ImpactElementName = $scope.FunctionImpactRelSectionList[i][j].ImpactElementName;
+                        $scope.FunctionImpactRelSectionList[i].splice(j, 1);
+                        DeleteOtherImpactRelInFollowSections(i, ImpactElementName);
+                    }
+                }
+            }
+        }
 
     });//end
