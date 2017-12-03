@@ -119,6 +119,7 @@
         //删除按钮事件
         $scope.DeleteFunctionImpactRelInfo = function (SectionIndex, index) {
             DeleteOtherImpactRelInFollowSections(SectionIndex, $scope.FunctionImpactRelSectionList[SectionIndex][index].ImpactElementName);
+            $scope.FunctionImpactRelSectionList[SectionIndex].splice(index,1);
         }
 
         //增加并列功能参数
@@ -136,29 +137,30 @@
             $scope.FunctionImpactRelSectionList[SectionIndex].splice(index + 1, 0, $scope.FunctionImpactRelInfo);
         }
 
-            //删除其他的相关的作用关系
-            function DeleteOtherImpactRelInFollowSections(SectionIndex, ImpactElementName) {
-                for (var i = SectionIndex + 1; i < $scope.FunctionImpactRelSectionList.length; i++) {
-                    if ($scope.FunctionImpactRelSectionList == null) continue;
+        //删除其他的相关的作用关系
+        function DeleteOtherImpactRelInFollowSections(SectionIndex, ImpactElementName) {
+            for (var i = SectionIndex + 1; i < $scope.FunctionImpactRelSectionList.length; i++) {
+                if ($scope.FunctionImpactRelSectionList == null) continue;
+                if ($scope.FunctionImpactRelSectionList[i] == null) continue;
+                for (var j = 0; j < $scope.FunctionImpactRelSectionList[i].length; j++) {
                     if ($scope.FunctionImpactRelSectionList[i] == null) continue;
-                    for (var j = 0; j < $scope.FunctionImpactRelSectionList[i].length; j++) {
-                        if ($scope.FunctionImpactRelSectionList[i] == null) continue;
-                        if ($scope.FunctionImpactRelSectionList[i][j] == null) continue;
-                        if ($scope.FunctionImpactRelSectionList[i][j].ProblemElementName == ImpactElementName) {
-                            var CurImpactElementName = $scope.FunctionImpactRelSectionList[i][j].ProblemElementName;
-                            //$scope.FunctionImpactRelSectionList[i][j].ImpactElementParam = "delete";
-                            $scope.FunctionImpactRelSectionList[i].splice(j, 1);
-                            j = j - 1;
-                            if (typeof ($scope.FunctionImpactRelSectionList[i].length) != "undefined") {
-                                if ($scope.FunctionImpactRelSectionList[i].length == 0) {
-                                    $scope.FunctionImpactRelSectionList.splice(i, 1);
-                                }
+                    if ($scope.FunctionImpactRelSectionList[i][j] == null) continue;
+                    if ($scope.FunctionImpactRelSectionList[i][j].ProblemElementName == ImpactElementName) {
+                        var CurImpactElementName = $scope.FunctionImpactRelSectionList[i][j].ImpactElementName;
+                        //$scope.FunctionImpactRelSectionList[i][j].ImpactElementParam = "delete";
+                        $scope.FunctionImpactRelSectionList[i].splice(j, 1);
+                        j = j - 1;
+                        if (typeof ($scope.FunctionImpactRelSectionList[i].length) != "undefined") {
+                            if ($scope.FunctionImpactRelSectionList[i].length == 0) {
+                                $scope.FunctionImpactRelSectionList.splice(i, 1);
+                                i = i - 1;
                             }
-                            DeleteOtherImpactRelInFollowSections(i, CurImpactElementName);
-                            if ($scope.FunctionImpactRelSectionList[i] == null) break;
                         }
+                        DeleteOtherImpactRelInFollowSections(i, CurImpactElementName);
+                        if ($scope.FunctionImpactRelSectionList[i] == null) break;
                     }
                 }
             }
+        }
 
-        });//end
+    });//end
