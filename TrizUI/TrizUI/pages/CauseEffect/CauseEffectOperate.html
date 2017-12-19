@@ -1,7 +1,8 @@
 ﻿<div class="page-content" ng-controller="CauseEffectCtrl">
     <div class="page-header">
         <h1>因果分析
-			<small>
+		
+            <small>
                 <i class="icon-double-angle-right"></i>
                 <a data-toggle="modal" style="cursor: pointer" data-target="#modal-table">[查看因果分析流程]</a>
             </small>
@@ -252,19 +253,28 @@
 
                                 <tbody>
                                     <tr ng-repeat="FunctionImpactRelInfo in FunctionImpactRelList">
-                                        <td><input type="text" id="ProblemElementName" name="ProblemElementName"  data-ng-model="FunctionImpactRelInfo.ProblemElementName" /></td>
-                                        <td><input type="text" id="ProblemElementParam" name="ProblemElementParam" data-ng-model="FunctionImpactRelInfo.ProblemElementParam" /></td>
-                                        <td><input type="text" id="ImpactElementName" name="ImpactElementName" data-ng-model="FunctionImpactRelInfo.ImpactElementName" /></td>
-                                        <td><input type="text" id="ImpactElementParam" name="ImpactElementParam" class="col-xs-12 col-sm-12" data-ng-model="FunctionImpactRelInfo.ImpactElementParam" /></td>
-                                        <td><select id="ImpactElementType" ng-options="v.name as v.name for v in ParamTypes" ng-change="Change($parent.$index,FunctionImpactRelInfo.ImpactElementType, FunctionImpactRelInfo.ImpactElementName, FunctionImpactRelInfo.ImpactElementName, FunctionImpactRelInfo.ImpactElementParam)" data-ng-model="FunctionImpactRelInfo.ImpactElementType">
-                                                </select></td>
+                                        <td>{{FunctionImpactRelInfo.ProblemElementName}}</td>
+                                        <td>
+                                            <input type="text" id="ProblemElementParam" name="ProblemElementParam" data-ng-model="FunctionImpactRelInfo.ProblemElementParam" /></td>
+                                        <td>
+                                            <select data-ng-model="FunctionImpactRelInfo.ImpactElementName">
+                                                <option>aaa</option>
+                                                <option>bbb</option>
+                                                <option>ccc</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text" id="ImpactElementParam" name="ImpactElementParam" class="col-xs-12 col-sm-12" data-ng-model="FunctionImpactRelInfo.ImpactElementParam" /></td>
+                                        <td>
+                                            <select id="ImpactElementType" ng-options="v.name as v.name for v in ParamTypes" ng-change="Change($parent.$index,FunctionImpactRelInfo.ImpactElementType, FunctionImpactRelInfo.ImpactElementName, FunctionImpactRelInfo.ImpactElementName, FunctionImpactRelInfo.ImpactElementParam)" data-ng-model="FunctionImpactRelInfo.ImpactElementType">
+                                            </select></td>
                                         <td>
                                             <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                <a href="" ng-click="AddBrother($parent.$index,$index,FunctionImpactRelInfo.ProblemElementName, FunctionImpactRelInfo.ProblemElementName, FunctionImpactRelInfo.ProblemElementParam)" class="blue" data-toggle="modal" style="cursor: pointer" >
+                                                <a href="" ng-click="AddBrother($parent.$index,$index,FunctionImpactRelInfo.ProblemElementName, FunctionImpactRelInfo.ProblemElementName, FunctionImpactRelInfo.ProblemElementParam)" class="blue" data-toggle="modal" style="cursor: pointer">
                                                     <i class="icon-plus bigger-130"></i>
                                                 </a>
 
-                                                 <a href="" ng-click="DeleteFunctionImpactRelInfo($parent.$index,$index)" class="blue" data-toggle="modal" style="cursor: pointer" >
+                                                <a href="" ng-click="DeleteFunctionImpactRelInfo($parent.$index,$index)" class="blue" data-toggle="modal" style="cursor: pointer">
                                                     <i class="icon-trash bigger-130"></i>
                                                 </a>
                                             </div>
@@ -272,9 +282,9 @@
 
                                         </td>
                                     </tr>
-                                    
-                                    
-                                    
+
+
+
 
 
                                 </tbody>
@@ -310,7 +320,7 @@
         </div>
     </div>
 
-    
+
 
 
     <div class="row">
@@ -529,6 +539,7 @@
                                 <span class="white">&times;</span>
                             </button>
                             因果分析流程
+                       
                         </div>
                     </div>
 
@@ -547,6 +558,7 @@
                         <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
                             <i class="icon-remove"></i>
                             关闭
+                       
                         </button>
                     </div>
                 </div>
@@ -567,6 +579,7 @@
                                 <span class="white">&times;</span>
                             </button>
                             初级功能参数
+                       
                         </div>
                     </div>
 
@@ -609,10 +622,12 @@
                         <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
                             <i class="icon-plus"></i>
                             保存
+                       
                         </button>
                         <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
                             <i class="icon-remove"></i>
                             关闭
+                       
                         </button>
                     </div>
                 </div>
@@ -633,6 +648,7 @@
                                 <span class="white">&times;</span>
                             </button>
                             功能参数
+                       
                         </div>
                     </div>
 
@@ -698,10 +714,12 @@
                         <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
                             <i class="icon-plus"></i>
                             保存
+                       
                         </button>
                         <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
                             <i class="icon-remove"></i>
                             关闭
+                       
                         </button>
                     </div>
                 </div>
@@ -723,6 +741,7 @@
                                 <span class="white">&times;</span>
                             </button>
                             功能参数
+                       
                         </div>
                     </div>
 
@@ -787,10 +806,12 @@
                         <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
                             <i class="icon-plus"></i>
                             保存
+                       
                         </button>
                         <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
                             <i class="icon-remove"></i>
                             关闭
+                       
                         </button>
                     </div>
                 </div>
