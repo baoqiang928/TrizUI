@@ -181,12 +181,22 @@
             //树节点发生变化，checkboxlist跟着变化。
             $scope.$watch('TreeData', function () {
                 $scope.GetTreeLeafs();
+                //如果节点的名称修改了，对应关系里的节点名称也需要同步修改。
+                $scope.SycNodeNameToRelElementData();
             }, true);
 
             $scope.$watch('RelElementData', function () {
                 $scope.Draw(false);
             }, true);
 
+        };
+
+        //修改结构树中，节点名称的时候，相互作用表里的名称也需要修改。
+        $scope.SycNodeNameToRelElementData = function () {
+            for (var i = 0; i < $scope.RelElementData.length; i++) {
+                $scope.RelElementData[i].PositiveEleName = $scope.LeafNodesForMapNodeXY["n" + $scope.RelElementData[i].PositiveEleID].title;
+                $scope.RelElementData[i].PassiveEleName = $scope.LeafNodesForMapNodeXY["n" + $scope.RelElementData[i].PassiveEleID].title;
+            }
         };
 
 
@@ -199,15 +209,6 @@
             GenerateTempLeafNodes($scope.TreeData);
             GenerateLeafNodesForMapNodeXY();
             SyncToTreeLeafs();//更新叶子节点信息（增加、修改、删除）
-            //AddToTreeLeafFromTempNodes();
-            //var QueryData = {};
-            //QueryData.ProjectID = $scope.CurrentProjectID;
-            //QueryData.EleName = "";
-            //requestService.lists("FunctionElements", QueryData).then(function (data) {
-            //for (var i = 0; i < $scope.TreeLeafs.length; i++) {
-            //    $scope.LeafNodesForMapNodeXY["n" + $scope.TreeLeafs[i].ID] = $scope.TreeLeafs[i];
-            //}
-            //});
         };
         //获得所有叶子节点，对应表使用 --end
 
@@ -235,7 +236,6 @@
                 }
                 exist = false;
             }
-
             deleteTreeLeafs(0);
         }
         function deleteTreeLeafs(k) {
