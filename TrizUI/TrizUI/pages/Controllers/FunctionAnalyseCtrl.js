@@ -319,7 +319,7 @@
         $scope.filterForHoleSystem = function (e) { return (e.PositiveEleType == '整体系统') && (e.PassiveEleType == '整体系统'); }
         $scope.filterForProductSystem = function (e) { return (e.PositiveEleType == '制品'); }
         $scope.filterForSuperSystem = function (e) { return (e.PositiveEleType == '超系统'); }
-         
+        
         $scope.toggle = function (scope) {
             scope.toggle();
         };
