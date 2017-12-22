@@ -66,7 +66,7 @@
                 <div class="col-xs-12">
                     <div class="widget-box">
                         <div class="widget-header widget-header-flat">
-                            <h4 class="smaller">相互作用关系</h4>
+                            <h4 class="smaller">整体系统相互作用关系</h4>
                         </div>
 
                         <div class="widget-body">
@@ -74,12 +74,12 @@
                                 <table id="sample-table-2" class="table table-striped table-bordered table-hover">
                                     <tr>
                                         <th></th>
-                                        <th ng-repeat="Element1 in TreeLeafs">{{Element1.title}}</th>
+                                        <th ng-repeat="Element1 in TreeLeafs | filter:{'ElementType':'整体系统'} ">{{Element1.title}}</th>
                                     </tr>
 
-                                    <tr ng-repeat="Element2 in TreeLeafs">
+                                    <tr ng-repeat="Element2 in TreeLeafs | filter:{'ElementType':'整体系统'}">
                                         <td>{{Element2.title}}</td>
-                                        <td ng-repeat="Element3 in TreeLeafs">
+                                        <td ng-repeat="Element3 in TreeLeafs  | filter:{'ElementType':'整体系统'}">
                                             <input type="checkbox" id="{{Element2.ID}}_{{Element3.ID}}" ng-checked="isSelected(Element2.ID,Element3.ID)" name="{{Element3.title}}" ng-click="updateSelection($event,Element2.ID+'_'+Element3.ID)" ng-if="$index!=$parent.$index" /></td>
                                     </tr>
                                 </table>
@@ -94,7 +94,7 @@
                 <div class="col-xs-12">
                     <div class="widget-box">
                         <div class="widget-header widget-header-flat">
-                            <h4 class="smaller">相互作用表</h4>
+                            <h4 class="smaller">整体系统相互作用表</h4>
                             <span class="widget-toolbar">
                                 <a href="" ng-click="SaveRelOperate()">
                                     <i class="icon-save"></i>
@@ -117,7 +117,7 @@
                                     </thead>
 
                                     <tbody>
-                                        <tr ng-repeat="RelElement in RelElementData">
+                                        <tr ng-repeat="RelElement in RelElementData | filter:filterForHoleSystem">
                                             <td>{{RelElement.PositiveEleName}}</td>
                                             <td>
                                                 <input type="text" id="FunctionName" name="FunctionName" class="col-xs-12 col-sm-12" data-ng-model="RelElement.FunctionName" /></td>
@@ -143,6 +143,176 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="widget-box">
+                        <div class="widget-header widget-header-flat">
+                            <h4 class="smaller">制品相互作用关系</h4>
+                        </div>
+
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                                    <tr>
+                                        <th></th>
+                                        <th ng-repeat="Element1 in TreeLeafs | filter:{'ElementType':'整体系统'} ">{{Element1.title}}</th>
+                                    </tr>
+
+                                    <tr ng-repeat="Element2 in TreeLeafs | filter:{'ElementType':'制品'}">
+                                        <td>{{Element2.title}}</td>
+                                        <td ng-repeat="Element3 in TreeLeafs  | filter:{'ElementType':'整体系统'}">
+                                            <input type="checkbox" id="{{Element2.ID}}_{{Element3.ID}}" ng-checked="isSelected(Element2.ID,Element3.ID)" name="{{Element3.title}}" ng-click="updateSelection($event,Element2.ID+'_'+Element3.ID)" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="widget-box">
+                        <div class="widget-header widget-header-flat">
+                            <h4 class="smaller">制品相互作用表</h4>
+                            <span class="widget-toolbar">
+                                <a href="" ng-click="SaveRelOperate()">
+                                    <i class="icon-save"></i>
+                                </a>
+                            </span>
+                        </div>
+
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <table id="Table1" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>主动元件</th>
+                                            <th>作用</th>
+                                            <th>被动元件</th>
+                                            <th>功能类型</th> 
+                                            <th>功能等级</th>       
+                                            <th></th>
+                                        </tr>
+                                    </thead>    
+
+                                    <tbody>
+                                        <tr ng-repeat="RelElement in RelElementData | filter:filterForProductSystem">
+                                            <td>{{RelElement.PositiveEleName}}</td>
+                                            <td>
+                                                <input type="text" id="FunctionName" name="FunctionName" class="col-xs-12 col-sm-12" data-ng-model="RelElement.FunctionName" />
+                                            </td>
+                                            <td>{{RelElement.PassiveEleName}}</td>
+                                            <td>
+                                                <select class="col-xs-12 col-sm-12" id="FunctionType" ng-options="FunctionType.name as FunctionType.name for FunctionType in FunctionTypes" data-ng-model="RelElement.FunctionType"></select>
+                                            </td>
+                                            <td>
+                                                <select class="col-xs-12 col-sm-12" id="FunctionGrade" ng-options="v.name as v.name for v in FunctionGrades" data-ng-model="RelElement.FunctionGrade"></select>
+                                            </td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="red" href="" ng-click="DeleteRelElement(RelElement)">
+                                                        <i class="icon-trash bigger-130">删除</i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="widget-box">
+                        <div class="widget-header widget-header-flat">
+                            <h4 class="smaller">超系统相互作用关系</h4>
+                        </div>
+
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                                    <tr>
+                                        <th></th>
+                                        <th ng-repeat="Element1 in TreeLeafs | filter:{'ElementType':'整体系统'} ">{{Element1.title}}</th>
+                                    </tr>
+
+                                    <tr ng-repeat="Element2 in TreeLeafs | filter:{'ElementType':'超系统'}">
+                                        <td>{{Element2.title}}</td>
+                                        <td ng-repeat="Element3 in TreeLeafs  | filter:{'ElementType':'整体系统'}">
+                                            <input type="checkbox" id="{{Element2.ID}}_{{Element3.ID}}" ng-checked="isSelected(Element2.ID,Element3.ID)" name="{{Element3.title}}" ng-click="updateSelection($event,Element2.ID+'_'+Element3.ID)" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="widget-box">
+                        <div class="widget-header widget-header-flat">
+                            <h4 class="smaller">超系统相互作用表</h4>
+                            <span class="widget-toolbar">
+                                <a href="" ng-click="SaveRelOperate()">
+                                    <i class="icon-save"></i>
+                                </a>
+                            </span>
+                        </div>
+
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <table id="Table1" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>主动元件</th>
+                                            <th>作用</th>
+                                            <th>被动元件</th>
+                                            <th>功能类型</th>
+                                            <th>功能等级</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr ng-repeat="RelElement in RelElementData | filter:filterForSuperSystem">
+                                            <td>{{RelElement.PositiveEleName}}</td>
+                                            <td>
+                                                <input type="text" id="FunctionName" name="FunctionName" class="col-xs-12 col-sm-12" data-ng-model="RelElement.FunctionName" />
+                                            </td>
+                                            <td>{{RelElement.PassiveEleName}}</td>
+                                            <td>
+                                                <select class="col-xs-12 col-sm-12" id="FunctionType" ng-options="FunctionType.name as FunctionType.name for FunctionType in FunctionTypes" data-ng-model="RelElement.FunctionType"></select>
+                                            </td>
+                                            <td>
+                                                <select class="col-xs-12 col-sm-12" id="FunctionGrade" ng-options="v.name as v.name for v in FunctionGrades" data-ng-model="RelElement.FunctionGrade"></select>
+                                            </td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="red" href="" ng-click="DeleteRelElement(RelElement)">
+                                                        <i class="icon-trash bigger-130">删除</i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 
             <div class="row">
                 <div class="col-xs-12">

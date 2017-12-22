@@ -109,9 +109,11 @@
           <ScalarProperty Name="ElementType" ColumnName="ElementType" />
           <ScalarProperty Name="FunctionGrade" ColumnName="FunctionGrade" />
           <ScalarProperty Name="FunctionType" ColumnName="FunctionType" />
+          <ScalarProperty Name="PassiveEleType" ColumnName="PassiveEleType" />
           <ScalarProperty Name="PassiveEleName" ColumnName="PassiveEleName" />
           <ScalarProperty Name="PassiveEleID" ColumnName="PassiveEleID" />
           <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+          <ScalarProperty Name="PositiveEleType" ColumnName="PositiveEleType" />
           <ScalarProperty Name="PositiveEleName" ColumnName="PositiveEleName" />
           <ScalarProperty Name="PositiveEleID" ColumnName="PositiveEleID" />
           <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />

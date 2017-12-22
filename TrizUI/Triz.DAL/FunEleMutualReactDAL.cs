@@ -292,16 +292,22 @@ namespace Triz.DAL
             FunEleMutualReactInfo FunEleMutualReactInfo = new FunEleMutualReactInfo();
 
             FunEleMutualReactInfo.ID = FunEleMutualReactInfoEntity.ID;
+
             FunEleMutualReactInfo.ProjectID = FunEleMutualReactInfoEntity.ProjectID;
+
             FunEleMutualReactInfo.PositiveEleID = FunEleMutualReactInfoEntity.PositiveEleID;
 
             FunEleMutualReactInfo.PositiveEleName = FunEleMutualReactInfoEntity.PositiveEleName;
+
+            FunEleMutualReactInfo.PositiveEleType = FunEleMutualReactInfoEntity.PositiveEleType;
 
             FunEleMutualReactInfo.FunctionName = FunEleMutualReactInfoEntity.FunctionName;
 
             FunEleMutualReactInfo.PassiveEleID = FunEleMutualReactInfoEntity.PassiveEleID;
 
             FunEleMutualReactInfo.PassiveEleName = FunEleMutualReactInfoEntity.PassiveEleName;
+
+            FunEleMutualReactInfo.PassiveEleType = FunEleMutualReactInfoEntity.PassiveEleType;
 
             FunEleMutualReactInfo.FunctionType = FunEleMutualReactInfoEntity.FunctionType;
 
@@ -314,6 +320,7 @@ namespace Triz.DAL
 
             return FunEleMutualReactInfo;
         }
+
 
         public void SetDataEntity(tbl_FunEleMutualReactInfo FunEleMutualReactInfoEntity, FunEleMutualReactInfo FunEleMutualReactInfo)
         {

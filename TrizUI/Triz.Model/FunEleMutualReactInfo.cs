@@ -16,7 +16,6 @@ namespace Triz.Model
             get { return id; }
             set { id = value; }
         }
-
         private int? projectID;
         public int? ProjectID
         {
@@ -37,6 +36,15 @@ namespace Triz.Model
         {
             get { return positiveEleName; }
             set { positiveEleName = value; }
+        }
+        private string positiveEleType;
+        /// <summary>
+        /// 主动元件类型
+        /// </summary>
+        public string PositiveEleType
+        {
+            get { return positiveEleType; }
+            set { positiveEleType = value; }
         }
         private string functionName;
         /// <summary>
@@ -61,6 +69,15 @@ namespace Triz.Model
         {
             get { return passiveEleName; }
             set { passiveEleName = value; }
+        }
+        private string passiveEleType;
+        /// <summary>
+        /// 被动元件类型
+        /// </summary>
+        public string PassiveEleType
+        {
+            get { return passiveEleType; }
+            set { passiveEleType = value; }
         }
         private string functionType;
         /// <summary>
@@ -101,5 +118,4 @@ namespace Triz.Model
 
     }
 }
-
 

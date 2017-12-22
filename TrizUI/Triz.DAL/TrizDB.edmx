@@ -27,13 +27,15 @@
           <Property Name="ProjectID" Type="int" />
           <Property Name="PositiveEleID" Type="int" />
           <Property Name="PositiveEleName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PositiveEleType" Type="nvarchar" MaxLength="10" />
           <Property Name="FunctionName" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="PassiveEleID" Type="int" />
           <Property Name="PassiveEleName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PassiveEleType" Type="nvarchar" MaxLength="10" />
           <Property Name="FunctionType" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="FunctionGrade" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="ElementType" Type="nvarchar" MaxLength="10" />
-          <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDateTime" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="tbl_ProjectInfo">
           <Key>
@@ -241,13 +243,15 @@
           <Property Name="ProjectID" Type="Int32" />
           <Property Name="PositiveEleID" Type="Int32" />
           <Property Name="PositiveEleName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PositiveEleType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="FunctionName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="PassiveEleID" Type="Int32" />
           <Property Name="PassiveEleName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PassiveEleType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="FunctionType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="FunctionGrade" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="ElementType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -363,9 +367,11 @@
                 <ScalarProperty Name="ElementType" ColumnName="ElementType" />
                 <ScalarProperty Name="FunctionGrade" ColumnName="FunctionGrade" />
                 <ScalarProperty Name="FunctionType" ColumnName="FunctionType" />
+                <ScalarProperty Name="PassiveEleType" ColumnName="PassiveEleType" />
                 <ScalarProperty Name="PassiveEleName" ColumnName="PassiveEleName" />
                 <ScalarProperty Name="PassiveEleID" ColumnName="PassiveEleID" />
                 <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+                <ScalarProperty Name="PositiveEleType" ColumnName="PositiveEleType" />
                 <ScalarProperty Name="PositiveEleName" ColumnName="PositiveEleName" />
                 <ScalarProperty Name="PositiveEleID" ColumnName="PositiveEleID" />
                 <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />

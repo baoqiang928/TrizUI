@@ -9,9 +9,11 @@
             ProjectID: "",
             PositiveEleID: "",
             PositiveEleName: "",
+            PositiveEleType: "",
             FunctionName: "",
             PassiveEleID: "",
             PassiveEleName: "",
+            PassiveEleType:"",
             FunctionType: "",
             FunctionGrade: "",
             ElementType: "",
@@ -66,13 +68,16 @@
             RelElementInfo.ProjectID = $scope.CurrentProjectID;
             RelElementInfo.PositiveEleID = PositiveObj.ID;
             RelElementInfo.PositiveEleName = PositiveObj.EleName;
+            RelElementInfo.PositiveEleType = PositiveObj.ElementType;
             RelElementInfo.FunctionName = "";
             RelElementInfo.PassiveEleID = PassiveObj.ID;
             RelElementInfo.PassiveEleName = PassiveObj.EleName;
+            RelElementInfo.PassiveEleType = PassiveObj.ElementType;
             RelElementInfo.FunctionType = "基本功能";
             RelElementInfo.FunctionGrade = "正常功能";
             RelElementInfo.ElementType = "";
             $scope.RelElementData.push(RelElementInfo);
+            console.log("RelElementData", $scope.RelElementData);
         }
 
         $scope.links = [];
@@ -89,9 +94,11 @@
                 link.ProjectID = $scope.CurrentProjectID;
                 link.PositiveEleID = $scope.RelElementData[i].PositiveEleID;
                 link.PositiveEleName = $scope.RelElementData[i].PositiveEleName;
+                link.PositiveEleType = $scope.RelElementData[i].PositiveEleType;
                 link.FunctionName = $scope.RelElementData[i].FunctionName;
                 link.PassiveEleID = $scope.RelElementData[i].PassiveEleID;
                 link.PassiveEleName = $scope.RelElementData[i].PassiveEleName;
+                link.PassiveEleType = $scope.RelElementData[i].PassiveEleType;
                 link.FunctionType = $scope.RelElementData[i].FunctionType;
                 link.FunctionGrade = $scope.RelElementData[i].FunctionGrade;
                 link.ElementType = $scope.RelElementData[i].ElementType;
@@ -209,6 +216,7 @@
             GenerateTempLeafNodes($scope.TreeData);
             GenerateLeafNodesForMapNodeXY();
             SyncToTreeLeafs();//更新叶子节点信息（增加、修改、删除）
+            console.log("TreeLeafs", $scope.TreeLeafs);
         };
         //获得所有叶子节点，对应表使用 --end
 
@@ -307,6 +315,11 @@
             });
         };
 
+        //filter
+        $scope.filterForHoleSystem = function (e) { return (e.PositiveEleType == '整体系统') && (e.PassiveEleType == '整体系统'); }
+        $scope.filterForProductSystem = function (e) { return (e.PositiveEleType == '制品'); }
+        $scope.filterForSuperSystem = function (e) { return (e.PositiveEleType == '超系统'); }
+         
         $scope.toggle = function (scope) {
             scope.toggle();
         };

@@ -22,13 +22,15 @@
     <Property Name="ProjectID" Type="int" />
     <Property Name="PositiveEleID" Type="int" />
     <Property Name="PositiveEleName" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="PositiveEleType" Type="nvarchar" MaxLength="10" />
     <Property Name="FunctionName" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="PassiveEleID" Type="int" />
     <Property Name="PassiveEleName" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="PassiveEleType" Type="nvarchar" MaxLength="10" />
     <Property Name="FunctionType" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="FunctionGrade" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="ElementType" Type="nvarchar" MaxLength="10" />
-    <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_ProjectInfo">
     <Key>

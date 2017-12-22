@@ -26,11 +26,15 @@ public partial class tbl_FunEleMutualReactInfo
 
     public string PositiveEleName { get; set; }
 
+    public string PositiveEleType { get; set; }
+
     public string FunctionName { get; set; }
 
     public Nullable<int> PassiveEleID { get; set; }
 
     public string PassiveEleName { get; set; }
+
+    public string PassiveEleType { get; set; }
 
     public string FunctionType { get; set; }
 

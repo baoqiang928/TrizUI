@@ -112,12 +112,14 @@
     <Property Name="ProjectID" Type="Int32" />
     <Property Name="PositiveEleID" Type="Int32" />
     <Property Name="PositiveEleName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PositiveEleType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="FunctionName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="PassiveEleID" Type="Int32" />
     <Property Name="PassiveEleName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PassiveEleType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="FunctionType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="FunctionGrade" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="ElementType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
 </Schema>

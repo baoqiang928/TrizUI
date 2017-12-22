@@ -4,6 +4,6 @@ F:\TrizUI\TrizUI\Triz.Model\obj\Debug\Triz.Model.dll
 F:\TrizUI\TrizUI\Triz.Model\obj\Debug\Triz.Model.pdb
 E:\sourcecode\TrizUI\TrizUI\Triz.Model\bin\Debug\Triz.Model.dll
 E:\sourcecode\TrizUI\TrizUI\Triz.Model\bin\Debug\Triz.Model.pdb
-E:\sourcecode\TrizUI\TrizUI\Triz.Model\obj\Debug\Triz.Model.csprojResolveAssemblyReference.cache
 E:\sourcecode\TrizUI\TrizUI\Triz.Model\obj\Debug\Triz.Model.dll
 E:\sourcecode\TrizUI\TrizUI\Triz.Model\obj\Debug\Triz.Model.pdb
+E:\sourcecode\TrizUI\TrizUI\Triz.Model\obj\Debug\Triz.Model.csprojResolveAssemblyReference.cache
