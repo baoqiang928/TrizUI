@@ -1,7 +1,8 @@
 ﻿<div class="page-content" ng-controller="FunctionAnalyseCtrl">
     <div class="page-header">
-        <h1>功能分析
-		
+        <h1>
+            功能分析
+
             <small>
                 <i class="icon-double-angle-right"></i>
                 <a data-toggle="modal" style="cursor: pointer" data-target="#modal-table">[查看功能分析流程]</a>
@@ -9,33 +10,32 @@
         </h1>
     </div>
     <!-- /.page-header -->
-
     <!-- Nested node template -->
     <script type="text/ng-template" id="nodes_renderer.html">
-  <div ui-tree-handle class="tree-node tree-node-content">
-    <a class="btn btn-success btn-xs" ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)"><span
-        class="glyphicon"
-        ng-class="{
+        <div ui-tree-handle class="tree-node tree-node-content">
+            <a class="btn btn-success btn-xs" ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)">
+                <span class="glyphicon"
+                      ng-class="{
           'glyphicon-chevron-right': collapsed,
           'glyphicon-chevron-down': !collapsed
-        }"></span></a>
-    {{node.title}}
-    <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="DeleteSubItem(this)" style="margin-right: 3px;"><span
-        class="glyphicon glyphicon-remove"></span></a>
-
-    <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="UpdateSubItem(this)" style="margin-right: 3px;"><span
-        class="glyphicon glyphicon-edit"></span></a>
-
-    <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 3px;"><span
-        class="glyphicon glyphicon-plus"></span></a>
-  </div>
-  <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
-    <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
-    </li>
-  </ol>
-</script>
-
-
+        }"></span>
+            </a>
+            {{node.title}}
+            <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="DeleteSubItem(this)" style="margin-right: 3px;">
+                <span class="glyphicon glyphicon-remove"></span>
+            </a>
+            <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="UpdateSubItem(this)" style="margin-right: 3px;">
+                <span class="glyphicon glyphicon-edit"></span>
+            </a>
+            <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" ng-show="ShowAddButton(this)" style="margin-right: 3px;">
+                <span class="glyphicon glyphicon-plus"></span>
+            </a>
+        </div>
+        <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+            <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+            </li>
+        </ol>
+    </script>
 
     <div class="row">
         <div class="col-sm-4">
@@ -80,7 +80,8 @@
                                     <tr ng-repeat="Element2 in TreeLeafs | filter:{'ElementType':'整体系统'}">
                                         <td>{{Element2.title}}</td>
                                         <td ng-repeat="Element3 in TreeLeafs  | filter:{'ElementType':'整体系统'}">
-                                            <input type="checkbox" id="{{Element2.ID}}_{{Element3.ID}}" ng-checked="isSelected(Element2.ID,Element3.ID)" name="{{Element3.title}}" ng-click="updateSelection($event,Element2.ID+'_'+Element3.ID)" ng-if="$index!=$parent.$index" /></td>
+                                            <input type="checkbox" id="{{Element2.ID}}_{{Element3.ID}}" ng-checked="isSelected(Element2.ID,Element3.ID)" name="{{Element3.title}}" ng-click="updateSelection($event,Element2.ID+'_'+Element3.ID)" ng-if="$index!=$parent.$index" />
+                                        </td>
                                     </tr>
                                 </table>
                             </div>
@@ -120,14 +121,15 @@
                                         <tr ng-repeat="RelElement in RelElementData | filter:filterForHoleSystem">
                                             <td>{{RelElement.PositiveEleName}}</td>
                                             <td>
-                                                <input type="text" id="FunctionName" name="FunctionName" class="col-xs-12 col-sm-12" data-ng-model="RelElement.FunctionName" /></td>
+                                                <input type="text" id="FunctionName" name="FunctionName" class="col-xs-12 col-sm-12" data-ng-model="RelElement.FunctionName" />
+                                            </td>
                                             <td>{{RelElement.PassiveEleName}}</td>
                                             <td>
-                                                <select class="col-xs-12 col-sm-12" id="FunctionType" ng-options="FunctionType.name as FunctionType.name for FunctionType in FunctionTypes" data-ng-model="RelElement.FunctionType">
-                                                </select></td>
+                                                <select class="col-xs-12 col-sm-12" id="FunctionType" ng-options="FunctionType.name as FunctionType.name for FunctionType in FunctionTypes" data-ng-model="RelElement.FunctionType"></select>
+                                            </td>
                                             <td>
-                                                <select class="col-xs-12 col-sm-12" id="FunctionGrade" ng-options="v.name as v.name for v in FunctionGrades" data-ng-model="RelElement.FunctionGrade">
-                                                </select></td>
+                                                <select class="col-xs-12 col-sm-12" id="FunctionGrade" ng-options="v.name as v.name for v in FunctionGrades" data-ng-model="RelElement.FunctionGrade"></select>
+                                            </td>
                                             <td>
                                                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                                     <a class="red" href="" ng-click="DeleteRelElement(RelElement)">
@@ -193,11 +195,11 @@
                                             <th>主动元件</th>
                                             <th>作用</th>
                                             <th>被动元件</th>
-                                            <th>功能类型</th> 
-                                            <th>功能等级</th>       
+                                            <th>功能类型</th>
+                                            <th>功能等级</th>
                                             <th></th>
                                         </tr>
-                                    </thead>    
+                                    </thead>
 
                                     <tbody>
                                         <tr ng-repeat="RelElement in RelElementData | filter:filterForProductSystem">
@@ -384,12 +386,12 @@
                                 <button class="btn btn-sm pull-left" ng-click="SaveEleName()">
                                     <i class="icon-plus"></i>
                                     保存
-                       
+
                                 </button>
                                 <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
                                     <i class="icon-remove"></i>
                                     关闭
-                       
+
                                 </button>
                             </div>
                         </div>
@@ -405,5 +407,4 @@
 
 
     <!-- PAGE CONTENT ENDS -->
-
     <!-- /.page-content -->

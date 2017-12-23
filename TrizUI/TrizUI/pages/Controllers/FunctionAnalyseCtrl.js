@@ -59,6 +59,8 @@
 
 
 
+
+
         //check
         function AddRel(RelIDs) {
             var PositiveObj = GetElement(RelIDs.split("_")[0]);
@@ -328,6 +330,14 @@
             var a = $scope.data.pop();
             $scope.data.splice(0, 0, a);
         };
+
+        $scope.ShowAddButton = function (CurrentNode) {
+            if (CurrentNode.$parentNodesScope.node == null) return true;
+            if (CurrentNode.$parentNodesScope.node.title == "超系统") return false;
+            if (CurrentNode.$parentNodesScope.node.title == "制品") return false;
+            return true;
+            //console.log("CurrentNode.$parentNodesScope.title", CurrentNode.$parentNodesScope.node.title);
+        }
 
         $scope.CurrentNode = "";
         $scope.CurrentOperate = "";
