@@ -30,7 +30,7 @@
     <Property Name="FunctionType" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="FunctionGrade" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="ElementType" Type="nvarchar" MaxLength="10" />
-    <Property Name="CreateDateTime" Type="datetime" Nullable="false" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
   </EntityType>
   <EntityType Name="tbl_ProjectInfo">
     <Key>

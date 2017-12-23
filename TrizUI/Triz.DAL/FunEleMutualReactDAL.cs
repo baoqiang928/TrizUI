@@ -337,6 +337,9 @@ namespace Triz.DAL
             if (FunEleMutualReactInfo.PositiveEleName != null)
                 FunEleMutualReactInfoEntity.PositiveEleName = FunEleMutualReactInfo.PositiveEleName;
 
+            if (FunEleMutualReactInfo.PositiveEleType != null)
+                FunEleMutualReactInfoEntity.PositiveEleType = FunEleMutualReactInfo.PositiveEleType;
+
             if (FunEleMutualReactInfo.FunctionName != null)
                 FunEleMutualReactInfoEntity.FunctionName = FunEleMutualReactInfo.FunctionName;
 
@@ -345,6 +348,9 @@ namespace Triz.DAL
 
             if (FunEleMutualReactInfo.PassiveEleName != null)
                 FunEleMutualReactInfoEntity.PassiveEleName = FunEleMutualReactInfo.PassiveEleName;
+
+            if (FunEleMutualReactInfo.PassiveEleType != null)
+                FunEleMutualReactInfoEntity.PassiveEleType = FunEleMutualReactInfo.PassiveEleType;
 
             if (FunEleMutualReactInfo.FunctionType != null)
                 FunEleMutualReactInfoEntity.FunctionType = FunEleMutualReactInfo.FunctionType;

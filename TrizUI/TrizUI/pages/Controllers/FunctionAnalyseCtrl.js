@@ -25,7 +25,7 @@
         //相互作用表维护
         $scope.SaveRelOperate = function () {
             requestService.update("FunEleMutualReacts", $scope.RelElementData).then(function (data) {
-                Alert("保存相互作用成功。");
+                alert("保存相互作用成功。");
             });
             $scope.SaveMap();
         }
