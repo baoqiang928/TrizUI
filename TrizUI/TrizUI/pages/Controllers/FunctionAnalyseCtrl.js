@@ -79,7 +79,6 @@
             RelElementInfo.FunctionGrade = "正常功能";
             RelElementInfo.ElementType = "";
             $scope.RelElementData.push(RelElementInfo);
-            console.log("RelElementData", $scope.RelElementData);
         }
 
         $scope.links = [];
@@ -218,7 +217,6 @@
             GenerateTempLeafNodes($scope.TreeData);
             GenerateLeafNodesForMapNodeXY();
             SyncToTreeLeafs();//更新叶子节点信息（增加、修改、删除）
-            console.log("TreeLeafs", $scope.TreeLeafs);
         };
         //获得所有叶子节点，对应表使用 --end
 
@@ -336,7 +334,6 @@
             if (CurrentNode.$parentNodesScope.node.title == "超系统") return false;
             if (CurrentNode.$parentNodesScope.node.title == "制品") return false;
             return true;
-            //console.log("CurrentNode.$parentNodesScope.title", CurrentNode.$parentNodesScope.node.title);
         }
         
         $scope.ShowDeleteButton = function (CurrentNode) {
@@ -344,7 +341,6 @@
             if (CurrentNode.$modelValue.title == "制品") return false;
             if (CurrentNode.$modelValue.title == "超系统") return false;
             return true;
-            //console.log("CurrentNode.$parentNodesScope.title", CurrentNode.$parentNodesScope.node.title);
         }
         
         $scope.ShowUpdateButton = function (CurrentNode) {
@@ -378,6 +374,7 @@
             FunctionElementInfo.ProjectID = locals.get("ProjectID");
             FunctionElementInfo.EleName = $scope.EleName;
             var nodeData = $scope.CurrentNode.$modelValue;
+            FunctionElementInfo.ElementType = nodeData.ElementType;
             //add
             if ($scope.CurrentOperate == "Add") {
                 FunctionElementInfo.FatherID = nodeData.id;
@@ -388,11 +385,11 @@
                         ID: data,
                         title: $scope.EleName,
                         EleName: $scope.EleName,
-                        ElementType: "",
+                        ElementType: FunctionElementInfo.ElementType,
                         EleX: "",
                         EleY: "",
                         Remark: "",
-                        FatherID: "",
+                        FatherID: nodeData.id,
                         nodes: []
                     });
                     alert("保存成功。");
@@ -421,20 +418,6 @@
             }
 
         }
-
-        //左侧树保存事件
-        //$scope.SaveTreeNodes = function () {
-        //    $scope.FatherSonIDs = "";
-        //    for (var i = 0; i < $scope.TreeData.length; i++) {
-        //        $scope.FatherSonIDs = $scope.FatherSonIDs + 0 + "|" + $scope.TreeData[i].id + "^";
-        //        save($scope.TreeData[i].id, $scope.TreeData[i].nodes);
-        //    }
-        //    requestService.updateMutiple("FunctionElements", "FatherSonIDs=" + $scope.FatherSonIDs).then(function (data) {
-        //        alert("保存成功");
-        //    });
-        //}
-
-
 
         $scope.collapseAll = function () {
             $scope.$broadcast('angular-ui-tree:collapse-all');
