@@ -21,10 +21,10 @@
         }"></span>
             </a>
             {{node.title}}
-            <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="DeleteSubItem(this)" style="margin-right: 3px;">
+            <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="DeleteSubItem(this)" ng-show="ShowDeleteButton(this)"style="margin-right: 3px;">
                 <span class="glyphicon glyphicon-remove"></span>
             </a>
-            <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="UpdateSubItem(this)" style="margin-right: 3px;">
+            <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="UpdateSubItem(this)" ng-show="ShowUpdateButton(this)"style="margin-right: 3px;">
                 <span class="glyphicon glyphicon-edit"></span>
             </a>
             <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" ng-show="ShowAddButton(this)" style="margin-right: 3px;">

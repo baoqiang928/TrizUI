@@ -330,7 +330,7 @@
             var a = $scope.data.pop();
             $scope.data.splice(0, 0, a);
         };
-
+        //在樹上顯示增加按鈕
         $scope.ShowAddButton = function (CurrentNode) {
             if (CurrentNode.$parentNodesScope.node == null) return true;
             if (CurrentNode.$parentNodesScope.node.title == "超系统") return false;
@@ -338,6 +338,22 @@
             return true;
             //console.log("CurrentNode.$parentNodesScope.title", CurrentNode.$parentNodesScope.node.title);
         }
+        
+        $scope.ShowDeleteButton = function (CurrentNode) {
+            if (CurrentNode.$modelValue.title == "整体系统") return false;
+            if (CurrentNode.$modelValue.title == "制品") return false;
+            if (CurrentNode.$modelValue.title == "超系统") return false;
+            return true;
+            //console.log("CurrentNode.$parentNodesScope.title", CurrentNode.$parentNodesScope.node.title);
+        }
+        
+        $scope.ShowUpdateButton = function (CurrentNode) {
+            if (CurrentNode.$modelValue.title == "整体系统") return false;
+            if (CurrentNode.$modelValue.title == "制品") return false;
+            if (CurrentNode.$modelValue.title == "超系统") return false;
+            return true;
+        }
+
 
         $scope.CurrentNode = "";
         $scope.CurrentOperate = "";
