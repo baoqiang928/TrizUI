@@ -1,7 +1,8 @@
 ﻿<div class="page-content" ng-controller="CauseEffectCtrl">
     <div class="page-header">
-        <h1>因果分析
-		
+        <h1>
+            因果分析
+
             <small>
                 <i class="icon-double-angle-right"></i>
                 <a data-toggle="modal" style="cursor: pointer" data-target="#modal-table">[查看因果分析流程]</a>
@@ -19,187 +20,259 @@
         <div class="col-xs-12">
 
             <div class="col-sm-6">
-                <div class="widget-box">
-                    <div class="widget-header widget-header-flat">
-                        <h4 class="smaller">初级功能参数列表
-                        </h4>
-                    </div>
+                <div class="row">
+                    <div class="widget-box">
+                        <div class="widget-header widget-header-flat">
+                            <h4 class="smaller">
+                                初级功能参数列表
+                            </h4>
+                        </div>
 
-                    <div class="widget-body">
-                        <div class="widget-main">
-                            <table id="sample-table-2" class="table table-striped table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>问题相关元件</th>
-                                        <th>元件特征参数</th>
-                                        <th>参数类型</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>问题相关元件</th>
+                                            <th>元件特征参数</th>
+                                            <th>参数类型</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
 
-                                <tbody>
-                                    <tr>
-                                        <td>缆绳</td>
-                                        <td>直径</td>
-                                        <td>独立变量</td>
-                                        <td>
-                                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                <a class="blue" data-toggle="modal" style="cursor: pointer" data-target="#modal-table1">
-                                                    <i class="icon-plus bigger-130"></i>
-                                                </a>
+                                    <tbody>
+                                        <tr>
+                                            <td>缆绳</td>
+                                            <td>直径</td>
+                                            <td>独立变量</td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="blue" data-toggle="modal" style="cursor: pointer" data-target="#modal-table1">
+                                                        <i class="icon-plus bigger-130"></i>
+                                                    </a>
 
-                                                <a class="green" href="#">
-                                                    <i class="icon-pencil bigger-130"></i>
-                                                </a>
+                                                    <a class="green" href="#">
+                                                        <i class="icon-pencil bigger-130"></i>
+                                                    </a>
 
-                                                <a class="red" href="#">
-                                                    <i class="icon-trash bigger-130"></i>
-                                                </a>
-                                            </div>
-
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>缆绳</td>
-                                        <td>柔性</td>
-                                        <td>独立变量</td>
-                                        <td>
-                                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                <a class="blue" data-toggle="modal" style="cursor: pointer" data-target="#modal-table1">
-                                                    <i class="icon-plus bigger-130"></i>
-                                                </a>
-
-                                                <a class="green" href="#">
-                                                    <i class="icon-pencil bigger-130"></i>
-                                                </a>
-
-                                                <a class="red" href="#">
-                                                    <i class="icon-trash bigger-130"></i>
-                                                </a>
-                                            </div>
+                                                    <a class="red" href="#">
+                                                        <i class="icon-trash bigger-130"></i>
+                                                    </a>
+                                                </div>
 
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>导向架</td>
-                                        <td>摩擦力</td>
-                                        <td>独立变量</td>
-                                        <td>
-                                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                <a class="blue" data-toggle="modal" style="cursor: pointer" data-target="#modal-table1">
-                                                    <i class="icon-plus bigger-130"></i>
-                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>缆绳</td>
+                                            <td>柔性</td>
+                                            <td>独立变量</td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="blue" data-toggle="modal" style="cursor: pointer" data-target="#modal-table1">
+                                                        <i class="icon-plus bigger-130"></i>
+                                                    </a>
 
-                                                <a class="green" href="#">
-                                                    <i class="icon-pencil bigger-130"></i>
-                                                </a>
+                                                    <a class="green" href="#">
+                                                        <i class="icon-pencil bigger-130"></i>
+                                                    </a>
 
-                                                <a class="red" href="#">
-                                                    <i class="icon-trash bigger-130"></i>
-                                                </a>
-                                            </div>
-
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>导向架</td>
-                                        <td>移动速度</td>
-                                        <td>非独立变量</td>
-                                        <td>
-                                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                <a class="blue" data-toggle="modal" style="cursor: pointer" data-target="#modal-table1">
-                                                    <i class="icon-plus bigger-130"></i>
-                                                </a>
-
-                                                <a class="green" href="#">
-                                                    <i class="icon-pencil bigger-130"></i>
-                                                </a>
-
-                                                <a class="red" href="#">
-                                                    <i class="icon-trash bigger-130"></i>
-                                                </a>
-                                            </div>
+                                                    <a class="red" href="#">
+                                                        <i class="icon-trash bigger-130"></i>
+                                                    </a>
+                                                </div>
 
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>卷筒</td>
-                                        <td>结构外形</td>
-                                        <td>独立变量</td>
-                                        <td>
-                                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                <a class="blue" data-toggle="modal" style="cursor: pointer" data-target="#modal-table1">
-                                                    <i class="icon-plus bigger-130"></i>
-                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>导向架</td>
+                                            <td>摩擦力</td>
+                                            <td>独立变量</td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="blue" data-toggle="modal" style="cursor: pointer" data-target="#modal-table1">
+                                                        <i class="icon-plus bigger-130"></i>
+                                                    </a>
 
-                                                <a class="green" href="#">
-                                                    <i class="icon-pencil bigger-130"></i>
-                                                </a>
+                                                    <a class="green" href="#">
+                                                        <i class="icon-pencil bigger-130"></i>
+                                                    </a>
 
-                                                <a class="red" href="#">
-                                                    <i class="icon-trash bigger-130"></i>
-                                                </a>
-                                            </div>
-
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>转速</td>
-                                        <td>转速</td>
-                                        <td>非独立变量</td>
-                                        <td>
-                                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                <a class="blue" data-toggle="modal" style="cursor: pointer" data-target="#modal-table1">
-                                                    <i class="icon-plus bigger-130"></i>
-                                                </a>
-
-                                                <a class="green" href="#">
-                                                    <i class="icon-pencil bigger-130"></i>
-                                                </a>
-
-                                                <a class="red" href="#">
-                                                    <i class="icon-trash bigger-130"></i>
-                                                </a>
-                                            </div>
+                                                    <a class="red" href="#">
+                                                        <i class="icon-trash bigger-130"></i>
+                                                    </a>
+                                                </div>
 
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>人</td>
-                                        <td>拖拽力</td>
-                                        <td>独立变量</td>
-                                        <td>
-                                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                <a class="blue" data-toggle="modal" style="cursor: pointer" data-target="#modal-table1">
-                                                    <i class="icon-plus bigger-130"></i>
-                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>导向架</td>
+                                            <td>移动速度</td>
+                                            <td>非独立变量</td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="blue" data-toggle="modal" style="cursor: pointer" data-target="#modal-table1">
+                                                        <i class="icon-plus bigger-130"></i>
+                                                    </a>
 
-                                                <a class="green" href="#">
-                                                    <i class="icon-pencil bigger-130"></i>
-                                                </a>
+                                                    <a class="green" href="#">
+                                                        <i class="icon-pencil bigger-130"></i>
+                                                    </a>
 
-                                                <a class="red" href="#">
-                                                    <i class="icon-trash bigger-130"></i>
-                                                </a>
-                                            </div>
-
-
-                                        </td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
+                                                    <a class="red" href="#">
+                                                        <i class="icon-trash bigger-130"></i>
+                                                    </a>
+                                                </div>
 
 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>卷筒</td>
+                                            <td>结构外形</td>
+                                            <td>独立变量</td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="blue" data-toggle="modal" style="cursor: pointer" data-target="#modal-table1">
+                                                        <i class="icon-plus bigger-130"></i>
+                                                    </a>
 
+                                                    <a class="green" href="#">
+                                                        <i class="icon-pencil bigger-130"></i>
+                                                    </a>
+
+                                                    <a class="red" href="#">
+                                                        <i class="icon-trash bigger-130"></i>
+                                                    </a>
+                                                </div>
+
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>转速</td>
+                                            <td>转速</td>
+                                            <td>非独立变量</td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="blue" data-toggle="modal" style="cursor: pointer" data-target="#modal-table1">
+                                                        <i class="icon-plus bigger-130"></i>
+                                                    </a>
+
+                                                    <a class="green" href="#">
+                                                        <i class="icon-pencil bigger-130"></i>
+                                                    </a>
+
+                                                    <a class="red" href="#">
+                                                        <i class="icon-trash bigger-130"></i>
+                                                    </a>
+                                                </div>
+
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>人</td>
+                                            <td>拖拽力</td>
+                                            <td>独立变量</td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="blue" data-toggle="modal" style="cursor: pointer" data-target="#modal-table1">
+                                                        <i class="icon-plus bigger-130"></i>
+                                                    </a>
+
+                                                    <a class="green" href="#">
+                                                        <i class="icon-pencil bigger-130"></i>
+                                                    </a>
+
+                                                    <a class="red" href="#">
+                                                        <i class="icon-trash bigger-130"></i>
+                                                    </a>
+                                                </div>
+
+
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="row" ng-repeat="FunctionImpactRelList in FunctionImpactRelSectionList">
+                    <div class="widget-box">
+                        <div class="widget-header widget-header-flat">
+                            <h4 class="smaller">
+                                功能参数列表
+                            </h4>
+                        </div>
+
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <table id="Table1" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>问题相关元件</th>
+                                            <th>元件特征参数</th>
+                                            <th>影响该参数元件</th>
+                                            <th>元件特征参数</th>
+                                            <th>参数类型</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr ng-repeat="FunctionImpactRelInfo in FunctionImpactRelList">
+                                            <td>{{FunctionImpactRelInfo.ProblemElementName}}</td>
+                                            <td>
+                                                <input type="text" id="ProblemElementParam" name="ProblemElementParam" data-ng-model="FunctionImpactRelInfo.ProblemElementParam" />
+                                            </td>
+                                            <td>
+                                                <select data-ng-model="FunctionImpactRelInfo.ImpactElementName">
+                                                    <option>aaa</option>
+                                                    <option>bbb</option>
+                                                    <option>ccc</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="text" id="ImpactElementParam" name="ImpactElementParam" class="col-xs-12 col-sm-12" data-ng-model="FunctionImpactRelInfo.ImpactElementParam" />
+                                            </td>
+                                            <td>
+                                                <select id="ImpactElementType" ng-options="v.name as v.name for v in ParamTypes" ng-change="Change($parent.$index,FunctionImpactRelInfo.ImpactElementType, FunctionImpactRelInfo.ImpactElementName, FunctionImpactRelInfo.ImpactElementName, FunctionImpactRelInfo.ImpactElementParam)" data-ng-model="FunctionImpactRelInfo.ImpactElementType"></select>
+                                            </td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a href="" ng-click="AddBrother($parent.$index,$index,FunctionImpactRelInfo.ProblemElementName, FunctionImpactRelInfo.ProblemElementName, FunctionImpactRelInfo.ProblemElementParam)" class="blue" data-toggle="modal" style="cursor: pointer">
+                                                        <i class="icon-plus bigger-130"></i>
+                                                    </a>
+
+                                                    <a href="" ng-click="DeleteFunctionImpactRelInfo($parent.$index,$index)" class="blue" data-toggle="modal" style="cursor: pointer">
+                                                        <i class="icon-trash bigger-130"></i>
+                                                    </a>
+                                                </div>
+
+
+                                            </td>
+                                        </tr>
+
+
+
+
+
+                                    </tbody>
+                                </table>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
 
@@ -214,293 +287,197 @@
 
                             <div class="widget-body">
                                 <div class="widget-main">
-                                    <img src="/pages/causeeffect/1.png" />
+                                    <img src="/pages/causeeffect/1.png" height="800px" />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
-
-
-    <div class="row" ng-repeat="FunctionImpactRelList in FunctionImpactRelSectionList">
-        <div class="col-xs-12">
-
-            <div class="col-sm-6">
-                <div class="widget-box">
-                    <div class="widget-header widget-header-flat">
-                        <h4 class="smaller">功能参数列表
-                        </h4>
-                    </div>
-
-                    <div class="widget-body">
-                        <div class="widget-main">
-                            <table id="Table1" class="table table-striped table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>问题相关元件</th>
-                                        <th>元件特征参数</th>
-                                        <th>影响该参数元件</th>
-                                        <th>元件特征参数</th>
-                                        <th>参数类型</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr ng-repeat="FunctionImpactRelInfo in FunctionImpactRelList">
-                                        <td>{{FunctionImpactRelInfo.ProblemElementName}}</td>
-                                        <td>
-                                            <input type="text" id="ProblemElementParam" name="ProblemElementParam" data-ng-model="FunctionImpactRelInfo.ProblemElementParam" /></td>
-                                        <td>
-                                            <select data-ng-model="FunctionImpactRelInfo.ImpactElementName">
-                                                <option>aaa</option>
-                                                <option>bbb</option>
-                                                <option>ccc</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <input type="text" id="ImpactElementParam" name="ImpactElementParam" class="col-xs-12 col-sm-12" data-ng-model="FunctionImpactRelInfo.ImpactElementParam" /></td>
-                                        <td>
-                                            <select id="ImpactElementType" ng-options="v.name as v.name for v in ParamTypes" ng-change="Change($parent.$index,FunctionImpactRelInfo.ImpactElementType, FunctionImpactRelInfo.ImpactElementName, FunctionImpactRelInfo.ImpactElementName, FunctionImpactRelInfo.ImpactElementParam)" data-ng-model="FunctionImpactRelInfo.ImpactElementType">
-                                            </select></td>
-                                        <td>
-                                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                <a href="" ng-click="AddBrother($parent.$index,$index,FunctionImpactRelInfo.ProblemElementName, FunctionImpactRelInfo.ProblemElementName, FunctionImpactRelInfo.ProblemElementParam)" class="blue" data-toggle="modal" style="cursor: pointer">
-                                                    <i class="icon-plus bigger-130"></i>
-                                                </a>
-
-                                                <a href="" ng-click="DeleteFunctionImpactRelInfo($parent.$index,$index)" class="blue" data-toggle="modal" style="cursor: pointer">
-                                                    <i class="icon-trash bigger-130"></i>
-                                                </a>
-                                            </div>
-
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                                </tbody>
-                            </table>
-
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="widget-box">
-                            <div class="widget-header widget-header-flat">
-                                <h4 class="smaller">相互作用表</h4>
-
-                            </div>
-
-                            <div class="widget-body">
-                                <div class="widget-main">
-                                    <img src="/pages/causeeffect/2.png" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </div>
-
-
 
 
     <div class="row">
         <div class="col-xs-12">
-
             <div class="col-sm-6">
-                <div class="widget-box">
-                    <div class="widget-header widget-header-flat">
-                        <h4 class="smaller">冲突列表
-                        </h4>
-                    </div>
+                <div class="row">
+                    <div class="widget-box">
+                        <div class="widget-header widget-header-flat">
+                            <h4 class="smaller">
+                                冲突列表
+                            </h4>
+                        </div>
 
-                    <div class="widget-body">
-                        <div class="widget-main">
-                            <table id="Table3" class="table table-striped table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>相关元件</th>
-                                        <th>独立变量参数</th>
-                                        <th>当前设置</th>
-                                        <th>目前问题</th>
-                                        <th>新的问题</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <table id="Table3" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>相关元件</th>
+                                            <th>独立变量参数</th>
+                                            <th>当前设置</th>
+                                            <th>目前问题</th>
+                                            <th>新的问题</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
 
-                                <tbody>
-                                    <tr>
-                                        <td>导向架</td>
-                                        <td>摩擦力</td>
-                                        <td>摩擦力小</td>
-                                        <td>摩擦力大</td>
-                                        <td>缆绳磨损严重</td>
-                                        <td>
-                                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                <a class="blue" href="#">
-                                                    <i class="icon-plus bigger-130"></i>
-                                                </a>
+                                    <tbody>
+                                        <tr>
+                                            <td>导向架</td>
+                                            <td>摩擦力</td>
+                                            <td>摩擦力小</td>
+                                            <td>摩擦力大</td>
+                                            <td>缆绳磨损严重</td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="blue" href="#">
+                                                        <i class="icon-plus bigger-130"></i>
+                                                    </a>
 
-                                                <a class="green" href="#">
-                                                    <i class="icon-pencil bigger-130"></i>
-                                                </a>
+                                                    <a class="green" href="#">
+                                                        <i class="icon-pencil bigger-130"></i>
+                                                    </a>
 
-                                                <a class="red" href="#">
-                                                    <i class="icon-trash bigger-130"></i>
-                                                </a>
-                                            </div>
-
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>卷筒</td>
-                                        <td>结构外形</td>
-                                        <td>缠绕表面光滑</td>
-                                        <td>缠绕表面有沟槽</td>
-                                        <td>卷筒尺寸增大，结构复杂</td>
-                                        <td>
-                                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                <a class="blue" href="#">
-                                                    <i class="icon-plus bigger-130"></i>
-                                                </a>
-
-                                                <a class="green" href="#">
-                                                    <i class="icon-pencil bigger-130"></i>
-                                                </a>
-
-                                                <a class="red" href="#">
-                                                    <i class="icon-trash bigger-130"></i>
-                                                </a>
-                                            </div>
+                                                    <a class="red" href="#">
+                                                        <i class="icon-trash bigger-130"></i>
+                                                    </a>
+                                                </div>
 
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>丝杠</td>
-                                        <td>传动比</td>
-                                        <td>固定</td>
-                                        <td>可变</td>
-                                        <td>系统结构复杂，成本高，而且系统运行过程调节各传动比过程复杂</td>
-                                        <td>
-                                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                <a class="blue" href="#">
-                                                    <i class="icon-plus bigger-130"></i>
-                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>卷筒</td>
+                                            <td>结构外形</td>
+                                            <td>缠绕表面光滑</td>
+                                            <td>缠绕表面有沟槽</td>
+                                            <td>卷筒尺寸增大，结构复杂</td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="blue" href="#">
+                                                        <i class="icon-plus bigger-130"></i>
+                                                    </a>
 
-                                                <a class="green" href="#">
-                                                    <i class="icon-pencil bigger-130"></i>
-                                                </a>
+                                                    <a class="green" href="#">
+                                                        <i class="icon-pencil bigger-130"></i>
+                                                    </a>
 
-                                                <a class="red" href="#">
-                                                    <i class="icon-trash bigger-130"></i>
-                                                </a>
-                                            </div>
-
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>电机</td>
-                                        <td>转速</td>
-                                        <td>固定</td>
-                                        <td>可变</td>
-                                        <td>系统结构复杂，成本高，而且系统运行过程调节各传动比过程复杂</td>
-                                        <td>
-                                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                <a class="blue" href="#">
-                                                    <i class="icon-plus bigger-130"></i>
-                                                </a>
-
-                                                <a class="green" href="#">
-                                                    <i class="icon-pencil bigger-130"></i>
-                                                </a>
-
-                                                <a class="red" href="#">
-                                                    <i class="icon-trash bigger-130"></i>
-                                                </a>
-                                            </div>
+                                                    <a class="red" href="#">
+                                                        <i class="icon-trash bigger-130"></i>
+                                                    </a>
+                                                </div>
 
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>电机</td>
-                                        <td>传动比1</td>
-                                        <td>固定</td>
-                                        <td>可变</td>
-                                        <td>系统结构复杂，成本高，而且系统运行过程调节各传动比过程复杂</td>
-                                        <td>
-                                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                <a class="blue" href="#">
-                                                    <i class="icon-plus bigger-130"></i>
-                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>丝杠</td>
+                                            <td>传动比</td>
+                                            <td>固定</td>
+                                            <td>可变</td>
+                                            <td>系统结构复杂，成本高，而且系统运行过程调节各传动比过程复杂</td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="blue" href="#">
+                                                        <i class="icon-plus bigger-130"></i>
+                                                    </a>
 
-                                                <a class="green" href="#">
-                                                    <i class="icon-pencil bigger-130"></i>
-                                                </a>
+                                                    <a class="green" href="#">
+                                                        <i class="icon-pencil bigger-130"></i>
+                                                    </a>
 
-                                                <a class="red" href="#">
-                                                    <i class="icon-trash bigger-130"></i>
-                                                </a>
-                                            </div>
-
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>电机</td>
-                                        <td>传动比2</td>
-                                        <td>固定</td>
-                                        <td>可变</td>
-                                        <td>系统结构复杂，成本高，而且系统运行过程调节各传动比过程复杂</td>
-                                        <td>
-                                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                <a class="blue" href="#">
-                                                    <i class="icon-plus bigger-130"></i>
-                                                </a>
-
-                                                <a class="green" href="#">
-                                                    <i class="icon-pencil bigger-130"></i>
-                                                </a>
-
-                                                <a class="red" href="#">
-                                                    <i class="icon-trash bigger-130"></i>
-                                                </a>
-                                            </div>
+                                                    <a class="red" href="#">
+                                                        <i class="icon-trash bigger-130"></i>
+                                                    </a>
+                                                </div>
 
 
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>电机</td>
+                                            <td>转速</td>
+                                            <td>固定</td>
+                                            <td>可变</td>
+                                            <td>系统结构复杂，成本高，而且系统运行过程调节各传动比过程复杂</td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="blue" href="#">
+                                                        <i class="icon-plus bigger-130"></i>
+                                                    </a>
+
+                                                    <a class="green" href="#">
+                                                        <i class="icon-pencil bigger-130"></i>
+                                                    </a>
+
+                                                    <a class="red" href="#">
+                                                        <i class="icon-trash bigger-130"></i>
+                                                    </a>
+                                                </div>
 
 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>电机</td>
+                                            <td>传动比1</td>
+                                            <td>固定</td>
+                                            <td>可变</td>
+                                            <td>系统结构复杂，成本高，而且系统运行过程调节各传动比过程复杂</td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="blue" href="#">
+                                                        <i class="icon-plus bigger-130"></i>
+                                                    </a>
+
+                                                    <a class="green" href="#">
+                                                        <i class="icon-pencil bigger-130"></i>
+                                                    </a>
+
+                                                    <a class="red" href="#">
+                                                        <i class="icon-trash bigger-130"></i>
+                                                    </a>
+                                                </div>
 
 
-                                </tbody>
-                            </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>电机</td>
+                                            <td>传动比2</td>
+                                            <td>固定</td>
+                                            <td>可变</td>
+                                            <td>系统结构复杂，成本高，而且系统运行过程调节各传动比过程复杂</td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="blue" href="#">
+                                                        <i class="icon-plus bigger-130"></i>
+                                                    </a>
+
+                                                    <a class="green" href="#">
+                                                        <i class="icon-pencil bigger-130"></i>
+                                                    </a>
+
+                                                    <a class="red" href="#">
+                                                        <i class="icon-trash bigger-130"></i>
+                                                    </a>
+                                                </div>
+
+
+                                            </td>
+                                        </tr>
 
 
 
+
+                                    </tbody>
+                                </table>
+
+
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -539,7 +516,7 @@
                                 <span class="white">&times;</span>
                             </button>
                             因果分析流程
-                       
+
                         </div>
                     </div>
 
@@ -558,7 +535,7 @@
                         <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
                             <i class="icon-remove"></i>
                             关闭
-                       
+
                         </button>
                     </div>
                 </div>
@@ -579,7 +556,7 @@
                                 <span class="white">&times;</span>
                             </button>
                             初级功能参数
-                       
+
                         </div>
                     </div>
 
@@ -622,12 +599,12 @@
                         <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
                             <i class="icon-plus"></i>
                             保存
-                       
+
                         </button>
                         <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
                             <i class="icon-remove"></i>
                             关闭
-                       
+
                         </button>
                     </div>
                 </div>
@@ -648,7 +625,7 @@
                                 <span class="white">&times;</span>
                             </button>
                             功能参数
-                       
+
                         </div>
                     </div>
 
@@ -714,12 +691,12 @@
                         <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
                             <i class="icon-plus"></i>
                             保存
-                       
+
                         </button>
                         <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
                             <i class="icon-remove"></i>
                             关闭
-                       
+
                         </button>
                     </div>
                 </div>
@@ -741,7 +718,7 @@
                                 <span class="white">&times;</span>
                             </button>
                             功能参数
-                       
+
                         </div>
                     </div>
 
@@ -806,12 +783,12 @@
                         <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
                             <i class="icon-plus"></i>
                             保存
-                       
+
                         </button>
                         <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
                             <i class="icon-remove"></i>
                             关闭
-                       
+
                         </button>
                     </div>
                 </div>
