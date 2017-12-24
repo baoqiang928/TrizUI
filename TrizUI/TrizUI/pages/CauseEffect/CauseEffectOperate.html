@@ -229,20 +229,20 @@
                                         <tr ng-repeat="FunctionImpactRelInfo in FunctionImpactRelList">
                                             <td>{{FunctionImpactRelInfo.ProblemElementName}}</td>
                                             <td>
-                                                <input type="text" id="ProblemElementParam" name="ProblemElementParam" data-ng-model="FunctionImpactRelInfo.ProblemElementParam" />
+                                                {{FunctionImpactRelInfo.ProblemElementParam}}
                                             </td>
                                             <td>
-                                                <select data-ng-model="FunctionImpactRelInfo.ImpactElementName">
+                                                <select data-ng-model="FunctionImpactRelInfo.ImpactElementName" ng-disabled="DisabledInput(FunctionImpactRelInfo.ImpactElementType)">
                                                     <option>aaa</option>
                                                     <option>bbb</option>
                                                     <option>ccc</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text" id="ImpactElementParam" name="ImpactElementParam" class="col-xs-12 col-sm-12" data-ng-model="FunctionImpactRelInfo.ImpactElementParam" />
+                                                <input type="text" id="ImpactElementParam" name="ImpactElementParam" class="col-xs-12 col-sm-12" data-ng-model="FunctionImpactRelInfo.ImpactElementParam" ng-change="ModifyImpactElementParamInOtherSection($parent.$index,FunctionImpactRelInfo.ImpactElementType,FunctionImpactRelInfo.ImpactElementName, FunctionImpactRelInfo.ImpactElementParam)" />
                                             </td>
                                             <td>
-                                                <select id="ImpactElementType" ng-options="v.name as v.name for v in ParamTypes" ng-change="Change($parent.$index,FunctionImpactRelInfo.ImpactElementType, FunctionImpactRelInfo.ImpactElementName, FunctionImpactRelInfo.ImpactElementName, FunctionImpactRelInfo.ImpactElementParam)" data-ng-model="FunctionImpactRelInfo.ImpactElementType"></select>
+                                                <select id="ImpactElementType" ng-options="v.name as v.name for v in ParamTypes" ng-change="ImpactElementTypeChange($parent.$index,FunctionImpactRelInfo.ImpactElementType, FunctionImpactRelInfo.ImpactElementName, FunctionImpactRelInfo.ImpactElementName, FunctionImpactRelInfo.ImpactElementParam)" data-ng-model="FunctionImpactRelInfo.ImpactElementType"></select>
                                             </td>
                                             <td>
                                                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
@@ -259,19 +259,12 @@
                                             </td>
                                         </tr>
 
-
-
-
-
                                     </tbody>
                                 </table>
-
-
 
                             </div>
                         </div>
                     </div>
-
 
                 </div>
             </div>
@@ -368,8 +361,6 @@
                                                         <i class="icon-trash bigger-130"></i>
                                                     </a>
                                                 </div>
-
-
                                             </td>
                                         </tr>
                                         <tr>
@@ -392,8 +383,6 @@
                                                         <i class="icon-trash bigger-130"></i>
                                                     </a>
                                                 </div>
-
-
                                             </td>
                                         </tr>
                                         <tr>
