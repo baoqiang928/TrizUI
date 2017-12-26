@@ -146,33 +146,54 @@
                 </div>
             </div>
 
+
+
+            <!--弹出添加制品相互作用关系窗口-->
             <div class="row">
-                <div class="col-xs-12">
-                    <div class="widget-box">
-                        <div class="widget-header widget-header-flat header-color-dark">
-                            <h4 class="smaller">制品相互作用关系</h4>
-                        </div>
+                <div id="modal-table1" class="modal fade" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header no-padding">
+                                <div class="table-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        <span class="white">&times;</span>
+                                    </button>
+                                    制品相互作用关系
+                                </div>
+                            </div>
 
-                        <div class="widget-body">
-                            <div class="widget-main">
-                                <table id="sample-table-2" class="table table-striped table-bordered table-hover">
-                                    <tr>
-                                        <th></th>
-                                        <th ng-repeat="Element1 in TreeLeafs | filter:{'ElementType':'整体系统'} ">{{Element1.title}}</th>
-                                    </tr>
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                                        <tr>
+                                            <th></th>
+                                            <th ng-repeat="Element1 in TreeLeafs | filter:{'ElementType':'整体系统'} ">{{Element1.title}}</th>
+                                        </tr>
 
-                                    <tr ng-repeat="Element2 in TreeLeafs | filter:{'ElementType':'制品'}">
-                                        <td>{{Element2.title}}</td>
-                                        <td ng-repeat="Element3 in TreeLeafs  | filter:{'ElementType':'整体系统'}">
-                                            <input type="checkbox" id="{{Element2.ID}}_{{Element3.ID}}" ng-checked="isSelected(Element2.ID,Element3.ID)" name="{{Element3.title}}" ng-click="updateSelection($event,Element2.ID+'_'+Element3.ID)" />
-                                        </td>
-                                    </tr>
-                                </table>
+                                        <tr ng-repeat="Element2 in TreeLeafs | filter:{'ElementType':'制品'}">
+                                            <td>{{Element2.title}}</td>
+                                            <td ng-repeat="Element3 in TreeLeafs  | filter:{'ElementType':'整体系统'}">
+                                                <input type="checkbox" id="{{Element2.ID}}_{{Element3.ID}}" ng-checked="isSelected(Element2.ID,Element3.ID)" name="{{Element3.title}}" ng-click="updateSelection($event,Element2.ID+'_'+Element3.ID)" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>                            
+
+                            <div class="modal-footer no-margin-top">
+                                <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+                                    <i class="icon-remove"></i>
+                                    关闭
+                                </button>
                             </div>
                         </div>
+                        <!-- /.modal-content -->
                     </div>
+                    <!-- /.modal-dialog -->
                 </div>
+
             </div>
+            <!--弹出添加制品相互作用关系窗口  end-->
 
 
             <div class="row">
@@ -181,6 +202,10 @@
                         <div class="widget-header widget-header-flat header-color-dark">
                             <h4 class="smaller">制品相互作用表</h4>
                             <span class="widget-toolbar">
+                                <a href="" ng-click="NewRelOperate('zhipin')">
+                                    <i class="icon-plus"></i>
+                                </a>
+
                                 <a href="" ng-click="SaveRelOperate()">
                                     <i class="icon-save"></i>
                                 </a>
@@ -216,6 +241,10 @@
                                             </td>
                                             <td>
                                                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="red" href="" ng-click="SwopRel(RelElement)">
+                                                        <i class="icon-trash bigger-130">更改主被动关系</i>
+                                                    </a>
+
                                                     <a class="red" href="" ng-click="DeleteRelElement(RelElement)">
                                                         <i class="icon-trash bigger-130">删除</i>
                                                     </a>
@@ -230,33 +259,53 @@
                 </div>
             </div>
 
+
+            <!--弹出超系统相互作用关系窗口-->
             <div class="row">
-                <div class="col-xs-12">
-                    <div class="widget-box">
-                        <div class="widget-header widget-header-flat header-color-pink">
-                            <h4 class="smaller">超系统相互作用关系</h4>
-                        </div>
+                <div id="modal-table2" class="modal fade" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header no-padding">
+                                <div class="table-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        <span class="white">&times;</span>
+                                    </button>
+                                    超系统相互作用关系
+                                </div>
+                            </div>
 
-                        <div class="widget-body">
-                            <div class="widget-main">
-                                <table id="sample-table-2" class="table table-striped table-bordered table-hover">
-                                    <tr>
-                                        <th></th>
-                                        <th ng-repeat="Element1 in TreeLeafs | filter:{'ElementType':'整体系统'} ">{{Element1.title}}</th>
-                                    </tr>
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                                        <tr>
+                                            <th></th>
+                                            <th ng-repeat="Element1 in TreeLeafs | filter:{'ElementType':'整体系统'} ">{{Element1.title}}</th>
+                                        </tr>
 
-                                    <tr ng-repeat="Element2 in TreeLeafs | filter:{'ElementType':'超系统'}">
-                                        <td>{{Element2.title}}</td>
-                                        <td ng-repeat="Element3 in TreeLeafs  | filter:{'ElementType':'整体系统'}">
-                                            <input type="checkbox" id="{{Element2.ID}}_{{Element3.ID}}" ng-checked="isSelected(Element2.ID,Element3.ID)" name="{{Element3.title}}" ng-click="updateSelection($event,Element2.ID+'_'+Element3.ID)" />
-                                        </td>
-                                    </tr>
-                                </table>
+                                        <tr ng-repeat="Element2 in TreeLeafs | filter:{'ElementType':'超系统'}">
+                                            <td>{{Element2.title}}</td>
+                                            <td ng-repeat="Element3 in TreeLeafs  | filter:{'ElementType':'整体系统'}">
+                                                <input type="checkbox" id="{{Element2.ID}}_{{Element3.ID}}" ng-checked="isSelected(Element2.ID,Element3.ID)" name="{{Element3.title}}" ng-click="updateSelection($event,Element2.ID+'_'+Element3.ID)" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>                            
+
+                            <div class="modal-footer no-margin-top">
+                                <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+                                    <i class="icon-remove"></i>
+                                    关闭
+                                </button>
                             </div>
                         </div>
+                        <!-- /.modal-content -->
                     </div>
+                    <!-- /.modal-dialog -->
                 </div>
+
             </div>
+            <!--弹出超系统相互作用关系窗口  end-->
 
 
             <div class="row">
@@ -265,6 +314,10 @@
                         <div class="widget-header widget-header-flat header-color-pink">
                             <h4 class="smaller">超系统相互作用表</h4>
                             <span class="widget-toolbar">
+                                <a href="" ng-click="NewRelOperate('supersystem')">
+                                    <i class="icon-plus"></i>
+                                </a>
+
                                 <a href="" ng-click="SaveRelOperate()">
                                     <i class="icon-save"></i>
                                 </a>
@@ -300,6 +353,10 @@
                                             </td>
                                             <td>
                                                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="red" href="" ng-click="SwopRel(RelElement)">
+                                                        <i class="icon-trash bigger-130">更改主被动关系</i>
+                                                    </a>
+
                                                     <a class="red" href="" ng-click="DeleteRelElement(RelElement)">
                                                         <i class="icon-trash bigger-130">删除</i>
                                                     </a>

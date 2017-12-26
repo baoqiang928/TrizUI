@@ -13,7 +13,7 @@
             FunctionName: "",
             PassiveEleID: "",
             PassiveEleName: "",
-            PassiveEleType:"",
+            PassiveEleType: "",
             FunctionType: "",
             FunctionGrade: "",
             ElementType: "",
@@ -29,6 +29,32 @@
             });
             $scope.SaveMap();
         }
+
+
+
+        $scope.SwopRel = function (obj) {
+            var PositiveEleID = "";
+            var PositiveEleName = "";
+            var PositiveEleType = "";
+
+            PositiveEleID = obj.PositiveEleID;
+            PositiveEleName = obj.PositiveEleName;
+            PositiveEleType = obj.PositiveEleType;
+
+            obj.PositiveEleID = obj.PassiveEleID;
+            obj.PositiveEleName = obj.PassiveEleName;
+            obj.PositiveEleType = obj.PassiveEleType;
+
+            obj.PassiveEleID = PositiveEleID;
+            obj.PassiveEleName = PositiveEleName;
+            obj.PassiveEleType = PositiveEleType;
+
+
+            console.log(obj);
+
+            console.log("RelElementData", $scope.RelElementData);
+
+        };
 
         $scope.DeleteRelElement = function (obj) {
             bootbox.confirm("要删除当前的记录？", function (result) {
@@ -317,9 +343,9 @@
 
         //filter
         $scope.filterForHoleSystem = function (e) { return (e.PositiveEleType == '整体系统') && (e.PassiveEleType == '整体系统'); }
-        $scope.filterForProductSystem = function (e) { return (e.PositiveEleType == '制品'); }
-        $scope.filterForSuperSystem = function (e) { return (e.PositiveEleType == '超系统'); }
-        
+        $scope.filterForProductSystem = function (e) { return (e.PositiveEleType == '制品') || (e.PassiveEleType == '制品'); }
+        $scope.filterForSuperSystem = function (e) { return (e.PositiveEleType == '超系统') || (e.PassiveEleType == '超系统'); }
+
         $scope.toggle = function (scope) {
             scope.toggle();
         };
@@ -335,14 +361,14 @@
             if (CurrentNode.$parentNodesScope.node.title == "制品") return false;
             return true;
         }
-        
+
         $scope.ShowDeleteButton = function (CurrentNode) {
             if (CurrentNode.$modelValue.title == "整体系统") return false;
             if (CurrentNode.$modelValue.title == "制品") return false;
             if (CurrentNode.$modelValue.title == "超系统") return false;
             return true;
         }
-        
+
         $scope.ShowUpdateButton = function (CurrentNode) {
             if (CurrentNode.$modelValue.title == "整体系统") return false;
             if (CurrentNode.$modelValue.title == "制品") return false;
@@ -408,6 +434,16 @@
         };
         //新增一个节点的保存事件  --end
 
+        $scope.NewRelOperate = function (name) {
+            if (name == 'supersystem') {
+                $('#modal-table2').modal('show');
+            }
+
+            if (name == 'zhipin') {
+                $('#modal-table1').modal('show');
+            }
+        };
+
         $scope.FatherSonIDs = "";
         function save(fatherid, sons) {
             for (var i = 0; i < sons.length; i++) {
@@ -416,7 +452,6 @@
                     save(sons[i].id, sons[i].nodes);
                 }
             }
-
         }
 
         $scope.collapseAll = function () {
@@ -428,7 +463,6 @@
         };
 
         //$scope.data = [{ 'id': 61, 'title': '1丝杠', 'nodes': [{ 'id': 64, 'title': '超系统元件', 'nodes': [{ 'id': 67, 'title': '导向架', 'nodes': [{ 'id': 63, 'title': '大链轮', 'nodes': [{ 'id': 65, 'title': '小链轮', 'nodes': [{ 'id': 70, 'title': '链条', 'nodes': [{ 'id': 62, 'title': '滚筒', 'nodes': [{ 'id': 71, 'title': '43434', 'nodes': [] }] }] }, { 'id': 66, 'title': '链轮轴', 'nodes': [{ 'id': 69, 'title': '电机', 'nodes': [] }, { 'id': 68, 'title': '螺母', 'nodes': [] }] }] }] }] }] }] }, { 'id': 74, 'title': '通天塔', 'nodes': [{ 'id': 75, 'title': '的点点滴滴', 'nodes': [] }] }];
-
 
         //$scope.data = [{
         //    'id': 1,
@@ -513,7 +547,7 @@
         function SaveMapNodesPosition() {
             if ($scope.force == null) return;
             var EleNodes = $scope.force.nodes();
-            for (var i = 0; i < EleNodes.length;i++) {
+            for (var i = 0; i < EleNodes.length; i++) {
                 if ($scope.LeafNodesForMapNodeXY["n" + EleNodes[i].id] == null) continue;
                 $scope.LeafNodesForMapNodeXY["n" + EleNodes[i].id].EleX = EleNodes[i].px;
                 $scope.LeafNodesForMapNodeXY["n" + EleNodes[i].id].EleY = EleNodes[i].py;
