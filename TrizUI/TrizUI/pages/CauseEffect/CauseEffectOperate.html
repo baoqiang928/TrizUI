@@ -2,7 +2,6 @@
     <div class="page-header">
         <h1>
             因果分析
-
             <small>
                 <i class="icon-double-angle-right"></i>
                 <a data-toggle="modal" style="cursor: pointer" data-target="#modal-table">[查看因果分析流程]</a>
@@ -41,6 +40,27 @@
                                     </thead>
 
                                     <tbody>
+
+                                        <tr ng-repeat="ComponentParamInfo in ComponentParamInfoList">
+                                            <td><input type="text" ng-disabled="ComponentParamInfo.Disabled" class="col-xs-12 col-sm-12" data-ng-model="ComponentParamInfo.ComponentName" /></td>
+                                            <td><input type="text" ng-disabled="ComponentParamInfo.Disabled" class="col-xs-12 col-sm-12" data-ng-model="ComponentParamInfo.ParamName" /></td>
+                                            <td><input type="text" ng-disabled="ComponentParamInfo.Disabled" class="col-xs-12 col-sm-12" data-ng-model="ComponentParamInfo.ParamType" /></td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="blue" style="cursor: pointer" ng-click="AddComponentParamInfo()">
+                                                        <i class="icon-plus bigger-130"></i>
+                                                    </a>
+
+                                                    <a class="red" style="cursor: pointer" ng-click="DeleteComponentParamInfo($index)">
+                                                        <i class="icon-trash bigger-130"></i>
+                                                    </a>
+                                                </div>
+
+
+                                            </td>
+                                        </tr>
+
+
                                         <tr>
                                             <td>缆绳</td>
                                             <td>直径</td>
@@ -203,7 +223,7 @@
                     </div>
                 </div>
 
-                <div class="row" ng-repeat="FunctionImpactRelList in FunctionImpactRelSectionList">
+                <div class="row" ng-repeat="ComponentRelInfoList in ComponentRelInfoListSection">
                     <div class="widget-box">
                         <div class="widget-header widget-header-flat">
                             <h4 class="smaller">
@@ -226,31 +246,41 @@
                                     </thead>
 
                                     <tbody>
-                                        <tr ng-repeat="FunctionImpactRelInfo in FunctionImpactRelList">
-                                            <td>{{FunctionImpactRelInfo.ProblemElementName}}</td>
+                                        <tr ng-repeat="ComponentRelInfo in ComponentRelInfoList">
                                             <td>
-                                                {{FunctionImpactRelInfo.ProblemElementParam}}
+                                                <select ng-disabled="ComponentRelInfo.Disabled" data-ng-model="ComponentRelInfo.ComponentName" ng-change="bbb()">
+                                                    <option ng-repeat="user in getUsers($parent.$index) ">{{ user.name }}</option>
+                                                </select>
                                             </td>
                                             <td>
-                                                <select data-ng-model="FunctionImpactRelInfo.ImpactElementName" ng-disabled="DisabledInput(FunctionImpactRelInfo.ImpactElementType)">
+                                                <select ng-disabled="ComponentRelInfo.Disabled" data-ng-model="ComponentRelInfo.ComponentParamName">
+                                                    <option ng-repeat="user in yyy ">{{ user.name }}</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select ng-disabled="ComponentRelInfo.Disabled" data-ng-model="ComponentRelInfo.ImpactParamComponentName">
                                                     <option>aaa</option>
                                                     <option>bbb</option>
                                                     <option>ccc</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text" id="ImpactElementParam" name="ImpactElementParam" class="col-xs-12 col-sm-12" data-ng-model="FunctionImpactRelInfo.ImpactElementParam" ng-change="ModifyImpactElementParamInOtherSection($parent.$index,FunctionImpactRelInfo.ImpactElementType,FunctionImpactRelInfo.ImpactElementName, FunctionImpactRelInfo.ImpactElementParam)" />
+                                                <input type="text" ng-disabled="ComponentRelInfo.Disabled" id="ImpactElementParam" name="ImpactElementParam" class="col-xs-12 col-sm-12" data-ng-model="ComponentRelInfo.ImpactParamName" ng-change="ModifyImpactElementParamInOtherSection($parent.$index,ComponentRelInfo.ImpactElementType,ComponentRelInfo.ImpactElementName, ComponentRelInfo.ImpactElementParam)" />
                                             </td>
                                             <td>
-                                                <select id="ImpactElementType" ng-options="v.name as v.name for v in ParamTypes" ng-change="ImpactElementTypeChange($parent.$index,FunctionImpactRelInfo.ImpactElementType, FunctionImpactRelInfo.ImpactElementName, FunctionImpactRelInfo.ImpactElementName, FunctionImpactRelInfo.ImpactElementParam)" data-ng-model="FunctionImpactRelInfo.ImpactElementType"></select>
+                                                <select id="ImpactElementType" ng-disabled="ComponentRelInfo.Disabled" ng-options="v.name as v.name for v in ParamTypes" ng-change="ImpactElementTypeChange($parent.$index,ComponentRelInfo.ImpactElementType, ComponentRelInfo.ImpactElementName, ComponentRelInfo.ImpactElementName, ComponentRelInfo.ImpactElementParam)" data-ng-model="ComponentRelInfo.ParamType"></select>
                                             </td>
                                             <td>
                                                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                    <a href="" ng-click="AddBrother($parent.$index,$index,FunctionImpactRelInfo.ProblemElementName, FunctionImpactRelInfo.ProblemElementName, FunctionImpactRelInfo.ProblemElementParam)" class="blue" data-toggle="modal" style="cursor: pointer">
+                                                    <a href="" ng-show="!ComponentRelInfo.Disabled" ng-click="AddNewComponentRel($parent.$index,$index,ComponentRelInfo.ComponentName,ComponentRelInfo.ComponentName, ComponentRelInfo.ComponentParamName)" class="blue" style="cursor: pointer">
                                                         <i class="icon-plus bigger-130"></i>
                                                     </a>
 
-                                                    <a href="" ng-click="DeleteFunctionImpactRelInfo($parent.$index,$index)" class="blue" data-toggle="modal" style="cursor: pointer">
+                                                    <a href="" ng-show="!ComponentRelInfo.Disabled" ng-click="DeleteComponentRel($parent.$index,$index)" class="blue" data-toggle="modal" style="cursor: pointer">
+                                                        <i class="icon-trash bigger-130"></i>
+                                                    </a>
+
+                                                    <a href="" ng-show="!ComponentRelInfo.Disabled" ng-click="test()" class="blue" data-toggle="modal" style="cursor: pointer">
                                                         <i class="icon-trash bigger-130"></i>
                                                     </a>
                                                 </div>

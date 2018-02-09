@@ -53,6 +53,7 @@
             this.txtOpeCtrl = new System.Windows.Forms.RichTextBox();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.txtSQL = new System.Windows.Forms.RichTextBox();
+            this.btnSimpleObjectCtrlCodes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -79,6 +80,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnSimpleObjectCtrlCodes);
             this.splitContainer1.Panel1.Controls.Add(this.button3);
             this.splitContainer1.Panel1.Controls.Add(this.button2);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
@@ -86,8 +88,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1080, 738);
-            this.splitContainer1.SplitterDistance = 41;
+            this.splitContainer1.Size = new System.Drawing.Size(1674, 775);
+            this.splitContainer1.SplitterDistance = 43;
             this.splitContainer1.TabIndex = 1;
             // 
             // button3
@@ -137,7 +139,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1080, 693);
+            this.tabControl1.Size = new System.Drawing.Size(1674, 728);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage9
@@ -146,7 +148,7 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 45);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(1072, 644);
+            this.tabPage9.Size = new System.Drawing.Size(1666, 679);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "Source";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -157,7 +159,7 @@
             this.txtSource.Location = new System.Drawing.Point(3, 3);
             this.txtSource.Multiline = true;
             this.txtSource.Name = "txtSource";
-            this.txtSource.Size = new System.Drawing.Size(1066, 638);
+            this.txtSource.Size = new System.Drawing.Size(1660, 673);
             this.txtSource.TabIndex = 1;
             // 
             // tabPage1
@@ -166,7 +168,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 45);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1072, 644);
+            this.tabPage1.Size = new System.Drawing.Size(1666, 679);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Model";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -176,7 +178,7 @@
             this.txtModel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtModel.Location = new System.Drawing.Point(3, 3);
             this.txtModel.Name = "txtModel";
-            this.txtModel.Size = new System.Drawing.Size(1066, 638);
+            this.txtModel.Size = new System.Drawing.Size(1660, 673);
             this.txtModel.TabIndex = 3;
             this.txtModel.Text = "";
             // 
@@ -340,11 +342,21 @@
             this.txtSQL.TabIndex = 11;
             this.txtSQL.Text = "";
             // 
+            // btnSimpleObjectCtrlCodes
+            // 
+            this.btnSimpleObjectCtrlCodes.Location = new System.Drawing.Point(341, 5);
+            this.btnSimpleObjectCtrlCodes.Name = "btnSimpleObjectCtrlCodes";
+            this.btnSimpleObjectCtrlCodes.Size = new System.Drawing.Size(178, 29);
+            this.btnSimpleObjectCtrlCodes.TabIndex = 4;
+            this.btnSimpleObjectCtrlCodes.Text = "SimpleObjectCtrlCodes";
+            this.btnSimpleObjectCtrlCodes.UseVisualStyleBackColor = true;
+            this.btnSimpleObjectCtrlCodes.Click += new System.EventHandler(this.btnSimpleObjectCtrlCodes_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1080, 738);
+            this.ClientSize = new System.Drawing.Size(1674, 775);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form2";
             this.Text = "Form2";
@@ -396,5 +408,6 @@
         private System.Windows.Forms.RichTextBox txtOpeCtrl;
         private System.Windows.Forms.RichTextBox txtSQL;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnSimpleObjectCtrlCodes;
     }
 }

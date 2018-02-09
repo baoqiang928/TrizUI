@@ -809,6 +809,9 @@
   <ItemGroup>
     <Content Include="pages\assets\images\step3.psd" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Doc\Objects.xlsx" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
