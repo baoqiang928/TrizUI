@@ -25,6 +25,11 @@
                             <h4 class="smaller">
                                 初级功能参数列表
                             </h4>
+                            <span class="widget-toolbar">
+                                <a href="" ng-click="SaveComponentParamInfoOperate()">
+                                    <i class="icon-save"></i>
+                                </a>
+                            </span>
                         </div>
 
                         <div class="widget-body">
@@ -40,11 +45,16 @@
                                     </thead>
 
                                     <tbody>
-
                                         <tr ng-repeat="ComponentParamInfo in ComponentParamInfoList">
-                                            <td><input type="text" ng-disabled="ComponentParamInfo.Disabled" class="col-xs-12 col-sm-12" data-ng-model="ComponentParamInfo.ComponentName" /></td>
-                                            <td><input type="text" ng-disabled="ComponentParamInfo.Disabled" class="col-xs-12 col-sm-12" data-ng-model="ComponentParamInfo.ParamName" /></td>
-                                            <td><input type="text" ng-disabled="ComponentParamInfo.Disabled" class="col-xs-12 col-sm-12" data-ng-model="ComponentParamInfo.ParamType" /></td>
+                                            <td>
+                                                <select ng-model="ComponentParamInfo.ComponentName" ng-change="aaa()">
+                                                    <option ng-repeat="y in SrcComponentInfoList">{{y.Name}}</option>
+                                                </select>
+                                            </td>
+                                            <td><input type="text" ng-disabled="ComponentParamInfo.Disabled" class="col-xs-12 col-sm-12" ng-model="ComponentParamInfo.ParamName" /></td>
+                                            <td>
+                                                <select id="ImpactElementType" ng-disabled="ComponentParamInfo.Disabled" ng-options="v.name as v.name for v in ParamTypes" ng-model="ComponentParamInfo.ParamType"></select>
+                                            </td>
                                             <td>
                                                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                                     <a class="blue" style="cursor: pointer" ng-click="AddComponentParamInfo()">
@@ -55,12 +65,8 @@
                                                         <i class="icon-trash bigger-130"></i>
                                                     </a>
                                                 </div>
-
-
                                             </td>
                                         </tr>
-
-
                                         <tr>
                                             <td>缆绳</td>
                                             <td>直径</td>
@@ -229,6 +235,11 @@
                             <h4 class="smaller">
                                 功能参数列表
                             </h4>
+                            <span class="widget-toolbar">
+                                <a href="" ng-click="SaveRelOperate()">
+                                    <i class="icon-save"></i>
+                                </a>
+                            </span>
                         </div>
 
                         <div class="widget-body">
@@ -236,8 +247,7 @@
                                 <table id="Table1" class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th>问题相关元件</th>
-                                            <th>元件特征参数</th>
+                                            <th>问题相关元件 特征参数</th>
                                             <th>影响该参数元件</th>
                                             <th>元件特征参数</th>
                                             <th>参数类型</th>
@@ -248,30 +258,26 @@
                                     <tbody>
                                         <tr ng-repeat="ComponentRelInfo in ComponentRelInfoList">
                                             <td>
-                                                <select ng-disabled="ComponentRelInfo.Disabled" data-ng-model="ComponentRelInfo.ComponentName" ng-change="bbb()">
-                                                    <option ng-repeat="user in getUsers($parent.$index) ">{{ user.name }}</option>
+                                                <!--<select ng-model="ComponentRelInfo.ComponentName">
+                                                    <option ng-repeat="ComponentParamInfo1 in ComponentParamInfoList">{{ ComponentParamInfo1.ComponentName }}</option>
+                                                </select>-->
+                                                <!--<select ng-model="ComponentRelInfo.ComponentName" ng-options="x.Name for x in SrcComponentInfoList" ng-change="aaa()"></select>-->
+                                                <select n
+                                                <select ng-model="ComponentRelInfo.ComponentName" ng-change="aaa()">
+                                                    <option ng-repeat="x in ComponentParamInfoList|filter:{ParamType:'非独立变量'}">{{x.ComponentName}} {{x.ParamName}}</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <select ng-disabled="ComponentRelInfo.Disabled" data-ng-model="ComponentRelInfo.ComponentParamName">
-                                                    <option ng-repeat="user in yyy ">{{ user.name }}</option>
-                                                </select>
+                                                <input type="text" ng-disabled="ComponentRelInfo.Disabled" class="col-xs-12 col-sm-12" ng-model="ComponentRelInfo.ImpactComponentName" />
                                             </td>
                                             <td>
-                                                <select ng-disabled="ComponentRelInfo.Disabled" data-ng-model="ComponentRelInfo.ImpactParamComponentName">
-                                                    <option>aaa</option>
-                                                    <option>bbb</option>
-                                                    <option>ccc</option>
-                                                </select>
+                                                <input type="text" ng-disabled="ComponentRelInfo.Disabled" class="col-xs-12 col-sm-12" ng-model="ComponentRelInfo.ImpactParamName" />
                                             </td>
                                             <td>
-                                                <input type="text" ng-disabled="ComponentRelInfo.Disabled" id="ImpactElementParam" name="ImpactElementParam" class="col-xs-12 col-sm-12" data-ng-model="ComponentRelInfo.ImpactParamName" ng-change="ModifyImpactElementParamInOtherSection($parent.$index,ComponentRelInfo.ImpactElementType,ComponentRelInfo.ImpactElementName, ComponentRelInfo.ImpactElementParam)" />
+                                                <select id="ImpactElementType" ng-disabled="ComponentRelInfo.Disabled" ng-options="v.name as v.name for v in ParamTypes" ng-model="ComponentRelInfo.ParamType"></select>
                                             </td>
                                             <td>
-                                                <select id="ImpactElementType" ng-disabled="ComponentRelInfo.Disabled" ng-options="v.name as v.name for v in ParamTypes" ng-change="ImpactElementTypeChange($parent.$index,ComponentRelInfo.ImpactElementType, ComponentRelInfo.ImpactElementName, ComponentRelInfo.ImpactElementName, ComponentRelInfo.ImpactElementParam)" data-ng-model="ComponentRelInfo.ParamType"></select>
-                                            </td>
-                                            <td>
-                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                <!--<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                                     <a href="" ng-show="!ComponentRelInfo.Disabled" ng-click="AddNewComponentRel($parent.$index,$index,ComponentRelInfo.ComponentName,ComponentRelInfo.ComponentName, ComponentRelInfo.ComponentParamName)" class="blue" style="cursor: pointer">
                                                         <i class="icon-plus bigger-130"></i>
                                                     </a>
@@ -283,7 +289,7 @@
                                                     <a href="" ng-show="!ComponentRelInfo.Disabled" ng-click="test()" class="blue" data-toggle="modal" style="cursor: pointer">
                                                         <i class="icon-trash bigger-130"></i>
                                                     </a>
-                                                </div>
+                                                </div>-->
 
 
                                             </td>

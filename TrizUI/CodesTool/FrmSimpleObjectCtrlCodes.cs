@@ -28,7 +28,7 @@ namespace CodesTool
                 BusinessObjectInfoList.Add(BusinessObjectInfo);
             }
             txtCtrl.Text = new SimpleCtrlCodes().Generate(BusinessObjectInfoList);
-            //txtHTML.Text = new SimpleHtmlCodes().Generate(BusinessObjectInfoList);
+            txtHTML.Text = new SimpleHtmlCodes().Generate(BusinessObjectInfoList);
 
         }
     }
