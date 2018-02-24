@@ -47,7 +47,7 @@
                                     <tbody>
                                         <tr ng-repeat="ComponentParamInfo in ComponentParamInfoList">
                                             <td>
-                                                <select ng-model="ComponentParamInfo.ComponentName" ng-change="aaa()">
+                                                <select ng-model="ComponentParamInfo.ComponentName">
                                                     <option ng-repeat="y in SrcComponentInfoList">{{y.Name}}</option>
                                                 </select>
                                             </td>
@@ -221,7 +221,6 @@
 
                                             </td>
                                         </tr>
-
                                     </tbody>
                                 </table>
                             </div>
@@ -235,6 +234,11 @@
                             <h4 class="smaller">
                                 功能参数列表
                             </h4>
+                            <span class="widget-toolbar">
+                                <a href="" ng-click="ADDRelOperate()">
+                                    <i class="icon-plus"></i>
+                                </a>
+                            </span>
                             <span class="widget-toolbar">
                                 <a href="" ng-click="SaveRelOperate()">
                                     <i class="icon-save"></i>
@@ -257,14 +261,9 @@
 
                                     <tbody>
                                         <tr ng-repeat="ComponentRelInfo in ComponentRelInfoList">
-                                            <td>
-                                                <!--<select ng-model="ComponentRelInfo.ComponentName">
-                                                    <option ng-repeat="ComponentParamInfo1 in ComponentParamInfoList">{{ ComponentParamInfo1.ComponentName }}</option>
-                                                </select>-->
-                                                <!--<select ng-model="ComponentRelInfo.ComponentName" ng-options="x.Name for x in SrcComponentInfoList" ng-change="aaa()"></select>-->
-                                                <select n
-                                                <select ng-model="ComponentRelInfo.ComponentName" ng-change="aaa()">
-                                                    <option ng-repeat="x in ComponentParamInfoList|filter:{ParamType:'非独立变量'}">{{x.ComponentName}} {{x.ParamName}}</option>
+                                            <td>                                                
+                                                <select ng-model="ComponentRelInfo.ComponentName">
+                                                    <option ng-repeat="x in aaa($parent.$index)|filter:{ParamType:'非独立变量'}">{{x.ImpactComponentName}} {{x.ImpactParamName}} </option>
                                                 </select>
                                             </td>
                                             <td>
@@ -290,8 +289,6 @@
                                                         <i class="icon-trash bigger-130"></i>
                                                     </a>
                                                 </div>-->
-
-
                                             </td>
                                         </tr>
 

@@ -3,7 +3,8 @@
 
         $scope.aaa = "";
         $scope.ParamTypes = [{ id: 1, name: '独立变量' }, { id: 2, name: '非独立变量' }];
-
+        $scope.ComponentRelInfoList = [];
+        $scope.ComponentRelInfoListSection = [];
         $scope.SrcComponentInfo = function () {
             this.ID = "";
             this.Name = "";
@@ -34,7 +35,7 @@
         $scope.ComponentParamInfo = function () {
             this.ComponentName = "";
             this.ParamName = "";
-            this.ParamType = "";
+            this.ParamType = "独立变量";
             this.Disabled = "";
         }
 
@@ -49,35 +50,22 @@
             $scope.ComponentParamInfoList.push(newobj1);
         }
 
-        $scope.DeleteComponentParamInfo = function (index) {
-            bootbox.confirm("要删除当前的记录？", function (result) {
-                if (result) {
-                    $scope.ComponentParamInfoList.splice(index, 1);
-                    $scope.$apply();
-                }
-            });
-        }
-        //End
-
-        //功能参数列表
-        $scope.ComponentRelInfo = function () {
-            this.ComponentID = "";//问题相关元件
-            this.ComponentName = "";//元件特征参数
-            this.ComponentParammName = "";//影响该参数元件
-            this.ImpactComponentName = "";//元件特征参数
-            this.ImpactParammName = "";//参数类型
-            this.ParamType = "";
-            this.Disabled = "";
-            this.abcd = "";
-        }
-
-        $scope.ComponentRelInfoList = [];
-        $scope.ComponentRelInfoListSection = [];
-
+        var tmp = [];
         $scope.SaveComponentParamInfoOperate = function () {
             $scope.ClearComponentRelInfoListAndSection();
             $scope.InsertComponentToRelInfoList();
             $scope.InsertComponentRelInfoListToSection();
+
+            for (var j = 0; j < $scope.ComponentParamInfoList.length; j++) {
+                if ($scope.ComponentParamInfoList[j].ParamType == "非独立变量")
+                {
+                    var componentRelInfo = new $scope.ComponentRelInfo();
+                    componentRelInfo.ImpactComponentName = $scope.ComponentParamInfoList[j].ComponentName;
+                    componentRelInfo.ImpactParamName = $scope.ComponentParamInfoList[j].ParamName;
+                    componentRelInfo.ParamType = $scope.ComponentParamInfoList[j].ParamType;
+                    tmp.push(componentRelInfo);
+                }
+            }
         }
 
         $scope.ClearComponentRelInfoListAndSection = function () {
@@ -94,11 +82,64 @@
             $scope.ComponentRelInfoListSection.push($scope.ComponentRelInfoList);
         };
 
+        $scope.DeleteComponentParamInfo = function (index) {
+            bootbox.confirm("要删除当前的记录？", function (result) {
+                if (result) {
+                    $scope.ComponentParamInfoList.splice(index, 1);
+                    $scope.$apply();
+                }
+            });
+        }
+        //End
+
+        //功能参数列表
+        $scope.ComponentRelInfo = function () {
+            this.ComponentID = "";//问题相关元件
+            this.ComponentName = "";//元件特征参数
+            this.ImpactComponentName = "";//影响该参数元件
+            this.ImpactParamName = "";//参数类型
+            this.ParamType = "独立变量";
+            this.Disabled = "";
+            this.abcd = "";
+        }
+
+       
+        $scope.ADDRelOperate = function () {
+            $scope.InsertComponentToRelInfoList();
+        };
+
+        $scope.SaveRelOperate = function () {
+            var ComponentRelInfoList1 = [];
+            ComponentRelInfoList1.push(new $scope.ComponentParamInfo());
+            $scope.ComponentRelInfoListSection.push(ComponentRelInfoList1);
+        };
+
+
         //End
 
 
-        $scope.aaa = function () {
-            console.log("aaa", $scope.ComponentParamInfoList);
+        $scope.aaa = function (i) {
+            console.log("i", i);
+            if (i == 0)
+            {
+                //return $scope.ComponentParamInfoList;
+                //tmp = [];
+                //console.log("$scope.ComponentParamInfoList.length", $scope.ComponentParamInfoList.length);
+                //for (var j = 0; j < $scope.ComponentParamInfoList.length; j++) {
+                //    if ($scope.ComponentParamInfoList[j].ParamType == "非独立变量")
+                //    {
+                //        var componentRelInfo = new $scope.ComponentRelInfo();
+                //        componentRelInfo.ImpactComponentName = $scope.ComponentParamInfoList[j].ComponentName;
+                //        componentRelInfo.ComponentParamName = $scope.ComponentParamInfoList[j].ParamName;
+                //        componentRelInfo.ParamType = $scope.ComponentParamInfoList[j].ParamType;
+                //        tmp.push(componentRelInfo);
+                //    }
+                //}
+                //console.log("tmp", tmp);
+                return tmp;
+            }
+            console.log("$scope.ComponentRelInfoListSection[i - 1]", $scope.ComponentRelInfoListSection[i - 1]);
+            return $scope.ComponentRelInfoListSection[i - 1];
         };
 
 
@@ -155,9 +196,9 @@ var person = {
 
 //ComponentRelInfo.prototype.ComponentID = "";//问题相关元件
 //ComponentRelInfo.prototype.ComponentName = "";//元件特征参数
-//ComponentRelInfo.prototype.ComponentParammName = "";//影响该参数元件
+//ComponentRelInfo.prototype.ComponentParamName = "";//影响该参数元件
 //ComponentRelInfo.prototype.ImpactComponentName = "";//元件特征参数
-//ComponentRelInfo.prototype.ImpactParammName = "";//参数类型
+//ComponentRelInfo.prototype.ImpactParamName = "";//参数类型
 //ComponentRelInfo.prototype.ParamType = "";
 //ComponentRelInfo.prototype.Disabled = "";
 //ComponentRelInfo.prototype.abcd = "";
