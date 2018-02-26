@@ -267,7 +267,9 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text" ng-disabled="ComponentRelInfo.Disabled" class="col-xs-12 col-sm-12" ng-model="ComponentRelInfo.ImpactComponentName" />
+                                                <select ng-disabled="ComponentRelInfo.Disabled" ng-model="ComponentRelInfo.ImpactComponentName">
+                                                    <option ng-repeat="x in SrcComponentInfoList">{{x.Name}}</option>
+                                                </select>
                                             </td>
                                             <td>
                                                 <input type="text" ng-disabled="ComponentRelInfo.Disabled" class="col-xs-12 col-sm-12" ng-model="ComponentRelInfo.ImpactParamName" />
