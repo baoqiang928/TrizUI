@@ -234,14 +234,19 @@
                             <h4 class="smaller">
                                 功能参数列表
                             </h4>
-                            <span class="widget-toolbar">
+                            <span class="widget-toolbar" ng-show="ComponentRelInfoList[0].Disabled!=true">
                                 <a href="" ng-click="ADDRelOperate($index)">
                                     <i class="icon-plus"></i>
                                 </a>
                             </span>
-                            <span class="widget-toolbar">
+                            <span class="widget-toolbar" ng-show="ComponentRelInfoList[0].Disabled!=true">
                                 <a href="" ng-click="SaveRelOperate($index)">
                                     <i class="icon-save"></i>
+                                </a>
+                            </span>
+                            <span class="widget-toolbar" ng-show="ComponentRelInfoList[0].Disabled==true">
+                                <a href="" ng-click="UpdateSectionOperate($index)">
+                                    <i class="icon-pencil"></i>
                                 </a>
                             </span>
                         </div>
@@ -278,19 +283,11 @@
                                                 <select id="ImpactElementType" ng-disabled="ComponentRelInfo.Disabled" ng-options="v.name as v.name for v in ParamTypes" ng-model="ComponentRelInfo.ParamType"></select>
                                             </td>
                                             <td>
-                                                <!--<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                    <a href="" ng-show="!ComponentRelInfo.Disabled" ng-click="AddNewComponentRel($parent.$index,$index,ComponentRelInfo.ComponentName,ComponentRelInfo.ComponentName, ComponentRelInfo.ComponentParamName)" class="blue" style="cursor: pointer">
-                                                        <i class="icon-plus bigger-130"></i>
-                                                    </a>
-
-                                                    <a href="" ng-show="!ComponentRelInfo.Disabled" ng-click="DeleteComponentRel($parent.$index,$index)" class="blue" data-toggle="modal" style="cursor: pointer">
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a href="" ng-click="DelRelOperate($parent.$index,$index)" class="blue" data-toggle="modal" style="cursor: pointer">
                                                         <i class="icon-trash bigger-130"></i>
                                                     </a>
-
-                                                    <a href="" ng-show="!ComponentRelInfo.Disabled" ng-click="test()" class="blue" data-toggle="modal" style="cursor: pointer">
-                                                        <i class="icon-trash bigger-130"></i>
-                                                    </a>
-                                                </div>-->
+                                                </div>
                                             </td>
                                         </tr>
 

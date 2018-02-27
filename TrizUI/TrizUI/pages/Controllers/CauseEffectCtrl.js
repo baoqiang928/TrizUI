@@ -57,8 +57,7 @@
             $scope.InsertComponentRelInfoListToSection();
 
             for (var j = 0; j < $scope.ComponentParamInfoList.length; j++) {
-                if ($scope.ComponentParamInfoList[j].ParamType == "非独立变量")
-                {
+                if ($scope.ComponentParamInfoList[j].ParamType == "非独立变量") {
                     var componentRelInfo = new $scope.ComponentRelInfo();
                     componentRelInfo.ImpactComponentName = $scope.ComponentParamInfoList[j].ComponentName;
                     componentRelInfo.ImpactParamName = $scope.ComponentParamInfoList[j].ParamName;
@@ -102,10 +101,23 @@
             this.Disabled = "";
         }
 
-       
+
         $scope.ADDRelOperate = function (i) {
             var componentRelInfo1 = new $scope.ComponentRelInfo();
             $scope.ComponentRelInfoListSection[i].push(componentRelInfo1);
+        };
+        $scope.DelRelOperate = function (SectionIndex, Index) {
+            $scope.ComponentRelInfoListSection[SectionIndex].splice(Index, 1);
+        };
+
+        $scope.UpdateSectionOperate = function (i) {
+            //cleare section after i.
+            $scope.ComponentRelInfoListSection.splice(i + 1, $scope.ComponentRelInfoListSection.length - i - 1);
+
+            //set disabled
+            for (var j = 0; j < $scope.ComponentRelInfoListSection[i].length; j++) {
+                $scope.ComponentRelInfoListSection[i][j].Disabled = "";
+            }
         };
 
         $scope.SaveRelOperate = function (i) {
@@ -120,8 +132,7 @@
         };
 
         $scope.PreSectionComponentList = function (i) {
-            if (i == 0)
-            {               
+            if (i == 0) {
                 return RelListFromPreSection;
             }
             return $scope.ComponentRelInfoListSection[i - 1];
