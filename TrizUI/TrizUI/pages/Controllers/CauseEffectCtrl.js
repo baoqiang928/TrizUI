@@ -1,7 +1,7 @@
 ﻿angular.module('myApp')
     .controller('CauseEffectCtrl', function ($scope, $location, requestService, $state, locals) {
 
-        $scope.aaa = "";
+        $scope.PreSectionComponentList = "";
         $scope.ParamTypes = [{ id: 1, name: '独立变量' }, { id: 2, name: '非独立变量' }];
         $scope.ComponentRelInfoList = [];
         $scope.ComponentRelInfoListSection = [];
@@ -50,7 +50,7 @@
             $scope.ComponentParamInfoList.push(newobj1);
         }
 
-        var tmp = [];
+        var RelListFromPreSection = [];
         $scope.SaveComponentParamInfoOperate = function () {
             $scope.ClearComponentRelInfoListAndSection();
             $scope.InsertComponentToRelInfoList();
@@ -63,7 +63,7 @@
                     componentRelInfo.ImpactComponentName = $scope.ComponentParamInfoList[j].ComponentName;
                     componentRelInfo.ImpactParamName = $scope.ComponentParamInfoList[j].ParamName;
                     componentRelInfo.ParamType = $scope.ComponentParamInfoList[j].ParamType;
-                    tmp.push(componentRelInfo);
+                    RelListFromPreSection.push(componentRelInfo);
                 }
             }
         }
@@ -118,26 +118,11 @@
         //End
 
 
-        $scope.aaa = function (i) {
+        $scope.PreSectionComponentList = function (i) {
             if (i == 0)
-            {
-                //return $scope.ComponentParamInfoList;
-                //tmp = [];
-                //console.log("$scope.ComponentParamInfoList.length", $scope.ComponentParamInfoList.length);
-                //for (var j = 0; j < $scope.ComponentParamInfoList.length; j++) {
-                //    if ($scope.ComponentParamInfoList[j].ParamType == "非独立变量")
-                //    {
-                //        var componentRelInfo = new $scope.ComponentRelInfo();
-                //        componentRelInfo.ImpactComponentName = $scope.ComponentParamInfoList[j].ComponentName;
-                //        componentRelInfo.ComponentParamName = $scope.ComponentParamInfoList[j].ParamName;
-                //        componentRelInfo.ParamType = $scope.ComponentParamInfoList[j].ParamType;
-                //        tmp.push(componentRelInfo);
-                //    }
-                //}
-                //console.log("tmp", tmp);
-                return tmp;
+            {               
+                return RelListFromPreSection;
             }
-            console.log("$scope.ComponentRelInfoListSection[i - 1]", $scope.ComponentRelInfoListSection[i - 1]);
             return $scope.ComponentRelInfoListSection[i - 1];
         };
 
