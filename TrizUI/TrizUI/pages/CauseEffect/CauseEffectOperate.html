@@ -260,13 +260,13 @@
                                             <th>影响该参数元件</th>
                                             <th>元件特征参数</th>
                                             <th>参数类型</th>
-                                            <th></th>
+                                            <th ng-show="ComponentRelInfoList[0].Disabled!=true"></th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                         <tr ng-repeat="ComponentRelInfo in ComponentRelInfoList">
-                                            <td>                                                
+                                            <td>
                                                 <select ng-model="ComponentRelInfo.ComponentName" ng-disabled="ComponentRelInfo.Disabled">
                                                     <option ng-repeat="x in PreSectionComponentList($parent.$index)|filter:{ParamType:'非独立变量'}">{{x.ImpactComponentName}} {{x.ImpactParamName}} </option>
                                                 </select>
@@ -282,7 +282,7 @@
                                             <td>
                                                 <select id="ImpactElementType" ng-disabled="ComponentRelInfo.Disabled" ng-options="v.name as v.name for v in ParamTypes" ng-model="ComponentRelInfo.ParamType"></select>
                                             </td>
-                                            <td>
+                                            <td ng-show="ComponentRelInfo.Disabled!=true">
                                                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                                     <a href="" ng-click="DelRelOperate($parent.$index,$index)" class="blue" data-toggle="modal" style="cursor: pointer">
                                                         <i class="icon-trash bigger-130"></i>
