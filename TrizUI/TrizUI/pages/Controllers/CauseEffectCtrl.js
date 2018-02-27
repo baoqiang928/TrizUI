@@ -100,12 +100,12 @@
             this.ImpactParamName = "";//参数类型
             this.ParamType = "独立变量";
             this.Disabled = "";
-            this.abcd = "";
         }
 
        
-        $scope.ADDRelOperate = function () {
-            $scope.InsertComponentToRelInfoList();
+        $scope.ADDRelOperate = function (i) {
+            var componentRelInfo1 = new $scope.ComponentRelInfo();
+            $scope.ComponentRelInfoListSection[i].push(componentRelInfo1);
         };
 
         $scope.SaveRelOperate = function () {
@@ -119,7 +119,6 @@
 
 
         $scope.aaa = function (i) {
-            console.log("i", i);
             if (i == 0)
             {
                 //return $scope.ComponentParamInfoList;
@@ -201,7 +200,6 @@ var person = {
 //ComponentRelInfo.prototype.ImpactParamName = "";//参数类型
 //ComponentRelInfo.prototype.ParamType = "";
 //ComponentRelInfo.prototype.Disabled = "";
-//ComponentRelInfo.prototype.abcd = "";
 
 
 
