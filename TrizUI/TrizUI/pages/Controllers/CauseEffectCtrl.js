@@ -108,15 +108,16 @@
             $scope.ComponentRelInfoListSection[i].push(componentRelInfo1);
         };
 
-        $scope.SaveRelOperate = function () {
+        $scope.SaveRelOperate = function (i) {
+            //disabled
+            console.log("i", i);
+            console.log("$scope.ComponentRelInfoListSection", $scope.ComponentRelInfoListSection);
+            $scope.SetDisabledBySectionIndex(i);
+
             var ComponentRelInfoList1 = [];
             ComponentRelInfoList1.push(new $scope.ComponentParamInfo());
             $scope.ComponentRelInfoListSection.push(ComponentRelInfoList1);
         };
-
-
-        //End
-
 
         $scope.PreSectionComponentList = function (i) {
             if (i == 0)
@@ -126,6 +127,15 @@
             return $scope.ComponentRelInfoListSection[i - 1];
         };
 
+        $scope.SetDisabledBySectionIndex = function (i) {
+
+            for (var j = 0; j < $scope.ComponentRelInfoListSection[i].length; j++) {
+                $scope.ComponentRelInfoListSection[i][j].Disabled = true;
+            }
+
+        };
+
+        //End
 
 
 
