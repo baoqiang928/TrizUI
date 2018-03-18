@@ -25,9 +25,19 @@
                             <h4 class="smaller">
                                 初级功能参数列表
                             </h4>
-                            <span class="widget-toolbar">
-                                <a href="" ng-click="SaveComponentParamInfoOperate()">
+                            <span class="widget-toolbar" ng-show="ComponentParamInfoList[0].Disabled!=true">
+                                <a href="" ng-click="ADDParamInfoOperate()">
+                                    <i class="icon-plus"></i>
+                                </a>
+                            </span>
+                            <span class="widget-toolbar" ng-show="ComponentParamInfoList[0].Disabled!=true">
+                                <a href="" ng-click="SaveParamInfoOperate()">
                                     <i class="icon-save"></i>
+                                </a>
+                            </span>
+                            <span class="widget-toolbar" ng-show="ComponentParamInfoList[0].Disabled==true">
+                                <a href="" ng-click="UpdateParamInfoOperate()">
+                                    <i class="icon-pencil"></i>
                                 </a>
                             </span>
                         </div>
@@ -47,7 +57,7 @@
                                     <tbody>
                                         <tr ng-repeat="ComponentParamInfo in ComponentParamInfoList">
                                             <td>
-                                                <select ng-model="ComponentParamInfo.ComponentName">
+                                                <select ng-model="ComponentParamInfo.ComponentName" ng-disabled="ComponentParamInfo.Disabled">
                                                     <option ng-repeat="y in SrcComponentInfoList">{{y.Name}}</option>
                                                 </select>
                                             </td>

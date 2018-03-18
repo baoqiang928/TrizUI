@@ -51,7 +51,7 @@
         }
 
         var RelListFromPreSection = [];
-        $scope.SaveComponentParamInfoOperate = function () {
+        $scope.SaveParamInfoOperate = function () {
             $scope.ClearComponentRelInfoListAndSection();
             $scope.InsertComponentToRelInfoList();
             $scope.InsertComponentRelInfoListToSection();
@@ -64,6 +64,11 @@
                     componentRelInfo.ParamType = $scope.ComponentParamInfoList[j].ParamType;
                     RelListFromPreSection.push(componentRelInfo);
                 }
+            }
+
+            //set disabled
+            for (var j = 0; j < $scope.ComponentParamInfoList.length; j++) {
+                $scope.ComponentParamInfoList[j].Disabled = true;
             }
         }
 
