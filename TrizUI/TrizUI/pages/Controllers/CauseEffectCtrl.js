@@ -67,10 +67,14 @@
             }
 
             //set disabled
-            for (var j = 0; j < $scope.ComponentParamInfoList.length; j++) {
-                $scope.ComponentParamInfoList[j].Disabled = true;
-            }
+            $scope.SetComponentParamInfoListDisabled(true);
         }
+
+        $scope.SetComponentParamInfoListDisabled = function (flag) {
+            for (var j = 0; j < $scope.ComponentParamInfoList.length; j++) {
+                $scope.ComponentParamInfoList[j].Disabled = flag;
+            }
+        };
 
         $scope.ClearComponentRelInfoListAndSection = function () {
             $scope.ComponentRelInfoList = [];
@@ -94,6 +98,18 @@
                 }
             });
         }
+
+        $scope.UpdateParamInfoOperate = function () {
+            bootbox.confirm("修改操作会清除当前分析结果之后的内容，确认该操作吗？", function (result) {
+                if (result) {
+                    $scope.$apply(function () {
+                        $scope.ComponentRelInfoList = [];
+                        $scope.ComponentRelInfoListSection = [];
+                        $scope.SetComponentParamInfoListDisabled(false);
+                    });
+                }
+            });
+        }
         //End
 
         //功能参数列表
@@ -112,7 +128,13 @@
             $scope.ComponentRelInfoListSection[i].push(componentRelInfo1);
         };
         $scope.DelRelOperate = function (SectionIndex, Index) {
-            $scope.ComponentRelInfoListSection[SectionIndex].splice(Index, 1);
+            bootbox.confirm("确认删除该条记录吗？", function (result) {
+                if (result) {
+                    $scope.$apply(function () {
+                        $scope.ComponentRelInfoListSection[SectionIndex].splice(Index, 1);
+                    });
+                }
+            });
         };
 
         $scope.UpdateSectionOperate = function (i) {
@@ -127,8 +149,6 @@
 
         $scope.SaveRelOperate = function (i) {
             //disabled
-            console.log("i", i);
-            console.log("$scope.ComponentRelInfoListSection", $scope.ComponentRelInfoListSection);
             $scope.SetDisabledBySectionIndex(i);
 
             var ComponentRelInfoList1 = [];
@@ -144,11 +164,9 @@
         };
 
         $scope.SetDisabledBySectionIndex = function (i) {
-
             for (var j = 0; j < $scope.ComponentRelInfoListSection[i].length; j++) {
                 $scope.ComponentRelInfoListSection[i][j].Disabled = true;
             }
-
         };
 
         //End
