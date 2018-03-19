@@ -1,7 +1,6 @@
 ﻿<div class="page-content" ng-controller="CauseEffectCtrl">
     <div class="page-header">
-        <h1>
-            因果分析
+        <h1>因果分析
             <small>
                 <i class="icon-double-angle-right"></i>
                 <a data-toggle="modal" style="cursor: pointer" data-target="#modal-table">[查看因果分析流程]</a>
@@ -10,8 +9,8 @@
     </div>
     <div class="page-header">
         <div class="col-sm-9">
-            <input type="text" id="Text3" class="col-xs-10 col-sm-5" placeholder="请输入目前问题" />
-            <button class="blue" data-toggle="modal" data-target="#modal-table">保存</button>
+            <input type="text" id="Text3" class="col-xs-10 col-sm-5" ng-model="CurrentProblemDes" placeholder="请输入目前问题" />
+            <button class="blue" data-toggle="modal" ng-click="Save()">保存</button>
         </div>
     </div>
     <!-- /.page-header -->
@@ -22,8 +21,7 @@
                 <div class="row">
                     <div class="widget-box">
                         <div class="widget-header widget-header-flat">
-                            <h4 class="smaller">
-                                初级功能参数列表
+                            <h4 class="smaller">初级功能参数列表
                             </h4>
                             <span class="widget-toolbar" ng-show="ComponentParamInfoList[0].Disabled!=true">
                                 <a href="" ng-click="ADDParamInfoOperate()">
@@ -61,13 +59,14 @@
                                                     <option ng-repeat="y in SrcComponentInfoList">{{y.Name}}</option>
                                                 </select>
                                             </td>
-                                            <td><input type="text" ng-disabled="ComponentParamInfo.Disabled" class="col-xs-12 col-sm-12" ng-model="ComponentParamInfo.ParamName" /></td>
+                                            <td>
+                                                <input type="text" ng-disabled="ComponentParamInfo.Disabled" class="col-xs-12 col-sm-12" ng-model="ComponentParamInfo.ParamName" /></td>
                                             <td>
                                                 <select id="ImpactElementType" ng-disabled="ComponentParamInfo.Disabled" ng-options="v.name as v.name for v in ParamTypes" ng-model="ComponentParamInfo.ParamType"></select>
                                             </td>
                                             <td ng-show="ComponentParamInfo.Disabled!=true">
                                                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                     <a class="red" style="cursor: pointer" ng-click="DeleteComponentParamInfo($index)">
+                                                    <a class="red" style="cursor: pointer" ng-click="DeleteComponentParamInfo($index)">
                                                         <i class="icon-trash bigger-130"></i>
                                                     </a>
                                                 </div>
@@ -237,8 +236,7 @@
                 <div class="row" ng-repeat="ComponentRelInfoList in ComponentRelInfoListSection">
                     <div class="widget-box">
                         <div class="widget-header widget-header-flat">
-                            <h4 class="smaller">
-                                功能参数列表
+                            <h4 class="smaller">功能参数列表
                             </h4>
                             <span class="widget-toolbar" ng-show="ComponentRelInfoList[0].Disabled!=true">
                                 <a href="" ng-click="ADDRelOperate($index)">
@@ -318,7 +316,8 @@
 
                             <div class="widget-body">
                                 <div class="widget-main">
-                                    <img src="/pages/causeeffect/1.png" height="800px" />
+                                    <div class="wrap3_graph">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -335,8 +334,7 @@
                 <div class="row">
                     <div class="widget-box">
                         <div class="widget-header widget-header-flat">
-                            <h4 class="smaller">
-                                冲突列表
+                            <h4 class="smaller">冲突列表
                             </h4>
                         </div>
 
