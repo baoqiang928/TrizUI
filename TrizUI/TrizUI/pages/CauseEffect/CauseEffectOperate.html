@@ -50,7 +50,7 @@
                                             <th>问题相关元件</th>
                                             <th>元件特征参数</th>
                                             <th>参数类型</th>
-                                            <th></th>
+                                            <th ng-show="ComponentParamInfoList[0].Disabled!=true"></th>
                                         </tr>
                                     </thead>
 
@@ -65,13 +65,9 @@
                                             <td>
                                                 <select id="ImpactElementType" ng-disabled="ComponentParamInfo.Disabled" ng-options="v.name as v.name for v in ParamTypes" ng-model="ComponentParamInfo.ParamType"></select>
                                             </td>
-                                            <td>
+                                            <td ng-show="ComponentParamInfo.Disabled!=true">
                                                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                    <a class="blue" style="cursor: pointer" ng-click="AddComponentParamInfo()">
-                                                        <i class="icon-plus bigger-130"></i>
-                                                    </a>
-
-                                                    <a class="red" style="cursor: pointer" ng-click="DeleteComponentParamInfo($index)">
+                                                     <a class="red" style="cursor: pointer" ng-click="DeleteComponentParamInfo($index)">
                                                         <i class="icon-trash bigger-130"></i>
                                                     </a>
                                                 </div>

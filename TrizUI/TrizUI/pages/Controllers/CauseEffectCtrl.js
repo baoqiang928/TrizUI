@@ -45,12 +45,15 @@
 
         $scope.ComponentParamInfoList.push(newobj);
 
-        $scope.AddComponentParamInfo = function () {
+        $scope.ADDParamInfoOperate = function () {
             var newobj1 = new $scope.ComponentParamInfo();
             $scope.ComponentParamInfoList.push(newobj1);
         }
 
         var RelListFromPreSection = [];
+
+        
+
         $scope.SaveParamInfoOperate = function () {
             $scope.ClearComponentRelInfoListAndSection();
             $scope.InsertComponentToRelInfoList();
