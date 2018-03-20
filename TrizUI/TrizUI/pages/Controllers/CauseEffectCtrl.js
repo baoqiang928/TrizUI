@@ -199,13 +199,12 @@
         $scope.SVGHeight = 900;
         $scope.ComponentsForMapNodeXY = {};//檢索使用
         $scope.ComponentParam = {};
-        $scope.bottom = $scope.SVGHeight;
         $scope.GetComponentParamsPosition = function () {
-            var curBottom = $scope.bottom;
+            var curBottom = $scope.SVGHeight;
             //第一层
             var n = {};
             n.x = $scope.SVGWidth / 2;
-            n.y = $scope.bottom - 20;
+            n.y = curBottom - 20;
             n.name = $scope.CurrentProblemDes;
             $scope.ComponentsForMapNodeXY[$scope.CurrentProblemDes] = n;
             curBottom = n.y;
@@ -219,7 +218,6 @@
                 $scope.ComponentsForMapNodeXY[n.name] = n;
             }
             curBottom = curBottom - 100;
-            $scope.bottom = $scope.bottom - 100;
             //第三层 以后
             for (var SectionIndex = 0; SectionIndex < $scope.ComponentRelInfoListSection.length; SectionIndex++) {
                 var CptParamList = $scope.ComponentRelInfoListSection[SectionIndex];
