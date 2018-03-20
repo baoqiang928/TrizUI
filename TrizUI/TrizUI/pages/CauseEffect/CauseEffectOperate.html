@@ -272,7 +272,7 @@
                                         <tr ng-repeat="ComponentRelInfo in ComponentRelInfoList">
                                             <td>
                                                 <select ng-model="ComponentRelInfo.ComponentName" ng-disabled="ComponentRelInfo.Disabled">
-                                                    <option ng-repeat="x in PreSectionComponentList($parent.$index)|filter:{ParamType:'非独立变量'}">{{x.ImpactComponentName}} {{x.ImpactParamName}} </option>
+                                                    <option ng-repeat="x in PreSectionComponentList($parent.$index)|filter:{ParamType:'非独立变量'}">{{x.ImpactComponentName}} {{x.ImpactParamName}}</option>
                                                 </select>
                                             </td>
                                             <td>

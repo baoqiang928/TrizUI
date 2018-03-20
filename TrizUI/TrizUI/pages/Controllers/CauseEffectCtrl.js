@@ -30,6 +30,12 @@
         objSrcComponentInfo.ID = "4";
         objSrcComponentInfo.Name = "人";
         $scope.SrcComponentInfoList.push(objSrcComponentInfo);
+        //save
+        $scope.Save = function () {
+            $scope.GetComponentParamsPosition();
+            $scope.Draw();
+        };
+        //save end
 
         //初级功能参数列表 
         $scope.ComponentParamInfo = function () {
@@ -71,7 +77,20 @@
 
             //set disabled
             $scope.SetComponentParamInfoListDisabled(true);
+
+            //Set Postion in Map
+
         }
+
+        $scope.SetPosition = function () {
+
+            var y = $scope.SVGHeight - 10;
+            for (var j = 0; j < $scope.ComponentParamInfoList.length; j++) {
+
+                $scope.ComponentParamInfoList[j].x = 0;
+                $scope.ComponentParamInfoList[j].y = y;
+            }
+        };
 
         $scope.SetComponentParamInfoListDisabled = function (flag) {
             for (var j = 0; j < $scope.ComponentParamInfoList.length; j++) {
@@ -174,14 +193,50 @@
 
         //End
 
-        //save
-        $scope.Save = function () {
-            $scope.Draw();
+        //相互作用表
+        //map 
+        $scope.SVGWidth = 800;
+        $scope.SVGHeight = 900;
+        $scope.ComponentsForMapNodeXY = {};//檢索使用
+        $scope.ComponentParam = {};
+        $scope.bottom = $scope.SVGHeight;
+        $scope.GetComponentParamsPosition = function () {
+            var curBottom = $scope.bottom;
+            //第一层
+            var n = {};
+            n.x = $scope.SVGWidth / 2;
+            n.y = $scope.bottom - 20;
+            n.name = $scope.CurrentProblemDes;
+            $scope.ComponentsForMapNodeXY[$scope.CurrentProblemDes] = n;
+            curBottom = n.y;
+            //第二层
+            var delta = ($scope.SVGWidth / ($scope.ComponentParamInfoList.length+1));
+            for (var i = 0; i < $scope.ComponentParamInfoList.length; i++) {
+                var n = {};
+                n.x = delta * (i + 1);
+                n.y = curBottom - 100;
+                n.name = $scope.ComponentParamInfoList[i].ComponentName + " " + $scope.ComponentParamInfoList[i].ParamName;
+                $scope.ComponentsForMapNodeXY[n.name] = n;
+            }
+            curBottom = curBottom - 100;
+            $scope.bottom = $scope.bottom - 100;
+            //第三层 以后
+            for (var SectionIndex = 0; SectionIndex < $scope.ComponentRelInfoListSection.length; SectionIndex++) {
+                var CptParamList = $scope.ComponentRelInfoListSection[SectionIndex];
+                delta = ($scope.SVGWidth / (CptParamList.length + 1));
+                for (var i = 0; i < CptParamList.length; i++) {
+                    var n = {};
+                    n.x = delta * (i + 1);
+                    n.y = curBottom - 100;
+                    n.name = CptParamList[i].ImpactComponentName + " " + CptParamList[i].ImpactParamName;
+                    $scope.ComponentsForMapNodeXY[n.name] = n;
+                }
+                curBottom = curBottom - 100 * (SectionIndex + 1);
+            }
+            console.log("$scope.ComponentsForMapNodeXY", $scope.ComponentsForMapNodeXY);
         };
-        //save end
 
 
-        //map
         $scope.CurrentProblemDes = "";
         $scope.links = [];
         function ConvertToMapLinks() {
@@ -191,7 +246,7 @@
                 var link = {};
                 link.ID = i;
                 link.source = $scope.CurrentProblemDes;
-                link.target = $scope.ComponentParamInfoList[i].ComponentName;
+                link.target = $scope.ComponentParamInfoList[i].ComponentName + " " + $scope.ComponentParamInfoList[i].ParamName;
                 link.effect = "1";
                 link.type = "";
                 link.direction = "";
@@ -200,6 +255,26 @@
                 link.TargetID = i;
                 $scope.links.push(link);
             }
+
+            for (var SectionIndex = 0; SectionIndex < $scope.ComponentRelInfoListSection.length; SectionIndex++) {
+                var CptParamList = $scope.ComponentRelInfoListSection[SectionIndex];
+                for (var i = 0; i < CptParamList.length; i++) {
+                    var link = {};
+                    link.ID = i;
+                    link.source = CptParamList[i].ComponentName;
+                    link.target = CptParamList[i].ImpactComponentName + " " + CptParamList[i].ImpactParamName;
+                    link.effect = "1";
+                    link.type = "";
+                    link.direction = "";
+                    link.ProjectID = $scope.CurrentProjectID;
+                    link.SourceID = 999999;
+                    link.TargetID = i;
+                    $scope.links.push(link);
+                }
+
+            }
+
+
 
             console.log("$scope.links", $scope.links);
 
@@ -227,6 +302,7 @@
         }
 
 
+
         $scope.Draw = function () {
 
             ConvertToMapLinks();
@@ -238,13 +314,13 @@
                 link.target = nodes[link.target] || (nodes[link.target] = { id: link.TargetID, name: link.target, showType: getShowType(link, "target") });
             });
 
-            var width = 800,
-            height = 900;
+            //var width = 800,
+            //height = 900;
 
             $scope.force = d3.layout.force()//layout将json格式转化为力学图可用的格式
             .nodes(d3.values(nodes))//设定节点数组
             .links($scope.links)//设定连线数组
-            .size([width, height])//作用域的大小
+            .size([$scope.SVGWidth, $scope.SVGHeight])//作用域的大小
             .linkDistance(150)//连接线长度
             .charge(-1500)//顶点的电荷数。该参数决定是排斥还是吸引，数值越小越互相排斥
             .on("tick", tick)//指时间间隔，隔一段时间刷新一次画面
@@ -256,7 +332,7 @@
             //width = $(".wrap3_graph").width(),
             //height = $(".wrap3_graph").height();
             $(".wrap3_graph").children("svg").remove();
-            var svg = d3.select(".wrap3_graph").append("svg").attr("width", width).attr("height", height);
+            var svg = d3.select(".wrap3_graph").append("svg").attr("width", $scope.SVGWidth).attr("height", $scope.SVGHeight);
             //var svg = d3.select(".wrap3_graph").append("svg").attr("width", width).attr("height", height).attr("background-color", "aqua");
             //var svg = d3.select(".wrap3_graph").append("svg").attr("width", "100%").attr("height", "100%");
             //alert($(".wrap3_graph").width());
@@ -395,15 +471,20 @@
             })
             .attr(
             "xlink:href", function (node) {
-                //var ElementNode = $scope.LeafNodesForMapNodeXY["n" + node.id];
-                //if (IsNum(ElementNode.EleX) && (IsNum(ElementNode.EleY))) {
-                //    node.fixed = true;  //这里可以固定，并且设置位置----baoqiang
-                //    node.px = ElementNode.EleX;
-                //    node.py = ElementNode.EleY;
-                //}
-                node.fixed = true;
-                node.px = width/2;
-                node.py = height - 40;
+                console.log("node.name", node.name + "aaa");
+                var ConponentParamNode = $scope.ComponentsForMapNodeXY[node.name];                
+                console.log("ConponentParamNode", ConponentParamNode);
+                if (IsNum(ConponentParamNode.x) && (IsNum(ConponentParamNode.y))) {
+                    node.fixed = true;  //这里可以固定，并且设置位置----baoqiang
+                    node.px = ConponentParamNode.x;
+                    node.py = ConponentParamNode.y;
+                }
+                //node.fixed = true;
+
+                //node.px = node.x;
+                //node.py = node.y;
+                //node.px = width/2;
+                //node.py = height - 40;
                 //node.px = 0;
                 //node.px = 0;
 
