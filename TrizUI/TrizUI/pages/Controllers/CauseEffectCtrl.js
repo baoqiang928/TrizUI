@@ -42,9 +42,13 @@
         $scope.SrcComponentInfoList.push(objSrcComponentInfo);
         //保存
         $scope.Save = function () {
+            GenerateMap();
+        };
+        //生成图
+        function GenerateMap() {
             $scope.GetComponentParamsPosition();
             $scope.Draw();
-        };
+        }
         //save end
 
         //初级功能参数列表 
@@ -239,13 +243,16 @@
                 for (var i = 0; i < $scope.ComponentRelInfoListSection[SectionIndex].length; i++) {
                     if ($scope.ComponentRelInfoListSection[SectionIndex][i].ParamType != "独立变量") continue;
                     var NewConflictInfo = new $scope.ConflictInfo();
-                    NewConflictInfo.RelComponentName = $scope.ComponentRelInfoListSection[SectionIndex][i].ComponentName;
+                    NewConflictInfo.RelComponentName = $scope.ComponentRelInfoListSection[SectionIndex][i].ImpactComponentName;
+                    NewConflictInfo.RelComponentParamName = $scope.ComponentRelInfoListSection[SectionIndex][i].ImpactParamName;
                     $scope.ConflictInfoList.push(NewConflictInfo);
                 }
             }
         }
 
-
+        $scope.SaveConflict = function () {
+            GenerateMap();
+        };
         //冲突列表  End
 
 
@@ -290,7 +297,7 @@
                     n.name = NewList[i].ImpactComponentName + " " + NewList[i].ImpactParamName;
                     $scope.ComponentsForMapNodeXY[n.name] = n;
                 }
-                curBottom = curBottom - 100 * (SectionIndex + 1);
+                curBottom = curBottom - 100;
             }
             console.log("$scope.ComponentsForMapNodeXY", $scope.ComponentsForMapNodeXY);
         };

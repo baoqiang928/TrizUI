@@ -336,6 +336,11 @@
                         <div class="widget-header widget-header-flat">
                             <h4 class="smaller">冲突列表
                             </h4>
+                            <span class="widget-toolbar" ng-show="ComponentParamInfoList[0].Disabled!=true">
+                                <a href="" ng-click="SaveConflict()">
+                                    <i class="icon-save"></i>
+                                </a>
+                            </span>
                         </div>
 
                         <div class="widget-body">
@@ -353,7 +358,7 @@
                                     <tbody>
                                         <tr ng-repeat="ConflictInfo in ConflictInfoList">
                                             <td>
-                                                {{ConflictInfo.RelComponentName}}</td>
+                                                {{ConflictInfo.RelComponentName}} {{ConflictInfo.RelComponentParamName}}</td>
                                             <td>
                                                 <input type="text" class="col-xs-12 col-sm-12" ng-model="ConflictInfo.CurrentConfig" /></td>
                                             <td>
@@ -368,27 +373,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-sm-6">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="widget-box">
-                            <div class="widget-header widget-header-flat">
-                                <h4 class="smaller">相互作用表</h4>
-
-                            </div>
-
-                            <div class="widget-body">
-                                <div class="widget-main">
-                                    <img src="/pages/causeeffect/3.png" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
         </div>
     </div>
