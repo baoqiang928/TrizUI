@@ -135,6 +135,7 @@
                     $scope.$apply(function () {
                         $scope.ComponentRelInfoList = [];
                         $scope.ComponentRelInfoListSection = [];
+                        $scope.ConflictInfoList = [];
                         $scope.SetComponentParamInfoListDisabled(false);
                     });
                 }
@@ -168,26 +169,49 @@
         };
 
         $scope.UpdateSectionOperate = function (i) {
-            //cleare section after i.
-            $scope.ComponentRelInfoListSection.splice(i + 1, $scope.ComponentRelInfoListSection.length - i - 1);
+            bootbox.confirm("修改操作会清除当前分析结果之后的内容，确认该操作吗？", function (result) {
+                if (result) {
+                    //cleare section after i.
+                    $scope.ComponentRelInfoListSection.splice(i + 1, $scope.ComponentRelInfoListSection.length - i - 1);
 
-            //set disabled
-            for (var j = 0; j < $scope.ComponentRelInfoListSection[i].length; j++) {
-                $scope.ComponentRelInfoListSection[i][j].Disabled = "";
-            }
-        };
+                    //clear conflict list
+                    $scope.ConflictInfoList = [];
+
+                    //set disabled
+                    for (var j = 0; j < $scope.ComponentRelInfoListSection[i].length; j++) {
+                        $scope.ComponentRelInfoListSection[i][j].Disabled = "";
+                    }
+
+                    $scope.$apply();
+                }
+            });
+        }
+            
 
         $scope.SaveRelOperate = function (i) {
             //disabled
             $scope.SetDisabledBySectionIndex(i);
 
-            var ComponentRelInfoList1 = [];
-            ComponentRelInfoList1.push(new $scope.ComponentParamInfo());
-            $scope.ComponentRelInfoListSection.push(ComponentRelInfoList1);
-            //生成冲突列表 
-            GenerateConflictList();
+            //如果不存在非独立变量，则不生成新的
+            if (ExistNotDependentParam(i)) {
+                var ComponentRelInfoList1 = [];
+                ComponentRelInfoList1.push(new $scope.ComponentParamInfo());
+                $scope.ComponentRelInfoListSection.push(ComponentRelInfoList1);
+            }
+            else {
+                //生成冲突列表 
+                GenerateConflictList();
+            }
         };
-
+        function ExistNotDependentParam(i) {
+            for (var j = 0; j < $scope.ComponentRelInfoListSection[i].length; j++) {
+                if ($scope.ComponentRelInfoListSection[i][j].ParamType == "非独立变量")
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         //$scope.SetOrder = function (i) {
 
 
@@ -213,9 +237,9 @@
             $scope.ConflictInfoList = [];
             for (var SectionIndex = 0; SectionIndex < $scope.ComponentRelInfoListSection.length; SectionIndex++) {
                 for (var i = 0; i < $scope.ComponentRelInfoListSection[SectionIndex].length; i++) {
+                    if ($scope.ComponentRelInfoListSection[SectionIndex][i].ParamType != "独立变量") continue;
                     var NewConflictInfo = new $scope.ConflictInfo();
                     NewConflictInfo.RelComponentName = $scope.ComponentRelInfoListSection[SectionIndex][i].ComponentName;
-                    //NewConflictInfo.RelComponentParamName = $scope.ComponentRelInfoListSection[SectionIndex][i].;
                     $scope.ConflictInfoList.push(NewConflictInfo);
                 }
             }
