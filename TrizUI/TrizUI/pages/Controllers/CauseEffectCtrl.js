@@ -11,6 +11,16 @@
         }
         $scope.SrcComponentInfoList = [];
 
+        $scope.ConflictInfo = function () {
+            RelComponentName: "";
+            RelComponentParamName: "";
+            CurrentConfig: "";
+            CurrentProblem: "";
+            NewProblem: "";
+        }
+        $scope.ConflictInfoList = [];
+
+
         var objSrcComponentInfo = new $scope.SrcComponentInfo();
         objSrcComponentInfo.ID = "1";
         objSrcComponentInfo.Name = "缆绳";
@@ -174,6 +184,8 @@
             var ComponentRelInfoList1 = [];
             ComponentRelInfoList1.push(new $scope.ComponentParamInfo());
             $scope.ComponentRelInfoListSection.push(ComponentRelInfoList1);
+            //生成冲突列表 
+            GenerateConflictList();
         };
 
         //$scope.SetOrder = function (i) {
@@ -195,6 +207,24 @@
         };
 
         //End
+
+        //冲突列表
+        function GenerateConflictList() {
+            $scope.ConflictInfoList = [];
+            for (var SectionIndex = 0; SectionIndex < $scope.ComponentRelInfoListSection.length; SectionIndex++) {
+                for (var i = 0; i < $scope.ComponentRelInfoListSection[SectionIndex].length; i++) {
+                    var NewConflictInfo = new $scope.ConflictInfo();
+                    NewConflictInfo.RelComponentName = $scope.ComponentRelInfoListSection[SectionIndex][i].ComponentName;
+                    //NewConflictInfo.RelComponentParamName = $scope.ComponentRelInfoListSection[SectionIndex][i].;
+                    $scope.ConflictInfoList.push(NewConflictInfo);
+                }
+            }
+        }
+
+
+        //冲突列表  End
+
+
 
         //相互作用表
         //map 
@@ -712,50 +742,6 @@
 
     });//end
 
-var person = {
-    name: "dongjc",
-    age: 32,
-    Introduce: function () { alert("My name is " + this.name + ".I'm " + this.age); }
-};
-
-
-//var ComponentParamInfo = {
-//    ComponentName : "",
-//    ParamName: "",
-//    ParamType: "",
-//    Disabled: ""
-//}
-
-//function ComponentParamInfo() {
-//    this.ComponentName = "";
-//    this.ParamName = "";
-//    this.ParamType = "";
-//    this.Disabled = "";
-//}
-
-//ComponentParamInfo
-//function fffInfo() {
-//}
-//fffInfo.prototype.ComponentName = "1";
-//fffInfo.prototype.ParamName = "2";
-//fffInfo.prototype.ParamType = "3";
-//fffInfo.prototype.Disabled = "";
-////ComponentParamInfo.prototype.sayName = function () {
-////    alert(this.name);
-////};
-
-
-
-//function ComponentRelInfo() {
-//}
-
-//ComponentRelInfo.prototype.ComponentID = "";//问题相关元件
-//ComponentRelInfo.prototype.ComponentName = "";//元件特征参数
-//ComponentRelInfo.prototype.ComponentParamName = "";//影响该参数元件
-//ComponentRelInfo.prototype.ImpactComponentName = "";//元件特征参数
-//ComponentRelInfo.prototype.ImpactParamName = "";//参数类型
-//ComponentRelInfo.prototype.ParamType = "";
-//ComponentRelInfo.prototype.Disabled = "";
 
 
 

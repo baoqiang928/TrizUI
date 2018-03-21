@@ -343,164 +343,26 @@
                                 <table id="Table3" class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th>相关元件</th>
-                                            <th>独立变量参数</th>
+                                            <th>相关元件 独立变量参数</th>
                                             <th>当前设置</th>
                                             <th>目前问题</th>
                                             <th>新的问题</th>
-                                            <th></th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <td>导向架</td>
-                                            <td>摩擦力</td>
-                                            <td>摩擦力小</td>
-                                            <td>摩擦力大</td>
-                                            <td>缆绳磨损严重</td>
+                                        <tr ng-repeat="ConflictInfo in ConflictInfoList">
                                             <td>
-                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                    <a class="blue" href="#">
-                                                        <i class="icon-plus bigger-130"></i>
-                                                    </a>
-
-                                                    <a class="green" href="#">
-                                                        <i class="icon-pencil bigger-130"></i>
-                                                    </a>
-
-                                                    <a class="red" href="#">
-                                                        <i class="icon-trash bigger-130"></i>
-                                                    </a>
-                                                </div>
-
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>卷筒</td>
-                                            <td>结构外形</td>
-                                            <td>缠绕表面光滑</td>
-                                            <td>缠绕表面有沟槽</td>
-                                            <td>卷筒尺寸增大，结构复杂</td>
+                                                {{ConflictInfo.RelComponentName}}</td>
                                             <td>
-                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                    <a class="blue" href="#">
-                                                        <i class="icon-plus bigger-130"></i>
-                                                    </a>
-
-                                                    <a class="green" href="#">
-                                                        <i class="icon-pencil bigger-130"></i>
-                                                    </a>
-
-                                                    <a class="red" href="#">
-                                                        <i class="icon-trash bigger-130"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>丝杠</td>
-                                            <td>传动比</td>
-                                            <td>固定</td>
-                                            <td>可变</td>
-                                            <td>系统结构复杂，成本高，而且系统运行过程调节各传动比过程复杂</td>
+                                                <input type="text" class="col-xs-12 col-sm-12" ng-model="ConflictInfo.CurrentConfig" /></td>
                                             <td>
-                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                    <a class="blue" href="#">
-                                                        <i class="icon-plus bigger-130"></i>
-                                                    </a>
-
-                                                    <a class="green" href="#">
-                                                        <i class="icon-pencil bigger-130"></i>
-                                                    </a>
-
-                                                    <a class="red" href="#">
-                                                        <i class="icon-trash bigger-130"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>电机</td>
-                                            <td>转速</td>
-                                            <td>固定</td>
-                                            <td>可变</td>
-                                            <td>系统结构复杂，成本高，而且系统运行过程调节各传动比过程复杂</td>
+                                                <input type="text" class="col-xs-12 col-sm-12" ng-model="ConflictInfo.CurrentProblem" /></td>
                                             <td>
-                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                    <a class="blue" href="#">
-                                                        <i class="icon-plus bigger-130"></i>
-                                                    </a>
-
-                                                    <a class="green" href="#">
-                                                        <i class="icon-pencil bigger-130"></i>
-                                                    </a>
-
-                                                    <a class="red" href="#">
-                                                        <i class="icon-trash bigger-130"></i>
-                                                    </a>
-                                                </div>
-
-
-                                            </td>
+                                                <input type="text" class="col-xs-12 col-sm-12" ng-model="ConflictInfo.NewProblem" /></td>
                                         </tr>
-                                        <tr>
-                                            <td>电机</td>
-                                            <td>传动比1</td>
-                                            <td>固定</td>
-                                            <td>可变</td>
-                                            <td>系统结构复杂，成本高，而且系统运行过程调节各传动比过程复杂</td>
-                                            <td>
-                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                    <a class="blue" href="#">
-                                                        <i class="icon-plus bigger-130"></i>
-                                                    </a>
-
-                                                    <a class="green" href="#">
-                                                        <i class="icon-pencil bigger-130"></i>
-                                                    </a>
-
-                                                    <a class="red" href="#">
-                                                        <i class="icon-trash bigger-130"></i>
-                                                    </a>
-                                                </div>
-
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>电机</td>
-                                            <td>传动比2</td>
-                                            <td>固定</td>
-                                            <td>可变</td>
-                                            <td>系统结构复杂，成本高，而且系统运行过程调节各传动比过程复杂</td>
-                                            <td>
-                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                    <a class="blue" href="#">
-                                                        <i class="icon-plus bigger-130"></i>
-                                                    </a>
-
-                                                    <a class="green" href="#">
-                                                        <i class="icon-pencil bigger-130"></i>
-                                                    </a>
-
-                                                    <a class="red" href="#">
-                                                        <i class="icon-trash bigger-130"></i>
-                                                    </a>
-                                                </div>
-
-
-                                            </td>
-                                        </tr>
-
-
-
-
                                     </tbody>
                                 </table>
-
-
 
                             </div>
                         </div>
