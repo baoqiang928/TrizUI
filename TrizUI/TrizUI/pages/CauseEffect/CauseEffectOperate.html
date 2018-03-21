@@ -350,6 +350,7 @@
                                         <tr>
                                             <th>相关元件 独立变量参数</th>
                                             <th>当前设置</th>
+                                            <th>改变设置</th>
                                             <th>目前问题</th>
                                             <th>新的问题</th>
                                         </tr>
@@ -361,6 +362,8 @@
                                                 {{ConflictInfo.RelComponentName}} {{ConflictInfo.RelComponentParamName}}</td>
                                             <td>
                                                 <input type="text" class="col-xs-12 col-sm-12" ng-model="ConflictInfo.CurrentConfig" /></td>
+                                            <td>
+                                                <input type="text" class="col-xs-12 col-sm-12" ng-model="ConflictInfo.ChangeConfig" /></td>
                                             <td>
                                                 <input type="text" class="col-xs-12 col-sm-12" ng-model="ConflictInfo.CurrentProblem" /></td>
                                             <td>

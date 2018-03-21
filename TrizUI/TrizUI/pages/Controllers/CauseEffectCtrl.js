@@ -15,6 +15,7 @@
             RelComponentName: "";
             RelComponentParamName: "";
             CurrentConfig: "";
+            ChangeConfig: "";
             CurrentProblem: "";
             NewProblem: "";
         }
@@ -190,7 +191,7 @@
                 }
             });
         }
-            
+
 
         $scope.SaveRelOperate = function (i) {
             //disabled
@@ -209,8 +210,7 @@
         };
         function ExistNotDependentParam(i) {
             for (var j = 0; j < $scope.ComponentRelInfoListSection[i].length; j++) {
-                if ($scope.ComponentRelInfoListSection[i][j].ParamType == "非独立变量")
-                {
+                if ($scope.ComponentRelInfoListSection[i][j].ParamType == "非独立变量") {
                     return true;
                 }
             }
@@ -273,7 +273,7 @@
             $scope.ComponentsForMapNodeXY[$scope.CurrentProblemDes] = n;
             curBottom = n.y;
             //第二层
-            var delta = ($scope.SVGWidth / ($scope.ComponentParamInfoList.length+1));
+            var delta = ($scope.SVGWidth / ($scope.ComponentParamInfoList.length + 1));
             for (var i = 0; i < $scope.ComponentParamInfoList.length; i++) {
                 var n = {};
                 n.x = delta * (i + 1);
@@ -305,13 +305,10 @@
         function SetOrder(list, index) {
             var newlist = [];
             //功能参数列表 第一行
-            if (index == 0)
-            {
+            if (index == 0) {
                 for (var i = 0; i < $scope.ComponentParamInfoList.length; i++) {
-                    for (var j = 0; j < list.length; j++)
-                    {
-                        if (list[j].ComponentName == $scope.ComponentParamInfoList[i].ComponentName + " " + $scope.ComponentParamInfoList[i].ParamName)
-                        {
+                    for (var j = 0; j < list.length; j++) {
+                        if (list[j].ComponentName == $scope.ComponentParamInfoList[i].ComponentName + " " + $scope.ComponentParamInfoList[i].ParamName) {
                             newlist.push(list[j]);
                         }
                     }
@@ -319,7 +316,7 @@
                 return newlist;
             }
 
-            for (var i = 0; i < $scope.ComponentRelInfoListSection[index-1].length; i++) {
+            for (var i = 0; i < $scope.ComponentRelInfoListSection[index - 1].length; i++) {
                 for (var j = 0; j < list.length; j++) {
                     if (list[j].ComponentName == $scope.ComponentRelInfoListSection[index - 1][i].ImpactComponentName + " " + $scope.ComponentRelInfoListSection[index - 1][i].ImpactParamName) {
                         newlist.push(list[j]);
@@ -335,6 +332,7 @@
         function ConvertToMapLinks() {
             $scope.links = [];
             console.log("$scope.ComponentParamInfoList", $scope.ComponentParamInfoList);
+            //来源一：初级功能参数列表
             for (var i = 0; i < $scope.ComponentParamInfoList.length; i++) {
                 var link = {};
                 link.ID = i;
@@ -349,6 +347,7 @@
                 $scope.links.push(link);
             }
 
+            //来源二：功能参数列表 
             for (var SectionIndex = 0; SectionIndex < $scope.ComponentRelInfoListSection.length; SectionIndex++) {
                 var CptParamList = $scope.ComponentRelInfoListSection[SectionIndex];
                 for (var i = 0; i < CptParamList.length; i++) {
@@ -364,34 +363,37 @@
                     link.TargetID = i;
                     $scope.links.push(link);
                 }
-
             }
 
-
-
+            //来源三：冲突列表 - 改变设置
+            for (var i = 0; i < $scope.ConflictInfoList.length; i++) {
+                var link = {};
+                link.ID = i;
+                link.source = $scope.ConflictInfoList[i].RelComponentName + " " + $scope.ConflictInfoList[i].RelComponentParamName;
+                link.target = $scope.ConflictInfoList[i].RelComponentName + " " + $scope.ConflictInfoList[i].RelComponentParamName + " " + $scope.ConflictInfoList[i].ChangeConfig;
+                link.effect = "1";
+                link.type = "";
+                link.direction = "";
+                link.ProjectID = $scope.CurrentProjectID;
+                link.SourceID = 999999;
+                link.TargetID = i;
+                $scope.links.push(link);
+            }
+            //来源四：冲突列表 - 新的问题
+            for (var i = 0; i < $scope.ConflictInfoList.length; i++) {
+                var link = {};
+                link.ID = i;
+                link.source = $scope.ConflictInfoList[i].RelComponentName + " " + $scope.ConflictInfoList[i].RelComponentParamName + " " + $scope.ConflictInfoList[i].ChangeConfig;
+                link.target = $scope.ConflictInfoList[i].NewProblem;
+                link.effect = "1";
+                link.type = "";
+                link.direction = "";
+                link.ProjectID = $scope.CurrentProjectID;
+                link.SourceID = 999999;
+                link.TargetID = i;
+                $scope.links.push(link);
+            }
             console.log("$scope.links", $scope.links);
-
-            //for (var i = 0; i < $scope.RelElementData.length; i++) {
-            //    var link = {};
-            //    link.ID = i;
-            //    link.source = $scope.RelElementData[i].PositiveEleName;
-            //    link.target = $scope.RelElementData[i].PassiveEleName;
-            //    link.effect = "1";//$scope.RelElementData[i].FunctionGrade;
-            //    link.type = $scope.RelElementData[i].FunctionName;
-            //    link.direction = "";
-            //    link.ProjectID = $scope.CurrentProjectID;
-            //    link.PositiveEleID = $scope.RelElementData[i].PositiveEleID;
-            //    link.PositiveEleName = $scope.RelElementData[i].PositiveEleName;
-            //    link.PositiveEleType = $scope.RelElementData[i].PositiveEleType;
-            //    link.FunctionName = $scope.RelElementData[i].FunctionName;
-            //    link.PassiveEleID = $scope.RelElementData[i].PassiveEleID;
-            //    link.PassiveEleName = $scope.RelElementData[i].PassiveEleName;
-            //    link.PassiveEleType = $scope.RelElementData[i].PassiveEleType;
-            //    link.FunctionType = $scope.RelElementData[i].FunctionType;
-            //    link.FunctionGrade = $scope.RelElementData[i].FunctionGrade;
-            //    link.ElementType = $scope.RelElementData[i].ElementType;
-            //    $scope.links.push(link);
-            //}
         }
 
         $scope.Draw = function () {
@@ -563,7 +565,7 @@
             .attr(
             "xlink:href", function (node) {
                 console.log("node.name", node.name + "aaa");
-                var ConponentParamNode = $scope.ComponentsForMapNodeXY[node.name];                
+                var ConponentParamNode = $scope.ComponentsForMapNodeXY[node.name];
                 console.log("ConponentParamNode", ConponentParamNode);
                 if (IsNum(ConponentParamNode.x) && (IsNum(ConponentParamNode.y))) {
                     node.fixed = true;  //这里可以固定，并且设置位置----baoqiang
