@@ -30,7 +30,7 @@
         objSrcComponentInfo.ID = "4";
         objSrcComponentInfo.Name = "人";
         $scope.SrcComponentInfoList.push(objSrcComponentInfo);
-        //save
+        //保存
         $scope.Save = function () {
             $scope.GetComponentParamsPosition();
             $scope.Draw();
@@ -176,6 +176,11 @@
             $scope.ComponentRelInfoListSection.push(ComponentRelInfoList1);
         };
 
+        //$scope.SetOrder = function (i) {
+
+
+        //};
+
         $scope.PreSectionComponentList = function (i) {
             if (i == 0) {
                 return RelListFromPreSection;
@@ -220,11 +225,15 @@
             for (var SectionIndex = 0; SectionIndex < $scope.ComponentRelInfoListSection.length; SectionIndex++) {
                 var CptParamList = $scope.ComponentRelInfoListSection[SectionIndex];
                 delta = ($scope.SVGWidth / (CptParamList.length + 1));
-                for (var i = 0; i < CptParamList.length; i++) {
+                //获得一个排序后的list
+                var NewList = [];
+                NewList = SetOrder(CptParamList, SectionIndex);
+                console.log("NewList", NewList);
+                for (var i = 0; i < NewList.length; i++) {
                     var n = {};
                     n.x = delta * (i + 1);
                     n.y = curBottom - 100;
-                    n.name = CptParamList[i].ImpactComponentName + " " + CptParamList[i].ImpactParamName;
+                    n.name = NewList[i].ImpactComponentName + " " + NewList[i].ImpactParamName;
                     $scope.ComponentsForMapNodeXY[n.name] = n;
                 }
                 curBottom = curBottom - 100 * (SectionIndex + 1);
@@ -232,6 +241,33 @@
             console.log("$scope.ComponentsForMapNodeXY", $scope.ComponentsForMapNodeXY);
         };
 
+        function SetOrder(list, index) {
+            var newlist = [];
+            //功能参数列表 第一行
+            if (index == 0)
+            {
+                for (var i = 0; i < $scope.ComponentParamInfoList.length; i++) {
+                    for (var j = 0; j < list.length; j++)
+                    {
+                        if (list[j].ComponentName == $scope.ComponentParamInfoList[i].ComponentName + " " + $scope.ComponentParamInfoList[i].ParamName)
+                        {
+                            newlist.push(list[j]);
+                        }
+                    }
+                }
+                return newlist;
+            }
+
+            for (var i = 0; i < $scope.ComponentRelInfoListSection[index-1].length; i++) {
+                for (var j = 0; j < list.length; j++) {
+                    if (list[j].ComponentName == $scope.ComponentRelInfoListSection[index - 1][i].ImpactComponentName + " " + $scope.ComponentRelInfoListSection[index - 1][i].ImpactParamName) {
+                        newlist.push(list[j]);
+                    }
+                }
+            }
+            return newlist;
+
+        }
 
         $scope.CurrentProblemDes = "";
         $scope.links = [];
@@ -296,8 +332,6 @@
             //    $scope.links.push(link);
             //}
         }
-
-
 
         $scope.Draw = function () {
 
