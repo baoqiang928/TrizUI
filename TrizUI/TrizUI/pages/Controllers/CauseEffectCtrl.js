@@ -58,13 +58,11 @@
 
         var RelListFromPreSection = [];
 
-
-
         $scope.SaveParamInfoOperate = function () {
             $scope.ClearComponentRelInfoListAndSection();
             $scope.InsertComponentToRelInfoList();
             $scope.InsertComponentRelInfoListToSection();
-
+            RelListFromPreSection = [];
             for (var j = 0; j < $scope.ComponentParamInfoList.length; j++) {
                 if ($scope.ComponentParamInfoList[j].ParamType == "非独立变量") {
                     var componentRelInfo = new $scope.ComponentRelInfo();
