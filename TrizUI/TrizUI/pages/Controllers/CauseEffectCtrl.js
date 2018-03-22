@@ -47,6 +47,7 @@
         };
         //生成图
         function GenerateMap() {
+            $scope.SVGHeight = ($scope.ComponentRelInfoListSection.length + 1) * 450;
             $scope.GetComponentParamsPosition();
             $scope.Draw();
         }
@@ -266,6 +267,7 @@
         $scope.GetComponentParamsPosition = function () {
             var curBottom = $scope.SVGHeight;
             //第一层
+            var SpaceY = 200; //垂直间距
             var n = {};
             n.x = $scope.SVGWidth / 2;
             n.y = curBottom - 20;
@@ -277,11 +279,11 @@
             for (var i = 0; i < $scope.ComponentParamInfoList.length; i++) {
                 var n = {};
                 n.x = delta * (i + 1);
-                n.y = curBottom - 100;
+                n.y = curBottom - SpaceY;
                 n.name = $scope.ComponentParamInfoList[i].ComponentName + " " + $scope.ComponentParamInfoList[i].ParamName;
                 $scope.ComponentsForMapNodeXY[n.name] = n;
             }
-            curBottom = curBottom - 100;
+            curBottom = curBottom - SpaceY;
             //第三层 以后
             for (var SectionIndex = 0; SectionIndex < $scope.ComponentRelInfoListSection.length; SectionIndex++) {
                 var CptParamList = $scope.ComponentRelInfoListSection[SectionIndex];
@@ -289,16 +291,37 @@
                 //获得一个排序后的list
                 var NewList = [];
                 NewList = SetOrder(CptParamList, SectionIndex);
-                console.log("NewList", NewList);
                 for (var i = 0; i < NewList.length; i++) {
                     var n = {};
                     n.x = delta * (i + 1);
-                    n.y = curBottom - 100;
+                    n.y = curBottom - SpaceY;
                     n.name = NewList[i].ImpactComponentName + " " + NewList[i].ImpactParamName;
                     $scope.ComponentsForMapNodeXY[n.name] = n;
                 }
-                curBottom = curBottom - 100;
+                curBottom = curBottom - SpaceY;
             }
+
+            //改变设置
+            console.log("$scope.ConflictInfoList", $scope.ConflictInfoList);
+            for (var j = 0; j < $scope.ConflictInfoList.length; j++) {
+                var n = $scope.ComponentsForMapNodeXY[$scope.ConflictInfoList[j].RelComponentName + " " + $scope.ConflictInfoList[j].RelComponentParamName];
+                var newn = {};
+                newn.x = n.x;
+                newn.y = n.y - SpaceY / 4;
+                newn.name = $scope.ConflictInfoList[j].RelComponentName + " " + $scope.ConflictInfoList[j].RelComponentParamName + " " + $scope.ConflictInfoList[j].ChangeConfig;
+                $scope.ComponentsForMapNodeXY[newn.name] = newn;
+            }
+
+            //新的问题
+            for (var j = 0; j < $scope.ConflictInfoList.length; j++) {
+                var n = $scope.ComponentsForMapNodeXY[$scope.ConflictInfoList[j].RelComponentName + " " + $scope.ConflictInfoList[j].RelComponentParamName + " " + $scope.ConflictInfoList[j].ChangeConfig];
+                var newn = {};
+                newn.x = n.x;
+                newn.y = n.y - SpaceY / 4;
+                newn.name = $scope.ConflictInfoList[j].NewProblem;
+                $scope.ComponentsForMapNodeXY[newn.name] = newn;
+            }
+
             console.log("$scope.ComponentsForMapNodeXY", $scope.ComponentsForMapNodeXY);
         };
 
@@ -379,6 +402,7 @@
                 link.TargetID = i;
                 $scope.links.push(link);
             }
+
             //来源四：冲突列表 - 新的问题
             for (var i = 0; i < $scope.ConflictInfoList.length; i++) {
                 var link = {};
