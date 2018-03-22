@@ -34,3 +34,4 @@ E:\sourcecode\TrizUI\TrizUI\TrizUI\bin\zh-Hans\System.Web.Http.WebHost.resources
 E:\sourcecode\TrizUI\TrizUI\TrizUI\obj\Debug\TrizUI.dll
 E:\sourcecode\TrizUI\TrizUI\TrizUI\obj\Debug\TrizUI.pdb
 E:\sourcecode\TrizUI\TrizUI\TrizUI\bin\TrizUI.dll.config
+E:\sourcecode\TrizUI\TrizUI\TrizUI\obj\Debug\TrizUI.csprojResolveAssemblyReference.cache

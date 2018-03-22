@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CauseEffectCurProblemDAL.cs" />
+    <Compile Include="ComponentParamDAL.cs" />
     <Compile Include="FunctionElementDAL.cs" />
     <Compile Include="FunEleMutualReactDAL.cs" />
     <Compile Include="PredicateExtensionses.cs" />
@@ -56,6 +57,9 @@
     <Compile Include="QuestionAnalyseDAL.cs" />
     <Compile Include="QuestionDescriptionDAL.cs" />
     <Compile Include="tbl_CauseEffectCurProblemInfo.cs">
+      <DependentUpon>TrizDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_ComponentParamInfo.cs">
       <DependentUpon>TrizDB.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_FunctionElementInfo.cs">

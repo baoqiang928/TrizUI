@@ -48,6 +48,8 @@ public partial class TrizDBEntities : DbContext
 
     public DbSet<tbl_CauseEffectCurProblemInfo> tbl_CauseEffectCurProblemInfo { get; set; }
 
+    public DbSet<tbl_ComponentParamInfo> tbl_ComponentParamInfo { get; set; }
+
 }
 
 }

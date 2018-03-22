@@ -1,5 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TrizDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_CauseEffectCurProblemInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="ProblemDescription" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_ComponentParamInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="ComponentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ParamName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ParamType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Disabled" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
   <EntityType Name="tbl_FunctionElementInfo">
     <Key>
       <PropertyRef Name="ID" />
@@ -22,9 +43,11 @@
     <Property Name="ProjectID" Type="int" />
     <Property Name="PositiveEleID" Type="int" />
     <Property Name="PositiveEleName" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="PositiveEleType" Type="nvarchar" MaxLength="10" />
     <Property Name="FunctionName" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="PassiveEleID" Type="int" />
     <Property Name="PassiveEleName" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="PassiveEleType" Type="nvarchar" MaxLength="10" />
     <Property Name="FunctionType" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="FunctionGrade" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="ElementType" Type="nvarchar" MaxLength="10" />
@@ -112,6 +135,8 @@
     <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
   </EntityType>
   <EntityContainer Name="TrizDBModelStoreContainer">
+    <EntitySet Name="tbl_CauseEffectCurProblemInfo" EntityType="Self.tbl_CauseEffectCurProblemInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ComponentParamInfo" EntityType="Self.tbl_ComponentParamInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_FunctionElementInfo" EntityType="Self.tbl_FunctionElementInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_FunEleMutualReactInfo" EntityType="Self.tbl_FunEleMutualReactInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_ProjectInfo" EntityType="Self.tbl_ProjectInfo" Schema="dbo" store:Type="Tables" />

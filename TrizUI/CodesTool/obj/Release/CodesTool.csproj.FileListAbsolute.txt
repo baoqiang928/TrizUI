@@ -1,0 +1,10 @@
+E:\sourcecode\TrizUI\TrizUI\CodesTool\bin\Release\CodesTool.exe.config
+E:\sourcecode\TrizUI\TrizUI\CodesTool\bin\Release\CodesTool.exe
+E:\sourcecode\TrizUI\TrizUI\CodesTool\bin\Release\CodesTool.pdb
+E:\sourcecode\TrizUI\TrizUI\CodesTool\obj\Release\CodesTool.Form1.resources
+E:\sourcecode\TrizUI\TrizUI\CodesTool\obj\Release\CodesTool.Form2.resources
+E:\sourcecode\TrizUI\TrizUI\CodesTool\obj\Release\CodesTool.FrmSimpleObjectCtrlCodes.resources
+E:\sourcecode\TrizUI\TrizUI\CodesTool\obj\Release\CodesTool.Properties.Resources.resources
+E:\sourcecode\TrizUI\TrizUI\CodesTool\obj\Release\CodesTool.csproj.GenerateResource.Cache
+E:\sourcecode\TrizUI\TrizUI\CodesTool\obj\Release\CodesTool.exe
+E:\sourcecode\TrizUI\TrizUI\CodesTool\obj\Release\CodesTool.pdb

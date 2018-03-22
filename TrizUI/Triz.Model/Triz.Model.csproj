@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CauseEffectCurProblemInfo.cs" />
+    <Compile Include="ComponentParamInfo.cs" />
     <Compile Include="FunctionElementInfo.cs" />
     <Compile Include="FunEleMutualReactInfo.cs" />
     <Compile Include="MapLinkInfo.cs" />

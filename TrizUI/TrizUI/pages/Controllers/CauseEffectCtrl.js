@@ -56,9 +56,11 @@
 
         //初级功能参数列表 
         $scope.ComponentParamInfo = function () {
-            this.ComponentName = "";
-            this.ParamName = "";
-            this.ParamType = "独立变量";
+            this.ID = "";  //ID
+            this.ProjectID = $scope.CurrentProjectID;  //ID
+            this.ComponentName = "";  //问题相关元件
+            this.ParamName = "";//参数名称
+            this.ParamType = "独立变量";//参数类型
             this.Disabled = "";
         }
 
@@ -93,12 +95,11 @@
             //set disabled
             $scope.SetComponentParamInfoListDisabled(true);
 
-            //Set Postion in Map
-
+            //save to database
+            $scope.SaveToComponentParamInfoListDB();
         }
 
         $scope.SetPosition = function () {
-
             var y = $scope.SVGHeight - 10;
             for (var j = 0; j < $scope.ComponentParamInfoList.length; j++) {
 
@@ -130,6 +131,9 @@
         $scope.DeleteComponentParamInfo = function (index) {
             bootbox.confirm("要删除当前的记录？", function (result) {
                 if (result) {
+                    console.log("$scope.ComponentParamInfoList", $scope.ComponentParamInfoList);
+                    requestService.delete("ComponentParams", $scope.ComponentParamInfoList[index].ID).then(function (data) {
+                    });
                     $scope.ComponentParamInfoList.splice(index, 1);
                     $scope.$apply();
                 }
@@ -148,6 +152,39 @@
                 }
             });
         }
+
+        $scope.SaveToComponentParamInfoListDB = function () {
+            for (var i = 0; i < $scope.ComponentParamInfoList.length; i++) {
+                if ($scope.ComponentParamInfoList[i].ID == "") {
+                    requestService.add("ComponentParams", $scope.ComponentParamInfoList[i]).then(function (data) {
+
+                    });
+                }
+                else {
+                    requestService.update("ComponentParams", $scope.ComponentParamInfoList[i]).then(function (data) {
+
+                    });
+                }
+            }
+
+        };
+
+
+        var GetComponentParams = function () {
+            var data = {
+                currentPage: "",
+                itemsPerPage: "",
+                ProjectID: $scope.CurrentProjectID,
+                ParamType: "",
+                Disabled: ""
+            };
+            data.currentPage = 1;
+            data.itemsPerPage = 999;
+            requestService.lists("ComponentParams", data).then(function (data) {
+                $scope.ComponentParamInfoList = data.Results;
+            });
+        }
+        GetComponentParams();
         //End
 
         //功能参数列表

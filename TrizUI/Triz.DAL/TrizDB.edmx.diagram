@@ -12,7 +12,8 @@
         <EntityTypeShape EntityType="TrizDBModel.tbl_QuestionAnalyseInfo" Width="1.5" PointX="1" PointY="3.75" />
         <EntityTypeShape EntityType="TrizDBModel.tbl_FunctionElementInfo" Width="1.5" PointX="7.375" PointY="0.75" />
         <EntityTypeShape EntityType="TrizDBModel.tbl_FunEleMutualReactInfo" Width="1.5" PointX="7.125" PointY="4.875" />
-        <EntityTypeShape EntityType="TrizDBModel.tbl_CauseEffectCurProblemInfo" Width="1.5" PointX="3.375" PointY="6.75" />
+        <EntityTypeShape EntityType="TrizDBModel.tbl_CauseEffectCurProblemInfo" Width="1.5" PointX="2.875" PointY="4.125" />
+        <EntityTypeShape EntityType="TrizDBModel.tbl_ComponentParamInfo" Width="1.5" PointX="3.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

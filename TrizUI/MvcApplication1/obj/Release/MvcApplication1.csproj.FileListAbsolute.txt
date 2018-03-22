@@ -48,3 +48,4 @@ E:\sourcecode\TrizUI\TrizUI\MvcApplication1\bin\zh-Hans\System.Web.WebPages.Razo
 E:\sourcecode\TrizUI\TrizUI\MvcApplication1\obj\Release\MvcApplication1.csprojResolveAssemblyReference.cache
 E:\sourcecode\TrizUI\TrizUI\MvcApplication1\obj\Release\MvcApplication1.dll
 E:\sourcecode\TrizUI\TrizUI\MvcApplication1\obj\Release\MvcApplication1.pdb
+E:\sourcecode\TrizUI\TrizUI\MvcApplication1\bin\MvcApplication1.dll.config
