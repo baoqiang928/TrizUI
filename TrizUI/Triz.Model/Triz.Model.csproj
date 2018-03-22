@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CauseEffectCurProblemInfo.cs" />
     <Compile Include="FunctionElementInfo.cs" />
     <Compile Include="FunEleMutualReactInfo.cs" />
     <Compile Include="MapLinkInfo.cs" />

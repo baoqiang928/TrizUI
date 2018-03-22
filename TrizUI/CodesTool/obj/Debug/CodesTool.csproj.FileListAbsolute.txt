@@ -18,4 +18,3 @@ E:\sourcecode\TrizUI\TrizUI\CodesTool\obj\Debug\CodesTool.csproj.GenerateResourc
 E:\sourcecode\TrizUI\TrizUI\CodesTool\obj\Debug\CodesTool.exe
 E:\sourcecode\TrizUI\TrizUI\CodesTool\obj\Debug\CodesTool.pdb
 E:\sourcecode\TrizUI\TrizUI\CodesTool\obj\Debug\CodesTool.FrmSimpleObjectCtrlCodes.resources
-E:\sourcecode\TrizUI\TrizUI\CodesTool\obj\Debug\CodesTool.csprojResolveAssemblyReference.cache

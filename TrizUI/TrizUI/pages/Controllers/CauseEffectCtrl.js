@@ -1,6 +1,7 @@
 ﻿angular.module('myApp')
     .controller('CauseEffectCtrl', function ($scope, $location, requestService, $state, locals) {
-
+        $scope.CurrentProjectID = locals.get("ProjectID");
+        var Sources = "CauseEffectCurProblems";
         $scope.PreSectionComponentList = "";
         $scope.ParamTypes = [{ id: 1, name: '独立变量' }, { id: 2, name: '非独立变量' }];
         $scope.ComponentRelInfoList = [];
@@ -351,6 +352,26 @@
         }
 
         $scope.CurrentProblemDes = "";
+        $scope.data = {
+            ProjectID: "",
+            ProblemDescription: ""
+        };
+        requestService.getobj(Sources, $scope.CurrentProjectID).then(function (data) {
+            $scope.CurrentProblemDes = data.ProblemDescription;
+        });
+
+        $scope.SaveCurrentProblemDes = function () {
+            //if (!$('#validation-form').valid()) {
+            //    return false;
+            //}
+            $scope.data.ProjectID = $scope.CurrentProjectID;
+            $scope.data.ProblemDescription = $scope.CurrentProblemDes;
+            requestService.add(Sources, $scope.data).then(function (data) {
+
+            });
+            return;
+        };
+
         $scope.links = [];
         function ConvertToMapLinks() {
             $scope.links = [];
