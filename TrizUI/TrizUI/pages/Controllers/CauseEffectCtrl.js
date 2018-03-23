@@ -69,43 +69,9 @@
 
         $scope.ComponentParamInfoList.push(newobj);
 
-        $scope.ADDParamInfoOperate = function () {
-            var newobj1 = new $scope.ComponentParamInfo();
-            $scope.ComponentParamInfoList.push(newobj1);
-        }
 
-        var RelListFromPreSection = [];
 
-        $scope.SaveParamInfoOperate = function () {
-            $scope.ClearComponentRelInfoListAndSection();
-            $scope.InsertComponentToRelInfoList();
-            $scope.InsertComponentRelInfoListToSection();
-            RelListFromPreSection = [];
-            for (var j = 0; j < $scope.ComponentParamInfoList.length; j++) {
-                if ($scope.ComponentParamInfoList[j].ParamType == "非独立变量") {
-                    var componentRelInfo = new $scope.ComponentRelInfo();
-                    componentRelInfo.ImpactComponentName = $scope.ComponentParamInfoList[j].ComponentName;
-                    componentRelInfo.ImpactParamName = $scope.ComponentParamInfoList[j].ParamName;
-                    componentRelInfo.ParamType = $scope.ComponentParamInfoList[j].ParamType;
-                    RelListFromPreSection.push(componentRelInfo);
-                }
-            }
-
-            //set disabled
-            $scope.SetComponentParamInfoListDisabled(true);
-
-            //save to database
-            $scope.SaveToComponentParamInfoListDB();
-        }
-
-        $scope.SetPosition = function () {
-            var y = $scope.SVGHeight - 10;
-            for (var j = 0; j < $scope.ComponentParamInfoList.length; j++) {
-
-                $scope.ComponentParamInfoList[j].x = 0;
-                $scope.ComponentParamInfoList[j].y = y;
-            }
-        };
+        $scope.RelListFromPreSection = [];
 
         $scope.SetComponentParamInfoListDisabled = function (flag) {
             for (var j = 0; j < $scope.ComponentParamInfoList.length; j++) {
@@ -261,7 +227,7 @@
 
         $scope.PreSectionComponentList = function (i) {
             if (i == 0) {
-                return RelListFromPreSection;
+                return $scope.RelListFromPreSection;
             }
             return $scope.ComponentRelInfoListSection[i - 1];
         };
