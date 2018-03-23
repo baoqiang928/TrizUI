@@ -10,8 +10,8 @@
     <!-- /.page-header -->
     <div class="row">
         <div class="col-xs-12">
-
             <div class="col-sm-6">
+                <script type='text/ng-template' id='currentProblem.html'> 
                 <div class="row">
                     <div class="widget-box">
                         <div class="widget-header widget-header-flat">
@@ -21,15 +21,16 @@
                                 <a href="" ng-click="SaveCurrentProblemDes()">
                                     <i class="icon-save"></i>
                                 </a>
-                            </span>                            
+                            </span>
                         </div>
 
                         <div class="widget-body">
                             <div class="widget-main">
-                                <table style="width:100%" >
+                                <table style="width: 100%">
                                     <thead>
                                         <tr>
-                                            <th><input type="text" id="Text3" class="col-xs-12 col-sm-12" ng-model="CurrentProblemDes" placeholder="请输入目前问题" /></th>
+                                            <th>
+                                                <input type="text" id="Text3" class="col-xs-12 col-sm-12" ng-model="CurrentProblemDes" placeholder="请输入目前问题" /></th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -37,6 +38,8 @@
                         </div>
                     </div>
                 </div>
+                </script>
+                <current-problem></current-problem>
 
                 <div class="row">
                     <div class="widget-box">
