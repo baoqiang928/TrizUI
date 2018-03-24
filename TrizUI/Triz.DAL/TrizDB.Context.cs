@@ -50,6 +50,8 @@ public partial class TrizDBEntities : DbContext
 
     public DbSet<tbl_ComponentParamInfo> tbl_ComponentParamInfo { get; set; }
 
+    public DbSet<tbl_ComponentRelInfo> tbl_ComponentRelInfo { get; set; }
+
 }
 
 }

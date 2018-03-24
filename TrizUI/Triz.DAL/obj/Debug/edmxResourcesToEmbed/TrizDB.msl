@@ -144,5 +144,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ComponentRelInfo">
+      <EntityTypeMapping TypeName="TrizDBModel.tbl_ComponentRelInfo">
+        <MappingFragment StoreEntitySet="tbl_ComponentRelInfo">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+          <ScalarProperty Name="ParamType" ColumnName="ParamType" />
+          <ScalarProperty Name="ImpactParamName" ColumnName="ImpactParamName" />
+          <ScalarProperty Name="ImpactComponentName" ColumnName="ImpactComponentName" />
+          <ScalarProperty Name="ComponentParamName" ColumnName="ComponentParamName" />
+          <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

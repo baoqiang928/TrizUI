@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Triz.Model
 {
-    public class ComponentParamInfo
+    public class ComponentRelInfo
     {
         int? id;
         /// <summary>
@@ -22,23 +22,38 @@ namespace Triz.Model
             get { return projectID; }
             set { projectID = value; }
         }
-        private string componentName;
+        private int sectionID;
+        public int SectionID
+        {
+            get { return sectionID; }
+            set { sectionID = value; }
+        }
+        private string componentParamName;
         /// <summary>
         /// 元件特征参数
         /// </summary>
-        public string ComponentName
+        public string ComponentParamName
         {
-            get { return componentName; }
-            set { componentName = value; }
+            get { return componentParamName; }
+            set { componentParamName = value; }
         }
-        private string paramName;
+        private string impactComponentName;
+        /// <summary>
+        /// 影响该参数元件
+        /// </summary>
+        public string ImpactComponentName
+        {
+            get { return impactComponentName; }
+            set { impactComponentName = value; }
+        }
+        private string impactParamName;
         /// <summary>
         /// 参数名称
         /// </summary>
-        public string ParamName
+        public string ImpactParamName
         {
-            get { return paramName; }
-            set { paramName = value; }
+            get { return impactParamName; }
+            set { impactParamName = value; }
         }
         private string paramType;
         /// <summary>

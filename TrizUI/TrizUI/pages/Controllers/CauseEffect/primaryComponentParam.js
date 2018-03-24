@@ -20,6 +20,15 @@
                 scope.ClearComponentRelInfoListAndSection();
                 scope.InsertComponentToRelInfoList();
                 scope.InsertComponentRelInfoListToSection();
+                scope.INIRelListFromPreSection();
+                //set disabled
+                scope.SetComponentParamInfoListDisabled(true);
+
+                //save to database
+                scope.SaveToComponentParamInfoListDB();
+            }
+
+            scope.INIRelListFromPreSection = function () {
                 scope.RelListFromPreSection = [];
                 for (var j = 0; j < scope.ComponentParamInfoList.length; j++) {
                     if (scope.ComponentParamInfoList[j].ParamType == "非独立变量") {
@@ -30,12 +39,9 @@
                         scope.RelListFromPreSection.push(componentRelInfo);
                     }
                 }
-                //set disabled
-                scope.SetComponentParamInfoListDisabled(true);
-
-                //save to database
-                scope.SaveToComponentParamInfoListDB();
             }
+
+
 
             scope.SetComponentParamInfoListDisabled = function (flag) {
                 for (var j = 0; j < scope.ComponentParamInfoList.length; j++) {
@@ -86,12 +92,10 @@
                 for (var i = 0; i < scope.ComponentParamInfoList.length; i++) {
                     if (scope.ComponentParamInfoList[i].ID == "") {
                         requestService.add("ComponentParams", scope.ComponentParamInfoList[i]).then(function (data) {
-
                         });
                     }
                     else {
                         requestService.update("ComponentParams", scope.ComponentParamInfoList[i]).then(function (data) {
-
                         });
                     }
                 }
@@ -111,6 +115,7 @@
                 data.itemsPerPage = 999;
                 requestService.lists("ComponentParams", data).then(function (data) {
                     scope.ComponentParamInfoList = data.Results;
+                    scope.INIRelListFromPreSection();//初始化 功能参数列表 -> 问题相关元件 特征参数 -> 下拉框
                 });
             }
             GetComponentParams();

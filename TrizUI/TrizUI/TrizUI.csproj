@@ -618,7 +618,7 @@
     <Content Include="pages\Conflict\TechConflictOperate.html" />
     <Content Include="pages\Conflict\TechConflictResolveList.html" />
     <Content Include="pages\Controllers\CauseEffectCtrl.js" />
-    <Content Include="pages\Controllers\CauseEffect\componentParam.js" />
+    <Content Include="pages\Controllers\CauseEffect\componentRel.js" />
     <Content Include="pages\Controllers\CauseEffect\conflictList.js" />
     <Content Include="pages\Controllers\CauseEffect\currentProblem.js" />
     <Content Include="pages\Controllers\CauseEffect\primaryComponentParam.js" />

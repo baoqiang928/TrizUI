@@ -21,6 +21,20 @@
     <Property Name="Disabled" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
   </EntityType>
+  <EntityType Name="tbl_ComponentRelInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="SectionID" Type="int" Nullable="false" />
+    <Property Name="ComponentParamName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ImpactComponentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ImpactParamName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ParamType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Disabled" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
   <EntityType Name="tbl_FunctionElementInfo">
     <Key>
       <PropertyRef Name="ID" />
@@ -137,6 +151,7 @@
   <EntityContainer Name="TrizDBModelStoreContainer">
     <EntitySet Name="tbl_CauseEffectCurProblemInfo" EntityType="Self.tbl_CauseEffectCurProblemInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_ComponentParamInfo" EntityType="Self.tbl_ComponentParamInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ComponentRelInfo" EntityType="Self.tbl_ComponentRelInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_FunctionElementInfo" EntityType="Self.tbl_FunctionElementInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_FunEleMutualReactInfo" EntityType="Self.tbl_FunEleMutualReactInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_ProjectInfo" EntityType="Self.tbl_ProjectInfo" Schema="dbo" store:Type="Tables" />

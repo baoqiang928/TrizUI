@@ -1,7 +1,6 @@
 ﻿angular.module('myApp')
     .controller('CauseEffectCtrl', function ($scope, $location, requestService, $state, locals) {
         $scope.CurrentProjectID = locals.get("ProjectID");
-        $scope.PreSectionComponentList = "";
         $scope.ParamTypes = [{ id: 1, name: '独立变量' }, { id: 2, name: '非独立变量' }];
         $scope.ComponentRelInfoList = [];
         $scope.ComponentRelInfoListSection = [];
@@ -53,24 +52,16 @@
         }
 
         $scope.ComponentParamInfoList = [];
-
-        var newobj = new $scope.ComponentParamInfo();
-
-        $scope.ComponentParamInfoList.push(newobj);
-
-
-
         $scope.RelListFromPreSection = [];
 
-
-
-     
         //End
 
         //功能参数列表
         $scope.ComponentRelInfo = function () {
+            this.SectionID = "";
+            this.ProjectID = $scope.CurrentProjectID;
             this.ComponentID = "";//问题相关元件
-            this.ComponentName = "";//元件特征参数
+            this.ComponentParamName = "";//元件特征参数
             this.ImpactComponentName = "";//影响该参数元件
             this.ImpactParamName = "";//参数类型
             this.ParamType = "独立变量";
