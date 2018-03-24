@@ -22,10 +22,38 @@
                     }
                 }
             }
-
+            //保存事件
             scope.SaveConflict = function () {
-                scope.GenerateMap();
+                SaveToConflictListToDB();
+                //scope.GenerateMap();
             };
+            function SaveToConflictListToDB() {
+                console.log("scope.ConflictInfoList", scope.ConflictInfoList);
+                for (var i = 0; i < scope.ConflictInfoList.length; i++) {
+                    scope.ConflictInfoList[i].ProjectID = CurrentProjectID;
+                    if (scope.ConflictInfoList[i].ID == "") {
+                        requestService.add("Conflicts", scope.ConflictInfoList[i]).then(function (data) {});
+                    }
+                    else {
+                        requestService.update("Conflicts", scope.ConflictInfoList[i]).then(function (data) {});
+                    }
+                }
+
+            };
+
+            var GetConflicts = function () {
+                var data = {
+                    currentPage: "",
+                    itemsPerPage: "",
+                    ProjectID: CurrentProjectID
+                };
+                data.currentPage = 1;
+                data.itemsPerPage = 999;
+                requestService.lists("Conflicts", data).then(function (data) {
+                    scope.ConflictInfoList = data.Results;
+                });
+            }
+            GetConflicts();
 
         },//link end
 

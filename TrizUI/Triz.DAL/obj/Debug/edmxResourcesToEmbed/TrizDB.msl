@@ -159,5 +159,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ConflictInfo">
+      <EntityTypeMapping TypeName="TrizDBModel.tbl_ConflictInfo">
+        <MappingFragment StoreEntitySet="tbl_ConflictInfo">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="NewProblem" ColumnName="NewProblem" />
+          <ScalarProperty Name="CurrentProblem" ColumnName="CurrentProblem" />
+          <ScalarProperty Name="ChangeConfig" ColumnName="ChangeConfig" />
+          <ScalarProperty Name="CurrentConfig" ColumnName="CurrentConfig" />
+          <ScalarProperty Name="RelComponentParamName" ColumnName="RelComponentParamName" />
+          <ScalarProperty Name="RelComponentName" ColumnName="RelComponentName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

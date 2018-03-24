@@ -42,6 +42,7 @@
     <Compile Include="CauseEffectCurProblemInfo.cs" />
     <Compile Include="ComponentParamInfo.cs" />
     <Compile Include="ComponentRelInfo.cs" />
+    <Compile Include="ConflictInfo.cs" />
     <Compile Include="FunctionElementInfo.cs" />
     <Compile Include="FunEleMutualReactInfo.cs" />
     <Compile Include="MapLinkInfo.cs" />

@@ -35,6 +35,20 @@
     <Property Name="Disabled" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
   </EntityType>
+  <EntityType Name="tbl_ConflictInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="RelComponentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RelComponentParamName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CurrentConfig" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ChangeConfig" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CurrentProblem" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NewProblem" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
   <EntityType Name="tbl_FunctionElementInfo">
     <Key>
       <PropertyRef Name="ID" />
@@ -152,6 +166,7 @@
     <EntitySet Name="tbl_CauseEffectCurProblemInfo" EntityType="Self.tbl_CauseEffectCurProblemInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_ComponentParamInfo" EntityType="Self.tbl_ComponentParamInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_ComponentRelInfo" EntityType="Self.tbl_ComponentRelInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ConflictInfo" EntityType="Self.tbl_ConflictInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_FunctionElementInfo" EntityType="Self.tbl_FunctionElementInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_FunEleMutualReactInfo" EntityType="Self.tbl_FunEleMutualReactInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_ProjectInfo" EntityType="Self.tbl_ProjectInfo" Schema="dbo" store:Type="Tables" />

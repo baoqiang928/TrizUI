@@ -11,6 +11,8 @@
         $scope.SrcComponentInfoList = [];
 
         $scope.ConflictInfo = function () {
+            ID: "";
+            ProjectID: $scope.CurrentProjectID;  //ID
             RelComponentName: "";
             RelComponentParamName: "";
             CurrentConfig: "";

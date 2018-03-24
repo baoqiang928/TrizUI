@@ -42,6 +42,7 @@
     <Compile Include="CauseEffectCurProblemLogic.cs" />
     <Compile Include="ComponentParamLogic.cs" />
     <Compile Include="ComponentRelLogic.cs" />
+    <Compile Include="ConflictLogic.cs" />
     <Compile Include="FunctionElementLogic.cs" />
     <Compile Include="FunEleMutualReactLogic.cs" />
     <Compile Include="ProjectLogic.cs" />

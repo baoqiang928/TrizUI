@@ -15,6 +15,7 @@
         <EntityTypeShape EntityType="TrizDBModel.tbl_CauseEffectCurProblemInfo" Width="1.5" PointX="2.875" PointY="4.125" />
         <EntityTypeShape EntityType="TrizDBModel.tbl_ComponentParamInfo" Width="1.5" PointX="3.375" PointY="6.75" />
         <EntityTypeShape EntityType="TrizDBModel.tbl_ComponentRelInfo" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="TrizDBModel.tbl_ConflictInfo" Width="1.5" PointX="9.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

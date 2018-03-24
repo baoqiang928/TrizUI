@@ -40,6 +40,20 @@
           <Property Name="Disabled" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
+        <EntityType Name="tbl_ConflictInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="RelComponentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RelComponentParamName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CurrentConfig" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ChangeConfig" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CurrentProblem" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NewProblem" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
         <EntityType Name="tbl_FunctionElementInfo">
           <Key>
             <PropertyRef Name="ID" />
@@ -157,6 +171,7 @@
           <EntitySet Name="tbl_CauseEffectCurProblemInfo" EntityType="Self.tbl_CauseEffectCurProblemInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ComponentParamInfo" EntityType="Self.tbl_ComponentParamInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ComponentRelInfo" EntityType="Self.tbl_ComponentRelInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_ConflictInfo" EntityType="Self.tbl_ConflictInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_FunctionElementInfo" EntityType="Self.tbl_FunctionElementInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_FunEleMutualReactInfo" EntityType="Self.tbl_FunEleMutualReactInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ProjectInfo" EntityType="Self.tbl_ProjectInfo" Schema="dbo" store:Type="Tables" />
@@ -180,6 +195,7 @@
           <EntitySet Name="tbl_CauseEffectCurProblemInfo" EntityType="TrizDBModel.tbl_CauseEffectCurProblemInfo" />
           <EntitySet Name="tbl_ComponentParamInfo" EntityType="TrizDBModel.tbl_ComponentParamInfo" />
           <EntitySet Name="tbl_ComponentRelInfo" EntityType="TrizDBModel.tbl_ComponentRelInfo" />
+          <EntitySet Name="tbl_ConflictInfo" EntityType="TrizDBModel.tbl_ConflictInfo" />
         </EntityContainer>
         <EntityType Name="tbl_ProjectInfo">
           <Key>
@@ -327,6 +343,20 @@
           <Property Name="ImpactParamName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ParamType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Disabled" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tbl_ConflictInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="RelComponentName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RelComponentParamName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CurrentConfig" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeConfig" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CurrentProblem" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NewProblem" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
       </Schema>
@@ -488,6 +518,21 @@
                 <ScalarProperty Name="ImpactComponentName" ColumnName="ImpactComponentName" />
                 <ScalarProperty Name="ComponentParamName" ColumnName="ComponentParamName" />
                 <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_ConflictInfo">
+            <EntityTypeMapping TypeName="TrizDBModel.tbl_ConflictInfo">
+              <MappingFragment StoreEntitySet="tbl_ConflictInfo">
+                <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+                <ScalarProperty Name="NewProblem" ColumnName="NewProblem" />
+                <ScalarProperty Name="CurrentProblem" ColumnName="CurrentProblem" />
+                <ScalarProperty Name="ChangeConfig" ColumnName="ChangeConfig" />
+                <ScalarProperty Name="CurrentConfig" ColumnName="CurrentConfig" />
+                <ScalarProperty Name="RelComponentParamName" ColumnName="RelComponentParamName" />
+                <ScalarProperty Name="RelComponentName" ColumnName="RelComponentName" />
                 <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>

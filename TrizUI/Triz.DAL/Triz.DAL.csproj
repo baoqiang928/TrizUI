@@ -50,6 +50,7 @@
     <Compile Include="CauseEffectCurProblemDAL.cs" />
     <Compile Include="ComponentParamDAL.cs" />
     <Compile Include="ComponentRelDAL.cs" />
+    <Compile Include="ConflictDAL.cs" />
     <Compile Include="FunctionElementDAL.cs" />
     <Compile Include="FunEleMutualReactDAL.cs" />
     <Compile Include="PredicateExtensionses.cs" />
@@ -64,6 +65,9 @@
       <DependentUpon>TrizDB.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_ComponentRelInfo.cs">
+      <DependentUpon>TrizDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_ConflictInfo.cs">
       <DependentUpon>TrizDB.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_FunctionElementInfo.cs">
