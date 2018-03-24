@@ -114,8 +114,8 @@
                 for (var i = 0; i < scope.ComponentParamInfoList.length; i++) {
                     var link = {};
                     link.ID = i;
-                    link.source = scope.CurrentProblemDes;
-                    link.target = scope.ComponentParamInfoList[i].ComponentName + " " + scope.ComponentParamInfoList[i].ParamName;
+                    link.target = scope.CurrentProblemDes;
+                    link.source = scope.ComponentParamInfoList[i].ComponentName + " " + scope.ComponentParamInfoList[i].ParamName;
                     link.effect = "1";
                     link.type = "";
                     link.direction = "";
@@ -131,8 +131,8 @@
                     for (var i = 0; i < CptParamList.length; i++) {
                         var link = {};
                         link.ID = i;
-                        link.source = CptParamList[i].ComponentParamName;
-                        link.target = CptParamList[i].ImpactComponentName + " " + CptParamList[i].ImpactParamName;
+                        link.target = CptParamList[i].ComponentParamName;
+                        link.source = CptParamList[i].ImpactComponentName + " " + CptParamList[i].ImpactParamName;
                         link.effect = "1";
                         link.type = "";
                         link.direction = "";
@@ -284,8 +284,6 @@
                 .style("pointer-events", "none")
                 .attr("marker-end", "url(#resolved)"); //根据箭头标记的id号标记箭头
 
-
-
                 var edges_text = svg.append("g").selectAll(".edgelabel")
                 .data(scope.force.links())
                 .enter()
@@ -338,14 +336,12 @@
                 .data(scope.force.nodes())//表示使用force.nodes数据
                 .enter().append("image")
                 .attr({
-                    "width": 100, "height": 40
+                    //"width": 100, "height": 40
+                    "width": 125, "height": 50
                 })
                 .attr(
                 "xlink:href", function (node) {
-                    console.log("node", node);
-                    console.log("node.name", node.name + "aaa");
                     var ComponentParamNode = scope.ComponentsForMapNodeXY[node.name];
-                    console.log("ConponentParamNode", ComponentParamNode);
                     if (IsNum(ComponentParamNode.x) && (IsNum(ComponentParamNode.y))) {
                         node.fixed = true;  //这里可以固定，并且设置位置----baoqiang
                         node.px = ComponentParamNode.x;
@@ -369,8 +365,9 @@
                         result = '/pages/assets/images/rect3.png';
                     }
                     else {
-                        result = '/pages/assets/images/rect.png';
+                        result = '/pages/assets/images/rect2big.png';
                     }
+                    console.log("result", result);
                     return result
                 } //水平圆角
                 )
@@ -436,7 +433,7 @@
                     }
                     return color;
                 }).attr('x', function (d) {
-                    // console.log(d.name+"---"+ d.name.length);
+                    console.log(d.name+"---"+ d.name.length);
                     var re_en = /[a-zA-Z]+/g;
                     //如果是全英文，不换行
                     // if(typeof(d.name.match())==undefined){
@@ -447,14 +444,14 @@
                             .text(function () { return d.name; });
                     }
                         //如果小于四个字符，不换行
-                    else if (d.name.length <= 6) {
+                    else if (d.name.length <= 10) {
                         d3.select(this).append('tspan')
                             .attr('x', 0)
                             .attr('y', 2)
                             .text(function () { return d.name; });
                     } else {
-                        var top = d.name.substring(0, 6);
-                        var bot = d.name.substring(6, d.name.length);
+                        var top = d.name.substring(0, 10);
+                        var bot = d.name.substring(10, d.name.length);
 
                         d3.select(this).text(function () { return ''; });
 
@@ -510,8 +507,10 @@
                 }
                 //设置圆圈和文字的坐标
                 function transform1(d) {
-                    var aa = d.x - 50;
-                    var bb = d.y - 20;
+                    //var aa = d.x - 50;
+                    //var bb = d.y - 20;
+                    var aa = d.x - 60;
+                    var bb = d.y - 25;
                     return "translate(" + aa + "," + bb + ")";
                 }
                 function transform2(d) {
