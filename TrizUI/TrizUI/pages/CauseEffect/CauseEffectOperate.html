@@ -17,7 +17,7 @@
                         <div class="widget-header widget-header-flat">
                             <h4 class="smaller">目前问题
                             </h4>
-                            <span class="widget-toolbar" ng-show="ComponentParamInfoList[0].Disabled!=true">
+                            <span class="widget-toolbar">
                                 <a href="" ng-click="SaveCurrentProblemDes()">
                                     <i class="icon-save"></i>
                                 </a>
@@ -106,6 +106,7 @@
                 <primary-componentparam></primary-componentparam>
 
 
+                <script type='text/ng-template' id='componentParam.html'> 
                 <div class="row" ng-repeat="ComponentRelInfoList in ComponentRelInfoListSection">
                     <div class="widget-box">
                         <div class="widget-header widget-header-flat">
@@ -176,7 +177,10 @@
                     </div>
 
                 </div>
+                </script>
+                <component-param></component-param>
 
+                <script type='text/ng-template' id='conflictList.html'> 
                 <div class="row">
                     <div class="widget-box">
                         <div class="widget-header widget-header-flat">
@@ -221,15 +225,18 @@
                         </div>
                     </div>
                 </div>
+                </script>
+                <conflict-list></conflict-list>
             </div>
 
             <div class="col-sm-6">
+
+                <script type='text/ng-template' id='reactMap.html'> 
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="widget-box">
                             <div class="widget-header widget-header-flat">
                                 <h4 class="smaller">相互作用表</h4>
-
                             </div>
 
                             <div class="widget-body">
@@ -241,6 +248,8 @@
                         </div>
                     </div>
                 </div>
+                </script>
+                <react-map></react-map>
             </div>
         </div>
     </div>
