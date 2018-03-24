@@ -71,15 +71,17 @@
                     }
                 });
             }
-
+            //修改事件
             scope.UpdateParamInfoOperate = function () {
                 bootbox.confirm("修改操作会清除当前分析结果之后的内容，确认该操作吗？", function (result) {
                     if (result) {
-                        scope.$apply(function () {
-                            scope.ComponentRelInfoListSection = [];
-                            scope.ConflictInfoList = [];
-                            scope.SetComponentParamInfoListDisabled(false);
-                        });
+                        scope.DeleteAfterSectionIndexFromDB(-1);
+                        scope.ComponentRelInfoListSection = [];
+
+                        scope.ClearAllConflictFromDB();
+                        scope.ConflictInfoList = [];
+                        scope.SetComponentParamInfoListDisabled(false);
+                        scope.$apply();
                     }
                 });
             }

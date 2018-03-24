@@ -32,9 +32,10 @@
             scope.UpdateSectionOperate = function (i) {
                 bootbox.confirm("修改操作会清除当前分析结果之后的内容，确认该操作吗？", function (result) {
                     if (result) {
-                        //cleare section after i.
+                        //clear section after i.
+                        scope.DeleteAfterSectionIndexFromDB(i);
+                        scope.ClearAllConflictFromDB();
                         scope.ComponentRelInfoListSection.splice(i + 1, scope.ComponentRelInfoListSection.length - i - 1);
-
                         //clear conflict list
                         scope.ConflictInfoList = [];
 
@@ -46,6 +47,14 @@
                         scope.$apply();
                     }
                 });
+            }
+
+            scope.DeleteAfterSectionIndexFromDB = function (index) {
+                for (var i = index + 1; i < scope.ComponentRelInfoListSection.length; i++) {
+                    for (var j = 0; j < scope.ComponentRelInfoListSection[i].length; j++) {
+                        requestService.delete("ComponentRels", scope.ComponentRelInfoListSection[i][j].ID).then(function (data) { });
+                    }
+                }
             }
 
             //保存事件

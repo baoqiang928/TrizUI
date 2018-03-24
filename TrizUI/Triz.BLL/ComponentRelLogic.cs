@@ -40,6 +40,11 @@ namespace Triz.BLL
         {
             return new ComponentRelDAL().Query(ProjectID,SectionID,ImpactParamName,Disabled, pageIndex, pageSize, ref totalItems, ref PagesLength);
         }
+
+        public void DeleteBySectionID(int SectionID)
+        {
+            new ComponentRelDAL().DeleteBySectionID(SectionID);
+        }
     }
 }
 

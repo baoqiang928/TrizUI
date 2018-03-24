@@ -121,6 +121,38 @@ namespace Triz.DAL
             return 0;
         }
 
+        public int DeleteBySectionID(int SectionID)
+        {
+            using (TrizDBEntities TrizDB = new TrizDBEntities())
+            {
+                try
+                {
+                    var Query = TrizDB.tbl_ComponentRelInfo.Where(o => o.SectionID == SectionID).FirstOrDefault();
+                    if (Query == null) return 0;
+                    TrizDB.tbl_ComponentRelInfo.Remove(Query);
+                    return TrizDB.SaveChanges();
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+                {
+                    Exception raise = dbEx;
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            string message = string.Format("{0},{1}",
+                                validationErrors.Entry.Entity.ToString(),
+                                validationError.ErrorMessage);
+                            raise = new InvalidOperationException(message, raise);
+                            throw raise;
+                        }
+                    }
+                }
+            }
+            return 0;
+        }
+
+        
+
         public ComponentRelInfo GetByID(int ID)
         {
             using (TrizDBEntities TrizDB = new TrizDBEntities())

@@ -41,6 +41,13 @@
 
             };
 
+            scope.ClearAllConflictFromDB = function () {
+                for (var i = 0; i < scope.ConflictInfoList.length; i++) {
+                    requestService.delete("Conflicts", scope.ConflictInfoList[i].ID).then(function (data) { });
+                }
+            }
+
+
             var GetConflicts = function () {
                 var data = {
                     currentPage: "",

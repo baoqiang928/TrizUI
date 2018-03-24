@@ -155,6 +155,7 @@
     <Compile Include="Controllers\CauseEffectCurProblemsController.cs" />
     <Compile Include="Controllers\ComponentParamsController.cs" />
     <Compile Include="Controllers\ComponentRelsController.cs" />
+    <Compile Include="Controllers\ComponentRelSectionController.cs" />
     <Compile Include="Controllers\ConflictsController.cs" />
     <Compile Include="Controllers\Default1Controller.cs" />
     <Compile Include="Controllers\FunctionElementsController.cs" />
