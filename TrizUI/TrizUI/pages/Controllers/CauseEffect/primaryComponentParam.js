@@ -18,7 +18,7 @@
             //保存
             scope.SaveParamInfoOperate = function () {
                 scope.ClearComponentRelInfoListAndSection();
-                scope.InsertComponentToRelInfoList();
+                //scope.InsertComponentToRelInfoList();
                 scope.InsertComponentRelInfoListToSection();
                 scope.INIRelListFromPreSection();
                 //set disabled
@@ -50,17 +50,14 @@
             };
 
             scope.ClearComponentRelInfoListAndSection = function () {
-                scope.ComponentRelInfoList = [];
                 scope.ComponentRelInfoListSection = [];
             };
 
-            scope.InsertComponentToRelInfoList = function () {
-                var componentRelInfo = new scope.ComponentRelInfo();
-                scope.ComponentRelInfoList.push(componentRelInfo);
-            };
-
             scope.InsertComponentRelInfoListToSection = function () {
-                scope.ComponentRelInfoListSection.push(scope.ComponentRelInfoList);
+                var componentRelInfo = new scope.ComponentRelInfo();
+                var ComponentRelInfoList = [];
+                ComponentRelInfoList.push(componentRelInfo);
+                scope.ComponentRelInfoListSection.push(ComponentRelInfoList);
             };
 
             scope.DeleteComponentParamInfo = function (index) {
@@ -79,7 +76,6 @@
                 bootbox.confirm("修改操作会清除当前分析结果之后的内容，确认该操作吗？", function (result) {
                     if (result) {
                         scope.$apply(function () {
-                            scope.ComponentRelInfoList = [];
                             scope.ComponentRelInfoListSection = [];
                             scope.ConflictInfoList = [];
                             scope.SetComponentParamInfoListDisabled(false);

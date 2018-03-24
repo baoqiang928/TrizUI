@@ -2,7 +2,6 @@
     .controller('CauseEffectCtrl', function ($scope, $location, requestService, $state, locals) {
         $scope.CurrentProjectID = locals.get("ProjectID");
         $scope.ParamTypes = [{ id: 1, name: '独立变量' }, { id: 2, name: '非独立变量' }];
-        $scope.ComponentRelInfoList = [];
         $scope.ComponentRelInfoListSection = [];
         $scope.SrcComponentInfo = function () {
             this.ID = "";

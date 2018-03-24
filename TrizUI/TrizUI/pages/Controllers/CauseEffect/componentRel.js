@@ -94,26 +94,22 @@
                 data.currentPage = 1;
                 data.itemsPerPage = 9999;
                 requestService.lists("ComponentRels", data).then(function (data) {
-                    console.log("data", data);
                     scope.ComponentRelInfoListSection = [];
-                    scope.ComponentRelInfoList = [];
+                    var ComponentRelInfoList = [];
                     var j = 0;
-                    var IsLast = 0;
+                    console.log("data Results", data.Results);
                     for (var i = 0; i < data.Results.length; i++) {
                         if (j == data.Results[i].SectionID) {
-                            var ComponentParamInfo = data.Results[i];
-                            scope.ComponentRelInfoList.push(ComponentParamInfo);
-                            IsLast = 1;
+                            ComponentRelInfoList.push(data.Results[i]);
                         }
                         else {
                             j = data.Results[i].SectionID;
-                            scope.ComponentRelInfoListSection.push(scope.ComponentRelInfoList);
-                            IsLast = 0;
+                            scope.ComponentRelInfoListSection.push(ComponentRelInfoList);
+                            ComponentRelInfoList = [];
+                            ComponentRelInfoList.push(data.Results[i]);
                         }
                     }
-                    if (IsLast == 1) {
-                        scope.ComponentRelInfoListSection.push(scope.ComponentRelInfoList);
-                    }
+                    scope.ComponentRelInfoListSection.push(ComponentRelInfoList);
                     console.log("scope.ComponentRelInfoListSection", scope.ComponentRelInfoListSection);
                     console.log("scope.ComponentRelInfoList", scope.ComponentRelInfoList);
                 });
