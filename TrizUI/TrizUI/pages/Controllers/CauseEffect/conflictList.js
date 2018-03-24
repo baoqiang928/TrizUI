@@ -25,10 +25,9 @@
             //保存事件
             scope.SaveConflict = function () {
                 SaveToConflictListToDB();
-                //scope.GenerateMap();
+                scope.GenerateMap();
             };
             function SaveToConflictListToDB() {
-                console.log("scope.ConflictInfoList", scope.ConflictInfoList);
                 for (var i = 0; i < scope.ConflictInfoList.length; i++) {
                     scope.ConflictInfoList[i].ProjectID = CurrentProjectID;
                     if (scope.ConflictInfoList[i].ID == "") {

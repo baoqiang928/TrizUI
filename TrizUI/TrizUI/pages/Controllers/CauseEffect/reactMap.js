@@ -58,7 +58,6 @@
                 }
 
                 //改变设置
-                console.log("scope.ConflictInfoList", scope.ConflictInfoList);
                 for (var j = 0; j < scope.ConflictInfoList.length; j++) {
                     var n = scope.ComponentsForMapNodeXY[scope.ConflictInfoList[j].RelComponentName + " " + scope.ConflictInfoList[j].RelComponentParamName];
                     var newn = {};
@@ -78,17 +77,17 @@
                     scope.ComponentsForMapNodeXY[newn.name] = newn;
                 }
 
-                console.log("scope.ComponentsForMapNodeXY", scope.ComponentsForMapNodeXY);
             };
 
-            function SetOrder(list, index) {
+            function SetOrder(ComponentRelInfoList, index) {
                 var newlist = [];
                 //功能参数列表 第一行
                 if (index == 0) {
                     for (var i = 0; i < scope.ComponentParamInfoList.length; i++) {
-                        for (var j = 0; j < list.length; j++) {
-                            if (list[j].ComponentName == scope.ComponentParamInfoList[i].ComponentName + " " + scope.ComponentParamInfoList[i].ParamName) {
-                                newlist.push(list[j]);
+                        for (var j = 0; j < ComponentRelInfoList.length; j++) {
+
+                            if (ComponentRelInfoList[j].ComponentParamName == scope.ComponentParamInfoList[i].ComponentName + " " + scope.ComponentParamInfoList[i].ParamName) {
+                                newlist.push(ComponentRelInfoList[j]);
                             }
                         }
                     }
@@ -96,9 +95,9 @@
                 }
 
                 for (var i = 0; i < scope.ComponentRelInfoListSection[index - 1].length; i++) {
-                    for (var j = 0; j < list.length; j++) {
-                        if (list[j].ComponentName == scope.ComponentRelInfoListSection[index - 1][i].ImpactComponentName + " " + scope.ComponentRelInfoListSection[index - 1][i].ImpactParamName) {
-                            newlist.push(list[j]);
+                    for (var j = 0; j < ComponentRelInfoList.length; j++) {
+                        if (ComponentRelInfoList[j].ComponentParamName == scope.ComponentRelInfoListSection[index - 1][i].ImpactComponentName + " " + scope.ComponentRelInfoListSection[index - 1][i].ImpactParamName) {
+                            newlist.push(ComponentRelInfoList[j]);
                         }
                     }
                 }
@@ -108,16 +107,9 @@
 
             scope.CurrentProblemDes = "";
 
-            //requestService.getobj(Sources, scope.CurrentProjectID).then(function (data) {
-            //    scope.CurrentProblemDes = data.ProblemDescription;
-            //});
-
-
-
             scope.links = [];
             function ConvertToMapLinks() {
                 scope.links = [];
-                console.log("scope.ComponentParamInfoList", scope.ComponentParamInfoList);
                 //来源一：初级功能参数列表
                 for (var i = 0; i < scope.ComponentParamInfoList.length; i++) {
                     var link = {};
@@ -139,7 +131,7 @@
                     for (var i = 0; i < CptParamList.length; i++) {
                         var link = {};
                         link.ID = i;
-                        link.source = CptParamList[i].ComponentName;
+                        link.source = CptParamList[i].ComponentParamName;
                         link.target = CptParamList[i].ImpactComponentName + " " + CptParamList[i].ImpactParamName;
                         link.effect = "1";
                         link.type = "";
@@ -180,7 +172,6 @@
                     link.TargetID = i;
                     scope.links.push(link);
                 }
-                console.log("scope.links", scope.links);
             }
 
             scope.Draw = function () {
@@ -351,13 +342,14 @@
                 })
                 .attr(
                 "xlink:href", function (node) {
+                    console.log("node", node);
                     console.log("node.name", node.name + "aaa");
-                    var ConponentParamNode = scope.ComponentsForMapNodeXY[node.name];
-                    console.log("ConponentParamNode", ConponentParamNode);
-                    if (IsNum(ConponentParamNode.x) && (IsNum(ConponentParamNode.y))) {
+                    var ComponentParamNode = scope.ComponentsForMapNodeXY[node.name];
+                    console.log("ConponentParamNode", ComponentParamNode);
+                    if (IsNum(ComponentParamNode.x) && (IsNum(ComponentParamNode.y))) {
                         node.fixed = true;  //这里可以固定，并且设置位置----baoqiang
-                        node.px = ConponentParamNode.x;
-                        node.py = ConponentParamNode.y;
+                        node.px = ComponentParamNode.x;
+                        node.py = ComponentParamNode.y;
                     }
                     //node.fixed = true;
 

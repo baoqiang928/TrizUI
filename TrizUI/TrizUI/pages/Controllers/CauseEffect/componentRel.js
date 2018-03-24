@@ -106,7 +106,6 @@
                     scope.ComponentRelInfoListSection = [];
                     var ComponentRelInfoList = [];
                     var j = 0;
-                    console.log("data Results", data.Results);
                     for (var i = 0; i < data.Results.length; i++) {
                         if (j == data.Results[i].SectionID) {
                             ComponentRelInfoList.push(data.Results[i]);
@@ -119,8 +118,6 @@
                         }
                     }
                     scope.ComponentRelInfoListSection.push(ComponentRelInfoList);
-                    console.log("scope.ComponentRelInfoListSection", scope.ComponentRelInfoListSection);
-                    console.log("scope.ComponentRelInfoList", scope.ComponentRelInfoList);
                 });
             }
 
