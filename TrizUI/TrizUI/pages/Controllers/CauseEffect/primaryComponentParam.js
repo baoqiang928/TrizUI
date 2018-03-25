@@ -116,7 +116,28 @@
                     scope.INIRelListFromPreSection();//初始化 功能参数列表 -> 问题相关元件 特征参数 -> 下拉框
                 });
             }
-            GetComponentParams();
+
+            //取所有叶子结点。
+            var GetTreeNodes = function () {
+                scope.QueryData = {
+                    ProjectID: "",
+                    ForAllLeafNodes:""
+                };
+                scope.QueryData.ProjectID = scope.CurrentProjectID;
+                requestService.lists("FunctionElements", scope.QueryData).then(function (data) {
+                    console.log("data.json", data);
+                    for (var i = 0; i < data.length; i++) {
+                        var objSrcComponentInfo = new scope.SrcComponentInfo();
+                        objSrcComponentInfo.ID = data[i].ID;
+                        objSrcComponentInfo.Name = data[i].EleName;
+                        scope.SrcComponentInfoList.push(objSrcComponentInfo);
+                    }
+                    GetComponentParams();
+                });
+            };
+            GetTreeNodes();
+
+
         },
 
 

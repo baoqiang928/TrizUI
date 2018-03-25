@@ -47,7 +47,7 @@ namespace MvcApplication1.Controllers
         /// </summary>
         /// <param name="ProjectID"></param>
         /// <returns></returns>
-        public IEnumerable<FunctionElementInfo> Get([FromUri]string ProjectID, string EleName)
+        public IEnumerable<FunctionElementInfo> Get([FromUri]string ProjectID,string ForAllLeafNodes)
         {
             return new FunctionElementLogic().QueryLeafs(ProjectID);
         }

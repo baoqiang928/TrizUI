@@ -22,25 +22,6 @@
         $scope.ConflictInfoList = [];
 
 
-        var objSrcComponentInfo = new $scope.SrcComponentInfo();
-        objSrcComponentInfo.ID = "1";
-        objSrcComponentInfo.Name = "缆绳";
-        $scope.SrcComponentInfoList.push(objSrcComponentInfo);
-
-        objSrcComponentInfo = new $scope.SrcComponentInfo();
-        objSrcComponentInfo.ID = "2";
-        objSrcComponentInfo.Name = "导向架";
-        $scope.SrcComponentInfoList.push(objSrcComponentInfo);
-
-        objSrcComponentInfo = new $scope.SrcComponentInfo();
-        objSrcComponentInfo.ID = "3";
-        objSrcComponentInfo.Name = "卷筒";
-        $scope.SrcComponentInfoList.push(objSrcComponentInfo);
-
-        objSrcComponentInfo = new $scope.SrcComponentInfo();
-        objSrcComponentInfo.ID = "4";
-        objSrcComponentInfo.Name = "人";
-        $scope.SrcComponentInfoList.push(objSrcComponentInfo);
 
         //初级功能参数列表 
         $scope.ComponentParamInfo = function () {
