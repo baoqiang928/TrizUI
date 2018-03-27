@@ -626,6 +626,7 @@
     <Content Include="pages\Controllers\DataPicker.js" />
     <Content Include="pages\Controllers\DrawUtil.js" />
     <Content Include="pages\Controllers\FunctionAnalyseCtrl.js" />
+    <Content Include="pages\Controllers\FunctionAnalyse\magicField.js" />
     <Content Include="pages\Controllers\QuestionAnalyseOpeCtrl.js" />
     <Content Include="pages\Controllers\MasterCtrl.js" />
     <Content Include="pages\Controllers\ProjectOpeCtrl.js" />
@@ -819,6 +820,7 @@
   <ItemGroup>
     <Content Include="Doc\Objects.xlsx" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -1,5 +1,30 @@
 ﻿angular.module("myApp")
     .controller('StandardSolutionCtrl', function ($scope, $location) {
+        $scope.aaa = false;
+        $scope.bbb = false;
+        $scope.bbb = true;
+
+        $scope.data = [
+            {
+                fieldTypeId: 2,
+                title: 'first name'
+            },
+            {
+                fieldTypeId: 1,
+                title: 'this is text area'
+            }
+        ];
+
+        $scope.aaa = function () {
+            var a = {};
+            a.fieldTypeId = 2;
+            a.title = "asdfadsf";
+            $scope.data.push(a);
+        }
+        $scope.bbb = function () {
+            alert(1);
+        }
+        //////////////////////////////////////////////////////////////////
 
         ClearAndHide("改变的规则|物质-场模型|相互作用类型|标准解1|方案是否有效1|标准解2|方案是否有效2|标准解3|方案是否有效3");
 
@@ -19,6 +44,9 @@
 
             var target = $(this).find('input[type=radio]');
             var which = target.val();
+
+            alert(which);
+
 
             //1 预测改变的潜力  
             if (which == "10") {
@@ -329,3 +357,5 @@
         }
 
     });
+
+

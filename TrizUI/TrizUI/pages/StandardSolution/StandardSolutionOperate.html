@@ -16,7 +16,32 @@
                         <input type="text" id="form-field-1" class="col-xs-10 col-sm-5" />
                     </div>
                 </div>
+                <script type='text/ng-template' id='tpl/mgfield/input.html'> 
+                    aaaaaaaaaaaaa
+                </script>
+                <script type='text/ng-template' id='tpl/mgfield/textarea.html'> 
+                     <label class="col-sm-3 control-label no-padding-right" for="form-field-2">改变的规则 </label>
+                    <div class="col-sm-9">
+                        <span id="Span1" data-toggle="buttons" class="btn-group no-margin">
+                            <label id="label4" class="btn btn-xs btn-yellow active" ng-click="aaa()">
+                                <input type="radio" value="999" />
+                                超系统或子系统的改变999
+                           
+                            </label>
 
+                            <label id="label5" class="btn btn-xs btn-yellow" ng-click="bbb()">
+                                <input type="radio" value="888" />
+                                最小改变000
+                           
+                            </label>
+
+                        </span>
+                    </div>
+                </script>
+
+                <div class="form-group" ng-repeat="field in data">
+                    <current-probleml type="{{field.fieldTypeId}}"></current-probleml>
+                </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-2">需要的工作 </label>
                     <div class="col-sm-9">
@@ -24,16 +49,19 @@
                             <label id="label1" class="btn btn-xs btn-yellow active">
                                 <input type="radio" value="10" />
                                 预测改变的潜力
+                           
                             </label>
 
                             <label id="label2" class="btn btn-xs btn-yellow">
                                 <input type="radio" value="11" />
                                 系统改进
+                           
                             </label>
 
                             <label id="label3" class="btn btn-xs btn-yellow">
                                 <input type="radio" value="12" />
                                 添加检测、测量功能
+                           
                             </label>
 
                         </span>
@@ -48,11 +76,13 @@
                             <label id="label4" class="btn btn-xs btn-yellow active">
                                 <input type="radio" value="101" />
                                 超系统或子系统的改变
+                           
                             </label>
 
                             <label id="label5" class="btn btn-xs btn-yellow">
                                 <input type="radio" value="102" />
                                 最小改变
+                           
                             </label>
 
                         </span>
@@ -208,16 +238,19 @@
                             <label id="label7" class="btn btn-xs btn-yellow active">
                                 <input type="radio" value="211" />
                                 缺乏
+                           
                             </label>
 
                             <label id="label8" class="btn btn-xs btn-yellow">
                                 <input type="radio" value="212" />
                                 有害
+                           
                             </label>
 
                             <label id="label9" class="btn btn-xs btn-yellow">
                                 <input type="radio" value="213" />
                                 不充分
+                           
                             </label>
 
                         </span>
@@ -239,11 +272,13 @@
                             <label id="labelinvalid1" class="btn btn-xs btn-yellow active">
                                 <input type="radio" value="invalid1" />
                                 无效
+                           
                             </label>
 
                             <label id="labelvalid1" class="btn btn-xs btn-yellow">
                                 <input type="radio" value="valid1" />
                                 有效
+                           
                             </label>
 
                         </span>
@@ -265,11 +300,13 @@
                             <label id="labelinvalid2" class="btn btn-xs btn-yellow active">
                                 <input type="radio" value="invalid2" />
                                 无效
+                           
                             </label>
 
                             <label id="labelvalid2" class="btn btn-xs btn-yellow">
                                 <input type="radio" value="valid2" />
                                 有效
+                           
                             </label>
 
                         </span>
@@ -292,136 +329,20 @@
                             <label id="labelinvalid3" class="btn btn-xs btn-yellow active">
                                 <input type="radio" value="invalid3" />
                                 无效
+                           
                             </label>
 
                             <label id="labelvalid3" class="btn btn-xs btn-yellow">
                                 <input type="radio" value="valid3" />
                                 有效
+                           
                             </label>
 
                         </span>
                     </div>
                 </div>
 
-                <div id="modal-table" class="modal fade" tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header no-padding">
-                                <div class="table-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                        <span class="white">&times;</span>
-                                    </button>
-                                    标准解与案例
-                                </div>
-                            </div>
 
-                            <div class="widget-body">
-                                <div class="widget-main">
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <div class="dd">
-                                                <ol class="dd-list">
-
-                                                    <li class="dd-item" data-id="13">
-                                                        <div class="dd2-content">
-                                                            <span class="orange">1 传递到双系统或多系统</span>
-                                                        </div>
-                                                        <ol class="dd-list">
-                                                            <li class="dd-item" data-id="16">
-                                                                <div class="dd2-content">
-                                                                    No.37 系统传递（a）： 产生双系统或多系统。
-                                                                </div>
-                                                                <ol class="dd-list">
-                                                                    <li class="dd-item" data-id="16">
-                                                                        <div class="dd2-content">
-                                                                            No.37 (3.1.4)                                          
-                                                                            <div class="pull-right action-buttons">
-                                                                                <a class="blue" href="#">
-                                                                                    <i class="icon-key bigger-130"></i>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-
-                                                                    <li class="dd-item" data-id="17">
-                                                                        <div class="dd2-content">
-                                                                            No.37 (3.1.5)                                          
-                                                                            <div class="pull-right action-buttons">
-                                                                                <a class="blue" href="#">
-                                                                                    <i class="icon-key bigger-130"></i>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                </ol>
-                                                            </li>
-                                                        </ol>
-                                                        <ol class="dd-list">
-                                                            <li class="dd-item" data-id="16">
-                                                                <div class="dd2-content">
-                                                                    No.38 改进双系统或多系统中的连接。                                           
-                                                                </div>
-                                                                <ol class="dd-list">
-                                                                    <li class="dd-item" data-id="16">
-                                                                        <div class="dd2-content">
-                                                                            No.38 (3.1.9)                                           
-                                                                            <div class="pull-right action-buttons">
-                                                                                <a class="blue" href="#">
-                                                                                    <i class="icon-key bigger-130"></i>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-
-                                                                    <li class="dd-item" data-id="17">
-                                                                        <div class="dd2-content">
-                                                                            No.38 (3.1.10)                                           
-                                                                            <div class="pull-right action-buttons">
-                                                                                <a class="blue" href="#">
-                                                                                    <i class="icon-key bigger-130"></i>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                </ol>
-                                                            </li>
-                                                        </ol>
-                                                    </li>
-
-                                                    <li class="dd-item" data-id="15">
-                                                        <div class="dd2-content">
-                                                            <span class="orange">2 传递到微观水平</span>
-                                                        </div>
-                                                        <ol class="dd-list">
-                                                            <li class="dd-item dd2-item" data-id="16">
-                                                                <div class="dd2-content">
-                                                                    No.42 系统传递（d）：传递到微观水平
-                                                                </div>
-                                                            </li>
-                                                        </ol>
-                                                    </li>
-
-                                                </ol>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-                                </div>
-                            </div>
-
-                            <div class="modal-footer no-margin-top">
-                                <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
-                                    <i class="icon-remove"></i>
-                                    关闭
-                                </button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div>
 
                 <div class="space-4"></div>
 
@@ -430,12 +351,15 @@
                         <button class="btn btn-info" type="button" onclick="window.history.back()">
                             <i class="icon-ok bigger-110"></i>
                             保存
+                       
                         </button>
 
                         &nbsp; &nbsp; &nbsp;
-						<button class="btn" type="reset" onclick="window.history.back()">
+					
+                        <button class="btn" type="reset" onclick="window.history.back()">
                             <i class="icon-arrow-left bigger-110"></i>
                             返回
+                       
                         </button>
                     </div>
                 </div>
