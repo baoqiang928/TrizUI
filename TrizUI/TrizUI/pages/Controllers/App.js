@@ -110,8 +110,8 @@ var StoreService = angular.module('StoreService', []);
 //请求服务
 StoreService.factory('requestService', function ($http, $q) {
 
-    var ApiUrl = "http://localhost:2072/api/";
-    //var ApiUrl = "http://101.201.67.155:81/api/";
+    //var ApiUrl = "http://localhost:2072/api/";
+    var ApiUrl = "http://101.201.67.155:81/api/";
     var request = {
         method: 'POST',
         url: '',

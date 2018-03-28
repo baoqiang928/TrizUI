@@ -7,12 +7,13 @@
         //transclude: true,
         link: function ($scope, $element, $attr) {
             $scope.getContentUrl = function () {
-                if ($attr.type == 1) {
-                    template = 'tpl/mgfield/input.html'
-                }
-                if ($attr.type == 2) {
-                    template = 'tpl/mgfield/textarea.html'
-                }
+                template = $attr.type;
+                //if ($attr.type == 1) {
+                //    template = 'standardsolution.html'
+                //}
+                //if ($attr.type == 2) {
+                //    template = 'need.html'
+                //}
                 return template;
             }
         }

@@ -176,7 +176,10 @@
     <Content Include="blank.html" />
     <Content Include="buttons.html" />
     <Content Include="calendar.html" />
+    <Content Include="Doc\3.png" />
     <Content Include="Doc\tasks.txt" />
+    <Content Include="Doc\微信图片_20171010151612.png" />
+    <Content Include="Doc\微信图片_20180321163424.png" />
     <Content Include="dropzone.html" />
     <Content Include="elements.html" />
     <Content Include="Enterprise\Controllers\App.js" />
@@ -626,7 +629,7 @@
     <Content Include="pages\Controllers\DataPicker.js" />
     <Content Include="pages\Controllers\DrawUtil.js" />
     <Content Include="pages\Controllers\FunctionAnalyseCtrl.js" />
-    <Content Include="pages\Controllers\FunctionAnalyse\magicField.js" />
+    <Content Include="pages\Controllers\StandardSolution\magicField.js" />
     <Content Include="pages\Controllers\QuestionAnalyseOpeCtrl.js" />
     <Content Include="pages\Controllers\MasterCtrl.js" />
     <Content Include="pages\Controllers\ProjectOpeCtrl.js" />
@@ -820,7 +823,12 @@
   <ItemGroup>
     <Content Include="Doc\Objects.xlsx" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Doc\标准解.vsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="pages\Controllers\FunctionAnalyse\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

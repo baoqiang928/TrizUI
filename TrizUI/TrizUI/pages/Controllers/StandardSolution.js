@@ -1,29 +1,157 @@
 ﻿angular.module("myApp")
     .controller('StandardSolutionCtrl', function ($scope, $location) {
+        //$scope.aaa = false;
+        //$scope.bbb = false;
+        //$scope.bbb = true;
+
+        //$scope.data = [
+        //    {
+        //        fieldTypeId: "need.html",
+        //        title: 'first name'
+        //    },
+        //    {
+        //        fieldTypeId: "standardsolution.html",
+        //        title: 'this is text area'
+        //    }
+        //];
+
+        //$scope.aaa = function () {
+        //    var a = {};
+        //    a.fieldTypeId = 2;
+        //    a.title = "asdfadsf";
+        //    $scope.data.push(a);
+        //}
+        //$scope.bbb = function () {
+        //    alert(1);
+        //}
+
         $scope.aaa = false;
         $scope.bbb = false;
         $scope.bbb = true;
 
-        $scope.data = [
-            {
-                fieldTypeId: 2,
-                title: 'first name'
-            },
-            {
-                fieldTypeId: 1,
-                title: 'this is text area'
-            }
-        ];
+        $scope.ControlList = [];//决定了显示什么控件
+        $scope.control = function () {
+            TemplateName: "";
+            DisplayName: "";
+            Code: ""
+            Value: ""
+        };
+        var control = new $scope.control();
+        control.TemplateName = "need.html";
+        control.DisplayName = "需要做的工作";
+        control.Code = "need";
+        control.Value = "";
+        $scope.ControlList.push(control);
 
-        $scope.aaa = function () {
-            var a = {};
-            a.fieldTypeId = 2;
-            a.title = "asdfadsf";
-            $scope.data.push(a);
+        //var control1 = new $scope.control();
+        //control1.TemplateName = "standardsolution.html";
+        //control1.DisplayName = "standardsolution.html";
+        //control1.Value = "standardsolution.html";
+        //$scope.ControlList.push(control1);
+        $scope.NextStep = function () {
+            console.log("$scope.ControlList", $scope.ControlList);
         }
-        $scope.bbb = function () {
-            alert(1);
+        $scope.ControlCodeList = [];//已选控件值路径
+
+        $scope.Choose = function (Code) {
+            //1 从ControlCodeList当前位置截断后面的所有内容
+            ClearAfterThatInControlCodeList(Code);
+            console.log("ClearAfterThatInControlCodeList-ControlCodeList", $scope.ControlCodeList);
+            //2 从ControlList当前位置删除后面所有内容
+            ClearAfterThatInControlList(GetControlByCode(Code));
+            console.log("ClearAfterThatInControlList-ControlList", $scope.ControlList);
+            //3 把新值补充到最后
+            $scope.ControlList.push(GetControlByCode(Code));
+            console.log("$scope.ControlList.push", $scope.ControlList);
+            $scope.ControlCodeList.push(Code);
+            console.log("$scope.ControlCodeList.push", $scope.ControlCodeList);
+            //4 计算出下一个显示的控件，加入到ControlList里面。
+            $scope.ControlList.push(GetNextControl());
+            //var a = {};
+            //a.fieldTypeId = 2;
+            //a.title = "asdfadsf";
+            //$scope.data.push(a);
         }
+
+        //1 从ControlCodeList当前位置截断后面的所有内容
+        function ClearAfterThatInControlCodeList(Code) {
+            for (var i = 0; i < $scope.ControlCodeList.length; i++) {
+                //if ($scope.ControlCodeList[i] == Code) {//要把同一个的控件其他Code的都删除
+                if (GetAllOfCodes(Code).indexOf("," + $scope.ControlCodeList[i] + ",") >= 0) {
+                    $scope.ControlCodeList.splice(i, $scope.ControlCodeList.length - i + 1);
+                    return;
+                }
+            }
+        }
+
+        //2 从ControlList当前位置删除后面所有内容
+        function ClearAfterThatInControlList(Control) {
+            for (var i = 0; i < $scope.ControlList.length; i++) {
+                if ($scope.ControlList[i].TemplateName == Control.TemplateName) {
+                    $scope.ControlList.splice(i, $scope.ControlList.length - i + 1);
+                    return;
+                }
+            }
+        }
+
+        function GetAllOfCodes(Code) {
+            if ((Code == "work1") || (Code == "work2") || (Code == "work3")) {
+                return ",work1,work2,work3,";
+            }
+        }
+
+        function GetControlByCode(Code) {
+            if ((Code == "work1") || (Code == "work2") || (Code == "work3")) {
+                var need = new $scope.control();
+                need.TemplateName = "need.html";
+                need.DisplayName = "需要";
+                need.Code = "need";
+                need.Value = "";
+                return need;
+            }
+            if (Code == "solution4") {
+                var solution4 = new $scope.control();
+                solution4.TemplateName = "standardsolution.html";
+                solution4.DisplayName = "第4类标准解";
+                solution4.Code = "solution4";
+                solution4.Value = "";
+                return solution4;
+            }
+        }
+
+        function GetNextControl() {
+            var Codes = "";
+            for (var i = 0; i < $scope.ControlCodeList.length; i++) {
+                Codes = Codes + $scope.ControlCodeList[i];
+            }
+            if (Codes == "work1") {
+                var solution4 = new $scope.control();
+                solution4.TemplateName = "change.html";
+                solution4.DisplayName = "改变的规模";
+                solution4.Code = "solution4";
+                solution4.Value = "";
+                return solution4;
+            }
+            if (Codes == "work2") {
+                var solution4 = new $scope.control();
+                solution4.TemplateName = "chang.html";
+                solution4.DisplayName = "物质-场模型";
+                solution4.Code = "chang";
+                solution4.Value = "";
+                return solution4;
+            }
+            if (Codes == "work3") {
+                var solution4 = new $scope.control();
+                solution4.TemplateName = "standardsolution.html";
+                solution4.DisplayName = "需要做的工作";
+                solution4.Code = "solution4";
+                solution4.Value = "";
+                return solution4;
+            }
+        }
+
+
+        return;
         //////////////////////////////////////////////////////////////////
 
         ClearAndHide("改变的规则|物质-场模型|相互作用类型|标准解1|方案是否有效1|标准解2|方案是否有效2|标准解3|方案是否有效3");

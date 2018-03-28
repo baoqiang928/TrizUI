@@ -7,7 +7,6 @@
     <div class="row">
         <div class="col-xs-12">
             <!-- PAGE CONTENT BEGINS -->
-
             <form class="form-horizontal" role="form">
                 <div class="form-group">
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1">问题的简洁描述 </label>
@@ -16,60 +15,29 @@
                         <input type="text" id="form-field-1" class="col-xs-10 col-sm-5" />
                     </div>
                 </div>
-                <script type='text/ng-template' id='tpl/mgfield/input.html'> 
-                    aaaaaaaaaaaaa
-                </script>
-                <script type='text/ng-template' id='tpl/mgfield/textarea.html'> 
-                     <label class="col-sm-3 control-label no-padding-right" for="form-field-2">改变的规则 </label>
-                    <div class="col-sm-9">
-                        <span id="Span1" data-toggle="buttons" class="btn-group no-margin">
-                            <label id="label4" class="btn btn-xs btn-yellow active" ng-click="aaa()">
-                                <input type="radio" value="999" />
-                                超系统或子系统的改变999
-                           
-                            </label>
-
-                            <label id="label5" class="btn btn-xs btn-yellow" ng-click="bbb()">
-                                <input type="radio" value="888" />
-                                最小改变000
-                           
-                            </label>
-
-                        </span>
-                    </div>
-                </script>
-
-                <div class="form-group" ng-repeat="field in data">
-                    <current-probleml type="{{field.fieldTypeId}}"></current-probleml>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2">需要的工作 </label>
+                <script type='text/ng-template' id='need.html'> 
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2">需要做的工作1</label>
                     <div class="col-sm-9">
                         <span id="accordion-style" data-toggle="buttons" class="btn-group no-margin">
-                            <label id="label1" class="btn btn-xs btn-yellow active">
-                                <input type="radio" value="10" />
+                            <label id="label1" class="btn btn-xs btn-yellow active"  ng-click="Choose('work1')">
+                                <input type="radio" />
                                 预测改变的潜力
-                           
                             </label>
 
-                            <label id="label2" class="btn btn-xs btn-yellow">
-                                <input type="radio" value="11" />
+                            <label id="label2" class="btn btn-xs btn-yellow" ng-click="Choose('work2')">
+                                <input type="radio"/>
                                 系统改进
-                           
                             </label>
 
-                            <label id="label3" class="btn btn-xs btn-yellow">
-                                <input type="radio" value="12" />
+                            <label id="label3" class="btn btn-xs btn-yellow" ng-click="Choose('work3')">
+                                <input type="radio"/>
                                 添加检测、测量功能
-                           
                             </label>
-
                         </span>
                     </div>
-                </div>
-
-                <div id="Option10" class="form-group">
-                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2">改变的规则 </label>
+                </script>
+                <script type='text/ng-template' id='change.html'> 
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2">改变的规模</label>
 
                     <div class="col-sm-9">
                         <span id="Span1" data-toggle="buttons" class="btn-group no-margin">
@@ -87,10 +55,16 @@
 
                         </span>
                     </div>
-                </div>
-
-
-                <div id="Option20" class="form-group">
+                </script>
+                <script type='text/ng-template' id='standardsolution.html'> 
+                    <label id="DisplayLabel1" class="col-sm-3 control-label no-padding-right" for="form-field-2">{{c.DisplayName}}</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="txt_sol" ng-model="c.Value" readonly="" class="col-xs-10 col-sm-5" />
+                        <button class="blue" data-toggle="modal" data-target="#modal-table">选取</button>
+                        <button class="blue" ng-click="NextStep()">下一步</button>
+                    </div>
+                </script>
+                <script type='text/ng-template' id='chang.html'> 
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1">物质-场模型</label>
                     <div class="col-sm-9">
                         <table id="sample-table-2" style="width: 80%" class="table table-striped table-bordered table-hover">
@@ -229,7 +203,34 @@
                             </tbody>
                         </table>
                     </div>
+                </script>
+                <script type='text/ng-template' id='tpl/mgfield/textarea.html'> 
+                     <label class="col-sm-3 control-label no-padding-right" for="form-field-2">改变的规则 </label>
+                    <div class="col-sm-9">
+                        <span id="Span1" data-toggle="buttons" class="btn-group no-margin">
+                            <label id="label4" class="btn btn-xs btn-yellow active" ng-click="aaa()">
+                                <input type="radio" value="999" />
+                                超系统或子系统的改变999{{field.fieldTypeId}}111
+                           
+                            </label>
+
+                            <label id="label5" class="btn btn-xs btn-yellow" ng-click="bbb()">
+                                <input type="radio" value="888" />
+                                最小改变000
+                           
+                            </label>
+
+                        </span>
+                    </div>
+                </script>
+
+                <div class="form-group" ng-repeat="c in ControlList">
+                    <current-probleml type="{{c.TemplateName}}"></current-probleml>
                 </div>
+                
+
+
+
 
                 <div id="Option21" class="form-group">
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-2">相互作用类型</label>
