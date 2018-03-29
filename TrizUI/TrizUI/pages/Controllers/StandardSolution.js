@@ -76,7 +76,7 @@
         //1 从ControlCodeList当前位置截断后面的所有内容
         function ClearAfterThatInControlCodeList(Code) {
             for (var i = 0; i < $scope.ControlCodeList.length; i++) {
-                //if ($scope.ControlCodeList[i] == Code) {//要把同一个的控件其他Code的都删除
+                //要把同一个的控件其他Code的都删除
                 if (GetAllOfCodes(Code).indexOf("," + $scope.ControlCodeList[i] + ",") >= 0) {
                     $scope.ControlCodeList.splice(i, $scope.ControlCodeList.length - i + 1);
                     return;

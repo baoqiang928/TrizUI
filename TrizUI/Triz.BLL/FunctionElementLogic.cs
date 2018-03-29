@@ -130,6 +130,27 @@ namespace Triz.BLL
         {
             return new FunctionElementDAL().GetSons(ProjectID);
         }
+
+        public void CreateBasicRootNodes(int? ProjectID)
+        {
+            FunctionElementInfo FunctionElementInfo = new FunctionElementInfo();
+            FunctionElementInfo.ProjectID = ProjectID;
+            FunctionElementInfo.EleName = "整体系统";
+            FunctionElementInfo.ElementType = "整体系统";
+            SaveFunctionElement(FunctionElementInfo);
+
+            FunctionElementInfo = new FunctionElementInfo();
+            FunctionElementInfo.ProjectID = ProjectID;
+            FunctionElementInfo.EleName = "制品";
+            FunctionElementInfo.ElementType = "制品";
+            SaveFunctionElement(FunctionElementInfo);
+
+            FunctionElementInfo = new FunctionElementInfo();
+            FunctionElementInfo.ProjectID = ProjectID;
+            FunctionElementInfo.EleName = "超系统";
+            FunctionElementInfo.ElementType = "超系统";
+            SaveFunctionElement(FunctionElementInfo);
+        }
     }
 }
 

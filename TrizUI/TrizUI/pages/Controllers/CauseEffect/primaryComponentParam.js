@@ -125,7 +125,6 @@
                 };
                 scope.QueryData.ProjectID = scope.CurrentProjectID;
                 requestService.lists("FunctionElements", scope.QueryData).then(function (data) {
-                    console.log("data.json", data);
                     for (var i = 0; i < data.length; i++) {
                         var objSrcComponentInfo = new scope.SrcComponentInfo();
                         objSrcComponentInfo.ID = data[i].ID;

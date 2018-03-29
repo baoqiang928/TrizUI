@@ -26,7 +26,10 @@ namespace Triz.DAL
                     SetDataEntity(ProjectInfoEntity, ProjectInfo);
                     TrizDB.tbl_ProjectInfo.Add(ProjectInfoEntity);
                     if (TrizDB.SaveChanges() > 0)
+                    {
+                        ProjectInfo.ID = ProjectInfoEntity.ID;
                         return true;
+                    }
                 }
                 catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
                 {

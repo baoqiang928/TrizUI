@@ -134,8 +134,8 @@ namespace Triz.DAL
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
                 var query = from p in TrizDB.tbl_FunctionElementInfo
-                            where !(from q in TrizDB.tbl_FunctionElementInfo
-                                    where q.FatherID != null
+                            where p.ProjectID==projectID && !(from q in TrizDB.tbl_FunctionElementInfo
+                                    where q.FatherID != null && q.ProjectID == projectID
                                     select q.FatherID).Contains(p.ID)
                             select new FunctionElementInfo
                             {
@@ -169,9 +169,9 @@ namespace Triz.DAL
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
                 var query = from p in TrizDB.tbl_FunctionElementInfo
-                            where (from q in TrizDB.tbl_FunctionElementInfo
-                                    where q.FatherID != null
-                                    select q.FatherID).Contains(p.ID)
+                            where p.ProjectID==projectID && (from q in TrizDB.tbl_FunctionElementInfo
+                                   where q.FatherID != null && q.ProjectID == projectID
+                                   select q.FatherID).Contains(p.ID)
                             select p;
                 foreach (var q in query)
                 {
@@ -271,6 +271,18 @@ namespace Triz.DAL
             }
 
         }
+
+        ///// <summary>
+        ///// 初始化创立三个根节点元件
+        ///// </summary>
+        ///// <param name="ProjectID"></param>
+        //private void CreateBasicRootNodes(string ProjectID)
+        //{
+
+
+
+
+        //}
 
         public List<FunctionElementInfo> Query(string ProjectID, string EleName, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {

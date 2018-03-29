@@ -26,11 +26,17 @@ namespace Triz.BLL
         {
             if (ProjectInfo.ID == null)
             {
-                new ProjectDAL().Add(ProjectInfo);
+                CreateNewProject(ProjectInfo);
                 return;
             }
             new ProjectDAL().Update(ProjectInfo);
 
+        }
+
+        public void CreateNewProject(ProjectInfo ProjectInfo)
+        {
+            new ProjectDAL().Add(ProjectInfo);
+            new FunctionElementLogic().CreateBasicRootNodes(ProjectInfo.ID);
         }
 
         public ProjectInfo GetByID(string ID)

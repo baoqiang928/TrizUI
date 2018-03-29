@@ -444,6 +444,12 @@
             }
         };
 
+        $scope.RelFilter = function (item) {
+            if ((item.ElementType == "整体系统") || (item.ElementType == "制品"))
+                return true;
+            return false;
+        }
+
         $scope.FatherSonIDs = "";
         function save(fatherid, sons) {
             for (var i = 0; i < sons.length; i++) {
