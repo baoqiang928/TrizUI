@@ -54,17 +54,19 @@
         $scope.ControlCodeList = [];//已选控件值路径
 
         $scope.Choose = function (Code) {
-            //1 从ControlCodeList当前位置截断后面的所有内容
-            ClearAfterThatInControlCodeList(Code);
-            console.log("ClearAfterThatInControlCodeList-ControlCodeList", $scope.ControlCodeList);
+            ////1 从ControlCodeList当前位置截断后面的所有内容
+            //ClearAfterThatInControlCodeList(Code);
+            //console.log("ClearAfterThatInControlCodeList-ControlCodeList", $scope.ControlCodeList);
             //2 从ControlList当前位置删除后面所有内容
             ClearAfterThatInControlList(GetControlByCode(Code));
             console.log("ClearAfterThatInControlList-ControlList", $scope.ControlList);
             //3 把新值补充到最后
-            $scope.ControlList.push(GetControlByCode(Code));
+            var o = GetControlByCode(Code);
+            o.Value = Code;
+            $scope.ControlList.push(o);
             console.log("$scope.ControlList.push", $scope.ControlList);
-            $scope.ControlCodeList.push(Code);
-            console.log("$scope.ControlCodeList.push", $scope.ControlCodeList);
+            //$scope.ControlCodeList.push(Code);
+            //console.log("$scope.ControlCodeList.push", $scope.ControlCodeList);
             //4 计算出下一个显示的控件，加入到ControlList里面。
             $scope.ControlList.push(GetNextControl());
             //var a = {};
@@ -100,54 +102,174 @@
             }
         }
 
+        //根据值就可找到控件，自动
         function GetControlByCode(Code) {
-            if ((Code == "work1") || (Code == "work2") || (Code == "work3")) {
-                var need = new $scope.control();
-                need.TemplateName = "need.html";
-                need.DisplayName = "需要";
-                need.Code = "need";
-                need.Value = "";
-                return need;
+            if ((Code == "j1c1") || (Code == "j1c2") || (Code == "j1c3")) {
+                return GetCtrl("judge1");
             }
-            if (Code == "solution4") {
-                var solution4 = new $scope.control();
-                solution4.TemplateName = "standardsolution.html";
-                solution4.DisplayName = "第4类标准解";
-                solution4.Code = "solution4";
-                solution4.Value = "";
-                return solution4;
+            //if (Code == "solution4") {
+            //    var solution4 = new $scope.control();
+            //    solution4.TemplateName = "standardsolution.html";
+            //    solution4.DisplayName = "第4类标准解";
+            //    solution4.Code = "solution4";
+            //    solution4.Value = "";
+            //    return solution4;
+            //}
+        }
+
+        $scope.ctrls = {};
+        function INI() {
+            $scope.ctrls["j2c2"] = GetCtrl("solution2");
+            $scope.ctrls["j2c1"] = GetCtrl("solution3");
+            $scope.ctrls["j3c1"] = GetCtrl("solution3");
+            $scope.ctrls["solution1or2"] = GetCtrl("solution3");
+            $scope.ctrls["solution1.2"] = GetCtrl("solution3");
+            $scope.ctrls["solution4"] = GetCtrl("solution3");
+            $scope.ctrls["j1c3"] = GetCtrl("solution4");
+            $scope.ctrls["j5c1"] = GetCtrl("solution5");
+            $scope.ctrls["j3c1"] = GetCtrl("solution1.1");
+            $scope.ctrls["j3c2"] = GetCtrl("solution1or2");
+            $scope.ctrls["j3c3"] = GetCtrl("solution1.2");
+
+            $scope.ctrls["j1c1"] = GetCtrl("judge2");
+            $scope.ctrls["model"] = GetCtrl("judge3");
+            $scope.ctrls["solution2"] = GetCtrl("judge4");
+            $scope.ctrls["solution3"] = GetCtrl("judge5");
+        }
+
+        function GetCtrl(name)
+        {
+            if (name == "solution2") {
+                var ctl = new $scope.control();
+                ctl.TemplateName = "standardsolution.html";
+                ctl.DisplayName = "标准解2";
+                ctl.Code = "solution2";
+                ctl.Value = "";
+                return ctl;
             }
+            if (name == "solution3") {
+                var ctl = new $scope.control();
+                ctl.TemplateName = "standardsolution.html";
+                ctl.DisplayName = "标准解3";
+                ctl.Code = "solution3";
+                ctl.Value = "";
+                return ctl;
+            }
+            if (name == "solution4") {
+                var ctl = new $scope.control();
+                ctl.TemplateName = "standardsolution.html";
+                ctl.DisplayName = "标准解4";
+                ctl.Code = "solution4";
+                ctl.Value = "";
+                return ctl;
+            }
+            if (name == "solution5") {
+                var ctl = new $scope.control();
+                ctl.TemplateName = "standardsolution.html";
+                ctl.DisplayName = "标准解5";
+                ctl.Code = "solution5";
+                ctl.Value = "";
+                return ctl;
+            }
+            if (name == "solution1.1") {
+                var ctl = new $scope.control();
+                ctl.TemplateName = "standardsolution.html";
+                ctl.DisplayName = "标准解1.1";
+                ctl.Code = "solution1.1";
+                ctl.Value = "";
+                return ctl;
+            }
+            if (name == "solution1or2") {
+                var ctl = new $scope.control();
+                ctl.TemplateName = "standardsolution.html";
+                ctl.DisplayName = "标准解1或2";
+                ctl.Code = "solution1or2";
+                ctl.Value = "";
+                return ctl;
+            }
+            if (name == "solution1.2") {
+                var ctl = new $scope.control();
+                ctl.TemplateName = "standardsolution.html";
+                ctl.DisplayName = "标准解1.2";
+                ctl.Code = "solution1.2";
+                ctl.Value = "";
+                return ctl;
+            }
+
+            if (name == "judge1") {
+                var ctl = new $scope.control();
+                ctl.TemplateName = "judge1.html";
+                ctl.DisplayName = "需要做的工作";
+                ctl.Code = "judge1";
+                ctl.Value = "judge1";
+                return ctl;
+            }
+            if (name == "judge2") {
+                var ctl = new $scope.control();
+                ctl.TemplateName = "judge2.html";
+                ctl.DisplayName = "改变的规模";
+                ctl.Code = "judge2";
+                ctl.Value = "judge2";
+                return ctl;
+            }
+            if (name == "judge3") {
+                var ctl = new $scope.control();
+                ctl.TemplateName = "judge3.html";
+                ctl.DisplayName = "相互作用";
+                ctl.Code = "judge3";
+                ctl.Value = "judge3";
+                return ctl;
+            }
+            if (name == "judge4") {
+                var ctl = new $scope.control();
+                ctl.TemplateName = "judge2.html";
+                ctl.DisplayName = "充分？";
+                ctl.Code = "judge4";
+                ctl.Value = "judge4";
+                return ctl;
+            }
+            if (name == "judge5") {
+                var ctl = new $scope.control();
+                ctl.TemplateName = "judge5.html";
+                ctl.DisplayName = "解充分吗？";
+                ctl.Code = "judge5";
+                ctl.Value = "judge5";
+                return ctl;
+            }
+
         }
 
         function GetNextControl() {
-            var Codes = "";
-            for (var i = 0; i < $scope.ControlCodeList.length; i++) {
-                Codes = Codes + $scope.ControlCodeList[i];
-            }
-            if (Codes == "work1") {
-                var solution4 = new $scope.control();
-                solution4.TemplateName = "change.html";
-                solution4.DisplayName = "改变的规模";
-                solution4.Code = "solution4";
-                solution4.Value = "";
-                return solution4;
-            }
-            if (Codes == "work2") {
-                var solution4 = new $scope.control();
-                solution4.TemplateName = "chang.html";
-                solution4.DisplayName = "物质-场模型";
-                solution4.Code = "chang";
-                solution4.Value = "";
-                return solution4;
-            }
-            if (Codes == "work3") {
-                var solution4 = new $scope.control();
-                solution4.TemplateName = "standardsolution.html";
-                solution4.DisplayName = "需要做的工作";
-                solution4.Code = "solution4";
-                solution4.Value = "";
-                return solution4;
-            }
+            return GetCtrl($scope.ControlCodeList[$scope.ControlCodeList.length - 1]);
+            //var Codes = "";
+            //for (var i = 0; i < $scope.ControlCodeList.length; i++) {
+            //    Codes = Codes + $scope.ControlCodeList[i];
+            //}
+
+            //if (Codes == "work1") {
+            //    var solution4 = new $scope.control();
+            //    solution4.TemplateName = "change.html";
+            //    solution4.DisplayName = "改变的规模";
+            //    solution4.Code = "change";
+            //    solution4.Value = "";
+            //    return solution4;
+            //}
+            //if (Codes == "work2") {
+            //    var solution4 = new $scope.control();
+            //    solution4.TemplateName = "chang.html";
+            //    solution4.DisplayName = "物质-场模型";
+            //    solution4.Code = "chang";
+            //    solution4.Value = "";
+            //    return solution4;
+            //}
+            //if (Codes == "work3") {
+            //    var solution4 = new $scope.control();
+            //    solution4.TemplateName = "standardsolution.html";
+            //    solution4.DisplayName = "需要做的工作";
+            //    solution4.Code = "solution4";
+            //    solution4.Value = "";
+            //    return solution4;
+            //}
         }
 
 
