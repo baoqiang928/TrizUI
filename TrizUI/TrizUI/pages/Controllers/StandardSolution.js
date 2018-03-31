@@ -1,29 +1,5 @@
 ﻿angular.module("myApp")
     .controller('StandardSolutionCtrl', function ($scope, $location) {
-        //$scope.aaa = false;
-        //$scope.bbb = false;
-        //$scope.bbb = true;
-
-        //$scope.data = [
-        //    {
-        //        fieldTypeId: "need.html",
-        //        title: 'first name'
-        //    },
-        //    {
-        //        fieldTypeId: "standardsolution.html",
-        //        title: 'this is text area'
-        //    }
-        //];
-
-        //$scope.aaa = function () {
-        //    var a = {};
-        //    a.fieldTypeId = 2;
-        //    a.title = "asdfadsf";
-        //    $scope.data.push(a);
-        //}
-        //$scope.bbb = function () {
-        //    alert(1);
-        //}
 
         $scope.aaa = false;
         $scope.bbb = false;
@@ -48,13 +24,8 @@
         //control.DisplayName = "需要做的工作";
         //control.Code = "need";
         //control.Value = "";
-        $scope.ControlList.push(GetCtrl("j1"));
+        $scope.ControlList.push(CreateRadioCtrl("j1", ""));
 
-        //var control1 = new ControlInfo();
-        //control1.TemplateName = "standardsolution.html";
-        //control1.DisplayName = "standardsolution.html";
-        //control1.Value = "standardsolution.html";
-        //$scope.ControlList.push(control1);
         $scope.NextStep = function () {
             console.log("$scope.ControlList", $scope.ControlList);
         }
@@ -78,22 +49,7 @@
             $scope.ControlList.push(GetNextControl(Code));
             console.log("$scope.ControlList", $scope.ControlList);
 
-            //var a = {};
-            //a.fieldTypeId = 2;
-            //a.title = "asdfadsf";
-            //$scope.data.push(a);
         }
-
-        //1 从ControlCodeList当前位置截断后面的所有内容
-        //function ClearAfterThatInControlCodeList(Code) {
-        //    for (var i = 0; i < $scope.ControlCodeList.length; i++) {
-        //        //要把同一个的控件其他Code的都删除
-        //        if (GetAllOfCodes(Code).indexOf("," + $scope.ControlCodeList[i] + ",") >= 0) {
-        //            $scope.ControlCodeList.splice(i, $scope.ControlCodeList.length - i + 1);
-        //            return;
-        //        }
-        //    }
-        //}
 
         //2 从ControlList当前位置删除后面所有内容
         function ClearAfterThatInControlList(ControlInfo) {
@@ -105,60 +61,163 @@
             }
         }
 
-        //function GetAllOfCodes(Code) {
-        //    if ((Code == "work1") || (Code == "work2") || (Code == "work3")) {
-        //        return ",work1,work2,work3,";
-        //    }
-        //}
-
         //根据值就可找到控件
         function GetControlByCode(Code) {
             //如果j开头，并且是四位，则前两位是控件名称。
             if ((Code.indexOf("j") == 0) && (Code.length == 4)) {
-                return GetCtrl(Code.substring(0, 2));
+                return CreateRadioCtrl(Code.substring(0, 2), Code);
             }
-            return GetCtrl(Code);
+            return CreateCtrl(Code);
         }
 
         $scope.ctrls = {};
         INI();
         function INI() {
 
-            $scope.ctrls["solution1.1"] = GetCtrl("solution3");
+            $scope.ctrls["solution1.1"] = CreateCtrl("solution3");
 
-            $scope.ctrls["solution1.2"] = GetCtrl("solution3");
+            $scope.ctrls["solution1.2"] = CreateCtrl("solution3");
 
-            $scope.ctrls["solution1or2"] = GetCtrl("solution3");
+            $scope.ctrls["solution1or2"] = CreateCtrl("solution3");
 
-            $scope.ctrls["solution2"] = GetCtrl("j4");
+            $scope.ctrls["solution2"] = CreateRadioCtrl("j4");
 
-            $scope.ctrls["solution3"] = GetCtrl("j5");
+            $scope.ctrls["solution3"] = CreateRadioCtrl("j5");
 
-            $scope.ctrls["solution4"] = GetCtrl("solution3");
+            $scope.ctrls["solution4"] = CreateCtrl("solution3");
 
 
-            $scope.ctrls["j1c1"] = GetCtrl("j2");
-            $scope.ctrls["j1c2"] = GetCtrl("model");
-            $scope.ctrls["j1c3"] = GetCtrl("solution4");
+            $scope.ctrls["j1c1"] = CreateRadioCtrl("j2");
+            $scope.ctrls["j1c2"] = CreateCtrl("model");
+            $scope.ctrls["j1c3"] = CreateCtrl("solution4");
 
-            $scope.ctrls["j2c1"] = GetCtrl("solution3");
-            $scope.ctrls["j2c2"] = GetCtrl("solution2");
+            $scope.ctrls["j2c1"] = CreateCtrl("solution3");
+            $scope.ctrls["j2c2"] = CreateCtrl("solution2");
 
-            $scope.ctrls["j3c1"] = GetCtrl("solution1.1");
-            $scope.ctrls["j3c2"] = GetCtrl("solution1or2");
-            $scope.ctrls["j3c3"] = GetCtrl("solution1.2");
+            $scope.ctrls["j3c1"] = CreateCtrl("solution1.1");
+            $scope.ctrls["j3c2"] = CreateCtrl("solution1or2");
+            $scope.ctrls["j3c3"] = CreateCtrl("solution1.2");
 
-            $scope.ctrls["j4c1"] = GetCtrl("solution3");
-            $scope.ctrls["j4c2"] = GetCtrl("j5");
+            $scope.ctrls["j4c1"] = CreateCtrl("solution3");
+            $scope.ctrls["j4c2"] = CreateRadioCtrl("j5");
 
-            $scope.ctrls["j5c1"] = GetCtrl("solution5");
+            $scope.ctrls["j5c1"] = CreateCtrl("solution5");
 
-            $scope.ctrls["model"] = GetCtrl("j3");
+            $scope.ctrls["model"] = CreateRadioCtrl("j3");
 
 
         }
 
-        function GetCtrl(name) {
+        function CreateRadioCtrl(Name, Code) {
+            if (Name == "j1") {
+                var ctl = new ControlInfo();
+                console.log("ctl", ctl);
+                ctl.TemplateName = "judge.html";
+                ctl.DisplayName = "需要做的工作";
+                ctl.Code = "j1";
+                ctl.Value = "j1";
+                var op = new $scope.Option();
+                op.Name = "预测改变的潜力";
+                op.Value = "j1c1";
+                op.Selected = Code == op.Value ? "active" : "";
+                ctl.Options.push(op);
+                op = new $scope.Option();
+                op.Name = "系统改进";
+                op.Value = "j1c2";
+                op.Selected = Code == op.Value ? "active" : "";
+                ctl.Options.push(op);
+                op = new $scope.Option();
+                op.Name = "添加检测、测量功能";
+                op.Value = "j1c3";
+                op.Selected = Code == op.Value ? "active" : "";
+                ctl.Options.push(op);
+                console.log("ctl", ctl);
+                return ctl;
+            }
+            if (Name == "j2") {
+                var ctl = new ControlInfo();
+                ctl.TemplateName = "judge.html";
+                ctl.DisplayName = "改变的规模";
+                ctl.Code = "j2";
+                ctl.Value = "j2";
+                var op = new $scope.Option();
+                op.Name = "超系统和子系统的改变";
+                op.Value = "j2c1";
+                op.Selected = Code == op.Value ? "active" : "";
+                ctl.Options.push(op);
+                op = new $scope.Option();
+                op.Name = "最小改变";
+                op.Value = "j2c2";
+                op.Selected = Code == op.Value ? "active" : "";
+                ctl.Options.push(op);
+                return ctl;
+            }
+            if (Name == "j3") {
+                var ctl = new ControlInfo();
+                ctl.TemplateName = "judge.html";
+                ctl.DisplayName = "相互作用";
+                ctl.Code = "j3";
+                ctl.Value = "j3";
+                var op = new $scope.Option();
+                op.Name = "缺乏";
+                op.Value = "j3c1";
+                op.Selected = Code == op.Value ? "active" : "";
+                ctl.Options.push(op);
+                op = new $scope.Option();
+                op.Name = "不充分";
+                op.Value = "j3c2";
+                op.Selected = Code == op.Value ? "active" : "";
+                ctl.Options.push(op);
+                var op = new $scope.Option();
+                op.Name = "有害";
+                op.Value = "j3c3";
+                op.Selected = Code == op.Value ? "active" : "";
+                ctl.Options.push(op);
+                return ctl;
+            }
+            if (Name == "j4") {
+                var ctl = new ControlInfo();
+                ctl.TemplateName = "judge.html";
+                ctl.DisplayName = "充分？";
+                ctl.Code = "j4";
+                ctl.Value = "j4";
+
+                var op = new $scope.Option();
+                op.Name = "否";
+                op.Value = "j4c1";
+                op.Selected = Code == op.Value ? "active" : "";
+                ctl.Options.push(op);
+                op = new $scope.Option();
+                op.Name = "是";
+                op.Value = "j4c2";
+                op.Selected = Code == op.Value ? "active" : "";
+                ctl.Options.push(op);
+
+                return ctl;
+            }
+            if (Name == "j5") {
+                var ctl = new ControlInfo();
+                ctl.TemplateName = "judge.html";
+                ctl.DisplayName = "解充分吗？";
+                ctl.Code = "j5";
+                ctl.Value = "j5";
+
+                var op = new $scope.Option();
+                op.Name = "是/想更好？";
+                op.Value = "j5c1";
+                op.Selected = Code == op.Value ? "active" : "";
+                ctl.Options.push(op);
+                op = new $scope.Option();
+                op.Name = "否";
+                op.Value = "j5c2";
+                op.Selected = Code == op.Value ? "active" : "";
+                ctl.Options.push(op);
+
+                return ctl;
+            }
+        }
+
+        function CreateCtrl(name) {
             if (name == "solution2") {
                 var ctl = new ControlInfo();
                 ctl.TemplateName = "standardsolution.html";
@@ -224,147 +283,13 @@
                 return ctl;
             }
 
-            if (name == "j1") {
-                var ctl = new ControlInfo();
-                console.log("ctl", ctl);
-                ctl.TemplateName = "judge.html";
-                ctl.DisplayName = "需要做的工作";
-                ctl.Code = "j1";
-                ctl.Value = "j1";
-                var op = new $scope.Option();
-                op.Name = "预测改变的潜力";
-                op.Value = "j1c1";
-                op.Selected = "";
-                ctl.Options.push(op);
-                op = new $scope.Option();
-                op.Name = "系统改进";
-                op.Value = "j1c2";
-                op.Selected = "";
-                ctl.Options.push(op);
-                op = new $scope.Option();
-                op.Name = "添加检测、测量功能";
-                op.Value = "j1c3";
-                op.Selected = "";
-                ctl.Options.push(op);
-                console.log("ctl", ctl);
-                return ctl;
-            }
-            if (name == "j2") {
-                var ctl = new ControlInfo();
-                ctl.TemplateName = "judge.html";
-                ctl.DisplayName = "改变的规模";
-                ctl.Code = "j2";
-                ctl.Value = "j2";
-                var op = new $scope.Option();
-                op.Name = "超系统和子系统的改变";
-                op.Value = "j2c1";
-                op.Selected = "";
-                ctl.Options.push(op);
-                op = new $scope.Option();
-                op.Name = "最小改变";
-                op.Value = "j2c2";
-                op.Selected = "";
-                ctl.Options.push(op);
-                return ctl;
-            }
-            if (name == "j3") {
-                var ctl = new ControlInfo();
-                ctl.TemplateName = "judge.html";
-                ctl.DisplayName = "相互作用";
-                ctl.Code = "j3";
-                ctl.Value = "j3";
-                var op = new $scope.Option();
-                op.Name = "缺乏";
-                op.Value = "j3c1";
-                op.Selected = "";
-                ctl.Options.push(op);
-                op = new $scope.Option();
-                op.Name = "不充分";
-                op.Value = "j3c2";
-                op.Selected = "";
-                ctl.Options.push(op);
-                var op = new $scope.Option();
-                op.Name = "有害";
-                op.Value = "j3c3";
-                op.Selected = "";
-                ctl.Options.push(op);
-                return ctl;
-            }
-            if (name == "j4") {
-                var ctl = new ControlInfo();
-                ctl.TemplateName = "judge.html";
-                ctl.DisplayName = "充分？";
-                ctl.Code = "j4";
-                ctl.Value = "j4";
 
-                var op = new $scope.Option();
-                op.Name = "否";
-                op.Value = "j4c1";
-                op.Selected = "";
-                ctl.Options.push(op);
-                op = new $scope.Option();
-                op.Name = "是";
-                op.Value = "j4c2";
-                op.Selected = "";
-                ctl.Options.push(op);
-
-                return ctl;
-            }
-            if (name == "j5") {
-                var ctl = new ControlInfo();
-                ctl.TemplateName = "judge.html";
-                ctl.DisplayName = "解充分吗？";
-                ctl.Code = "j5";
-                ctl.Value = "j5";
-
-                var op = new $scope.Option();
-                op.Name = "是/想更好？";
-                op.Value = "j5c1";
-                op.Selected = "";
-                ctl.Options.push(op);
-                op = new $scope.Option();
-                op.Name = "否";
-                op.Value = "j5c2";
-                op.Selected = "";
-                ctl.Options.push(op);
-
-                return ctl;
-            }
 
         }
 
         function GetNextControl(Code) {
             console.log("$scope.ctrls", $scope.ctrls);
             return $scope.ctrls[Code];
-            //var Codes = "";
-            //for (var i = 0; i < $scope.ControlCodeList.length; i++) {
-            //    Codes = Codes + $scope.ControlCodeList[i];
-            //}
-
-            //if (Codes == "work1") {
-            //    var solution4 = new ControlInfo();
-            //    solution4.TemplateName = "change.html";
-            //    solution4.DisplayName = "改变的规模";
-            //    solution4.Code = "change";
-            //    solution4.Value = "";
-            //    return solution4;
-            //}
-            //if (Codes == "work2") {
-            //    var solution4 = new ControlInfo();
-            //    solution4.TemplateName = "chang.html";
-            //    solution4.DisplayName = "物质-场模型";
-            //    solution4.Code = "chang";
-            //    solution4.Value = "";
-            //    return solution4;
-            //}
-            //if (Codes == "work3") {
-            //    var solution4 = new ControlInfo();
-            //    solution4.TemplateName = "standardsolution.html";
-            //    solution4.DisplayName = "需要做的工作";
-            //    solution4.Code = "solution4";
-            //    solution4.Value = "";
-            //    return solution4;
-            //}
         }
 
 
