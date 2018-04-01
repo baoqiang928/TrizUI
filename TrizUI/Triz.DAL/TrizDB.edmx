@@ -5,6 +5,20 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="TrizDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_AnalysisProcedureInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="SerialNum" Type="int" Nullable="false" />
+          <Property Name="TemplateName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RadioValue" Type="nvarchar" MaxLength="50" />
+          <Property Name="InputValue" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
         <EntityType Name="tbl_CauseEffectCurProblemInfo">
           <Key>
             <PropertyRef Name="ID" />
@@ -168,6 +182,7 @@
           <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityContainer Name="TrizDBModelStoreContainer">
+          <EntitySet Name="tbl_AnalysisProcedureInfo" EntityType="Self.tbl_AnalysisProcedureInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_CauseEffectCurProblemInfo" EntityType="Self.tbl_CauseEffectCurProblemInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ComponentParamInfo" EntityType="Self.tbl_ComponentParamInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ComponentRelInfo" EntityType="Self.tbl_ComponentRelInfo" Schema="dbo" store:Type="Tables" />
@@ -196,6 +211,7 @@
           <EntitySet Name="tbl_ComponentParamInfo" EntityType="TrizDBModel.tbl_ComponentParamInfo" />
           <EntitySet Name="tbl_ComponentRelInfo" EntityType="TrizDBModel.tbl_ComponentRelInfo" />
           <EntitySet Name="tbl_ConflictInfo" EntityType="TrizDBModel.tbl_ConflictInfo" />
+          <EntitySet Name="tbl_AnalysisProcedureInfo" EntityType="TrizDBModel.tbl_AnalysisProcedureInfo" />
         </EntityContainer>
         <EntityType Name="tbl_ProjectInfo">
           <Key>
@@ -357,6 +373,20 @@
           <Property Name="ChangeConfig" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CurrentProblem" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NewProblem" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tbl_AnalysisProcedureInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="SerialNum" Type="Int32" Nullable="false" />
+          <Property Name="TemplateName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RadioValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InputValue" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
       </Schema>
@@ -533,6 +563,21 @@
                 <ScalarProperty Name="CurrentConfig" ColumnName="CurrentConfig" />
                 <ScalarProperty Name="RelComponentParamName" ColumnName="RelComponentParamName" />
                 <ScalarProperty Name="RelComponentName" ColumnName="RelComponentName" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_AnalysisProcedureInfo">
+            <EntityTypeMapping TypeName="TrizDBModel.tbl_AnalysisProcedureInfo">
+              <MappingFragment StoreEntitySet="tbl_AnalysisProcedureInfo">
+                <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+                <ScalarProperty Name="InputValue" ColumnName="InputValue" />
+                <ScalarProperty Name="RadioValue" ColumnName="RadioValue" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
+                <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
                 <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>

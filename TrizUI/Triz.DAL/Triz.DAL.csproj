@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnalysisProcedureDAL.cs" />
     <Compile Include="CauseEffectCurProblemDAL.cs" />
     <Compile Include="ComponentParamDAL.cs" />
     <Compile Include="ComponentRelDAL.cs" />
@@ -58,6 +59,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionAnalyseDAL.cs" />
     <Compile Include="QuestionDescriptionDAL.cs" />
+    <Compile Include="tbl_AnalysisProcedureInfo.cs">
+      <DependentUpon>TrizDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="tbl_CauseEffectCurProblemInfo.cs">
       <DependentUpon>TrizDB.tt</DependentUpon>
     </Compile>

@@ -1,3 +1,4 @@
+E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\Triz.BLLTests.dll.config
 E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\Triz.BLLTests.dll
 E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\Triz.BLLTests.pdb
 E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
@@ -14,4 +15,3 @@ E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\zh-Hans\EntityFramework.reso
 E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\obj\Debug\Triz.BLLTests.csprojResolveAssemblyReference.cache
 E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\obj\Debug\Triz.BLLTests.dll
 E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\obj\Debug\Triz.BLLTests.pdb
-E:\sourcecode\TrizUI\TrizUI\Triz.BLLTests\bin\Debug\Triz.BLLTests.dll.config

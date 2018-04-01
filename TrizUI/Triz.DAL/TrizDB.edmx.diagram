@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="575b99ada9264aefa54110ae3fe5fc2b" Name="Diagram1" ZoomLevel="159">
+      <Diagram DiagramId="575b99ada9264aefa54110ae3fe5fc2b" Name="Diagram1" ZoomLevel="145">
         <EntityTypeShape EntityType="TrizDBModel.tbl_ProjectInfo" Width="1.5" PointX="3.125" PointY="1.375" />
         <EntityTypeShape EntityType="TrizDBModel.tbl_UserProjectInfo" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="TrizDBModel.tbl_QuestionDescriptionInfo" Width="1.5" PointX="5.125" PointY="2.75" />
@@ -16,6 +16,7 @@
         <EntityTypeShape EntityType="TrizDBModel.tbl_ComponentParamInfo" Width="1.5" PointX="3.375" PointY="6.75" />
         <EntityTypeShape EntityType="TrizDBModel.tbl_ComponentRelInfo" Width="1.5" PointX="9.375" PointY="0.75" />
         <EntityTypeShape EntityType="TrizDBModel.tbl_ConflictInfo" Width="1.5" PointX="9.375" PointY="4.75" />
+        <EntityTypeShape EntityType="TrizDBModel.tbl_AnalysisProcedureInfo" Width="1.5" PointX="5.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

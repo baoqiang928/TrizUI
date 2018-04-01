@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnalysisProcedureLogic.cs" />
     <Compile Include="CauseEffectCurProblemLogic.cs" />
     <Compile Include="ComponentParamLogic.cs" />
     <Compile Include="ComponentRelLogic.cs" />

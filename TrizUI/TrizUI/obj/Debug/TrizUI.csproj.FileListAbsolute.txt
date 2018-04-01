@@ -18,6 +18,7 @@ F:\TrizUI\TrizUI\TrizUI\obj\Debug\TrizUI.pdb
 F:\TrizUI\TrizUI\TrizUI\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
 F:\TrizUI\TrizUI\TrizUI\bin\zh-Hans\System.Web.Http.resources.dll
 F:\TrizUI\TrizUI\TrizUI\bin\zh-Hans\System.Web.Http.WebHost.resources.dll
+E:\sourcecode\TrizUI\TrizUI\TrizUI\bin\TrizUI.dll.config
 E:\sourcecode\TrizUI\TrizUI\TrizUI\bin\TrizUI.dll
 E:\sourcecode\TrizUI\TrizUI\TrizUI\bin\TrizUI.pdb
 E:\sourcecode\TrizUI\TrizUI\TrizUI\bin\Newtonsoft.Json.dll
@@ -33,5 +34,3 @@ E:\sourcecode\TrizUI\TrizUI\TrizUI\bin\zh-Hans\System.Web.Http.resources.dll
 E:\sourcecode\TrizUI\TrizUI\TrizUI\bin\zh-Hans\System.Web.Http.WebHost.resources.dll
 E:\sourcecode\TrizUI\TrizUI\TrizUI\obj\Debug\TrizUI.dll
 E:\sourcecode\TrizUI\TrizUI\TrizUI\obj\Debug\TrizUI.pdb
-E:\sourcecode\TrizUI\TrizUI\TrizUI\bin\TrizUI.dll.config
-E:\sourcecode\TrizUI\TrizUI\TrizUI\obj\Debug\TrizUI.csprojResolveAssemblyReference.cache
