@@ -81,23 +81,20 @@
             }
 
             //update
-            if ($scope.CurrentOperate == "Update") {
-                ExampleInfo.ID = nodeData.id;
-                //requestService.update("FunctionElements", ExampleInfo).then(function (data) {
-                nodeData.title = $scope.ExampleName;
-                //    alert("保存成功。");
-                //});
-            }
+            //if ($scope.CurrentOperate == "Update") {
+            //    ExampleInfo.ID = nodeData.id;
+            //    //requestService.update("FunctionElements", ExampleInfo).then(function (data) {
+            //    nodeData.title = $scope.ExampleName;
+            //    //    alert("保存成功。");
+            //    //});
+            //}
             $('#modal-table').modal('hide');
         };
         //新增一个节点的保存事件  --end
 
         $scope.UpdateSubItem = function (CurrentNode) {
             $scope.CurrentNode = CurrentNode;
-            var nodeData = CurrentNode.$modelValue;
-            $scope.ExampleName = nodeData.title;
-            $scope.CurrentOperate = "Update";
-            $('#modal-table').modal('show');
+            $scope.nodeData = CurrentNode.$modelValue;
         };
 
         $scope.DeleteSubItem = function (scope) {
@@ -114,4 +111,15 @@
                 }
             });
         };
+
+
+        $scope.SaveExampleInfo = function () {
+            //alert(1);
+            //$scope.$apply();
+            //$scope.TreeData[0].Name = "1111";
+            var nodeData = $scope.CurrentNode.$modelValue;
+            nodeData.Name = "455667";
+        }
+
+
     });//end
