@@ -31,7 +31,7 @@ namespace Triz.DAL
         /// </summary>
         /// <param name="StandardSolutionExampleInfo"></param>
         /// <returns></returns>
-        public bool Add(StandardSolutionExampleInfo StandardSolutionExampleInfo)
+        public int Add(StandardSolutionExampleInfo StandardSolutionExampleInfo)
         {
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
@@ -41,7 +41,7 @@ namespace Triz.DAL
                     SetDataEntity(StandardSolutionExampleInfoEntity, StandardSolutionExampleInfo);
                     TrizDB.tbl_StandardSolutionExampleInfo.Add(StandardSolutionExampleInfoEntity);
                     if (TrizDB.SaveChanges() > 0)
-                        return true;
+                        return StandardSolutionExampleInfoEntity.ID;
                 }
                 catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
                 {
@@ -59,7 +59,7 @@ namespace Triz.DAL
                     }
                 }
             }
-            return false;
+            return 0;
         }
 
         /// <summary>

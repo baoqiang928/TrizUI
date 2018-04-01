@@ -70,20 +70,19 @@ namespace Triz.BLL
             }
         }
 
-        public void SaveStandardSolutionExample(StandardSolutionExampleInfo StandardSolutionExampleInfo)
+        public int SaveStandardSolutionExample(StandardSolutionExampleInfo StandardSolutionExampleInfo)
         {
             if (StandardSolutionExampleInfo.ID == null)
             {
-                new StandardSolutionExampleDAL().Add(StandardSolutionExampleInfo);
-                return;
+                return new StandardSolutionExampleDAL().Add(StandardSolutionExampleInfo);
             }
             new StandardSolutionExampleDAL().Update(StandardSolutionExampleInfo);
-
+            return StandardSolutionExampleInfo.ID ?? 0;
         }
 
         public StandardSolutionExampleInfo GetByID(string ID)
         {
-           return new StandardSolutionExampleDAL().GetByID(int.Parse(ID));
+            return new StandardSolutionExampleDAL().GetByID(int.Parse(ID));
         }
         public List<StandardSolutionExampleInfo> Query(string ProjectID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {

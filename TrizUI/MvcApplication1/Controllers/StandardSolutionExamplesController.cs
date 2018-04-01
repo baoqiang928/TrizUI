@@ -42,9 +42,9 @@ namespace MvcApplication1.Controllers
         }
 
         // POST api/StandardSolutionExamples
-        public void Post([FromBody]StandardSolutionExampleInfo StandardSolutionExampleInfo)
+        public int Post([FromBody]StandardSolutionExampleInfo StandardSolutionExampleInfo)
         {
-            new StandardSolutionExampleLogic().SaveStandardSolutionExample(StandardSolutionExampleInfo);
+            return new StandardSolutionExampleLogic().SaveStandardSolutionExample(StandardSolutionExampleInfo);
         }
 
         public void Put([FromBody]StandardSolutionExampleInfo StandardSolutionExampleInfo)
