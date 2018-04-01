@@ -1,0 +1,135 @@
+﻿<div class="page-content" ng-controller="StandardSolutionAndExamplesCtrl">
+    <div class="page-header">
+        <h1>功能分析
+
+            <small>
+                <i class="icon-double-angle-right"></i>
+                <a data-toggle="modal" style="cursor: pointer" data-target="#modal-table">[查看功能分析流程]</a>
+            </small>
+        </h1>
+    </div>
+    <!-- /.page-header -->
+    <!-- Nested node template -->
+    <script type="text/ng-template" id="nodes_renderer.html">
+        <div ui-tree-handle class="tree-node tree-node-content">
+            <a class="btn btn-success btn-xs" ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)">
+                <span class="glyphicon"
+                      ng-class="{
+          'glyphicon-chevron-right': collapsed,
+          'glyphicon-chevron-down': !collapsed
+        }"></span>
+            </a>
+            {{node.title}}
+            <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="DeleteSubItem(this)" ng-show="ShowDeleteButton(this)"style="margin-right: 3px;">
+                <span class="glyphicon glyphicon-remove"></span>
+            </a>
+            <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="UpdateSubItem(this)" ng-show="ShowUpdateButton(this)"style="margin-right: 3px;">
+                <span class="glyphicon glyphicon-edit"></span>
+            </a>
+            <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" ng-show="ShowAddButton(this)" style="margin-right: 3px;">
+                <span class="glyphicon glyphicon-plus"></span>
+            </a>
+        </div>
+        <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+            <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+            </li>
+        </ol>
+    </script>
+    <standard-examples></standard-examples>
+    <script type='text/ng-template' id='standardExamples.html'> 
+<div class="row">
+        <div class="col-sm-4">
+            <div class="widget-box">
+                <div class="widget-header widget-header-flat">
+                    <h4 class="smaller">结构树</h4>
+                </div>
+
+                <div class="widget-body">
+                    <div class="widget-main">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div ui-tree id="tree-root">
+                                    <ol ui-tree-nodes ng-model="TreeData">
+                                        <li ng-repeat="node in TreeData" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="widget-box">
+                        <div class="widget-header widget-header-flat">
+                            <h4 class="smaller">整体系统相互作用关系</h4>
+                            <span class="widget-toolbar">
+                                <a href="" ng-click="SaveRelOperate()">
+                                    <i class="icon-save"></i>
+                                </a>
+                            </span>
+                        </div>
+
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <form class="form-horizontal" id="validation-form" role="form">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">编号</label>
+
+                                        <div class="col-sm-9">
+                                            <div class="clearfix">
+                                                <input type="text" id="Code" name="Code" class="col-xs-10 col-sm-12" data-ng-model="data.Code" />
+                                            </div>
+                                        </div>
+                                    </div>                                        
+                    
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">名称</label>
+
+                                        <div class="col-sm-9">
+                                            <div class="clearfix">
+                                                <input type="text" id="Name" name="Name" class="col-xs-10 col-sm-5" data-ng-model="data.Name" />
+                                            </div>
+                                        </div>
+                                    </div>                                        
+                    
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">负责人</label>
+
+                                        <div class="col-sm-9">
+                                            <div class="clearfix">
+                                                <input type="text" id="Owner" name="Owner" class="col-xs-10 col-sm-5" data-ng-model="data.Owner" />
+                                            </div>
+                                        </div>
+                                    </div>                                        
+                    
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">工作部门</label>
+
+                                        <div class="col-sm-9">
+                                            <div class="clearfix">
+                                                <input type="text" id="Department" name="Department" class="col-xs-10 col-sm-5" data-ng-model="data.Department" />
+                                            </div>
+                                        </div>
+                                    </div>                                        
+
+                                       
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </script>
+
+
+</div>
+<!-- PAGE CONTENT ENDS -->
+<!-- /.page-content -->

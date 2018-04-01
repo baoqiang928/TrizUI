@@ -636,6 +636,8 @@
     <Content Include="pages\Controllers\QuestionDescriptionOpeCtrl.js" />
     <Content Include="pages\Controllers\SplitPage.js" />
     <Content Include="pages\Controllers\StandardSolution.js" />
+    <Content Include="pages\Controllers\StandardSolution\standardExamples.js" />
+    <Content Include="pages\Controllers\StandardSolution\StandardSolutionAndExamplesCtrl.js" />
     <Content Include="pages\Controllers\tm.pagination.js" />
     <Content Include="pages\Controllers\Tree.js" />
     <Content Include="pages\Controllers\User.js" />
@@ -717,6 +719,7 @@
     <Content Include="pages\Scripts\jquery.pagination.js" />
     <Content Include="pages\Scripts\pagination.css" />
     <Content Include="pages\Scripts\ui-bootstrap-tpls.js" />
+    <Content Include="pages\StandardSolution\StandardSolutionAndExamplesList.html" />
     <Content Include="pages\StandardSolution\StandardSolutionList.html" />
     <Content Include="pages\StandardSolution\StandardSolutionOperate.html" />
     <Content Include="pages\test\demo.html" />

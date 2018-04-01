@@ -13,6 +13,7 @@
     <EntitySet Name="tbl_ComponentRelInfo" EntityType="TrizDBModel.tbl_ComponentRelInfo" />
     <EntitySet Name="tbl_ConflictInfo" EntityType="TrizDBModel.tbl_ConflictInfo" />
     <EntitySet Name="tbl_AnalysisProcedureInfo" EntityType="TrizDBModel.tbl_AnalysisProcedureInfo" />
+    <EntitySet Name="tbl_StandardSolutionExampleInfo" EntityType="TrizDBModel.tbl_StandardSolutionExampleInfo" />
   </EntityContainer>
   <EntityType Name="tbl_ProjectInfo">
     <Key>
@@ -188,6 +189,19 @@
     <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="RadioValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="InputValue" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_StandardSolutionExampleInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="SerialNum" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="FatherID" Type="Int32" />
     <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
 </Schema>

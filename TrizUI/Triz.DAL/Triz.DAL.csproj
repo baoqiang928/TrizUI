@@ -59,6 +59,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionAnalyseDAL.cs" />
     <Compile Include="QuestionDescriptionDAL.cs" />
+    <Compile Include="StandardSolutionExampleDAL.cs" />
     <Compile Include="tbl_AnalysisProcedureInfo.cs">
       <DependentUpon>TrizDB.tt</DependentUpon>
     </Compile>
@@ -87,6 +88,9 @@
       <DependentUpon>TrizDB.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_QuestionDescriptionInfo.cs">
+      <DependentUpon>TrizDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_StandardSolutionExampleInfo.cs">
       <DependentUpon>TrizDB.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_UserInfo.cs">

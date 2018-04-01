@@ -50,6 +50,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionAnalyseLogic.cs" />
     <Compile Include="QuestionDescriptionLogic.cs" />
+    <Compile Include="StandardSolutionExampleLogic.cs" />
     <Compile Include="UserLogic.cs" />
     <Compile Include="UserProjectLogic.cs" />
   </ItemGroup>

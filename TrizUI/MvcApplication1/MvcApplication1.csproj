@@ -166,6 +166,7 @@
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\QuestionAnalysesController.cs" />
     <Compile Include="Controllers\QuestionDescriptionsController.cs" />
+    <Compile Include="Controllers\StandardSolutionExamplesController.cs" />
     <Compile Include="Controllers\UserProjectsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">

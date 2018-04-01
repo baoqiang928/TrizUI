@@ -86,6 +86,13 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
            templateUrl: "/pages/Evolve/EvolveOperate.html",
            controller: 'tree-Controller'
        })
+        .state("StandardSolutionAndExamplesList", {
+            url: "/StandardSolutionAndExamplesList",
+            templateUrl: "/pages/StandardSolution/StandardSolutionAndExamplesList.html",
+            controller: 'tree-Controller',
+            module: "tm.pagination"
+        })
+    
        .state("PageTab.Page1", {
            url: "/Page1",
            templateUrl: "/pages/Page1.html"
