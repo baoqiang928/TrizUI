@@ -24,7 +24,7 @@
             this.InputValue = "";//标准解输入框的输入内容
         };
 
-        $scope.ControlList.push(CreateRadioCtrl("j1", ""));
+
 
         $scope.NextStep = function () {
             console.log("$scope.ControlList", $scope.ControlList);
@@ -32,38 +32,40 @@
         $scope.ControlCodeList = [];//已选控件值路径
 
         $scope.Choose = function (Code) {
-            ////1 从ControlCodeList当前位置截断后面的所有内容
-            //ClearAfterThatInControlCodeList(Code);
-            //console.log("ClearAfterThatInControlCodeList-ControlCodeList", $scope.ControlCodeList);
-            //2 从ControlList当前位置删除后面所有内容
+            //1 从ControlList当前位置删除后面所有内容
             ClearAfterThatInControlList(GetControlByCode(Code));
             console.log("ClearAfterThatInControlList-ControlList", $scope.ControlList);
-            //3 把新值补充到最后
+            //2 把新值补充到最后
             $scope.ControlList.push(GetControlByCode(Code));
             console.log("$scope.ControlList.push", $scope.ControlList);
-            //$scope.ControlCodeList.push(Code);
-            //console.log("$scope.ControlCodeList.push", $scope.ControlCodeList);
-            //4 计算出下一个显示的控件，加入到ControlList里面。
-            $scope.ControlList.push(GetNextControl(Code));
+            //3 计算出下一个显示的控件，加入到ControlList里面。
+            if (typeof (GetNextControl(Code)) != "undefined")
+                $scope.ControlList.push(GetNextControl(Code));
             console.log("$scope.ControlList", $scope.ControlList);
 
         }
 
         //2 从ControlList当前位置删除后面所有内容
         function ClearAfterThatInControlList(ControlInfo) {
+            var StartDeleteIndex = 999;
             for (var i = 0; i < $scope.ControlList.length; i++) {
                 if ($scope.ControlList[i].Code == ControlInfo.Code) {
-                    $scope.ControlList.splice(i, $scope.ControlList.length - i + 1);
-                    return;
+                    StartDeleteIndex = i;
+                }
+                if (StartDeleteIndex < 999) {
+                    if ($scope.ControlList[i].ID == "") continue;
+                    //delete from database.
+                    requestService.delete("AnalysisProcedures", $scope.ControlList[i].ID).then(function (data) { });
                 }
             }
+            $scope.ControlList.splice(StartDeleteIndex, $scope.ControlList.length - StartDeleteIndex + 1);
         }
 
         //根据值就可找到控件
         function GetControlByCode(Code) {
             //如果j开头，并且是四位，则前两位是控件名称。
             if ((Code.indexOf("j") == 0) && (Code.length == 4)) {
-                return CreateRadioCtrl(Code.substring(0, 2), Code);
+                return CreateRadioCtrl(Code);
             }
             return CreateCtrl(Code);
         }
@@ -106,29 +108,30 @@
 
         }
 
-        function CreateRadioCtrl(Name, Code) {
+        function CreateRadioCtrl(RadioValue) {
+            Name = RadioValue.substring(0, 2);
             if (Name == "j1") {
                 var ctl = new ControlInfo();
                 console.log("ctl", ctl);
                 ctl.TemplateName = "judge.html";
                 ctl.DisplayName = "需要做的工作";
                 ctl.Code = "j1";
-                ctl.RadioValue = Code;
+                ctl.RadioValue = RadioValue;
 
                 var op = new $scope.Option();
                 op.Name = "预测改变的潜力";
                 op.Value = "j1c1";
-                op.Selected = Code == op.Value ? "active" : "";
+                op.Selected = RadioValue == op.Value ? "active" : "";
                 ctl.Options.push(op);
                 op = new $scope.Option();
                 op.Name = "系统改进";
                 op.Value = "j1c2";
-                op.Selected = Code == op.Value ? "active" : "";
+                op.Selected = RadioValue == op.Value ? "active" : "";
                 ctl.Options.push(op);
                 op = new $scope.Option();
                 op.Name = "添加检测、测量功能";
                 op.Value = "j1c3";
-                op.Selected = Code == op.Value ? "active" : "";
+                op.Selected = RadioValue == op.Value ? "active" : "";
                 ctl.Options.push(op);
 
                 console.log("ctl", ctl);
@@ -139,17 +142,17 @@
                 ctl.TemplateName = "judge.html";
                 ctl.DisplayName = "改变的规模";
                 ctl.Code = "j2";
-                ctl.RadioValue = Code;
+                ctl.RadioValue = RadioValue;
 
                 var op = new $scope.Option();
                 op.Name = "超系统和子系统的改变";
                 op.Value = "j2c1";
-                op.Selected = Code == op.Value ? "active" : "";
+                op.Selected = RadioValue == op.Value ? "active" : "";
                 ctl.Options.push(op);
                 op = new $scope.Option();
                 op.Name = "最小改变";
                 op.Value = "j2c2";
-                op.Selected = Code == op.Value ? "active" : "";
+                op.Selected = RadioValue == op.Value ? "active" : "";
                 ctl.Options.push(op);
 
                 return ctl;
@@ -159,22 +162,22 @@
                 ctl.TemplateName = "judge.html";
                 ctl.DisplayName = "相互作用";
                 ctl.Code = "j3";
-                ctl.RadioValue = Code;
+                ctl.RadioValue = RadioValue;
 
                 var op = new $scope.Option();
                 op.Name = "缺乏";
                 op.Value = "j3c1";
-                op.Selected = Code == op.Value ? "active" : "";
+                op.Selected = RadioValue == op.Value ? "active" : "";
                 ctl.Options.push(op);
                 op = new $scope.Option();
                 op.Name = "不充分";
                 op.Value = "j3c2";
-                op.Selected = Code == op.Value ? "active" : "";
+                op.Selected = RadioValue == op.Value ? "active" : "";
                 ctl.Options.push(op);
                 op = new $scope.Option();
                 op.Name = "有害";
                 op.Value = "j3c3";
-                op.Selected = Code == op.Value ? "active" : "";
+                op.Selected = RadioValue == op.Value ? "active" : "";
                 ctl.Options.push(op);
 
                 return ctl;
@@ -184,17 +187,17 @@
                 ctl.TemplateName = "judge.html";
                 ctl.DisplayName = "充分？";
                 ctl.Code = "j4";
-                ctl.RadioValue = Code;
+                ctl.RadioValue = RadioValue;
 
                 var op = new $scope.Option();
                 op.Name = "否";
                 op.Value = "j4c1";
-                op.Selected = Code == op.Value ? "active" : "";
+                op.Selected = RadioValue == op.Value ? "active" : "";
                 ctl.Options.push(op);
                 op = new $scope.Option();
                 op.Name = "是";
                 op.Value = "j4c2";
-                op.Selected = Code == op.Value ? "active" : "";
+                op.Selected = RadioValue == op.Value ? "active" : "";
                 ctl.Options.push(op);
 
                 return ctl;
@@ -205,17 +208,17 @@
                 ctl.DisplayName = "解充分吗？";
                 ctl.Code = "j5";
                 ctl.Value = "j5";
-                ctl.RadioValue = Code;
+                ctl.RadioValue = RadioValue;
 
                 var op = new $scope.Option();
                 op.Name = "是/想更好？";
                 op.Value = "j5c1";
-                op.Selected = Code == op.Value ? "active" : "";
+                op.Selected = RadioValue == op.Value ? "active" : "";
                 ctl.Options.push(op);
                 op = new $scope.Option();
                 op.Name = "否";
                 op.Value = "j5c2";
-                op.Selected = Code == op.Value ? "active" : "";
+                op.Selected = RadioValue == op.Value ? "active" : "";
                 ctl.Options.push(op);
 
                 return ctl;
@@ -310,7 +313,6 @@
             alert('保存完毕。');
         }
 
-
         $scope.data = {
             currentPage: "1",
             itemsPerPage: "9999",
@@ -320,12 +322,31 @@
         var GetAnalysisProcedures = function () {
             requestService.lists("AnalysisProcedures", $scope.data).then(function (data) {
                 console.log("data.Results", data.Results);
+                $scope.ControlList = [];
+                for (var i = 0; i < data.Results.length; i++) {
+                    var ctl = new ControlInfo();
+                    ctl.ID = data.Results[i].ID;
+                    ctl.ProjectID = data.Results[i].ProjectID;
+                    ctl.SerialNum = data.Results[i].SerialNum;
+                    ctl.TemplateName = data.Results[i].TemplateName;
+                    ctl.DisplayName = data.Results[i].DisplayName;
+                    ctl.Code = data.Results[i].Code;
+                    ctl.RadioValue = data.Results[i].RadioValue;
+                    ctl.InputValue = data.Results[i].InputValue;
+                    ctl.Options = GetOptionsByValue(data.Results[i].RadioValue);
+                    $scope.ControlList.push(ctl);
+                }
+                if ($scope.ControlList.length == 0)
+                    $scope.ControlList.push(CreateRadioCtrl("j1", ""));
             });
         }
 
         GetAnalysisProcedures();
         //////////////////////////////////////////////////////////////////
-
+        function GetOptionsByValue(RadioValue) {
+            if (RadioValue == "") return;
+            return CreateRadioCtrl(RadioValue).Options;
+        }
 
     });//end
 

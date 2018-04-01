@@ -163,7 +163,7 @@ namespace Triz.DAL
                 var query = TrizDB.tbl_AnalysisProcedureInfo.Where(where.Compile());
                 totalItems = query.Count();
                 PagesLength = (int)Math.Ceiling((double)totalItems / pageSize);
-                query = query.OrderByDescending(p => p.ID).Skip(startRow).Take(pageSize);
+                query = query.OrderBy(p => p.SerialNum).Skip(startRow).Take(pageSize);
                 return GetGetBusinessObjectList(query.ToList());
             }
         }
