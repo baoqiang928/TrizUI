@@ -12,6 +12,17 @@
 
             scope.GenerateConflictList = function scopeGenerateConflictList() {
                 scope.ConflictInfoList = [];
+                //初级功能参数列表里的独立变量
+                for (var i= 0; i < scope.ComponentParamInfoList.length; i++) {
+                    console.log("scope.ComponentParamInfoList[i]", scope.ComponentParamInfoList[i]);
+                    if (scope.ComponentParamInfoList[i].ParamType == "非独立变量") continue;
+                    var NewConflictInfo = new scope.ConflictInfo();
+                    NewConflictInfo.RelComponentName = scope.ComponentParamInfoList[i].ComponentName;
+                    NewConflictInfo.RelComponentParamName = scope.ComponentParamInfoList[i].ParamName;
+                    scope.ConflictInfoList.push(NewConflictInfo);
+                }
+
+                //功能参数列表里的所有独立变量
                 for (var SectionIndex = 0; SectionIndex < scope.ComponentRelInfoListSection.length; SectionIndex++) {
                     for (var i = 0; i < scope.ComponentRelInfoListSection[SectionIndex].length; i++) {
                         if (scope.ComponentRelInfoListSection[SectionIndex][i].ParamType != "独立变量") continue;

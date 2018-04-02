@@ -209,6 +209,16 @@
     <Content Include="js\common\zepto.js" />
     <Content Include="login.html" />
     <Content Include="nestable-list.html" />
+    <Content Include="pages\angular-ueditor-master\.gitignore" />
+    <Content Include="pages\angular-ueditor-master\dist\angular-ueditor.js" />
+    <Content Include="pages\angular-ueditor-master\dist\angular-ueditor.min.js" />
+    <Content Include="pages\angular-ueditor-master\Gruntfile.js" />
+    <Content Include="pages\angular-ueditor-master\karma.conf.js" />
+    <Content Include="pages\angular-ueditor-master\sample\app.js" />
+    <Content Include="pages\angular-ueditor-master\sample\demo.html" />
+    <Content Include="pages\angular-ueditor-master\sample\views\index.html" />
+    <Content Include="pages\angular-ueditor-master\sample\views\index2.html" />
+    <Content Include="pages\angular-ueditor-master\tests\spec.js" />
     <Content Include="pages\angular-ui-tree-master\.gitignore" />
     <Content Include="pages\angular-ui-tree-master\dist\angular-ui-tree.css" />
     <Content Include="pages\angular-ui-tree-master\dist\angular-ui-tree.js" />
@@ -642,6 +652,38 @@
     <Content Include="pages\Controllers\Tree.js" />
     <Content Include="pages\Controllers\User.js" />
     <Content Include="pages\Controllers\UserOpeCtrl.js" />
+    <Content Include="pages\Controllers\vendor\umeditor\dialogs\emotion\emotion.css" />
+    <Content Include="pages\Controllers\vendor\umeditor\dialogs\emotion\emotion.js" />
+    <Content Include="pages\Controllers\vendor\umeditor\dialogs\emotion\images\bface.gif" />
+    <Content Include="pages\Controllers\vendor\umeditor\dialogs\emotion\images\cface.gif" />
+    <Content Include="pages\Controllers\vendor\umeditor\dialogs\emotion\images\fface.gif" />
+    <Content Include="pages\Controllers\vendor\umeditor\dialogs\emotion\images\jxface2.gif" />
+    <Content Include="pages\Controllers\vendor\umeditor\dialogs\emotion\images\tface.gif" />
+    <Content Include="pages\Controllers\vendor\umeditor\dialogs\emotion\images\wface.gif" />
+    <Content Include="pages\Controllers\vendor\umeditor\dialogs\emotion\images\yface.gif" />
+    <Content Include="pages\Controllers\vendor\umeditor\dialogs\formula\formula.js" />
+    <Content Include="pages\Controllers\vendor\umeditor\dialogs\image\image.css" />
+    <Content Include="pages\Controllers\vendor\umeditor\dialogs\image\image.js" />
+    <Content Include="pages\Controllers\vendor\umeditor\dialogs\image\images\upload1.png" />
+    <Content Include="pages\Controllers\vendor\umeditor\dialogs\link\link.js" />
+    <Content Include="pages\Controllers\vendor\umeditor\dialogs\map\map.js" />
+    <Content Include="pages\Controllers\vendor\umeditor\dialogs\video\video.js" />
+    <Content Include="pages\Controllers\vendor\umeditor\lang\zh-cn\zh-cn.js" />
+    <Content Include="pages\Controllers\vendor\umeditor\metaUmeditor.js" />
+    <Content Include="pages\Controllers\vendor\umeditor\themes\default\css\umeditor.css" />
+    <Content Include="pages\Controllers\vendor\umeditor\themes\default\images\caret.png" />
+    <Content Include="pages\Controllers\vendor\umeditor\themes\default\images\close.png" />
+    <Content Include="pages\Controllers\vendor\umeditor\themes\default\images\icons.png" />
+    <Content Include="pages\Controllers\vendor\umeditor\themes\default\images\ok.gif" />
+    <Content Include="pages\Controllers\vendor\umeditor\themes\default\images\pop-bg.png" />
+    <Content Include="pages\Controllers\vendor\umeditor\umeditor.config.js" />
+    <Content Include="pages\Controllers\vendor\umeditor\umeditor.js" />
+    <Content Include="pages\Editor\index.html" />
+    <Content Include="pages\Editor\net\upload\2018-04-01\6a109622-1025-4b12-b483-83929a08c49f.png" />
+    <Content Include="pages\Editor\net\upload\2018-04-01\6ba38bd0-85cd-43e0-8b0e-44aba7147d17.png" />
+    <Content Include="pages\Editor\umeditor.config.js" />
+    <Content Include="pages\Editor\umeditor.js" />
+    <Content Include="pages\Editor\umeditor.min.js" />
     <Content Include="pages\Evolve\demo.png" />
     <Content Include="pages\Evolve\EvolveList.html" />
     <Content Include="pages\Evolve\EvolveOperate.html" />
@@ -764,6 +806,7 @@
     <Content Include="wysiwyg.html" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="pages\Editor\net\Uploader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -831,6 +874,25 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="pages\Controllers\FunctionAnalyse\" />
+    <Folder Include="pages\Editor\dialogs\" />
+    <Folder Include="pages\Editor\lang\" />
+    <Folder Include="pages\Editor\themes\" />
+    <Folder Include="pages\Editor\third-party\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="pages\angular-ueditor-master\bower.json" />
+    <Content Include="pages\angular-ueditor-master\changelog.md" />
+    <Content Include="pages\angular-ueditor-master\dist\angular-ueditor.js.map" />
+    <Content Include="pages\angular-ueditor-master\package.json" />
+    <Content Include="pages\angular-ueditor-master\README.md" />
+    <Content Include="pages\angular-ueditor-master\src\angular-ueditor.coffee" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="pages\Controllers\vendor\nginx.conf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="pages\Editor\net\getContent.ashx" />
+    <Content Include="pages\Editor\net\imageUp.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
