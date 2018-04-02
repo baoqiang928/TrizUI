@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-4">
                 <div class="widget-box">
-                    <div class="widget-header header-color-grey">
+                    <div class="widget-header {{Group4Background}}">
                         <h4>问题的理想解</h4>
                     </div>
 
@@ -18,7 +18,7 @@
                             <div class="form-group">
                                 <label class="col-sm-7">步骤1：系统的理想目标</label>
                                 <div class="clearfix col-sm-12">
-                                    <textarea class="form-control" id="IdealResolution1" name="IdealResolution1" data-ng-model="data.IdealResolution1"></textarea>
+                                    <textarea class="form-control" id="IdealResolution1" name="IdealResolution1" data-ng-model="data.IdealResolution1" ng-change="InputChanged()" ng-disabled="Group4Disabled"></textarea>
                                 </div>
                             </div>
 
@@ -26,7 +26,7 @@
                                 <label class="col-sm-7">步骤2：系统的当前目标</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea class="form-control limited" id="IdealResolution2" name="IdealResolution2" data-ng-model="data.IdealResolution2"></textarea>
+                                    <textarea class="form-control limited" id="IdealResolution2" name="IdealResolution2" data-ng-model="data.IdealResolution2" ng-change="InputChanged()" ng-disabled="Group4Disabled"></textarea>
                                 </div>
                             </div>
 
@@ -34,7 +34,7 @@
                                 <label class="col-sm-7">步骤3：系统当前目标的持续性</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea id="form-field-11" id="IdealResolution3" name="IdealResolution3" class="autosize-transition form-control" data-ng-model="data.IdealResolution3"></textarea>
+                                    <textarea id="form-field-11" id="IdealResolution3" name="IdealResolution3" class="autosize-transition form-control" data-ng-model="data.IdealResolution3" ng-change="InputChanged()" ng-disabled="Group4Disabled"></textarea>
                                 </div>
                             </div>
 
@@ -42,7 +42,7 @@
                                 <label class="col-sm-7">步骤4：系统当前目标的意义</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea id="Textarea1" id="IdealResolution4" name="IdealResolution4" class="autosize-transition form-control" data-ng-model="data.IdealResolution4"></textarea>
+                                    <textarea id="Textarea1" id="IdealResolution4" name="IdealResolution4" class="autosize-transition form-control" data-ng-model="data.IdealResolution4" ng-change="InputChanged()" ng-disabled="Group4Disabled"></textarea>
                                 </div>
                             </div>
 
@@ -50,7 +50,7 @@
                                 <label class="col-sm-7">步骤5：解决这个问题与企业的战略一致吗？</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea id="Textarea2" id="IdealResolution5" name="IdealResolution5" class="autosize-transition form-control" data-ng-model="data.IdealResolution5"></textarea>
+                                    <textarea id="Textarea2" id="IdealResolution5" name="IdealResolution5" class="autosize-transition form-control" data-ng-model="data.IdealResolution5" ng-change="InputChanged()" ng-disabled="Group4Disabled"></textarea>
                                 </div>
                             </div>
 
@@ -69,7 +69,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-4">
                 <div class="widget-box">
-                    <div class="widget-header">
+                    <div class="widget-header {{Group5Background}}">">
                         <h4>确定基本问题</h4>
                     </div>
 
@@ -79,7 +79,7 @@
                                 <label class="col-sm-7">步骤1：确定必须改进的主要参数</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea class="form-control" id="BasicQuestion1" name="BasicQuestion1" data-ng-model="data.BasicQuestion1"></textarea>
+                                    <textarea class="form-control" id="BasicQuestion1" name="BasicQuestion1" data-ng-model="data.BasicQuestion1" ng-change="InputChanged()" ng-disabled="Group5Disabled"></textarea>
                                 </div>
                             </div>
 
@@ -87,7 +87,7 @@
                                 <label class="col-sm-7">步骤2：该级别问题下的原因及其可控性</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea class="form-control limited" id="BasicQuestion2" name="BasicQuestion2" data-ng-model="data.BasicQuestion2"></textarea>
+                                    <textarea class="form-control limited" id="BasicQuestion2" name="BasicQuestion2" data-ng-model="data.BasicQuestion2" ng-change="InputChanged()" ng-disabled="Group5Disabled"></textarea>
                                 </div>
                             </div>
 
@@ -95,7 +95,7 @@
                                 <label class="col-sm-7">步骤3：客户是否关心在这个级别解决问题？</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea id="BasicQuestion3" name="BasicQuestion3" class="autosize-transition form-control" data-ng-model="data.BasicQuestion3"></textarea>
+                                    <textarea id="BasicQuestion3" name="BasicQuestion3" class="autosize-transition form-control" data-ng-model="data.BasicQuestion3" ng-change="InputChanged()" ng-disabled="Group5Disabled"></textarea>
                                 </div>
                             </div>
 
@@ -103,7 +103,7 @@
                                 <label class="col-sm-7">步骤4：描述基本问题</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea id="BasicQuestion4" name="BasicQuestion4" class="autosize-transition form-control" data-ng-model="data.BasicQuestion4"></textarea>
+                                    <textarea id="BasicQuestion4" name="BasicQuestion4" class="autosize-transition form-control" data-ng-model="data.BasicQuestion4" ng-change="InputChanged()" ng-disabled="Group5Disabled"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -136,7 +136,7 @@
                                 <label class="col-sm-7">步骤1：受影响对象及其主要工作是什么？</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea class="form-control" id="AgainstObject1" name="AgainstObject1" data-ng-model="data.AgainstObject1"></textarea>
+                                    <textarea class="form-control" id="AgainstObject1" name="AgainstObject1" data-ng-model="data.AgainstObject1" ng-change="InputChanged()"></textarea>
                                 </div>
                             </div>
 
@@ -144,7 +144,7 @@
                                 <label class="col-sm-7">步骤2：工作进行时特殊的情况是什么？</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea class="form-control limited" id="AgainstObject2" name="AgainstObject2" data-ng-model="data.AgainstObject2"></textarea>
+                                    <textarea class="form-control limited" id="AgainstObject2" name="AgainstObject2" data-ng-model="data.AgainstObject2" ng-change="InputChanged()"></textarea>
                                 </div>
                             </div>
 
@@ -152,14 +152,14 @@
                                 <label class="col-sm-7">步骤3：对象的典型属性是什么？</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea id="AgainstObject3" name="AgainstObject3" class="autosize-transition form-control" data-ng-model="data.AgainstObject3"></textarea>
+                                    <textarea id="AgainstObject3" name="AgainstObject3" class="autosize-transition form-control" data-ng-model="data.AgainstObject3" ng-change="InputChanged()"></textarea>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-sm-7">步骤4：对象的典型属性所影响的系统其他属性？</label>
                                 <div class="clearfix col-sm-12">
-                                    <textarea id="AgainstObject4" name="AgainstObject4" class="autosize-transition form-control" data-ng-model="data.BasicQuestion4"></textarea>
+                                    <textarea id="AgainstObject4" name="AgainstObject4" class="autosize-transition form-control" data-ng-model="data.BasicQuestion4" ng-change="InputChanged()"></textarea>
                                 </div>
                             </div>
 
@@ -167,7 +167,7 @@
                                 <label class="col-sm-7">步骤5：影响该对象的典型属性的系统属性？</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea id="AgainstObject5" name="AgainstObject5" class="autosize-transition form-control" data-ng-model="data.AgainstObject5"></textarea>
+                                    <textarea id="AgainstObject5" name="AgainstObject5" class="autosize-transition form-control" data-ng-model="data.AgainstObject5" ng-change="InputChanged()"></textarea>
                                 </div>
                             </div>
 
@@ -179,7 +179,7 @@
 
             <div class="col-xs-12 col-sm-4">
                 <div class="widget-box">
-                    <div class="widget-header">
+                    <div class="widget-header {{Group2Background}}">
                         <h4>问题的约束</h4>
                     </div>
 
@@ -189,7 +189,7 @@
                                 <label class="col-sm-7">步骤1：解决问题的周期有多长？</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea class="form-control" id="Constriction1" name="Constriction1" data-ng-model="data.Constriction1"></textarea>
+                                    <textarea class="form-control" id="Constriction1" name="Constriction1" data-ng-model="data.Constriction1" ng-change="InputChanged()" ng-disabled="Group2Disabled"></textarea>
                                 </div>
                             </div>
 
@@ -197,7 +197,7 @@
                                 <label class="col-sm-7">步骤2：解决问题的成本</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea class="form-control limited" id="Constriction2" name="Constriction2" data-ng-model="data.Constriction2"></textarea>
+                                    <textarea class="form-control limited" id="Constriction2" name="Constriction2" data-ng-model="data.Constriction2" ng-change="InputChanged()" ng-disabled="Group2Disabled"></textarea>
                                 </div>
                             </div>
 
@@ -205,14 +205,14 @@
                                 <label class="col-sm-7">步骤3：解决问题后系统的变化</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea id="Constriction3" name="Constriction3" class="autosize-transition form-control" data-ng-model="data.Constriction3"></textarea>
+                                    <textarea id="Constriction3" name="Constriction3" class="autosize-transition form-control" data-ng-model="data.Constriction3" ng-change="InputChanged()" ng-disabled="Group2Disabled"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-7">步骤4：解决问题时超系统的约束？</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea id="Constriction4" name="Constriction4" class="autosize-transition form-control" data-ng-model="data.Constriction4"></textarea>
+                                    <textarea id="Constriction4" name="Constriction4" class="autosize-transition form-control" data-ng-model="data.Constriction4" ng-change="InputChanged()" ng-disabled="Group2Disabled"></textarea>
                                 </div>
                             </div>
 
@@ -220,7 +220,7 @@
                                 <label class="col-sm-7">步骤5：问题系统作用对象的约束？</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea id="Constriction5" name="Constriction5" class="autosize-transition form-control" data-ng-model="data.Constriction5"></textarea>
+                                    <textarea id="Constriction5" name="Constriction5" class="autosize-transition form-control" data-ng-model="data.Constriction5" ng-change="InputChanged()" ng-disabled="Group2Disabled"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -231,7 +231,7 @@
 
             <div class="col-xs-12 col-sm-4">
                 <div class="widget-box">
-                    <div class="widget-header">
+                    <div class="widget-header {{Group3Background}}">">
                         <h4>解决问题的重要性</h4>
                     </div>
 
@@ -241,7 +241,7 @@
                                 <label class="col-sm-7">步骤1：该问题导致的相关缺陷和成本损失</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea class="form-control" id="ResolutionImportance1" name="ResolutionImportance1" data-ng-model="data.ResolutionImportance1"></textarea>
+                                    <textarea class="form-control" id="ResolutionImportance1" name="ResolutionImportance1" data-ng-model="data.ResolutionImportance1" ng-change="InputChanged()" ng-disabled="Group3Disabled"></textarea>
                                 </div>
                             </div>
 
@@ -249,7 +249,7 @@
                                 <label class="col-sm-7">步骤2：该问题对系统的具体需求</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea class="form-control limited" id="ResolutionImportance2" name="ResolutionImportance2" data-ng-model="data.ResolutionImportance2"></textarea>
+                                    <textarea class="form-control limited" id="ResolutionImportance2" name="ResolutionImportance2" data-ng-model="data.ResolutionImportance2" ng-change="InputChanged()" ng-disabled="Group3Disabled"></textarea>
                                 </div>
                             </div>
 
@@ -257,7 +257,7 @@
                                 <label class="col-sm-7">步骤3：关注该问题的客户群体</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea id="ResolutionImportance3" name="ResolutionImportance3" class="autosize-transition form-control" data-ng-model="data.ResolutionImportance3"></textarea>
+                                    <textarea id="ResolutionImportance3" name="ResolutionImportance3" class="autosize-transition form-control" data-ng-model="data.ResolutionImportance3" ng-change="InputChanged()" ng-disabled="Group3Disabled"></textarea>
                                 </div>
                             </div>
 
@@ -265,7 +265,7 @@
                                 <label class="col-sm-7">步骤4：问题值的价值与意义</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea id="ResolutionImportance4" name="ResolutionImportance4" class="autosize-transition form-control" data-ng-model="data.ResolutionImportance4"></textarea>
+                                    <textarea id="ResolutionImportance4" name="ResolutionImportance4" class="autosize-transition form-control" data-ng-model="data.ResolutionImportance4" ng-change="InputChanged()" ng-disabled="Group3Disabled"></textarea>
                                 </div>
                             </div>
 
@@ -273,7 +273,7 @@
                                 <label class="col-sm-7">步骤5：解决这个问题与企业的战略一致吗？</label>
 
                                 <div class="clearfix col-sm-12">
-                                    <textarea id="ResolutionImportance5" name="ResolutionImportance5" class="autosize-transition form-control" data-ng-model="data.ResolutionImportance5"></textarea>
+                                    <textarea id="ResolutionImportance5" name="ResolutionImportance5" class="autosize-transition form-control" data-ng-model="data.ResolutionImportance5" ng-change="InputChanged()" ng-disabled="Group3Disabled"></textarea>
                                 </div>
                             </div>
 

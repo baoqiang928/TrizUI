@@ -28,11 +28,162 @@
             ResolutionImportance4: "",
             ResolutionImportance5: ""
         };
+        $scope.Group2Disabled = true;
+        $scope.Group3Disabled = true;
+        $scope.Group4Disabled = true;
+        $scope.Group5Disabled = true;
+        $scope.InputChanged = function () {
+            if (Group1InputedCount() > 2) {
+                SetGroup2Background("");
+                $scope.Group2Disabled = false;
+            }
+            else {
+                SetGroup2Background("header-color-grey");
+                $scope.Group2Disabled = true;
+            }
+
+            if (Group2InputedCount() > 2) {
+                SetGroup3Background("");
+                $scope.Group3Disabled = false;
+            }
+            else {
+                SetGroup3Background("header-color-grey");
+                $scope.Group3Disabled = true;
+            }
+
+            if (Group3InputedCount() > 2) {
+                SetGroup4Background("");
+                $scope.Group4Disabled = false;
+            }
+            else {
+                SetGroup4Background("header-color-grey");
+                $scope.Group4Disabled = true;
+            }
+
+            if (Group4InputedCount() > 2) {
+                SetGroup5Background("");
+                $scope.Group5Disabled = false;
+            }
+            else {
+                SetGroup5Background("header-color-grey");
+                $scope.Group5Disabled = true;
+            }
+        }
+        
+
+        function Group1InputedCount() {
+            var i = 0;
+            console.log("$scope.data", $scope.data);
+            if (($scope.data.AgainstObject1 != "") && ($scope.data.AgainstObject1 != null)) {
+                i = i + 1;
+            }
+            if (($scope.data.AgainstObject2 != "") && ($scope.data.AgainstObject2 != null)) {
+                i = i + 1;
+            }
+            if (($scope.data.AgainstObject3 != "") && ($scope.data.AgainstObject3 != null)) {
+                i = i + 1;
+            }
+            if (($scope.data.AgainstObject4 != "") && ($scope.data.AgainstObject4 != null)) {
+                i = i + 1;
+            }
+            if (($scope.data.AgainstObject5 != "") && ($scope.data.AgainstObject5 != null)) {
+                i = i + 1;
+            }
+            return i;
+        }
+        function Group2InputedCount() {
+            var i = 0;
+            if (($scope.data.Constriction1 != "") && ($scope.data.Constriction1 != null)) {
+                i = i + 1;
+            }
+            if (($scope.data.Constriction2 != "") && ($scope.data.Constriction2 != null)) {
+                i = i + 1;
+            }
+            if (($scope.data.Constriction3 != "") && ($scope.data.Constriction3 != null)) {
+                i = i + 1;
+            }
+            if (($scope.data.Constriction4 != "") && ($scope.data.Constriction4 != null)) {
+                i = i + 1;
+            }
+            if (($scope.data.Constriction5 != "") && ($scope.data.Constriction5 != null)) {
+                i = i + 1;
+            }
+            return i;
+        }
+        function Group3InputedCount() {
+            var i = 0;
+            if (($scope.data.ResolutionImportance1 != "") && ($scope.data.ResolutionImportance1 != null)) {
+                i = i + 1;
+            }
+            if (($scope.data.ResolutionImportance2 != "") && ($scope.data.ResolutionImportance2 != null)) {
+                i = i + 1;
+            }
+            if (($scope.data.ResolutionImportance3 != "") && ($scope.data.ResolutionImportance3 != null)) {
+                i = i + 1;
+            }
+            if (($scope.data.ResolutionImportance4 != "") && ($scope.data.ResolutionImportance4 != null)) {
+                i = i + 1;
+            }
+            if (($scope.data.ResolutionImportance5 != "") && ($scope.data.ResolutionImportance5 != null)) {
+                i = i + 1;
+            }
+            return i;
+        }
+        function Group4InputedCount() {
+            var i = 0;
+            if (($scope.data.IdealResolution1 != "") && ($scope.data.IdealResolution1 != null)) {
+                i = i + 1;
+            }
+            if (($scope.data.IdealResolution2 != "") && ($scope.data.IdealResolution2 != null)) {
+                i = i + 1;
+            }
+            if (($scope.data.IdealResolution3 != "") && ($scope.data.IdealResolution3 != null)) {
+                i = i + 1;
+            }
+            if (($scope.data.IdealResolution4 != "") && ($scope.data.IdealResolution4 != null)) {
+                i = i + 1;
+            }
+            if (($scope.data.IdealResolution5 != "") && ($scope.data.IdealResolution5 != null)) {
+                i = i + 1;
+            }
+            return i;
+        }
+        function Group5InputedCount() {
+            var i = 0;
+            if (($scope.data.BasicQuestion1 != "") && ($scope.data.BasicQuestion1 != null)) {
+                i = i + 1;
+            }
+            if (($scope.data.BasicQuestion2 != "") && ($scope.data.BasicQuestion2 != null)) {
+                i = i + 1;
+            }
+            if (($scope.data.BasicQuestion3 != "") && ($scope.data.BasicQuestion3 != null)) {
+                i = i + 1;
+            }
+            if (($scope.data.BasicQuestion4 != "") && ($scope.data.BasicQuestion4 != null)) {
+                i = i + 1;
+            }
+            return i;
+        }
+
+        function SetGroup2Background(color) {
+            $scope.Group2Background = color;
+        }
+        function SetGroup3Background(color) {
+            $scope.Group3Background = color;
+        }
+        function SetGroup4Background(color) {
+            $scope.Group4Background = color;
+        }
+        function SetGroup5Background(color) {
+            $scope.Group5Background = color;
+        }
+
 
         $scope.ProjectID = locals.get("ProjectID");
         if ($scope.ProjectID != null) {
             requestService.getobj(Sources, $scope.ProjectID).then(function (data) {
                 $scope.data = data;
+                $scope.InputChanged();
             });
         }
 
