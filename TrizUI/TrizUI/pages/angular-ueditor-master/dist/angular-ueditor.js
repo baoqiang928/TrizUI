@@ -17,7 +17,6 @@ http://inhu.net
             ready: "="
           },
           link: function ($S, element, attr, ctrl) {
-              alert(101);
             var _NGUeditor, _updateByRender;
             _updateByRender = false;
             _NGUeditor = (function() {
