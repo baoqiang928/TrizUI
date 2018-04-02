@@ -4,8 +4,9 @@ describe('angular-ueditor', function() {
     beforeEach(module('ng.ueditor'));
 
     beforeEach(inject(function($rootScope, $compile, $document) {
-        //window.UEDITOR_HOME_URL = "http://ueditor.baidu.com/ueditor/";
-        window.UEDITOR_HOME_URL = "http://localhost:1204/pages/Editor/";
+        window.UEDITOR_HOME_URL = "http://ueditor.baidu.com/ueditor/";
+        //window.UEDITOR_HOME_URL = "http://localhost:1204/pages/Editor/";
+        alert(123);
         delete window.UEDITOR_CONFIG.serverUrl;
 
         elm = angular.element(
