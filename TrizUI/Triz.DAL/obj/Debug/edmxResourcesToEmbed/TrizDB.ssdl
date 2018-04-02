@@ -57,10 +57,11 @@
     <Property Name="ProjectID" Type="int" Nullable="false" />
     <Property Name="RelComponentName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="RelComponentParamName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="CurrentConfig" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ChangeConfig" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="CurrentProblem" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="NewProblem" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CurrentConfig" Type="nvarchar" MaxLength="50" />
+    <Property Name="ChangeConfig" Type="nvarchar" MaxLength="50" />
+    <Property Name="CurrentProblem" Type="nvarchar" MaxLength="50" />
+    <Property Name="NewProblem" Type="nvarchar" MaxLength="50" />
+    <Property Name="Visible" Type="nvarchar" MaxLength="5" />
     <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
   </EntityType>
   <EntityType Name="tbl_FunctionElementInfo">

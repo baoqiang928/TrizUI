@@ -18,6 +18,7 @@
             ChangeConfig: "";
             CurrentProblem: "";
             NewProblem: "";
+            Visible: "True";
         }
         $scope.ConflictInfoList = [];
 

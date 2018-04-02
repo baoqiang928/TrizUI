@@ -145,6 +145,7 @@
 
                 //来源三：冲突列表 - 改变设置
                 for (var i = 0; i < scope.ConflictInfoList.length; i++) {
+                    if (scope.ConflictInfoList[i].Visible != "yes") continue;
                     var link = {};
                     link.ID = i;
                     link.source = scope.ConflictInfoList[i].RelComponentName + " " + scope.ConflictInfoList[i].RelComponentParamName;
@@ -160,6 +161,7 @@
 
                 //来源四：冲突列表 - 新的问题
                 for (var i = 0; i < scope.ConflictInfoList.length; i++) {
+                    if (scope.ConflictInfoList[i].Visible != "yes") continue;
                     var link = {};
                     link.ID = i;
                     link.source = scope.ConflictInfoList[i].RelComponentName + " " + scope.ConflictInfoList[i].RelComponentParamName + " " + scope.ConflictInfoList[i].ChangeConfig;

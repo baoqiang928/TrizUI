@@ -37,6 +37,7 @@
             scope.SaveConflict = function () {
                 SaveToConflictListToDB();
                 scope.GenerateMap();
+                console.log("scope.ConflictInfoList", scope.ConflictInfoList);
             };
             function SaveToConflictListToDB() {
                 for (var i = 0; i < scope.ConflictInfoList.length; i++) {
@@ -57,7 +58,10 @@
                 }
             }
 
-
+            scope.IsChecked = function (visible) {
+                if ((visible == "False") || (!visible) || (visible == "false")) return false;
+                return true;
+            }
             var GetConflicts = function () {
                 var data = {
                     currentPage: "",

@@ -188,6 +188,8 @@ namespace Triz.DAL
 
             ConflictInfo.NewProblem = ConflictInfoEntity.NewProblem;
 
+            ConflictInfo.Visible = ConflictInfoEntity.Visible;
+
             ConflictInfo.CreateDateTime = ConflictInfoEntity.CreateDateTime;
 
 
@@ -220,6 +222,9 @@ namespace Triz.DAL
 
             if (ConflictInfo.NewProblem != null)
                 ConflictInfoEntity.NewProblem = ConflictInfo.NewProblem;
+
+            if (ConflictInfo.Visible != null)
+                ConflictInfoEntity.Visible = ConflictInfo.Visible;
 
         }
 

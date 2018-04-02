@@ -11,9 +11,9 @@
     <EntitySet Name="tbl_CauseEffectCurProblemInfo" EntityType="TrizDBModel.tbl_CauseEffectCurProblemInfo" />
     <EntitySet Name="tbl_ComponentParamInfo" EntityType="TrizDBModel.tbl_ComponentParamInfo" />
     <EntitySet Name="tbl_ComponentRelInfo" EntityType="TrizDBModel.tbl_ComponentRelInfo" />
-    <EntitySet Name="tbl_ConflictInfo" EntityType="TrizDBModel.tbl_ConflictInfo" />
     <EntitySet Name="tbl_AnalysisProcedureInfo" EntityType="TrizDBModel.tbl_AnalysisProcedureInfo" />
     <EntitySet Name="tbl_StandardSolutionExampleInfo" EntityType="TrizDBModel.tbl_StandardSolutionExampleInfo" />
+    <EntitySet Name="tbl_ConflictInfo" EntityType="TrizDBModel.tbl_ConflictInfo" />
   </EntityContainer>
   <EntityType Name="tbl_ProjectInfo">
     <Key>
@@ -163,20 +163,6 @@
     <Property Name="Disabled" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
-  <EntityType Name="tbl_ConflictInfo">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ProjectID" Type="Int32" Nullable="false" />
-    <Property Name="RelComponentName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="RelComponentParamName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CurrentConfig" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ChangeConfig" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CurrentProblem" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="NewProblem" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
-  </EntityType>
   <EntityType Name="tbl_AnalysisProcedureInfo">
     <Key>
       <PropertyRef Name="ID" />
@@ -202,6 +188,21 @@
     <Property Name="Note" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
     <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
     <Property Name="FatherID" Type="Int32" />
+    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_ConflictInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="RelComponentName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RelComponentParamName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentConfig" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeConfig" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentProblem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NewProblem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Visible" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
     <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
 </Schema>

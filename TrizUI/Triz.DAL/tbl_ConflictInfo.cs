@@ -34,6 +34,8 @@ public partial class tbl_ConflictInfo
 
     public string NewProblem { get; set; }
 
+    public string Visible { get; set; }
+
     public System.DateTime CreateDateTime { get; set; }
 
 }

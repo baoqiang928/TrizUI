@@ -76,6 +76,16 @@ namespace Triz.Model
             get { return newProblem; }
             set { newProblem = value; }
         }
+        private string visible;
+        /// <summary>
+        /// 是否可见
+        /// </summary>
+        public string Visible
+        {
+            get { return visible; }
+            set { visible = value; }
+        }
+
         private DateTime? createDateTime;
         /// <summary>
         /// 創建時間
