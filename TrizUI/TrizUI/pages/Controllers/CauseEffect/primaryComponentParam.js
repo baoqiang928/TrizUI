@@ -18,16 +18,29 @@
             //保存
             scope.SaveParamInfoOperate = function () {
                 scope.ClearComponentRelInfoListAndSection();
-                //scope.InsertComponentToRelInfoList();
-                scope.InsertComponentRelInfoListToSection();
-                scope.INIRelListFromPreSection();
+                //如果不存在非独立变量（全部是独立变量）
+                if (!ExsitNoIndependenceParam()) {
+                    //生成冲突列表 
+                    scope.GenerateConflictList();
+                } else {
+                    scope.InsertComponentRelInfoListToSection();
+                    scope.INIRelListFromPreSection();
+                }
                 //set disabled
                 scope.SetComponentParamInfoListDisabled(true);
-
                 //save to database
                 scope.SaveToComponentParamInfoListDB();
             }
 
+            //不存在非独立变量
+            function ExsitNoIndependenceParam() {
+                for (var j = 0; j < scope.ComponentParamInfoList.length; j++) {
+                    if (scope.ComponentParamInfoList[j].ParamType == "非独立变量") {
+                        return true;
+                    }
+                }
+                return false;
+            }
             scope.INIRelListFromPreSection = function () {
                 scope.RelListFromPreSection = [];
                 for (var j = 0; j < scope.ComponentParamInfoList.length; j++) {

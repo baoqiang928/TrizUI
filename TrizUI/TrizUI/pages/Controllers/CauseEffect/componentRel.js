@@ -117,7 +117,9 @@
                             ComponentRelInfoList.push(data.Results[i]);
                         }
                     }
-                    scope.ComponentRelInfoListSection.push(ComponentRelInfoList);
+                    //页面打开加载时，如果没有功能参数，不显示
+                    if (ComponentRelInfoList.length > 0)
+                        scope.ComponentRelInfoListSection.push(ComponentRelInfoList);
                 });
             }
 

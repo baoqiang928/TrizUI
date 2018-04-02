@@ -13,7 +13,7 @@
             scope.GenerateConflictList = function scopeGenerateConflictList() {
                 scope.ConflictInfoList = [];
                 //初级功能参数列表里的独立变量
-                for (var i= 0; i < scope.ComponentParamInfoList.length; i++) {
+                for (var i = 0; i < scope.ComponentParamInfoList.length; i++) {
                     console.log("scope.ComponentParamInfoList[i]", scope.ComponentParamInfoList[i]);
                     if (scope.ComponentParamInfoList[i].ParamType == "非独立变量") continue;
                     var NewConflictInfo = new scope.ConflictInfo();
@@ -42,10 +42,10 @@
                 for (var i = 0; i < scope.ConflictInfoList.length; i++) {
                     scope.ConflictInfoList[i].ProjectID = CurrentProjectID;
                     if (scope.ConflictInfoList[i].ID == "") {
-                        requestService.add("Conflicts", scope.ConflictInfoList[i]).then(function (data) {});
+                        requestService.add("Conflicts", scope.ConflictInfoList[i]).then(function (data) { });
                     }
                     else {
-                        requestService.update("Conflicts", scope.ConflictInfoList[i]).then(function (data) {});
+                        requestService.update("Conflicts", scope.ConflictInfoList[i]).then(function (data) { });
                     }
                 }
 
