@@ -1,9 +1,7 @@
-
 /**
 Created by Dio on 17-9.
 http://inhu.net
  */
-
 (function() {
   "use strict";
   (function() {
@@ -18,7 +16,8 @@ http://inhu.net
             config: "=",
             ready: "="
           },
-          link: function($S, element, attr, ctrl) {
+          link: function ($S, element, attr, ctrl) {
+              alert(101);
             var _NGUeditor, _updateByRender;
             _updateByRender = false;
             _NGUeditor = (function() {

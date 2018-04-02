@@ -1,4 +1,4 @@
-﻿var myApp = angular.module("myApp", ["ui.router", "StoreService", "tm.pagination", "ui.tree", "ui.bootstrap"]);
+﻿var myApp = angular.module("myApp", ["ui.router", "StoreService", "tm.pagination", "ui.tree", "ui.bootstrap", "ng.ueditor"]);
 myApp.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.when("", "/ProjectList");
     $stateProvider
@@ -90,7 +90,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
             url: "/StandardSolutionAndExamplesList",
             templateUrl: "/pages/StandardSolution/StandardSolutionAndExamplesList.html",
             controller: 'tree-Controller',
-            module: "tm.pagination"
+            module: "ng.ueditor"
         })
     
        .state("PageTab.Page1", {
