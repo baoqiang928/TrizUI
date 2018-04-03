@@ -58,6 +58,8 @@ public partial class TrizDBEntities : DbContext
 
     public DbSet<tbl_ConflictInfo> tbl_ConflictInfo { get; set; }
 
+    public DbSet<tbl_StandardSolutionInfo> tbl_StandardSolutionInfo { get; set; }
+
 }
 
 }

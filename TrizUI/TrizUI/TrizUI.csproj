@@ -753,6 +753,8 @@
     <Content Include="pages\Controllers\DataPicker.js" />
     <Content Include="pages\Controllers\DrawUtil.js" />
     <Content Include="pages\Controllers\FunctionAnalyseCtrl.js" />
+    <Content Include="pages\Controllers\Solution\StandardSolution.js" />
+    <Content Include="pages\Controllers\Solution\StandardSolutionOpeCtrl.js" />
     <Content Include="pages\Controllers\StandardSolution\magicField.js" />
     <Content Include="pages\Controllers\QuestionAnalyseOpeCtrl.js" />
     <Content Include="pages\Controllers\MasterCtrl.js" />
@@ -869,6 +871,8 @@
     <Content Include="pages\Scripts\jquery.pagination.js" />
     <Content Include="pages\Scripts\pagination.css" />
     <Content Include="pages\Scripts\ui-bootstrap-tpls.js" />
+    <Content Include="pages\Solution\StandardSolutionList.html" />
+    <Content Include="pages\Solution\StandardSolutionOperate.html" />
     <Content Include="pages\StandardSolution\StandardSolutionAndExamplesList.html" />
     <Content Include="pages\StandardSolution\StandardSolutionList.html" />
     <Content Include="pages\StandardSolution\StandardSolutionOperate.html" />

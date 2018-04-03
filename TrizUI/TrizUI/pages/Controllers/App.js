@@ -44,7 +44,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
            url: "/FunctionAnalyseAdd",
            templateUrl: "/pages/FunctionAnalyse/FunctionAnalyseOperate.html",
            controller: 'tree-Controller'
-})
+       })
        .state("StandardSolutionList", {
            url: "/StandardSolutionList",
            templateUrl: "/pages/StandardSolution/StandardSolutionList.html"
@@ -89,10 +89,18 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("StandardSolutionAndExamplesList", {
             url: "/StandardSolutionAndExamplesList",
             templateUrl: "/pages/StandardSolution/StandardSolutionAndExamplesList.html",
-            controller: 'tree-Controller',
-            module: "ng.ueditor"
+            controller: 'tree-Controller'
         })
-    
+        .state("Solution", {
+            url: "/Solution",
+            templateUrl: "/pages/Solution/StandardSolutionList.html"
+        })
+        .state("SolutionADD", {
+            params: { "ID": null },
+            url: "/SolutionADD",
+            templateUrl: "/pages/Solution/StandardSolutionOperate.html"
+        })
+
        .state("PageTab.Page1", {
            url: "/Page1",
            templateUrl: "/pages/Page1.html"

@@ -52,6 +52,7 @@
     <Compile Include="QuestionAnalyseInfo.cs" />
     <Compile Include="QuestionDescriptionInfo.cs" />
     <Compile Include="StandardSolutionExampleInfo.cs" />
+    <Compile Include="StandardSolutionInfo.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="UserProjectInfo.cs" />
   </ItemGroup>
