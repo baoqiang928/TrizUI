@@ -362,9 +362,157 @@
             $scope.QueryData.ProjectID = $scope.CurrentProjectID;
             requestService.lists("StandardSolutionExamples", $scope.QueryData).then(function (data) {
                 $scope.TreeData = strToJson(data.json);
-                //console.log("$scope.nodeData", $scope.TreeData);
+                GetStandardSolutions();
+                console.log("$scope.TreeData", $scope.TreeData);
             });
         };
+
+        //获取所有叶子节点集合（所有标准解）
+        $scope.data = {
+            currentPage: "",
+            itemsPerPage: "",
+            ProjectID: $scope.CurrentProjectID,
+            Name: "",
+            Note: "",
+            Remark: "",
+            TypeID: ""
+        };
+        $scope.StandardSolutions = "";
+        var TypeIDsNeededAppendNodes = ",";
+        var Solutions = {};
+        var GetStandardSolutions = function () {
+            $scope.data.currentPage = 1;
+            $scope.data.itemsPerPage = 9999;
+            requestService.lists("StandardSolutions", $scope.data).then(function (data) {
+                $scope.StandardSolutions = data.Results;
+                for (var i = 0; i < data.Results.length; i++) {
+                    if (typeof (Solutions[data.Results[i].TypeID]) == "undefined") {
+                        Solutions[data.Results[i].TypeID] = i + ",";
+                    }
+                    else {
+                        Solutions[data.Results[i].TypeID] = Solutions[data.Results[i].TypeID] + "," + i + ",";
+                    }
+                    TypeIDsNeededAppendNodes = TypeIDsNeededAppendNodes + data.Results[i].TypeID + ",";
+                }
+                //合并到原有树中
+                //MergeTree();
+                Search($scope.TreeData);
+                console.log("$scope.TreeData", $scope.TreeData);
+            });
+        }
+
+        function IsNode(n) {
+            try {
+                if (typeof (n.ID) != "undefined") {
+                    return true;
+                }
+            } catch (e) {
+                return false;
+            }
+            return false;
+        }
+        function Deal(node) {
+            if (TypeIDsNeededAppendNodes.indexOf("," + node.ID + ",") >= 0) {
+                var sp = (Solutions[node.ID]).split(",");
+                console.log("aaaaaaaaaaaaaaaaaaaas", sp);
+                for (var j = 0; j < sp.length; j++) {
+                    if (sp[j] == "") continue;
+                    var obj = $scope.StandardSolutions[sp[j]];
+                    var NewNode = {};
+                    NewNode.ID = obj.ID;
+                    NewNode.id = "e" + obj.ID;
+                    NewNode.Name = obj.Name;
+                    NewNode.ProjectID = obj.ProjectID;
+                    NewNode.title = obj.Name;
+                    NewNode.nodes = [];
+                    node.nodes.push(NewNode);
+                    //    console.log("node", node.Name);
+                }
+            }
+        }
+
+        function Search(Node) {
+            //console.log("node", node);
+            if (IsNode(Node)) {
+                //console.log("node", node);
+                //console.log("IsNode(node)", IsNode(node));
+                //console.log("node.Name", node.Name);
+                if (TypeIDsNeededAppendNodes.indexOf("," + Node.ID + ",") >= 0) {
+                    var sp = (Solutions[Node.ID]).split(",");
+                    console.log("aaaaaaaaaaaaaaaaaaaas", sp);
+                    for (var j = 0; j < sp.length; j++) {
+                        if (sp[j] == "") continue;
+                        var obj = $scope.StandardSolutions[sp[j]];
+                        var NewNode = {};
+                        NewNode.ID = "f"+obj.ID;
+                        NewNode.id = "e" + obj.ID;
+                        NewNode.Name = obj.Name;
+                        NewNode.ProjectID = obj.ProjectID;
+                        NewNode.title = obj.Name;
+                        NewNode.nodes = [];
+                        Node.nodes.push(NewNode);
+                        //    console.log("node", node.Name);
+                    }
+                }
+
+                for (var i = 0; i < Node.nodes.length; i++) {
+                    Search(Node.nodes[i]);
+                }
+            }
+            else {
+                for (var k = 0; k < Node.length; k++) {
+                    Search(Node[k]);
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //if (typeof (node.ID) != "undefined") {
+            //    for (var i = 0; i < node.nodes.length; i++) {
+            //        console.log("1node.nodes[i]", node.nodes[i]);
+            //        Search(node.nodes[i]);
+            //    }
+            //    //if (TypeIDsNeededAppendNodes.indexOf("," + node.ID + ",") >= 0) {
+            //    //    var sp = (Solutions[node.ID]).split(",");
+            //    //    for (var j = 0; j < sp.length; j++) {
+            //    //        if (sp[j] == "") continue;
+            //    //        var obj = $scope.StandardSolutions[sp[j]];
+            //    //        var NewNode = {};
+            //    //        NewNode.ID = obj.ID;
+            //    //        NewNode.id = "e" + obj.ID;
+            //    //        NewNode.Name = obj.Name;
+            //    //        NewNode.ProjectID = obj.ProjectID;
+            //    //        NewNode.title = obj.Name;
+            //    //        NewNode.nodes = [];
+            //    //        node.nodes.push(NewNode);
+            //    //    }
+            //    //}
+            //}
+
+            //for (var i = 0; i < node.length; i++) {
+            //    console.log("2node[i]", node[i]);
+            //    Search(node[i]);
+            //    for (var j = 0; j < node[i].nodes.length; j++) {
+            //        console.log("3node[i].nodes[j]", node[i].nodes[j]);
+            //        Search(node[i].nodes[j]);
+            //    }
+            //}
+        }
+
+
+        //获取所有叶子节点集合（所有标准解）  End
         GetTreeNodes();
         function strToJson(str) {
             var json = (new Function("return " + str))();

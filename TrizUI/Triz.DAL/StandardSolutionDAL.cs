@@ -172,7 +172,7 @@ namespace Triz.DAL
 
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
-                var query = TrizDB.tbl_StandardSolutionInfo.Where(where.Compile()).Join(TrizDB.tbl_StandardSolutionExampleInfo, a => a.TypeID, g => g.ID, (a, g) => new StandardSolutionInfo { ID = a.ID, ProjectID = a.ProjectID, Name = a.Name, TypeName = g.Name });
+                var query = TrizDB.tbl_StandardSolutionInfo.Where(where.Compile()).Join(TrizDB.tbl_StandardSolutionExampleInfo, a => a.TypeID, g => g.ID, (a, g) => new StandardSolutionInfo { ID = a.ID, ProjectID = a.ProjectID, Name = a.Name, TypeName = g.Name,TypeID = g.ID });
                 totalItems = query.Count();
                 PagesLength = (int)Math.Ceiling((double)totalItems / pageSize);
                 query = query.OrderByDescending(p => p.ID).Skip(startRow).Take(pageSize);
