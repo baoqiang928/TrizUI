@@ -142,11 +142,11 @@
             $('#modal-table').modal('hide');
         };
         //新增一个节点的保存事件  --end
-
+        $scope.nodeData = "";
         $scope.UpdateSubItem = function (CurrentNode) {
             $scope.CurrentNode = CurrentNode;
             //$scope.nodeData = CurrentNode.$modelValue;
-            requestService.getobj("StandardSolutionExamples", $scope.nodeData.ID).then(function (data) {
+            requestService.getobj("StandardSolutionExamples", $scope.CurrentNode.$modelValue.ID).then(function (data) {
                 console.log("data", data);
                 $scope.nodeData = data;
             });
