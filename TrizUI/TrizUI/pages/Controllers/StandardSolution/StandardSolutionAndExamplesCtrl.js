@@ -33,7 +33,7 @@
             //初始化编辑器宽度,默认1000  
             initialFrameWidth:1000,  
             //初始化编辑器高度,默认320  
-            initialFrameHeight:320,  
+            initialFrameHeight:520,  
             //编辑器初始化结束后,编辑区域是否是只读的，默认是false  
             readonly : false ,  
             //启用自动保存  
@@ -145,7 +145,11 @@
 
         $scope.UpdateSubItem = function (CurrentNode) {
             $scope.CurrentNode = CurrentNode;
-            $scope.nodeData = CurrentNode.$modelValue;
+            //$scope.nodeData = CurrentNode.$modelValue;
+            requestService.getobj("StandardSolutionExamples", $scope.nodeData.ID).then(function (data) {
+                console.log("data", data);
+                $scope.nodeData = data;
+            });
         };
 
         $scope.DeleteSubItem = function (scope) {
