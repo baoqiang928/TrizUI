@@ -91,9 +91,15 @@ angular.module("myApp")
             var json = (new Function("return " + str))();
             return json;
         }
+        $scope.ClearTypeID = function () {
+            $scope.data.TypeID = "";
+            $scope.TypeName = "";
+        };
+        $scope.data.TypeID = "";
+        $scope.TypeName = "";
         $scope.SelectItem = function (CurrentNode) {
             $scope.data.TypeID = CurrentNode.$modelValue.ID;
-            $scope.data.TypeName = CurrentNode.$modelValue.title;
+            $scope.TypeName = CurrentNode.$modelValue.title;
             $('#modal-table').modal('hide');
         };
         $scope.SelectType = function () {

@@ -6,19 +6,18 @@
                 <div class="col-xs-12">
                     <h3 class="header smaller lighter blue">标准解信息管理</h3>
                     <p>
-                        <label style="display: inline-block; width: 60px; text-align: right;">名称</label>
+                        <label style="display: inline-block; width: 80px; text-align: right;">名称</label>
                         <input type="text" ng-model="data.Name" />
-                        <label style="display: inline-block; width: 60px; text-align: right;">内容</label>
+                        <label style="display: inline-block; width: 80px; text-align: right;">内容</label>
                         <input type="text" ng-model="data.Note" />
                     </p>
                     <p>
-                        <label style="display: inline-block; width: 60px; text-align: right;">所属分类ID</label>
-                        <input type="text" ng-model="data.TypeID" />
-                            <input type="text" id="TypeID" name="TypeID" class="col-xs-10 col-sm-5" data-ng-model="TypeID" style="display:none" />
+                        <label style="display: inline-block; width: 80px; text-align: right;">所属分类</label>
                             {{TypeName}}
                             <button class="btn btn-info btn-xs" ng-click="SelectType()">
                                 <i class="icon-search  bigger-110 icon-only"></i>
                             </button>
+                        <a href="" ng-click="ClearTypeID()">清空</a>
                     </p>
 
                     <p>
