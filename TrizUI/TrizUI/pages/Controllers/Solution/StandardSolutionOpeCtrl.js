@@ -1,13 +1,43 @@
 angular.module("myApp")
-    .controller('StandardSolutionOpeCtrl', function ($scope, $location, requestService, $stateParams, $state) {
+    .controller('StandardSolutionOpeCtrl', function ($scope, $location, requestService, $stateParams, $state, locals) {
+        $scope._simpleConfig = {
+            //初始化编辑器内容  
+            content: '<p>test1</p>',
+            //是否聚焦 focus默认为false  
+            focus: true,
+            //首行缩进距离,默认是2em  
+            indentValue: '2em',
+            //初始化编辑器宽度,默认1000  
+            initialFrameWidth: 1000,
+            //初始化编辑器高度,默认320  
+            initialFrameHeight: 820,
+            //编辑器初始化结束后,编辑区域是否是只读的，默认是false  
+            readonly: false,
+            //启用自动保存  
+            enableAutoSave: false,
+            //自动保存间隔时间， 单位ms  
+            saveInterval: 500,
+            //是否开启初始化时即全屏，默认关闭  
+            fullscreen: false,
+            //图片操作的浮层开关，默认打开  
+            imagePopup: true,
+            //提交到后台的数据是否包含整个html字符串  
+            allHtmlEnabled: false,
+            //额外功能添加                 
+            functions: ['map', 'insertimage', 'insertvideo', 'attachment',
+            , 'insertcode', 'webapp', 'template',
+            'background', 'wordimage']
+        };
+        $scope.CurrentProjectID = locals.get("ProjectID");
+
         var Sources = "StandardSolutions";
         $scope.data = {
-            ProjectID: "",        
-            SerialNum: "",        
+            ProjectID: locals.get("ProjectID"),      
+            SerialNum: "0",        
             Name: "",        
             Note: "",        
             Remark: "",        
-            TypeID: ""
+            TypeID: "0"
         };
         if ($stateParams.ID != null) {
             requestService.getobj(Sources, $stateParams.ID).then(function (data) {
@@ -29,6 +59,35 @@ angular.module("myApp")
                 $state.go("Solution");
             });
         };
+
+        //树
+        $scope.TreeData = [];
+        var GetTreeNodes = function () {
+            $scope.QueryData = {
+                ProjectID: ""
+            };
+            $scope.QueryData.ProjectID = $scope.CurrentProjectID;
+            requestService.lists("StandardSolutionExamples", $scope.QueryData).then(function (data) {
+                $scope.TreeData = strToJson(data.json);
+                //console.log("$scope.nodeData", $scope.TreeData);
+            });
+        };
+        GetTreeNodes();
+        function strToJson(str) {
+            var json = (new Function("return " + str))();
+            return json;
+        }
+        $scope.SelectItem = function (CurrentNode) {
+            $scope.data.TypeID = CurrentNode.$modelValue.ID;
+            $scope.data.TypeName = CurrentNode.$modelValue.title;
+            $('#modal-table').modal('hide');
+        };
+        $scope.SelectType = function () {
+            $('#modal-table').modal('show');
+        }; 
+        //树 end
+
+
         $('#validation-form').validate({
             errorElement: 'div',
             errorClass: 'help-block',

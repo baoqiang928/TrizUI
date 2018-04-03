@@ -1,6 +1,7 @@
 angular.module("myApp")
-    .controller('StandardSolutionCtrl', function ($scope, $location, requestService, $state) {
+    .controller('StandardSolutionCtrl', function ($scope, $location, requestService, $state, locals) {
         var Sources = "StandardSolutions";
+        $scope.CurrentProjectID = locals.get("ProjectID");
         $scope.paginationConf = {
             currentPage: 1,
             totalItems: 8000,
@@ -14,7 +15,7 @@ angular.module("myApp")
         $scope.data = {
             currentPage: "",
             itemsPerPage: "",
-            ProjectID: "",
+            ProjectID: $scope.CurrentProjectID,
             Name: "",
             Note: "",
             Remark: "",
@@ -73,6 +74,32 @@ angular.module("myApp")
             $state.go("SolutionADD", { ID: ID });
         }
 
+        //树
+        $scope.TreeData = [];
+        var GetTreeNodes = function () {
+            $scope.QueryData = {
+                ProjectID: ""
+            };
+            $scope.QueryData.ProjectID = $scope.CurrentProjectID;
+            requestService.lists("StandardSolutionExamples", $scope.QueryData).then(function (data) {
+                $scope.TreeData = strToJson(data.json);
+                //console.log("$scope.nodeData", $scope.TreeData);
+            });
+        };
+        GetTreeNodes();
+        function strToJson(str) {
+            var json = (new Function("return " + str))();
+            return json;
+        }
+        $scope.SelectItem = function (CurrentNode) {
+            $scope.data.TypeID = CurrentNode.$modelValue.ID;
+            $scope.data.TypeName = CurrentNode.$modelValue.title;
+            $('#modal-table').modal('hide');
+        };
+        $scope.SelectType = function () {
+            $('#modal-table').modal('show');
+        };
+        //树 end
     });//end
 
 

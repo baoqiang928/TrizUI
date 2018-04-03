@@ -127,9 +127,9 @@ namespace Triz.DAL
             {
                 try
                 {
-                    var Query = TrizDB.tbl_StandardSolutionInfo.Where(o => o.ID == ID).FirstOrDefault();
+                    var Query = TrizDB.tbl_StandardSolutionInfo.Where(o => o.ID == ID).Join(TrizDB.tbl_StandardSolutionExampleInfo, a => a.TypeID, g => g.ID, (a, g) => new StandardSolutionInfo { ID = a.ID, ProjectID = a.ProjectID, Name = a.Name, TypeName = g.Name, Note = a.Note, Remark = a.Remark }).FirstOrDefault();
                     if (Query == null) return new StandardSolutionInfo();
-                    return GetBusinessObject(Query);
+                    return Query;
                 }
                 catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
                 {
@@ -150,84 +150,85 @@ namespace Triz.DAL
             return new StandardSolutionInfo();
         }
 
-        public List<StandardSolutionInfo> Query(string ProjectID,string Name,string Note,string Remark,string TypeID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
+        public List<StandardSolutionInfo> Query(string ProjectID, string Name, string Note, string Remark, string TypeID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
             int startRow = (pageIndex - 1) * pageSize;
             Expression<Func<tbl_StandardSolutionInfo, bool>> where = PredicateExtensionses.True<tbl_StandardSolutionInfo>();
-            
-                    if (!string.IsNullOrWhiteSpace(ProjectID))
-                        where = where.And(a => a.ProjectID==int.Parse(ProjectID));
-                
-                    if (!string.IsNullOrWhiteSpace(Name))
-                        where = where.And(a => a.Name.Contains(Name));
-                
-                    if (!string.IsNullOrWhiteSpace(Note))
-                        where = where.And(a => a.Note.Contains(Note));
-                
-                    if (!string.IsNullOrWhiteSpace(Remark))
-                        where = where.And(a => a.Remark.Contains(Remark));
-                
-                    if (!string.IsNullOrWhiteSpace(TypeID))
-                        where = where.And(a => a.TypeID==int.Parse(TypeID));
-                
+
+            if (!string.IsNullOrWhiteSpace(ProjectID))
+                where = where.And(a => a.ProjectID == int.Parse(ProjectID));
+
+            if (!string.IsNullOrWhiteSpace(Name))
+                where = where.And(a => a.Name.Contains(Name));
+
+            if (!string.IsNullOrWhiteSpace(Note))
+                where = where.And(a => a.Note.Contains(Note));
+
+            if (!string.IsNullOrWhiteSpace(Remark))
+                where = where.And(a => a.Remark.Contains(Remark));
+
+            if (!string.IsNullOrWhiteSpace(TypeID))
+                where = where.And(a => a.TypeID == int.Parse(TypeID));
+
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
-                var query = TrizDB.tbl_StandardSolutionInfo.Where(where.Compile());
+                var query = TrizDB.tbl_StandardSolutionInfo.Where(where.Compile()).Join(TrizDB.tbl_StandardSolutionExampleInfo, a => a.TypeID, g => g.ID, (a, g) => new StandardSolutionInfo { ID = a.ID, ProjectID = a.ProjectID, Name = a.Name, TypeName = g.Name });
                 totalItems = query.Count();
                 PagesLength = (int)Math.Ceiling((double)totalItems / pageSize);
                 query = query.OrderByDescending(p => p.ID).Skip(startRow).Take(pageSize);
-                return GetGetBusinessObjectList(query.ToList());
+
+                return query.ToList();
             }
         }
 
         public StandardSolutionInfo GetBusinessObject(tbl_StandardSolutionInfo StandardSolutionInfoEntity)
         {
             StandardSolutionInfo StandardSolutionInfo = new StandardSolutionInfo();
-            
-                                     StandardSolutionInfo.ID = StandardSolutionInfoEntity.ID;
-                    
-                                     StandardSolutionInfo.ProjectID = StandardSolutionInfoEntity.ProjectID;
-                    
-                                     StandardSolutionInfo.SerialNum = StandardSolutionInfoEntity.SerialNum;
-                    
-                                     StandardSolutionInfo.Name = StandardSolutionInfoEntity.Name;
-                    
-                                     StandardSolutionInfo.Note = StandardSolutionInfoEntity.Note;
-                    
-                                     StandardSolutionInfo.Remark = StandardSolutionInfoEntity.Remark;
-                    
-                                     StandardSolutionInfo.TypeID = StandardSolutionInfoEntity.TypeID;
-                    
-                                     StandardSolutionInfo.CreateDateTime = StandardSolutionInfoEntity.CreateDateTime;
-                    
+
+            StandardSolutionInfo.ID = StandardSolutionInfoEntity.ID;
+
+            StandardSolutionInfo.ProjectID = StandardSolutionInfoEntity.ProjectID;
+
+            StandardSolutionInfo.SerialNum = StandardSolutionInfoEntity.SerialNum;
+
+            StandardSolutionInfo.Name = StandardSolutionInfoEntity.Name;
+
+            StandardSolutionInfo.Note = StandardSolutionInfoEntity.Note;
+
+            StandardSolutionInfo.Remark = StandardSolutionInfoEntity.Remark;
+
+            StandardSolutionInfo.TypeID = StandardSolutionInfoEntity.TypeID;
+
+            StandardSolutionInfo.CreateDateTime = StandardSolutionInfoEntity.CreateDateTime;
+
 
             return StandardSolutionInfo;
         }
 
         public void SetDataEntity(tbl_StandardSolutionInfo StandardSolutionInfoEntity, StandardSolutionInfo StandardSolutionInfo)
         {
-             
-                                        if (StandardSolutionInfo.ID != null)
-                                            StandardSolutionInfoEntity.ID = StandardSolutionInfo.ID ?? 0;
-                    
-                                        if (StandardSolutionInfo.ProjectID != null)
-                                            StandardSolutionInfoEntity.ProjectID = StandardSolutionInfo.ProjectID;
-                    
-                                        if (StandardSolutionInfo.SerialNum != null)
-                                            StandardSolutionInfoEntity.SerialNum = StandardSolutionInfo.SerialNum;
-                    
-                                        if (StandardSolutionInfo.Name != null)
-                                            StandardSolutionInfoEntity.Name = StandardSolutionInfo.Name;
-                    
-                                        if (StandardSolutionInfo.Note != null)
-                                            StandardSolutionInfoEntity.Note = StandardSolutionInfo.Note;
-                    
-                                        if (StandardSolutionInfo.Remark != null)
-                                            StandardSolutionInfoEntity.Remark = StandardSolutionInfo.Remark;
-                    
-                                        if (StandardSolutionInfo.TypeID != null)
-                                            StandardSolutionInfoEntity.TypeID = StandardSolutionInfo.TypeID;
-                    
+
+            if (StandardSolutionInfo.ID != null)
+                StandardSolutionInfoEntity.ID = StandardSolutionInfo.ID ?? 0;
+
+            if (StandardSolutionInfo.ProjectID != null)
+                StandardSolutionInfoEntity.ProjectID = StandardSolutionInfo.ProjectID;
+
+            if (StandardSolutionInfo.SerialNum != null)
+                StandardSolutionInfoEntity.SerialNum = StandardSolutionInfo.SerialNum;
+
+            if (StandardSolutionInfo.Name != null)
+                StandardSolutionInfoEntity.Name = StandardSolutionInfo.Name;
+
+            if (StandardSolutionInfo.Note != null)
+                StandardSolutionInfoEntity.Note = StandardSolutionInfo.Note;
+
+            if (StandardSolutionInfo.Remark != null)
+                StandardSolutionInfoEntity.Remark = StandardSolutionInfo.Remark;
+
+            if (StandardSolutionInfo.TypeID != null)
+                StandardSolutionInfoEntity.TypeID = StandardSolutionInfo.TypeID;
+
         }
 
         public List<StandardSolutionInfo> GetGetBusinessObjectList(List<tbl_StandardSolutionInfo> StandardSolutionInfoEntityList)

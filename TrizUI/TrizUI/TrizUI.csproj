@@ -873,6 +873,7 @@
     <Content Include="pages\Scripts\ui-bootstrap-tpls.js" />
     <Content Include="pages\Solution\StandardSolutionList.html" />
     <Content Include="pages\Solution\StandardSolutionOperate.html" />
+    <Content Include="pages\Solution\TypeTree.html" />
     <Content Include="pages\StandardSolution\StandardSolutionAndExamplesList.html" />
     <Content Include="pages\StandardSolution\StandardSolutionList.html" />
     <Content Include="pages\StandardSolution\StandardSolutionOperate.html" />
