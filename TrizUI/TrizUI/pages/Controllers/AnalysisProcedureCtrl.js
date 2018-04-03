@@ -22,6 +22,7 @@
             this.RadioValue = "";
             this.InputName = "";//标准解输入框的输入内容
             this.InputValue = "";//标准解输入框的输入内容
+            this.TypeID = "";//标准解对应的TypeID，过滤树。
         };
 
 
@@ -237,6 +238,7 @@
                 ctl.DisplayName = "标准解2";
                 ctl.Code = "solution2";
                 ctl.InputValue = "";
+                ctl.TypeID = "2";
                 return ctl;
             }
             if (name == "solution3") {
@@ -245,6 +247,7 @@
                 ctl.DisplayName = "标准解3";
                 ctl.Code = "solution3";
                 ctl.InputValue = "";
+                ctl.TypeID = "3";
                 return ctl;
             }
             if (name == "solution4") {
@@ -253,6 +256,7 @@
                 ctl.DisplayName = "标准解4";
                 ctl.Code = "solution4";
                 ctl.InputValue = "";
+                ctl.TypeID = "4";
                 return ctl;
             }
             if (name == "solution5") {
@@ -261,6 +265,7 @@
                 ctl.DisplayName = "标准解5";
                 ctl.Code = "solution5";
                 ctl.InputValue = "";
+                ctl.TypeID = "5";
                 return ctl;
             }
             if (name == "solution1.1") {
@@ -269,6 +274,7 @@
                 ctl.DisplayName = "标准解1.1";
                 ctl.Code = "solution1.1";
                 ctl.InputValue = "";
+                ctl.TypeID = "11";
                 return ctl;
             }
             if (name == "solution1or2") {
@@ -277,6 +283,7 @@
                 ctl.DisplayName = "标准解1或2";
                 ctl.Code = "solution1or2";
                 ctl.InputValue = "";
+                ctl.TypeID = "102";
                 return ctl;
             }
             if (name == "solution1.2") {
@@ -285,6 +292,7 @@
                 ctl.DisplayName = "标准解1.2";
                 ctl.Code = "solution1.2";
                 ctl.InputValue = "";
+                ctl.TypeID = "12";
                 return ctl;
             }
             if (name == "model") {
@@ -355,13 +363,14 @@
 
         //树
         $scope.TreeData = [];
+        $scope.QueryData = {
+            ProjectID: $scope.CurrentProjectID,
+            TypeID: ""
+        };
         var GetTreeNodes = function () {
-            $scope.QueryData = {
-                ProjectID: ""
-            };
-            $scope.QueryData.ProjectID = $scope.CurrentProjectID;
             requestService.lists("StandardSolutionExamples", $scope.QueryData).then(function (data) {
                 $scope.TreeData = strToJson(data.json);
+                ClearValue();
                 GetStandardSolutions();
                 console.log("$scope.TreeData", $scope.TreeData);
             });
@@ -380,6 +389,14 @@
         $scope.StandardSolutions = "";
         var TypeIDsNeededAppendNodes = ",";
         var Solutions = {};
+
+        function ClearValue() {
+            $scope.StandardSolutions = "";
+            TypeIDsNeededAppendNodes = ",";
+            Solutions = {};
+        }
+
+
         var GetStandardSolutions = function () {
             $scope.data.currentPage = 1;
             $scope.data.itemsPerPage = 9999;
@@ -395,7 +412,6 @@
                     TypeIDsNeededAppendNodes = TypeIDsNeededAppendNodes + data.Results[i].TypeID + ",";
                 }
                 //合并到原有树中
-                //MergeTree();
                 Search($scope.TreeData);
                 console.log("$scope.TreeData", $scope.TreeData);
             });
@@ -432,26 +448,20 @@
         }
 
         function Search(Node) {
-            //console.log("node", node);
             if (IsNode(Node)) {
-                //console.log("node", node);
-                //console.log("IsNode(node)", IsNode(node));
-                //console.log("node.Name", node.Name);
                 if (TypeIDsNeededAppendNodes.indexOf("," + Node.ID + ",") >= 0) {
                     var sp = (Solutions[Node.ID]).split(",");
-                    console.log("aaaaaaaaaaaaaaaaaaaas", sp);
                     for (var j = 0; j < sp.length; j++) {
                         if (sp[j] == "") continue;
                         var obj = $scope.StandardSolutions[sp[j]];
                         var NewNode = {};
-                        NewNode.ID = "f"+obj.ID;
+                        NewNode.ID = "f" + obj.ID;
                         NewNode.id = "e" + obj.ID;
                         NewNode.Name = obj.Name;
                         NewNode.ProjectID = obj.ProjectID;
                         NewNode.title = obj.Name;
                         NewNode.nodes = [];
                         Node.nodes.push(NewNode);
-                        //    console.log("node", node.Name);
                     }
                 }
 
@@ -465,50 +475,6 @@
                 }
             }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            //if (typeof (node.ID) != "undefined") {
-            //    for (var i = 0; i < node.nodes.length; i++) {
-            //        console.log("1node.nodes[i]", node.nodes[i]);
-            //        Search(node.nodes[i]);
-            //    }
-            //    //if (TypeIDsNeededAppendNodes.indexOf("," + node.ID + ",") >= 0) {
-            //    //    var sp = (Solutions[node.ID]).split(",");
-            //    //    for (var j = 0; j < sp.length; j++) {
-            //    //        if (sp[j] == "") continue;
-            //    //        var obj = $scope.StandardSolutions[sp[j]];
-            //    //        var NewNode = {};
-            //    //        NewNode.ID = obj.ID;
-            //    //        NewNode.id = "e" + obj.ID;
-            //    //        NewNode.Name = obj.Name;
-            //    //        NewNode.ProjectID = obj.ProjectID;
-            //    //        NewNode.title = obj.Name;
-            //    //        NewNode.nodes = [];
-            //    //        node.nodes.push(NewNode);
-            //    //    }
-            //    //}
-            //}
-
-            //for (var i = 0; i < node.length; i++) {
-            //    console.log("2node[i]", node[i]);
-            //    Search(node[i]);
-            //    for (var j = 0; j < node[i].nodes.length; j++) {
-            //        console.log("3node[i].nodes[j]", node[i].nodes[j]);
-            //        Search(node[i].nodes[j]);
-            //    }
-            //}
         }
 
 
@@ -533,6 +499,11 @@
         };
         $scope.SelectType = function (c) {
             $scope.CurrentObject = c;
+            $scope.QueryData = {
+                ProjectID: $scope.CurrentProjectID,
+                TypeID: c.TypeID //5
+            };
+            GetTreeNodes();
             $('#modal-table').modal('show');
         };
         //树 end

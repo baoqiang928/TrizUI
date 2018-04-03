@@ -17,9 +17,9 @@ namespace MvcApplication1.Controllers
             return new StandardSolutionExampleLogic().GetByID(id);
         }
 
-        public object Get([FromUri]int ProjectID)
+        public object Get([FromUri]int ProjectID,string TypeID)
         {
-            string json = new StandardSolutionExampleLogic().GetTreeData(ProjectID.ToString());
+            string json = new StandardSolutionExampleLogic().GetTreeData(ProjectID.ToString(), TypeID);
             return new
             {
                 json = json,

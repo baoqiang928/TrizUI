@@ -12,11 +12,16 @@ namespace Triz.DAL
     public class StandardSolutionExampleDAL
     {
 
-        public List<StandardSolutionExampleInfo> GetFathers(string ProjectID)
+        public List<StandardSolutionExampleInfo> GetFathers(string ProjectID,string TypeID)
         {
             Expression<Func<tbl_StandardSolutionExampleInfo, bool>> where = PredicateExtensionses.True<tbl_StandardSolutionExampleInfo>();
             where = where.And(a => a.ProjectID == int.Parse(ProjectID));
-            where = where.And(a => a.FatherID == null);
+            if (string.IsNullOrWhiteSpace(TypeID))
+                where = where.And(a => a.FatherID == null);
+
+            if (!string.IsNullOrWhiteSpace(TypeID))
+                where = where.And(a => a.ID == int.Parse(TypeID));
+
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
                 var query = TrizDB.tbl_StandardSolutionExampleInfo.Where(where.Compile());

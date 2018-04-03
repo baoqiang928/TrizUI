@@ -56,7 +56,8 @@
         $scope.TreeData = [];
         var GetTreeNodes = function () {
             $scope.QueryData = {
-                ProjectID: ""
+                ProjectID: "",
+                TypeID: ""
             };
             $scope.QueryData.ProjectID = $scope.CurrentProjectID;
             requestService.lists("StandardSolutionExamples", $scope.QueryData).then(function (data) {
