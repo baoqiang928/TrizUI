@@ -1,6 +1,5 @@
 ﻿angular.module("myApp")
-    .controller('StandardSolutionCtrl', function ($scope, $location, requestService, $state, locals) {
-
+    .controller('AnalysisProcedureCtrl', function ($scope, $location, requestService, $state, locals) {
         $scope.aaa = false;
         $scope.bbb = false;
         $scope.bbb = true;
@@ -10,7 +9,7 @@
             Value: "";
             Selected: "";
         };
-
+        $scope.CurrentProjectID = locals.get("ProjectID");
         $scope.ControlList = [];//决定了显示什么控件
         function ControlInfo() {
             this.ID = "";
@@ -21,23 +20,29 @@
             this.Options = [];
             this.Code = "";
             this.RadioValue = "";
+            this.InputName = "";//标准解输入框的输入内容
             this.InputValue = "";//标准解输入框的输入内容
         };
-
 
 
         $scope.NextStep = function () {
             console.log("$scope.ControlList", $scope.ControlList);
         }
         $scope.ControlCodeList = [];//已选控件值路径
-
+        function NeedClearCurrentControl(Code) {
+            //目前来说，只有条件判断控件，需要清空，因为会有不同的选择项
+            if (Code.indexOf("j") == 0) return true;
+            return false;
+        }
         $scope.Choose = function (Code) {
-            //1 从ControlList当前位置删除后面所有内容
-            ClearAfterThatInControlList(GetControlByCode(Code));
-            console.log("ClearAfterThatInControlList-ControlList", $scope.ControlList);
-            //2 把新值补充到最后
-            $scope.ControlList.push(GetControlByCode(Code));
-            console.log("$scope.ControlList.push", $scope.ControlList);
+            if (NeedClearCurrentControl(Code)) {
+                //1 从ControlList当前位置删除后面所有内容
+                ClearAfterThatInControlList(GetControlByCode(Code));
+                console.log("ClearAfterThatInControlList-ControlList", $scope.ControlList);
+                //2 把新值补充到最后
+                $scope.ControlList.push(GetControlByCode(Code));
+                console.log("$scope.ControlList.push", $scope.ControlList);
+            }
             //3 计算出下一个显示的控件，加入到ControlList里面。
             if (typeof (GetNextControl(Code)) != "undefined")
                 $scope.ControlList.push(GetNextControl(Code));
@@ -318,7 +323,6 @@
             itemsPerPage: "9999",
             ProjectID: locals.get("ProjectID")
         };
-
         var GetAnalysisProcedures = function () {
             requestService.lists("AnalysisProcedures", $scope.data).then(function (data) {
                 console.log("data.Results", data.Results);
@@ -347,6 +351,43 @@
             if (RadioValue == "") return;
             return CreateRadioCtrl(RadioValue).Options;
         }
+
+
+        //树
+        $scope.TreeData = [];
+        var GetTreeNodes = function () {
+            $scope.QueryData = {
+                ProjectID: ""
+            };
+            $scope.QueryData.ProjectID = $scope.CurrentProjectID;
+            requestService.lists("StandardSolutionExamples", $scope.QueryData).then(function (data) {
+                $scope.TreeData = strToJson(data.json);
+                //console.log("$scope.nodeData", $scope.TreeData);
+            });
+        };
+        GetTreeNodes();
+        function strToJson(str) {
+            var json = (new Function("return " + str))();
+            return json;
+        }
+        $scope.ClearTypeID = function () {
+            $scope.data.TypeID = "";
+            $scope.TypeName = "";
+        };
+        $scope.data.TypeID = "";
+        $scope.TypeName = "";
+        $scope.CurrentObject = "";
+        $scope.SelectItem = function (CurrentNode) {
+            $scope.CurrentObject.InputValue = CurrentNode.$modelValue.ID;
+            $scope.CurrentObject.InputName = CurrentNode.$modelValue.title;
+            //$scope.TypeName = CurrentNode.$modelValue.title;
+            $('#modal-table').modal('hide');
+        };
+        $scope.SelectType = function (c) {
+            $scope.CurrentObject = c;
+            $('#modal-table').modal('show');
+        };
+        //树 end
 
     });//end
 

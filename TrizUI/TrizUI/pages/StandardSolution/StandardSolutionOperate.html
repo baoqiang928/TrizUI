@@ -1,4 +1,4 @@
-﻿<div class="page-content" ng-controller="StandardSolutionCtrl">
+﻿<div class="page-content" ng-controller="AnalysisProcedureCtrl">
     <div class="page-header">
         <h1>分析过程</h1>
     </div>
@@ -70,8 +70,10 @@
                 <script type='text/ng-template' id='standardsolution.html'> 
                     <label id="DisplayLabel1" class="col-sm-3 control-label no-padding-right" for="form-field-2">{{c.DisplayName}}</label>
                     <div class="col-sm-9">
-                        <input type="text" id="txt_sol" ng-model="c.InputValue" readonly="" class="col-xs-10 col-sm-5" />
-                        <button class="blue" data-toggle="modal" data-target="#modal-table">选取</button>
+                            {{c.InputName}}
+                            <button class="btn btn-info btn-xs" ng-click="SelectType(c)">
+                                <i class="icon-search  bigger-110 icon-only"></i>
+                            </button>
                         <button class="blue" ng-click="Choose(c.Code)">下一步</button>
                     </div>
                 </script>
@@ -269,4 +271,69 @@
         <!-- /.col -->
     </div>
     <!-- /.row -->
+    <!-- tree -->
+    <script type="text/ng-template" id="nodes_renderer.html">
+        <div ui-tree-handle class="tree-node tree-node-content">
+            <a class="btn btn-success btn-xs" ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)">
+                <span class="glyphicon"
+                      ng-class="{
+          'glyphicon-chevron-right': collapsed,
+          'glyphicon-chevron-down': !collapsed
+        }"></span>
+            </a>
+            {{node.title}}
+            <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="SelectItem(this)" style="margin-right: 3px;">
+                <span class="glyphicon glyphicon-check"></span>
+            </a>
+        </div>
+        <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+            <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+            </li>
+        </ol>
+    </script>
+    <!--弹出添加节点窗口-->
+    <div class="row">
+        <div id="modal-table" class="modal fade" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header no-padding">
+                        <div class="table-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                <span class="white">&times;</span>
+                            </button>
+                            选择分类
+                        </div>
+                    </div>
+
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div ui-tree id="tree-root">
+                                        <ol ui-tree-nodes ng-model="TreeData">
+                                            <li ng-repeat="node in TreeData" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="modal-footer no-margin-top">
+                        <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+                            <i class="icon-remove"></i>
+                            关闭
+
+                        </button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+
+    </div>
+    <!--弹出添加节点窗口  end-->
+    <!--tree end-->
 </div>
