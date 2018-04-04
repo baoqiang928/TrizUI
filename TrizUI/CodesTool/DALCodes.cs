@@ -27,7 +27,7 @@ namespace Triz.DAL
         /// </summary>
         /// <param name=""{BusinessObjectInfo.ObjName}Info""></param>
         /// <returns></returns>
-        public bool Add({BusinessObjectInfo.ObjName}Info {BusinessObjectInfo.ObjName}Info)
+        public int Add({BusinessObjectInfo.ObjName}Info {BusinessObjectInfo.ObjName}Info)
         {
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
@@ -37,7 +37,7 @@ namespace Triz.DAL
                     SetDataEntity({BusinessObjectInfo.ObjName}InfoEntity, {BusinessObjectInfo.ObjName}Info);
                     TrizDB.tbl_{BusinessObjectInfo.ObjName}Info.Add({BusinessObjectInfo.ObjName}InfoEntity);
                     if (TrizDB.SaveChanges() > 0)
-                        return true;
+                        return {BusinessObjectInfo.ObjName}InfoEntity.ID;
                 }
                 catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
                 {
@@ -55,7 +55,7 @@ namespace Triz.DAL
                     }
                 }
             }
-            return false;
+            return 0;
         }
 
         /// <summary>

@@ -79,12 +79,10 @@
                 for (var j = 0; j < scope.ComponentRelInfoListSection[i].length; j++) {
                     scope.ComponentRelInfoListSection[i][j].SectionID = i;
                     if (scope.ComponentRelInfoListSection[i][j].ID == "") {
-                        requestService.add("ComponentRels", scope.ComponentRelInfoListSection[i][j]).then(function (data) {
-                        });
+                        requestService.add("ComponentRels", scope.ComponentRelInfoListSection[i][j]).then(function (data) { });
                     }
                     else {
-                        requestService.update("ComponentRels", scope.ComponentRelInfoListSection[i][j]).then(function (data) {
-                        });
+                        requestService.update("ComponentRels", scope.ComponentRelInfoListSection[i][j]).then(function (data) { });
                     }
                 }
 

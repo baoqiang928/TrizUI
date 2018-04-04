@@ -32,15 +32,14 @@ namespace Triz.BLL
             }
         }
 
-        public void Save{BusinessObjectInfo.ObjName}({BusinessObjectInfo.ObjName}Info {BusinessObjectInfo.ObjName}Info)
+        public int Save{BusinessObjectInfo.ObjName}({BusinessObjectInfo.ObjName}Info {BusinessObjectInfo.ObjName}Info)
         {
             if ({BusinessObjectInfo.ObjName}Info.ID == null)
             {
-                new {BusinessObjectInfo.ObjName}DAL().Add({BusinessObjectInfo.ObjName}Info);
-                return;
+                return new {BusinessObjectInfo.ObjName}DAL().Add({BusinessObjectInfo.ObjName}Info);
             }
             new {BusinessObjectInfo.ObjName}DAL().Update({BusinessObjectInfo.ObjName}Info);
-
+            return {BusinessObjectInfo.ObjName}Info.ID ?? 0;
         }
 
         public {BusinessObjectInfo.ObjName}Info GetByID(string ID)

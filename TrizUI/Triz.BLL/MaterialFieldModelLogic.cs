@@ -21,15 +21,14 @@ namespace Triz.BLL
             }
         }
 
-        public void SaveMaterialFieldModel(MaterialFieldModelInfo MaterialFieldModelInfo)
+        public int SaveMaterialFieldModel(MaterialFieldModelInfo MaterialFieldModelInfo)
         {
             if (MaterialFieldModelInfo.ID == null)
             {
-                new MaterialFieldModelDAL().Add(MaterialFieldModelInfo);
-                return;
+                return new MaterialFieldModelDAL().Add(MaterialFieldModelInfo);
             }
             new MaterialFieldModelDAL().Update(MaterialFieldModelInfo);
-
+            return MaterialFieldModelInfo.ID ?? 0;
         }
 
         public MaterialFieldModelInfo GetByID(string ID)

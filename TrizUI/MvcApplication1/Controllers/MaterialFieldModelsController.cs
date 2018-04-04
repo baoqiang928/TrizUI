@@ -32,14 +32,14 @@ namespace MvcApplication1.Controllers
         }
 
         // POST api/MaterialFieldModels
-        public void Post([FromBody]MaterialFieldModelInfo MaterialFieldModelInfo)
+        public int Post([FromBody]MaterialFieldModelInfo MaterialFieldModelInfo)
         {
-            new MaterialFieldModelLogic().SaveMaterialFieldModel(MaterialFieldModelInfo);
+            return new MaterialFieldModelLogic().SaveMaterialFieldModel(MaterialFieldModelInfo);
         }
 
-        public void Put([FromBody]MaterialFieldModelInfo MaterialFieldModelInfo)
+        public int Put([FromBody]MaterialFieldModelInfo MaterialFieldModelInfo)
         {
-            new MaterialFieldModelLogic().SaveMaterialFieldModel(MaterialFieldModelInfo);
+            return new MaterialFieldModelLogic().SaveMaterialFieldModel(MaterialFieldModelInfo);
         }
 
         // DELETE api/MaterialFieldModels/5

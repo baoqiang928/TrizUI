@@ -43,14 +43,14 @@ namespace MvcApplication1.Controllers
         }
 
         // POST api/{BusinessObjectInfo.ObjName}s
-        public void Post([FromBody]{BusinessObjectInfo.ObjName}Info {BusinessObjectInfo.ObjName}Info)
+        public int Post([FromBody]{BusinessObjectInfo.ObjName}Info {BusinessObjectInfo.ObjName}Info)
         {
-            new {BusinessObjectInfo.ObjName}Logic().Save{BusinessObjectInfo.ObjName}({BusinessObjectInfo.ObjName}Info);
+            return new {BusinessObjectInfo.ObjName}Logic().Save{BusinessObjectInfo.ObjName}({BusinessObjectInfo.ObjName}Info);
         }
 
-        public void Put([FromBody]{BusinessObjectInfo.ObjName}Info {BusinessObjectInfo.ObjName}Info)
+        public int Put([FromBody]{BusinessObjectInfo.ObjName}Info {BusinessObjectInfo.ObjName}Info)
         {
-            new {BusinessObjectInfo.ObjName}Logic().Save{BusinessObjectInfo.ObjName}({BusinessObjectInfo.ObjName}Info);
+            return new {BusinessObjectInfo.ObjName}Logic().Save{BusinessObjectInfo.ObjName}({BusinessObjectInfo.ObjName}Info);
         }
 
         // DELETE api/{BusinessObjectInfo.ObjName}s/5

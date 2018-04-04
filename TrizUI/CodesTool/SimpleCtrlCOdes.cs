@@ -31,12 +31,24 @@ namespace CodesTool
             bootbox.confirm(""要删除当前的记录？"", function(result) {
                 if (result)
                 {
-                    requestService.delete({Sources}, scope.ComponentRelInfoListSection[SectionIndex][Index].ID).then(function (data) { });
+                    requestService.delete({Sources}, scope.{ObjName}ListSection[SectionIndex][Index].ID).then(function (data) { });
                     $scope.{ObjName}List.splice(index, 1);
                     $scope.$apply();
                 }
             });
         }
+        $scope.Save = function () {
+            //if (!$('#validation-form').valid()) {
+            //    return false;
+            //}
+            for (var i = 0; i < $scope.{ObjName}List[i].length; i++) {
+                requestService.add({Sources}, $scope.{ObjName}List[i]).then(function (data) {
+                    if ($scope.{ObjName}List[i].ID == "") {
+                        $scope.{ObjName}List[i].ID = data;
+                    }
+                });
+            }
+        };
 ";
         #endregion
 

@@ -16,7 +16,7 @@ namespace Triz.DAL
         /// </summary>
         /// <param name="MaterialFieldModelInfo"></param>
         /// <returns></returns>
-        public bool Add(MaterialFieldModelInfo MaterialFieldModelInfo)
+        public int Add(MaterialFieldModelInfo MaterialFieldModelInfo)
         {
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
@@ -26,7 +26,7 @@ namespace Triz.DAL
                     SetDataEntity(MaterialFieldModelInfoEntity, MaterialFieldModelInfo);
                     TrizDB.tbl_MaterialFieldModelInfo.Add(MaterialFieldModelInfoEntity);
                     if (TrizDB.SaveChanges() > 0)
-                        return true;
+                        return MaterialFieldModelInfoEntity.ID;
                 }
                 catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
                 {
@@ -44,7 +44,7 @@ namespace Triz.DAL
                     }
                 }
             }
-            return false;
+            return 0;
         }
 
         /// <summary>
