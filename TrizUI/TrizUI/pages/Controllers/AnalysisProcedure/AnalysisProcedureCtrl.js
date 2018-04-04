@@ -37,7 +37,6 @@
             //3 计算出下一个显示的控件，加入到ControlList里面。
             if (typeof (GetNextControl(Code)) != "undefined")
                 $scope.ControlList.push(GetNextControl(Code));
-
         }
 
         //2 从ControlList当前位置删除后面所有内容
@@ -344,6 +343,8 @@
                 }
                 if ($scope.ControlList.length == 0)
                     $scope.ControlList.push(CreateRadioCtrl("j1", ""));
+
+                console.log("$scope.ControlList", $scope.ControlList);
             });
         }
 

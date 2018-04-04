@@ -745,6 +745,7 @@
     <Content Include="pages\Conflict\TechConflictOperate.html" />
     <Content Include="pages\Conflict\TechConflictResolveList.html" />
     <Content Include="pages\Controllers\AnalysisProcedure\MaterialFieldModelCtrl.js" />
+    <Content Include="pages\Controllers\AnalysisProcedure\MaterialFieldModelMapCtrl.js" />
     <Content Include="pages\Controllers\CauseEffectCtrl.js" />
     <Content Include="pages\Controllers\CauseEffect\componentRel.js" />
     <Content Include="pages\Controllers\CauseEffect\conflictList.js" />
