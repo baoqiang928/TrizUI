@@ -17,8 +17,22 @@ namespace CodesTool
 
         $scope.{ObjName}List = [];
 
-        var newobj = new $scope.{ObjName}();
-        $scope.{ObjName}List.push(newobj);
+        $scope.data = {
+            currentPage: "",
+            itemsPerPage: "",
+            ProjectID: locals.get(""ProjectID"")
+        };
+
+        var Get{ObjName}List = function () {
+            $scope.data.currentPage = 1;
+            $scope.data.itemsPerPage = ""999"";
+            requestService.lists({Sources}, $scope.data).then(function (data)
+        {
+                $scope.{ObjName}List = data.Results;
+        });
+        }
+
+        Get{ObjName}List();
 
         $scope.Add{ObjName} = function()
         {
@@ -31,7 +45,7 @@ namespace CodesTool
             bootbox.confirm(""要删除当前的记录？"", function(result) {
                 if (result)
                 {
-                    requestService.delete({Sources}, scope.{ObjName}ListSection[SectionIndex][Index].ID).then(function (data) { });
+                    requestService.delete({Sources}, scope.{ObjName}List[Index].ID).then(function (data) { });
                     $scope.{ObjName}List.splice(index, 1);
                     $scope.$apply();
                 }

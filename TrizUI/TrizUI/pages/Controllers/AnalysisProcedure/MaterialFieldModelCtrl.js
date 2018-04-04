@@ -1,8 +1,9 @@
 ﻿angular.module("myApp")
     .controller('MaterialFieldModelCtrl', function ($scope, $location, requestService, $state, locals) {
+        $scope.Sources = "MaterialFieldModels";
         $scope.MaterialFieldModelInfo = function () {
             ID: "";
-            ProjectID: "";
+            ProjectID: locals.get("ProjectID");
             SerialNum: "";
             FunctionSubject: "";
             FunctionObject: "";
@@ -23,10 +24,8 @@
         var GetMaterialFieldModels = function () {
             $scope.data.currentPage = 1;
             $scope.data.itemsPerPage = "999";
-            requestService.lists(Sources, $scope.data).then(function (data) {
-                $scope.MaterialFieldModels = data.Results;
-                $scope.paginationConf.totalItems = data.TotalItems;
-                $scope.paginationConf.pagesLength = data.PagesLength;
+            requestService.lists($scope.Sources, $scope.data).then(function (data) {
+                $scope.MaterialFieldModelInfoList = data.Results;
             });
         }
         GetMaterialFieldModels();
@@ -41,7 +40,7 @@
         $scope.DeleteMaterialFieldModelInfo = function (index) {
             bootbox.confirm("要删除当前的记录？", function (result) {
                 if (result) {
-                    requestService.delete(Sources, ID).then(function (data) { });
+                    requestService.delete($scope.Sources, $scope.MaterialFieldModelInfoList[index].ID).then(function (data) { });
                     $scope.MaterialFieldModelInfoList.splice(index, 1);
                     $scope.$apply();
                 }
@@ -53,7 +52,7 @@
             //    return false;
             //}
             for (var i = 0; i < $scope.MaterialFieldModelInfoList[i].length; i++) {
-                requestService.add(Sources, $scope.MaterialFieldModelInfoList[i]).then(function (data) {
+                requestService.add($scope.Sources, $scope.MaterialFieldModelInfoList[i]).then(function (data) {
                     if ($scope.MaterialFieldModelInfoList[i].ID == "") {
                         $scope.MaterialFieldModelInfoList[i].ID = data;
                     }
