@@ -51,7 +51,8 @@
             //if (!$('#validation-form').valid()) {
             //    return false;
             //}
-            for (var i = 0; i < $scope.MaterialFieldModelInfoList[i].length; i++) {
+            console.log("$scope.MaterialFieldModelInfoList", $scope.MaterialFieldModelInfoList);
+            for (var i = 0; i < $scope.MaterialFieldModelInfoList.length; i++) {
                 requestService.add($scope.Sources, $scope.MaterialFieldModelInfoList[i]).then(function (data) {
                     if ($scope.MaterialFieldModelInfoList[i].ID == "") {
                         $scope.MaterialFieldModelInfoList[i].ID = data;
@@ -62,11 +63,7 @@
 
         //监听"ShareObjectEvent"事件
         $scope.$on("ShareObjectEvent", function (event, args) {
-            $scope.Save(args);
+            $scope.Save();
         });
-        $scope.Save = function (o) {
-            console.log("o", o);
-            alert(o);
-        };
 
     });

@@ -107,7 +107,6 @@
             Name = RadioValue.substring(0, 2);
             if (Name == "j1") {
                 var ctl = new ControlInfo();
-                console.log("ctl", ctl);
                 ctl.TemplateName = "judge.html";
                 ctl.DisplayName = "需要做的工作";
                 ctl.Code = "j1";
@@ -129,7 +128,6 @@
                 op.Selected = RadioValue == op.Value ? "active" : "";
                 ctl.Options.push(op);
 
-                console.log("ctl", ctl);
                 return ctl;
             }
             if (Name == "j2") {
@@ -368,7 +366,6 @@
                 $scope.TreeData = strToJson(data.json);
                 ClearValue();
                 GetStandardSolutions();
-                console.log("$scope.TreeData", $scope.TreeData);
             });
         };
 
@@ -409,7 +406,6 @@
                 }
                 //合并到原有树中
                 Search($scope.TreeData);
-                console.log("$scope.TreeData", $scope.TreeData);
             });
         }
 
@@ -426,7 +422,6 @@
         function Deal(node) {
             if (TypeIDsNeededAppendNodes.indexOf("," + node.ID + ",") >= 0) {
                 var sp = (Solutions[node.ID]).split(",");
-                console.log("aaaaaaaaaaaaaaaaaaaas", sp);
                 for (var j = 0; j < sp.length; j++) {
                     if (sp[j] == "") continue;
                     var obj = $scope.StandardSolutions[sp[j]];
@@ -438,7 +433,6 @@
                     NewNode.title = obj.Name;
                     NewNode.nodes = [];
                     node.nodes.push(NewNode);
-                    //    console.log("node", node.Name);
                 }
             }
         }
