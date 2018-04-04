@@ -54,6 +54,7 @@
     <Compile Include="ConflictDAL.cs" />
     <Compile Include="FunctionElementDAL.cs" />
     <Compile Include="FunEleMutualReactDAL.cs" />
+    <Compile Include="MaterialFieldModelDAL.cs" />
     <Compile Include="PredicateExtensionses.cs" />
     <Compile Include="ProjectDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +81,9 @@
       <DependentUpon>TrizDB.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_FunEleMutualReactInfo.cs">
+      <DependentUpon>TrizDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_MaterialFieldModelInfo.cs">
       <DependentUpon>TrizDB.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_ProjectInfo.cs">

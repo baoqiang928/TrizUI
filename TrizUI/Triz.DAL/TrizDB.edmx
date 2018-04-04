@@ -101,6 +101,22 @@
           <Property Name="ElementType" Type="nvarchar" MaxLength="10" />
           <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
+        <EntityType Name="tbl_MaterialFieldModelInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="SerialNum" Type="int" />
+          <Property Name="FunctionSubject" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="FunctionObject" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="RelationType" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FieldName" Type="nvarchar" MaxLength="500" />
+          <Property Name="FieldType" Type="nvarchar" MaxLength="500" />
+          <Property Name="Symbol" Type="nvarchar" MaxLength="500" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
         <EntityType Name="tbl_ProjectInfo">
           <Key>
             <PropertyRef Name="ID" />
@@ -216,6 +232,7 @@
           <EntitySet Name="tbl_ConflictInfo" EntityType="Self.tbl_ConflictInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_FunctionElementInfo" EntityType="Self.tbl_FunctionElementInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_FunEleMutualReactInfo" EntityType="Self.tbl_FunEleMutualReactInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_MaterialFieldModelInfo" EntityType="Self.tbl_MaterialFieldModelInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ProjectInfo" EntityType="Self.tbl_ProjectInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_QuestionAnalyseInfo" EntityType="Self.tbl_QuestionAnalyseInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_QuestionDescriptionInfo" EntityType="Self.tbl_QuestionDescriptionInfo" Schema="dbo" store:Type="Tables" />
@@ -243,6 +260,7 @@
           <EntitySet Name="tbl_StandardSolutionExampleInfo" EntityType="TrizDBModel.tbl_StandardSolutionExampleInfo" />
           <EntitySet Name="tbl_ConflictInfo" EntityType="TrizDBModel.tbl_ConflictInfo" />
           <EntitySet Name="tbl_StandardSolutionInfo" EntityType="TrizDBModel.tbl_StandardSolutionInfo" />
+          <EntitySet Name="tbl_MaterialFieldModelInfo" EntityType="TrizDBModel.tbl_MaterialFieldModelInfo" />
         </EntityContainer>
         <EntityType Name="tbl_ProjectInfo">
           <Key>
@@ -445,6 +463,22 @@
           <Property Name="Note" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="TypeID" Type="Int32" Nullable="false" />
+          <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tbl_MaterialFieldModelInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="SerialNum" Type="Int32" />
+          <Property Name="FunctionSubject" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FunctionObject" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="RelationType" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FieldName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FieldType" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Symbol" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
       </Schema>
@@ -664,6 +698,23 @@
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_MaterialFieldModelInfo">
+            <EntityTypeMapping TypeName="TrizDBModel.tbl_MaterialFieldModelInfo">
+              <MappingFragment StoreEntitySet="tbl_MaterialFieldModelInfo">
+                <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="FieldType" ColumnName="FieldType" />
+                <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+                <ScalarProperty Name="RelationType" ColumnName="RelationType" />
+                <ScalarProperty Name="FunctionObject" ColumnName="FunctionObject" />
+                <ScalarProperty Name="FunctionSubject" ColumnName="FunctionSubject" />
                 <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
                 <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />

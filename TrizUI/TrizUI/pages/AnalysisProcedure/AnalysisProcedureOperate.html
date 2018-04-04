@@ -15,47 +15,7 @@
                         <input type="text" id="form-field-1" class="col-xs-10 col-sm-5" />
                     </div>
                 </div>
-                <script type='text/ng-template' id='need.html'> 
-                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2">需要做的工作</label>
-                    <div class="col-sm-9">
-                        <span id="accordion-style" data-toggle="buttons" class="btn-group no-margin">
-                            <label id="label1" class="btn btn-xs btn-yellow active"  ng-click="Choose('j1c1')">
-                                <input type="radio" />
-                                预测改变的潜力
-                            </label>
 
-                            <label id="label2" class="btn btn-xs btn-yellow" ng-click="Choose('j1c2')">
-                                <input type="radio"/>
-                                系统改进
-                            </label>
-
-                            <label id="label3" class="btn btn-xs btn-yellow" ng-click="Choose('j1c3')">
-                                <input type="radio"/>
-                                添加检测、测量功能
-                            </label>
-                        </span>
-                    </div>
-                </script>
-                <script type='text/ng-template' id='change.html'> 
-                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2">改变的规模</label>
-
-                    <div class="col-sm-9">
-                        <span id="Span1" data-toggle="buttons" class="btn-group no-margin">
-                            <label id="label4" class="btn btn-xs btn-yellow active">
-                                <input type="radio" value="101" />
-                                超系统或子系统的改变
-                           
-                            </label>
-
-                            <label id="label5" class="btn btn-xs btn-yellow">
-                                <input type="radio" value="102" />
-                                最小改变
-                           
-                            </label>
-
-                        </span>
-                    </div>
-                </script>
                 <script type='text/ng-template' id='judge.html'> 
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-2">{{c.DisplayName}}</label>
                     <div class="col-sm-9">
@@ -79,7 +39,7 @@
                 </script>
                 <script type='text/ng-template' id='model.html'> 
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1">物质-场模型</label>
-                    <div class="col-sm-9">
+                    <div class="col-sm-9" ng-controller="MaterialFieldModelCtrl">
                         <table id="sample-table-2" style="width: 80%" class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
@@ -94,62 +54,24 @@
                             </thead>
 
                             <tbody>
-                                <tr>
-                                    <td>传动机构</td>
-                                    <td>链条</td>
-                                    <td>栽种，真菌，细胞，酶</td>
-                                    <td>生物场</td>
-                                    <td>正常功能</td>
-                                    <td>B</td>
-                                    <td>
-                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                            <a class="blue" href="#">
-                                                <i class="icon-plus bigger-130"></i>
-                                            </a>
+                                <tr ng-repeat="MaterialFieldModelInfo in MaterialFieldModelInfoList">
+                                            <td style="width:20%"><input type="text" class="col-md-12" ng-model="MaterialFieldModelInfo.FunctionSubject" /></td>
+                                            <td style="width:20%"><input type="text" class="col-md-12" ng-model="MaterialFieldModelInfo.FunctionObject" /></td>
+                                            <td style="width:25%"><input type="text" class="col-md-12" ng-model="MaterialFieldModelInfo.RelationType" /></td>
+                                            <td style="width:10%"><input type="text" class="col-md-12" ng-model="MaterialFieldModelInfo.FieldName" /></td>
+                                            <td style="width:10%"><input type="text" class="col-md-12" ng-model="MaterialFieldModelInfo.FieldType" /></td>
+                                            <td style="width:8%"><input type="text" class="col-md-12" ng-model="MaterialFieldModelInfo.Symbol" /></td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="blue" style="cursor: pointer" ng-click="AddMaterialFieldModelInfo()">
+                                                        <i class="icon-plus bigger-130"></i>
+                                                    </a>
 
-                                            <a class="green" href="#">
-                                                <i class="icon-pencil bigger-130"></i>
-                                            </a>
-
-                                            <a class="red" href="#">
-                                                <i class="icon-trash bigger-130"></i>
-                                            </a>
-                                        </div>
-
-                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
-                                            <div class="inline position-relative">
-                                                <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown">
-                                                    <i class="icon-caret-down icon-only bigger-120"></i>
-                                                </button>
-
-                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
-                                                    <li>
-                                                        <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-                                                            <span class="blue">
-                                                                <i class="icon-plus bigger-120"></i>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-                                                            <span class="green">
-                                                                <i class="icon-edit bigger-120"></i>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-                                                            <span class="red">
-                                                                <i class="icon-trash bigger-120"></i>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </td>
+                                                    <a class="red" style="cursor: pointer" ng-click="DeleteMaterialFieldModelInfo($index)">
+                                                        <i class="icon-trash bigger-130"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
                                 </tr>
                                 <tr>
                                     <td>小链轮</td>
@@ -217,25 +139,7 @@
                         </table>
                     </div>
                 </script>
-                <script type='text/ng-template' id='tpl/mgfield/textarea.html'> 
-                     <label class="col-sm-3 control-label no-padding-right" for="form-field-2">改变的规则 </label>
-                    <div class="col-sm-9">
-                        <span id="Span1" data-toggle="buttons" class="btn-group no-margin">
-                            <label id="label4" class="btn btn-xs btn-yellow active" ng-click="aaa()">
-                                <input type="radio" value="999" />
-                                超系统或子系统的改变999{{field.fieldTypeId}}111
-                           
-                            </label>
 
-                            <label id="label5" class="btn btn-xs btn-yellow" ng-click="bbb()">
-                                <input type="radio" value="888" />
-                                最小改变000
-                           
-                            </label>
-
-                        </span>
-                    </div>
-                </script>
 
                 <div class="form-group" ng-repeat="c in ControlList">
                     <current-probleml type="{{c.TemplateName}}"></current-probleml>

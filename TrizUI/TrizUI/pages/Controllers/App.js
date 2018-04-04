@@ -31,9 +31,9 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
            url: "/QuestionAdd",
            templateUrl: "/pages/QuestionDescription/QuestionDescriptionOperate.html"
        })
-        .state("StandardSolutionAdd", {
-            url: "/StandardSolutionAdd",
-            templateUrl: "/pages/StandardSolution/StandardSolutionOperate.html",
+        .state("AnalysisProcedureAdd", {
+            url: "/AnalysisProcedureAdd",
+            templateUrl: "/pages/AnalysisProcedure/AnalysisProcedureOperate.html",
             controller: 'tree-Controller'
         })
        .state("QuestionAnalyseAdd", {

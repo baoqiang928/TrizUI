@@ -744,6 +744,7 @@
     <Content Include="pages\Conflict\TechConflictList.html" />
     <Content Include="pages\Conflict\TechConflictOperate.html" />
     <Content Include="pages\Conflict\TechConflictResolveList.html" />
+    <Content Include="pages\Controllers\AnalysisProcedure\MaterialFieldModelCtrl.js" />
     <Content Include="pages\Controllers\CauseEffectCtrl.js" />
     <Content Include="pages\Controllers\CauseEffect\componentRel.js" />
     <Content Include="pages\Controllers\CauseEffect\conflictList.js" />
@@ -876,7 +877,7 @@
     <Content Include="pages\Solution\TypeTree.html" />
     <Content Include="pages\StandardSolution\StandardSolutionAndExamplesList.html" />
     <Content Include="pages\StandardSolution\StandardSolutionList.html" />
-    <Content Include="pages\StandardSolution\StandardSolutionOperate.html" />
+    <Content Include="pages\AnalysisProcedure\AnalysisProcedureOperate.html" />
     <Content Include="pages\test\demo.html" />
     <Content Include="pages\test\pagination.css" />
     <Content Include="pages\test\pagination.html" />

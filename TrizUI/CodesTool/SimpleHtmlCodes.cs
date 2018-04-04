@@ -31,7 +31,7 @@ namespace CodesTool
         {
             string tds_codes = "";
             string td_codes = @"
-<td><input type=""text"" class=""col - xs - 12 col - sm - 12"" ng-model=""{objname}.{proname}"" /></td>";
+<td><input type=""text"" class=""col-xs-12 col-sm-12 col-md-12"" ng-model=""{objname}.{proname}"" /></td>";
             foreach (BusinessObjectInfo BusinessObjectInfo in BusinessObjectInfoList)
             {
                 tds_codes = tds_codes + td_codes.Replace("{objname}", BusinessObjectInfo.ObjName).Replace("{proname}", BusinessObjectInfo.Name);

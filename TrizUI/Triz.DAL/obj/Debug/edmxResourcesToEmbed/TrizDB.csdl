@@ -15,6 +15,7 @@
     <EntitySet Name="tbl_StandardSolutionExampleInfo" EntityType="TrizDBModel.tbl_StandardSolutionExampleInfo" />
     <EntitySet Name="tbl_ConflictInfo" EntityType="TrizDBModel.tbl_ConflictInfo" />
     <EntitySet Name="tbl_StandardSolutionInfo" EntityType="TrizDBModel.tbl_StandardSolutionInfo" />
+    <EntitySet Name="tbl_MaterialFieldModelInfo" EntityType="TrizDBModel.tbl_MaterialFieldModelInfo" />
   </EntityContainer>
   <EntityType Name="tbl_ProjectInfo">
     <Key>
@@ -217,6 +218,22 @@
     <Property Name="Note" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
     <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
     <Property Name="TypeID" Type="Int32" Nullable="false" />
+    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_MaterialFieldModelInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="SerialNum" Type="Int32" />
+    <Property Name="FunctionSubject" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FunctionObject" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="RelationType" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="FieldName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FieldType" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Symbol" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
 </Schema>

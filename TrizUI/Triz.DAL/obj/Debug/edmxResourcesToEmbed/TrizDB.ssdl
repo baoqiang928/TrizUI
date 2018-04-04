@@ -96,6 +96,22 @@
     <Property Name="ElementType" Type="nvarchar" MaxLength="10" />
     <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
   </EntityType>
+  <EntityType Name="tbl_MaterialFieldModelInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="SerialNum" Type="int" />
+    <Property Name="FunctionSubject" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="FunctionObject" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="RelationType" Type="nvarchar" MaxLength="1000" />
+    <Property Name="FieldName" Type="nvarchar" MaxLength="500" />
+    <Property Name="FieldType" Type="nvarchar" MaxLength="500" />
+    <Property Name="Symbol" Type="nvarchar" MaxLength="500" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
   <EntityType Name="tbl_ProjectInfo">
     <Key>
       <PropertyRef Name="ID" />
@@ -211,6 +227,7 @@
     <EntitySet Name="tbl_ConflictInfo" EntityType="Self.tbl_ConflictInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_FunctionElementInfo" EntityType="Self.tbl_FunctionElementInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_FunEleMutualReactInfo" EntityType="Self.tbl_FunEleMutualReactInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_MaterialFieldModelInfo" EntityType="Self.tbl_MaterialFieldModelInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_ProjectInfo" EntityType="Self.tbl_ProjectInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_QuestionAnalyseInfo" EntityType="Self.tbl_QuestionAnalyseInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_QuestionDescriptionInfo" EntityType="Self.tbl_QuestionDescriptionInfo" Schema="dbo" store:Type="Tables" />

@@ -1,9 +1,8 @@
 ﻿angular.module("myApp")
-    .controller('AnalysisProcedureCtrl', function ($scope, $location, requestService, $state, locals) {
+    .controller('AnalysisProcedureCtrl', function ($scope, $location, requestService, $state, locals, $rootScope) {
         $scope.aaa = false;
         $scope.bbb = false;
         $scope.bbb = true;
-
         $scope.Option = function () {
             Name: "";
             Value: "";
@@ -324,6 +323,8 @@
                 requestService.update("AnalysisProcedures", $scope.ControlList[i]).then(function (data) { });
             }
             alert('保存完毕。');
+            $rootScope.$broadcast("ShareObjectEvent", 1);
+
         }
 
         $scope.data = {

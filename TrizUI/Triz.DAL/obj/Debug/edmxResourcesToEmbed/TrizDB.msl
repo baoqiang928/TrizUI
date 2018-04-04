@@ -218,5 +218,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbl_MaterialFieldModelInfo">
+      <EntityTypeMapping TypeName="TrizDBModel.tbl_MaterialFieldModelInfo">
+        <MappingFragment StoreEntitySet="tbl_MaterialFieldModelInfo">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="FieldType" ColumnName="FieldType" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="RelationType" ColumnName="RelationType" />
+          <ScalarProperty Name="FunctionObject" ColumnName="FunctionObject" />
+          <ScalarProperty Name="FunctionSubject" ColumnName="FunctionSubject" />
+          <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

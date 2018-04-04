@@ -31,6 +31,7 @@ namespace CodesTool
             bootbox.confirm(""要删除当前的记录？"", function(result) {
                 if (result)
                 {
+                    requestService.delete({Sources}, scope.ComponentRelInfoListSection[SectionIndex][Index].ID).then(function (data) { });
                     $scope.{ObjName}List.splice(index, 1);
                     $scope.$apply();
                 }
@@ -51,7 +52,7 @@ namespace CodesTool
             }
 
             codes = codes.Replace("{property}", CodeSection);
-
+            codes = codes.Replace("{Sources}", BusinessObjectInfoList[0].ObjName.Replace("Info","s"));
             return codes;
         }
     }

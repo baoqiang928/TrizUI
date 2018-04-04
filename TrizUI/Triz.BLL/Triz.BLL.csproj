@@ -46,6 +46,7 @@
     <Compile Include="ConflictLogic.cs" />
     <Compile Include="FunctionElementLogic.cs" />
     <Compile Include="FunEleMutualReactLogic.cs" />
+    <Compile Include="MaterialFieldModelLogic.cs" />
     <Compile Include="ProjectLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionAnalyseLogic.cs" />

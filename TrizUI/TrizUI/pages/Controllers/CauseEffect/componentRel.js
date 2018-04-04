@@ -19,8 +19,7 @@
             scope.DelRelOperate = function (SectionIndex, Index) {
                 bootbox.confirm("确认删除该条记录吗？", function (result) {
                     if (result) {
-                        requestService.delete("ComponentRels", scope.ComponentRelInfoListSection[SectionIndex][Index].ID).then(function (data) {
-                        });
+                        requestService.delete("ComponentRels", scope.ComponentRelInfoListSection[SectionIndex][Index].ID).then(function (data) { });
                         scope.ComponentRelInfoListSection[SectionIndex].splice(Index, 1);
                         scope.$apply();
 
