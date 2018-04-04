@@ -76,14 +76,13 @@ angular.module("myApp")
 
         //树
         $scope.TreeData = [];
+        $scope.QueryData = {
+            ProjectID: $scope.CurrentProjectID,
+            TypeID: ""
+        };
         var GetTreeNodes = function () {
-            $scope.QueryData = {
-                ProjectID: ""
-            };
-            $scope.QueryData.ProjectID = $scope.CurrentProjectID;
             requestService.lists("StandardSolutionExamples", $scope.QueryData).then(function (data) {
                 $scope.TreeData = strToJson(data.json);
-                //console.log("$scope.nodeData", $scope.TreeData);
             });
         };
         GetTreeNodes();

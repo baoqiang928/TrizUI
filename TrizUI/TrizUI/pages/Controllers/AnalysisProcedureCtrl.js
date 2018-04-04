@@ -501,7 +501,7 @@
             $scope.CurrentObject = c;
             $scope.QueryData = {
                 ProjectID: $scope.CurrentProjectID,
-                TypeID: c.TypeID //5
+                TypeID: "" //c.TypeID //5
             };
             GetTreeNodes();
             $('#modal-table').modal('show');
