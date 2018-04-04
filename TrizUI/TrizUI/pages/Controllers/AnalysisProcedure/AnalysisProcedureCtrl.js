@@ -1,8 +1,6 @@
 ﻿angular.module("myApp")
     .controller('AnalysisProcedureCtrl', function ($scope, $location, requestService, $state, locals, $rootScope) {
-        $scope.aaa = false;
-        $scope.bbb = false;
-        $scope.bbb = true;
+
         $scope.Option = function () {
             Name: "";
             Value: "";
@@ -24,11 +22,6 @@
             this.TypeID = "";//标准解对应的TypeID，过滤树。
         };
 
-
-        $scope.NextStep = function () {
-            console.log("$scope.ControlList", $scope.ControlList);
-        }
-        $scope.ControlCodeList = [];//已选控件值路径
         function NeedClearCurrentControl(Code) {
             //目前来说，只有条件判断控件，需要清空，因为会有不同的选择项
             if (Code.indexOf("j") == 0) return true;
@@ -38,15 +31,12 @@
             if (NeedClearCurrentControl(Code)) {
                 //1 从ControlList当前位置删除后面所有内容
                 ClearAfterThatInControlList(GetControlByCode(Code));
-                console.log("ClearAfterThatInControlList-ControlList", $scope.ControlList);
                 //2 把新值补充到最后
                 $scope.ControlList.push(GetControlByCode(Code));
-                console.log("$scope.ControlList.push", $scope.ControlList);
             }
             //3 计算出下一个显示的控件，加入到ControlList里面。
             if (typeof (GetNextControl(Code)) != "undefined")
                 $scope.ControlList.push(GetNextControl(Code));
-            console.log("$scope.ControlList", $scope.ControlList);
 
         }
 
@@ -308,10 +298,11 @@
         }
 
         function GetNextControl(Code) {
-            console.log("$scope.ctrls", $scope.ctrls);
             return $scope.ctrls[Code];
         }
 
+        $scope.ProblemShortDesriptionCtrl = new ControlInfo();
+        $scope.ProblemShortDesriptionCtrl.DisplayName = "问题的简洁描述";
 
         $scope.Save = function () {
             for (var i = 0; i < $scope.ControlList.length; i++) {
@@ -322,6 +313,7 @@
                 }
                 requestService.update("AnalysisProcedures", $scope.ControlList[i]).then(function (data) { });
             }
+            requestService.add("AnalysisProcedures", $scope.ProblemShortDesriptionCtrl).then(function (data) { });
             alert('保存完毕。');
             $rootScope.$broadcast("ShareObjectEvent", 1);
 
@@ -334,7 +326,6 @@
         };
         var GetAnalysisProcedures = function () {
             requestService.lists("AnalysisProcedures", $scope.data).then(function (data) {
-                console.log("data.Results", data.Results);
                 $scope.ControlList = [];
                 for (var i = 0; i < data.Results.length; i++) {
                     var ctl = new ControlInfo();
@@ -347,6 +338,10 @@
                     ctl.RadioValue = data.Results[i].RadioValue;
                     ctl.InputValue = data.Results[i].InputValue;
                     ctl.Options = GetOptionsByValue(data.Results[i].RadioValue);
+                    if (data.Results[i].DisplayName == "问题的简洁描述") {
+                        $scope.ProblemShortDesriptionCtrl = ctl;
+                        continue;
+                    }
                     $scope.ControlList.push(ctl);
                 }
                 if ($scope.ControlList.length == 0)
