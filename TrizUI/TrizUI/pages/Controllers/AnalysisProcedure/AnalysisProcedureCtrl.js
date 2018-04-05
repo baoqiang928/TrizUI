@@ -349,6 +349,13 @@
         }
 
         GetAnalysisProcedures();
+        //$scope.SerialNum = "SerialNum";
+        $scope.$on("RefreshMap", function (event, msg) {
+            $scope.$broadcast("StartRefreshMap", msg);
+        });
+
+
+
         //////////////////////////////////////////////////////////////////
         function GetOptionsByValue(RadioValue) {
             if (RadioValue == "") return;

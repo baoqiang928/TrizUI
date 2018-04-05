@@ -53,12 +53,15 @@
                                                     <a class="blue" style="cursor: pointer" ng-click="AddMaterialFieldModelInfo()">
                                                         <i class="icon-plus bigger-130"></i>
                                                     </a>
+                                                    <a href="" ng-click="RefreshMap()">
+                                                        <i class="icon-refresh"></i>
+                                                    </a>
                                                 </div></th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                <tr ng-repeat="MaterialFieldModelInfo in MaterialFieldModelInfoList">
+                                <tr ng-repeat="MaterialFieldModelInfo in MaterialFieldModelInfoList|orderBy:'SerialNum'">
                                             <td style="width:20%"><input type="text" class="col-md-12" ng-model="MaterialFieldModelInfo.FunctionSubject" /></td>
                                             <td style="width:20%"><input type="text" class="col-md-12" ng-model="MaterialFieldModelInfo.FunctionObject" /></td>
                                             <td style="width:25%"><input type="text" class="col-md-12" ng-model="MaterialFieldModelInfo.RelationType" /></td>
@@ -107,8 +110,6 @@
                 <div class="form-group" ng-repeat="c in ControlList">
                     <current-probleml type="{{c.TemplateName}}"></current-probleml>
                 </div>
-
-
 
 
                 <div class="space-4"></div>

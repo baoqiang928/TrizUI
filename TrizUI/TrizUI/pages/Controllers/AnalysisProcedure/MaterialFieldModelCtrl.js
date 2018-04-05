@@ -11,7 +11,7 @@
             FieldName: "";
             FieldType: "";
             Symbol: "";
-            Remark: "";
+            Remark: "";            
         }
 
         $scope.MaterialFieldModelInfoList = [];
@@ -26,6 +26,7 @@
             $scope.data.itemsPerPage = "999";
             requestService.lists($scope.Sources, $scope.data).then(function (data) {
                 $scope.MaterialFieldModelInfoList = data.Results;
+                console.log("$scope.MaterialFieldModelInfoList", $scope.MaterialFieldModelInfoList);
             });
         }
         GetMaterialFieldModels();
@@ -51,12 +52,18 @@
             //if (!$('#validation-form').valid()) {
             //    return false;
             //}
-            console.log("$scope.MaterialFieldModelInfoList", $scope.MaterialFieldModelInfoList);
             for (var i = 0; i < $scope.MaterialFieldModelInfoList.length; i++) {
-                requestService.add($scope.Sources, $scope.MaterialFieldModelInfoList[i]).then(function (data) {
-                    if ($scope.MaterialFieldModelInfoList[i].ID == "") {
-                        $scope.MaterialFieldModelInfoList[i].ID = data;
+                var o = $scope.MaterialFieldModelInfoList[i];
+                o.SerialNum = i;
+                requestService.add($scope.Sources, o).then(function (data) {
+                    if (o.ID == "") {
+                        o.ID = data;
                     }
+                    //if (i < $scope.MaterialFieldModelInfoList.length) {
+                    //    if ($scope.MaterialFieldModelInfoList[i].ID == "") {
+                    //        $scope.MaterialFieldModelInfoList[i].ID = data;
+                    //    }
+                    //}
                 });
             }
         };
@@ -65,5 +72,12 @@
         $scope.$on("ShareObjectEvent", function (event, args) {
             $scope.Save();
         });
+
+        $scope.RefreshMap = function () {
+            $scope.$emit("RefreshMap", $scope.MaterialFieldModelInfoList);
+        };
+
+
+
 
     });
