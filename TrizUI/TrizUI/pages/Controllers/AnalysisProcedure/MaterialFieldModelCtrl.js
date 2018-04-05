@@ -53,17 +53,12 @@
             //    return false;
             //}
             for (var i = 0; i < $scope.MaterialFieldModelInfoList.length; i++) {
-                var o = $scope.MaterialFieldModelInfoList[i];
-                o.SerialNum = i;
-                requestService.add($scope.Sources, o).then(function (data) {
-                    if (o.ID == "") {
-                        o.ID = data;
+                var MaterialFieldModelInfo = $scope.MaterialFieldModelInfoList[i];
+                MaterialFieldModelInfo.SerialNum = i;
+                requestService.add($scope.Sources, MaterialFieldModelInfo).then(function (data) {
+                    if (MaterialFieldModelInfo.ID == "") {
+                        MaterialFieldModelInfo.ID = data;
                     }
-                    //if (i < $scope.MaterialFieldModelInfoList.length) {
-                    //    if ($scope.MaterialFieldModelInfoList[i].ID == "") {
-                    //        $scope.MaterialFieldModelInfoList[i].ID = data;
-                    //    }
-                    //}
                 });
             }
         };

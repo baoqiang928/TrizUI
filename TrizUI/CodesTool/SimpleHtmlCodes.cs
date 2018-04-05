@@ -37,7 +37,7 @@ namespace CodesTool
                 tds_codes = tds_codes + td_codes.Replace("{objname}", BusinessObjectInfo.ObjName).Replace("{proname}", BusinessObjectInfo.Name);
             }
             codes = codes.Replace("{td_codes}",tds_codes);
-            codes = codes.Replace("{ng-repeat_codes}", BusinessObjectInfoList[0].ObjName + " in "+ BusinessObjectInfoList[0].ObjName + "List");
+            codes = codes.Replace("{ng-repeat_codes}", BusinessObjectInfoList[0].ObjName + " in "+ BusinessObjectInfoList[0].ObjName + "List|orderBy:'SerialNum'");
             codes = codes.Replace("{add_codes}", "Add"+ BusinessObjectInfoList[0].ObjName + "()");
             codes = codes.Replace("{del_codes}", "Delete"+ BusinessObjectInfoList[0].ObjName + "($index)");
             return codes;

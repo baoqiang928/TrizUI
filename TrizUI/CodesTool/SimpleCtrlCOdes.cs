@@ -55,10 +55,13 @@ namespace CodesTool
             //if (!$('#validation-form').valid()) {
             //    return false;
             //}
+            
             for (var i = 0; i < $scope.{ObjName}List[i].length; i++) {
-                requestService.add({Sources}, $scope.{ObjName}List[i]).then(function (data) {
-                    if ($scope.{ObjName}List[i].ID == "") {
-                        $scope.{ObjName}List[i].ID = data;
+                var {ObjName} = $scope.{ObjName}List[i];
+                {ObjName}.SerialNum = i;
+                requestService.add($scope.Sources, {ObjName}).then(function (data) {
+                    if ({ObjName}.ID == "") {
+                        {ObjName}.ID = data;
                     }
                 });
             }
