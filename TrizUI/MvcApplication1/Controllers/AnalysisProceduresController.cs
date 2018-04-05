@@ -18,11 +18,11 @@ namespace MvcApplication1.Controllers
         }
 
         // GET api/AnalysisProcedures
-        public object Get([FromUri]string ProjectID, int currentPage, int itemsPerPage)
+        public object Get([FromUri]string ProjectID, string ProcedureID, int currentPage, int itemsPerPage)
         {
             int TotalItems = 0;
             int PagesLength = 0;
-            List<AnalysisProcedureInfo> AnalysisProcedureInfoList = new AnalysisProcedureLogic().Query(ProjectID, currentPage, itemsPerPage, ref TotalItems,ref PagesLength);
+            List<AnalysisProcedureInfo> AnalysisProcedureInfoList = new AnalysisProcedureLogic().Query(ProjectID, ProcedureID, currentPage, itemsPerPage, ref TotalItems, ref PagesLength);
             return new
             {
                 TotalItems = TotalItems,

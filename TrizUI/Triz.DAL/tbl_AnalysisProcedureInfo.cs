@@ -20,6 +20,8 @@ public partial class tbl_AnalysisProcedureInfo
 
     public int ID { get; set; }
 
+    public string ProcedureID { get; set; }
+
     public int ProjectID { get; set; }
 
     public int SerialNum { get; set; }

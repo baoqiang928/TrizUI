@@ -52,8 +52,6 @@ public partial class TrizDBEntities : DbContext
 
     public DbSet<tbl_ComponentRelInfo> tbl_ComponentRelInfo { get; set; }
 
-    public DbSet<tbl_AnalysisProcedureInfo> tbl_AnalysisProcedureInfo { get; set; }
-
     public DbSet<tbl_StandardSolutionExampleInfo> tbl_StandardSolutionExampleInfo { get; set; }
 
     public DbSet<tbl_ConflictInfo> tbl_ConflictInfo { get; set; }
@@ -61,6 +59,8 @@ public partial class TrizDBEntities : DbContext
     public DbSet<tbl_StandardSolutionInfo> tbl_StandardSolutionInfo { get; set; }
 
     public DbSet<tbl_MaterialFieldModelInfo> tbl_MaterialFieldModelInfo { get; set; }
+
+    public DbSet<tbl_AnalysisProcedureInfo> tbl_AnalysisProcedureInfo { get; set; }
 
 }
 

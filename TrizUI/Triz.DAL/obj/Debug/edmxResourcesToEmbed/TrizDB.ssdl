@@ -5,6 +5,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProcedureID" Type="nvarchar" MaxLength="50" />
     <Property Name="ProjectID" Type="int" Nullable="false" />
     <Property Name="SerialNum" Type="int" Nullable="false" />
     <Property Name="TemplateName" Type="nvarchar" MaxLength="50" Nullable="false" />

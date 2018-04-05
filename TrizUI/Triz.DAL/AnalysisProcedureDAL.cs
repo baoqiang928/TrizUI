@@ -91,6 +91,41 @@ namespace Triz.DAL
         /// </summary>
         /// <param name="AnalysisProcedureInfo"></param>
         /// <returns></returns>
+        public int DeleteByProID(string ProcedureID)
+        {
+            using (TrizDBEntities TrizDB = new TrizDBEntities())
+            {
+                try
+                {
+                    var Query = TrizDB.tbl_AnalysisProcedureInfo.Where(o => o.ProcedureID == ProcedureID).FirstOrDefault();
+                    if (Query == null) return 0;
+                    TrizDB.tbl_AnalysisProcedureInfo.Remove(Query);
+                    return TrizDB.SaveChanges();
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+                {
+                    Exception raise = dbEx;
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            string message = string.Format("{0},{1}",
+                                validationErrors.Entry.Entity.ToString(),
+                                validationError.ErrorMessage);
+                            raise = new InvalidOperationException(message, raise);
+                            throw raise;
+                        }
+                    }
+                }
+            }
+            return 0;
+        }
+
+        /// <summary>
+        /// 删除记录
+        /// </summary>
+        /// <param name="AnalysisProcedureInfo"></param>
+        /// <returns></returns>
         public int Delete(int id)
         {
             using (TrizDBEntities TrizDB = new TrizDBEntities())
@@ -150,14 +185,17 @@ namespace Triz.DAL
             return new AnalysisProcedureInfo();
         }
 
-        public List<AnalysisProcedureInfo> Query(string ProjectID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
+        public List<AnalysisProcedureInfo> Query(string ProjectID,string ProcedureID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
             int startRow = (pageIndex - 1) * pageSize;
             Expression<Func<tbl_AnalysisProcedureInfo, bool>> where = PredicateExtensionses.True<tbl_AnalysisProcedureInfo>();
-            
-                    if (!string.IsNullOrWhiteSpace(ProjectID))
-                        where = where.And(a => a.ProjectID==int.Parse(ProjectID));
-                
+
+            if (!string.IsNullOrWhiteSpace(ProjectID))
+                where = where.And(a => a.ProjectID == int.Parse(ProjectID));
+
+            if (!string.IsNullOrWhiteSpace(ProcedureID))
+                where = where.And(a => a.ProcedureID == ProcedureID);
+
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
                 var query = TrizDB.tbl_AnalysisProcedureInfo.Where(where.Compile());
@@ -171,56 +209,60 @@ namespace Triz.DAL
         public AnalysisProcedureInfo GetBusinessObject(tbl_AnalysisProcedureInfo AnalysisProcedureInfoEntity)
         {
             AnalysisProcedureInfo AnalysisProcedureInfo = new AnalysisProcedureInfo();
-            
-                                     AnalysisProcedureInfo.ID = AnalysisProcedureInfoEntity.ID;
-                    
-                                     AnalysisProcedureInfo.ProjectID = AnalysisProcedureInfoEntity.ProjectID;
-                    
-                                     AnalysisProcedureInfo.SerialNum = AnalysisProcedureInfoEntity.SerialNum;
-                    
-                                     AnalysisProcedureInfo.TemplateName = AnalysisProcedureInfoEntity.TemplateName;
-                    
-                                     AnalysisProcedureInfo.DisplayName = AnalysisProcedureInfoEntity.DisplayName;
-                    
-                                     AnalysisProcedureInfo.Code = AnalysisProcedureInfoEntity.Code;
-                    
-                                     AnalysisProcedureInfo.RadioValue = AnalysisProcedureInfoEntity.RadioValue;
-                    
-                                     AnalysisProcedureInfo.InputValue = AnalysisProcedureInfoEntity.InputValue;
-                    
-                                     AnalysisProcedureInfo.CreateDateTime = AnalysisProcedureInfoEntity.CreateDateTime;
-                    
+
+            AnalysisProcedureInfo.ID = AnalysisProcedureInfoEntity.ID;
+
+            AnalysisProcedureInfo.ProjectID = AnalysisProcedureInfoEntity.ProjectID;
+
+            AnalysisProcedureInfo.SerialNum = AnalysisProcedureInfoEntity.SerialNum;
+
+            AnalysisProcedureInfo.ProcedureID = AnalysisProcedureInfoEntity.ProcedureID;
+
+            AnalysisProcedureInfo.TemplateName = AnalysisProcedureInfoEntity.TemplateName;
+
+            AnalysisProcedureInfo.DisplayName = AnalysisProcedureInfoEntity.DisplayName;
+
+            AnalysisProcedureInfo.Code = AnalysisProcedureInfoEntity.Code;
+
+            AnalysisProcedureInfo.RadioValue = AnalysisProcedureInfoEntity.RadioValue;
+
+            AnalysisProcedureInfo.InputValue = AnalysisProcedureInfoEntity.InputValue;
+
+            AnalysisProcedureInfo.CreateDateTime = AnalysisProcedureInfoEntity.CreateDateTime;
 
             return AnalysisProcedureInfo;
         }
 
         public void SetDataEntity(tbl_AnalysisProcedureInfo AnalysisProcedureInfoEntity, AnalysisProcedureInfo AnalysisProcedureInfo)
         {
-             
-                                        if (AnalysisProcedureInfo.ID != null)
-                                            AnalysisProcedureInfoEntity.ID = AnalysisProcedureInfo.ID ?? 0;
-                    
-                                        if (AnalysisProcedureInfo.ProjectID != null)
-                                            AnalysisProcedureInfoEntity.ProjectID = AnalysisProcedureInfo.ProjectID;
-                    
-                                        if (AnalysisProcedureInfo.SerialNum != null)
-                                            AnalysisProcedureInfoEntity.SerialNum = AnalysisProcedureInfo.SerialNum;
-                    
-                                        if (AnalysisProcedureInfo.TemplateName != null)
-                                            AnalysisProcedureInfoEntity.TemplateName = AnalysisProcedureInfo.TemplateName;
-                    
-                                        if (AnalysisProcedureInfo.DisplayName != null)
-                                            AnalysisProcedureInfoEntity.DisplayName = AnalysisProcedureInfo.DisplayName;
-                    
-                                        if (AnalysisProcedureInfo.Code != null)
-                                            AnalysisProcedureInfoEntity.Code = AnalysisProcedureInfo.Code;
-                    
-                                        if (AnalysisProcedureInfo.RadioValue != null)
-                                            AnalysisProcedureInfoEntity.RadioValue = AnalysisProcedureInfo.RadioValue;
-                    
-                                        if (AnalysisProcedureInfo.InputValue != null)
-                                            AnalysisProcedureInfoEntity.InputValue = AnalysisProcedureInfo.InputValue;
-                    
+
+            if (AnalysisProcedureInfo.ID != null)
+                AnalysisProcedureInfoEntity.ID = AnalysisProcedureInfo.ID ?? 0;
+
+            if (AnalysisProcedureInfo.ProjectID != null)
+                AnalysisProcedureInfoEntity.ProjectID = AnalysisProcedureInfo.ProjectID;
+
+            if (AnalysisProcedureInfo.SerialNum != null)
+                AnalysisProcedureInfoEntity.SerialNum = AnalysisProcedureInfo.SerialNum;
+
+            if (AnalysisProcedureInfo.ProcedureID != null)
+                AnalysisProcedureInfoEntity.ProcedureID = AnalysisProcedureInfo.ProcedureID;
+
+            if (AnalysisProcedureInfo.TemplateName != null)
+                AnalysisProcedureInfoEntity.TemplateName = AnalysisProcedureInfo.TemplateName;
+
+            if (AnalysisProcedureInfo.DisplayName != null)
+                AnalysisProcedureInfoEntity.DisplayName = AnalysisProcedureInfo.DisplayName;
+
+            if (AnalysisProcedureInfo.Code != null)
+                AnalysisProcedureInfoEntity.Code = AnalysisProcedureInfo.Code;
+
+            if (AnalysisProcedureInfo.RadioValue != null)
+                AnalysisProcedureInfoEntity.RadioValue = AnalysisProcedureInfo.RadioValue;
+
+            if (AnalysisProcedureInfo.InputValue != null)
+                AnalysisProcedureInfoEntity.InputValue = AnalysisProcedureInfo.InputValue;
+
         }
 
         public List<AnalysisProcedureInfo> GetGetBusinessObjectList(List<tbl_AnalysisProcedureInfo> AnalysisProcedureInfoEntityList)

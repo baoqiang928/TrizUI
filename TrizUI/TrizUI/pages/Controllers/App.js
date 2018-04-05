@@ -32,10 +32,15 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
            templateUrl: "/pages/QuestionDescription/QuestionDescriptionOperate.html"
        })
         .state("AnalysisProcedureAdd", {
+            params: { "ProcedureID": null },
             url: "/AnalysisProcedureAdd",
             templateUrl: "/pages/AnalysisProcedure/AnalysisProcedureOperate.html",
             controller: 'tree-Controller'
         })
+       .state("AnalysisProcedureList", {
+           url: "/AnalysisProcedureList",
+           templateUrl: "/pages/AnalysisProcedure/AnalysisProcedureList.html"
+       })
        .state("QuestionAnalyseAdd", {
            url: "/AnalyseAdd",
            templateUrl: "/pages/QuestionAnalyse/QuestionAnalyseOperate.html"
@@ -45,10 +50,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
            templateUrl: "/pages/FunctionAnalyse/FunctionAnalyseOperate.html",
            controller: 'tree-Controller'
        })
-       .state("StandardSolutionList", {
-           url: "/StandardSolutionList",
-           templateUrl: "/pages/StandardSolution/StandardSolutionList.html"
-       })
+
        .state("CauseEffectAdd", {
            url: "/CauseEffectAdd",
            templateUrl: "/pages/CauseEffect/CauseEffectOperate.html"

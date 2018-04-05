@@ -159,21 +159,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tbl_AnalysisProcedureInfo">
-      <EntityTypeMapping TypeName="TrizDBModel.tbl_AnalysisProcedureInfo">
-        <MappingFragment StoreEntitySet="tbl_AnalysisProcedureInfo">
-          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
-          <ScalarProperty Name="InputValue" ColumnName="InputValue" />
-          <ScalarProperty Name="RadioValue" ColumnName="RadioValue" />
-          <ScalarProperty Name="Code" ColumnName="Code" />
-          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
-          <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
-          <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
-          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tbl_StandardSolutionExampleInfo">
       <EntityTypeMapping TypeName="TrizDBModel.tbl_StandardSolutionExampleInfo">
         <MappingFragment StoreEntitySet="tbl_StandardSolutionExampleInfo">
@@ -231,6 +216,22 @@
           <ScalarProperty Name="FunctionSubject" ColumnName="FunctionSubject" />
           <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
           <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_AnalysisProcedureInfo">
+      <EntityTypeMapping TypeName="TrizDBModel.tbl_AnalysisProcedureInfo">
+        <MappingFragment StoreEntitySet="tbl_AnalysisProcedureInfo">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="InputValue" ColumnName="InputValue" />
+          <ScalarProperty Name="RadioValue" ColumnName="RadioValue" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
+          <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProcedureID" ColumnName="ProcedureID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
