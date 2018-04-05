@@ -36,6 +36,7 @@ namespace MvcApplication1.Controllers
             int TotalItems = 0;
             int PagesLength = 0;
             List<AnalysisProcedureInfo> AnalysisProcedureInfoList = new AnalysisProcedureLogic().Query(ProjectID, currentPage, itemsPerPage, ref TotalItems, ref PagesLength);
+            new AnalysisProcedureLogic().AppendCasesDescription(AnalysisProcedureInfoList);
             return new
             {
                 TotalItems = TotalItems,
@@ -63,9 +64,9 @@ namespace MvcApplication1.Controllers
         }
 
         // DELETE api/AnalysisProcedures/5
-        public void Delete(string ids)
+        public void Delete(string ProcedureID)
         {
-            new AnalysisProcedureLogic().DeleteAnalysisProcedure(ids);
+            new AnalysisProcedureLogic().DeleteAnalysisProcedure(ProcedureID);
         }
 
     }

@@ -41,7 +41,7 @@
                                         <a href="" ng-click="Update(AnalysisProcedure.ProcedureID)">{{GetName(AnalysisProcedure.RadioValue)}}</a>
                                     </td>
                                     <td>{{AnalysisProcedure.InputValue}}</td>
-                                    <td>{{AnalysisProcedure.Cases}}</td>
+                                    <td>{{AnalysisProcedure.DisplayName}}</td>
                                     <td>{{AnalysisProcedure.Valid}}</td>
                                     <td>
                                         <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
@@ -50,7 +50,7 @@
                                                 <i class="icon-pencil bigger-130">修改</i>
                                             </a>
 
-                                            <a class="red" href="#" ng-click="Delete(AnalysisProcedure.ProcedureID)">
+                                            <a class="red" href="" ng-click="Delete(AnalysisProcedure.ProcedureID)">
                                                 <i class="icon-trash bigger-130">删除</i>
                                             </a>
 

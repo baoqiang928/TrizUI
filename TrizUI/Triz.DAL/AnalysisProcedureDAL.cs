@@ -156,6 +156,37 @@ namespace Triz.DAL
             return 0;
         }
 
+
+        public int DeleteByProcedureID(string ProcedureID)
+        {
+            using (TrizDBEntities TrizDB = new TrizDBEntities())
+            {
+                try
+                {
+                    var Query = TrizDB.tbl_AnalysisProcedureInfo.Where(o => o.ProcedureID == ProcedureID).FirstOrDefault();
+                    if (Query == null) return 0;
+                    TrizDB.tbl_AnalysisProcedureInfo.Remove(Query);
+                    return TrizDB.SaveChanges();
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+                {
+                    Exception raise = dbEx;
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            string message = string.Format("{0},{1}",
+                                validationErrors.Entry.Entity.ToString(),
+                                validationError.ErrorMessage);
+                            raise = new InvalidOperationException(message, raise);
+                            throw raise;
+                        }
+                    }
+                }
+            }
+            return 0;
+        }
+
         public AnalysisProcedureInfo GetByID(int ID)
         {
             using (TrizDBEntities TrizDB = new TrizDBEntities())
@@ -185,6 +216,17 @@ namespace Triz.DAL
             return new AnalysisProcedureInfo();
         }
 
+        public List<AnalysisProcedureInfo> GetAnyProcInfoList(List<string> ProcedureIDList)
+        {
+            Expression<Func<tbl_AnalysisProcedureInfo, bool>> where = PredicateExtensionses.True<tbl_AnalysisProcedureInfo>();
+            where = where.And(a => ProcedureIDList.Contains(a.ProcedureID));
+            where = where.And(a => a.DisplayName.Contains("标准解"));
+            using (TrizDBEntities TrizDB = new TrizDBEntities())
+            {
+                var query = TrizDB.tbl_AnalysisProcedureInfo.Where(where.Compile());
+                return GetGetBusinessObjectList(query.ToList());
+            }
+        }
         public List<AnalysisProcedureInfo> Query(string ProjectID, string ProcedureID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
             int startRow = (pageIndex - 1) * pageSize;
