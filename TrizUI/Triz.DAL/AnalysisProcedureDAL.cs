@@ -185,7 +185,7 @@ namespace Triz.DAL
             return new AnalysisProcedureInfo();
         }
 
-        public List<AnalysisProcedureInfo> Query(string ProjectID,string ProcedureID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
+        public List<AnalysisProcedureInfo> Query(string ProjectID, string ProcedureID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
             int startRow = (pageIndex - 1) * pageSize;
             Expression<Func<tbl_AnalysisProcedureInfo, bool>> where = PredicateExtensionses.True<tbl_AnalysisProcedureInfo>();
@@ -230,7 +230,7 @@ namespace Triz.DAL
 
                 var query2 = TrizDB.tbl_AnalysisProcedureInfo.Where(where1.Compile());
 
-                var query = query1.Join(query2, a => a.ProcedureID, g => g.ProcedureID, (a, g) => new AnalysisProcedureInfo { ProcedureID = a.ProcedureID, ProjectID = a.ProjectID, RadioValue = a.RadioValue });
+                var query = query1.Join(query2, a => a.ProcedureID, g => g.ProcedureID, (a, g) => new AnalysisProcedureInfo { ProcedureID = a.ProcedureID, ProjectID = a.ProjectID, InputValue = a.InputValue, RadioValue = g.RadioValue });
 
                 totalItems = query.Count();
                 PagesLength = (int)Math.Ceiling((double)totalItems / pageSize);
@@ -260,6 +260,8 @@ namespace Triz.DAL
             AnalysisProcedureInfo.RadioValue = AnalysisProcedureInfoEntity.RadioValue;
 
             AnalysisProcedureInfo.InputValue = AnalysisProcedureInfoEntity.InputValue;
+
+            AnalysisProcedureInfo.InputValueTypeID = AnalysisProcedureInfoEntity.InputValueTypeID;
 
             AnalysisProcedureInfo.CreateDateTime = AnalysisProcedureInfoEntity.CreateDateTime;
 
@@ -295,6 +297,9 @@ namespace Triz.DAL
 
             if (AnalysisProcedureInfo.InputValue != null)
                 AnalysisProcedureInfoEntity.InputValue = AnalysisProcedureInfo.InputValue;
+
+            if (AnalysisProcedureInfo.InputValueTypeID != null)
+                AnalysisProcedureInfoEntity.InputValueTypeID = AnalysisProcedureInfo.InputValueTypeID;
 
         }
 

@@ -25,11 +25,20 @@ angular.module("myApp")
             Cases: "";
             Valid: "";
         }
+        $scope.GetName = function (RadioValue) {
+            if (RadioValue == "j1c1")
+                return "预测改变的潜力";
+            if (RadioValue == "j1c2")
+                return "系统改进";
+            if (RadioValue == "j1c3")
+                return "添加检测、测量功能";
+        };
         var GetAnalysisProcedures = function () {
             $scope.data.currentPage = $scope.paginationConf.currentPage;
             $scope.data.itemsPerPage = $scope.paginationConf.itemsPerPage;
             requestService.lists(Sources, $scope.data).then(function (data) {
                 $scope.AnalysisProcedures = data.Results;
+                console.log("data.Results", data.Results);
                 $scope.paginationConf.totalItems = data.TotalItems;
                 $scope.paginationConf.pagesLength = data.PagesLength;
             });
@@ -73,8 +82,8 @@ angular.module("myApp")
 
         }
 
-        $scope.Update = function (ID) {
-            $state.go("AnalysisProcedureAdd", { ID: ID });
+        $scope.Update = function (ProcedureID) {
+            $state.go("AnalysisProcedureAdd", { ProcedureID: ProcedureID });
         }
 
     });//end

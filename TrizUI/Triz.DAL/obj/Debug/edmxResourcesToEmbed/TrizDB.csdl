@@ -227,14 +227,15 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ProcedureID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProcedureID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ProjectID" Type="Int32" Nullable="false" />
     <Property Name="SerialNum" Type="Int32" Nullable="false" />
-    <Property Name="TemplateName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="DisplayName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TemplateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="RadioValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="InputValue" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="InputValueTypeID" Type="Int32" />
     <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
 </Schema>

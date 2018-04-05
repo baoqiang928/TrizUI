@@ -36,6 +36,8 @@ public partial class tbl_AnalysisProcedureInfo
 
     public string InputValue { get; set; }
 
+    public Nullable<int> InputValueTypeID { get; set; }
+
     public System.DateTime CreateDateTime { get; set; }
 
 }

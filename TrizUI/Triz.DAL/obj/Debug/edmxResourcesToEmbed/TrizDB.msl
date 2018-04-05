@@ -224,6 +224,7 @@
       <EntityTypeMapping TypeName="TrizDBModel.tbl_AnalysisProcedureInfo">
         <MappingFragment StoreEntitySet="tbl_AnalysisProcedureInfo">
           <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="InputValueTypeID" ColumnName="InputValueTypeID" />
           <ScalarProperty Name="InputValue" ColumnName="InputValue" />
           <ScalarProperty Name="RadioValue" ColumnName="RadioValue" />
           <ScalarProperty Name="Code" ColumnName="Code" />

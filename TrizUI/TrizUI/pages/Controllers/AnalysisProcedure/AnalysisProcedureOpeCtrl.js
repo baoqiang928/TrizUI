@@ -19,7 +19,7 @@
             this.Options = [];
             this.Code = "";
             this.RadioValue = "";
-            this.InputName = "";//标准解输入框的输入内容
+            this.InputValueTypeID = "";//标准解 对应的TypeID
             this.InputValue = "";//标准解输入框的输入内容
             this.TypeID = "";//标准解对应的TypeID，过滤树。
         };
@@ -312,6 +312,8 @@
         $scope.Save = function () {
             for (var i = 0; i < $scope.ControlList.length; i++) {
                 $scope.ControlList[i].SerialNum = i;
+                $scope.ControlList[i].InputValueTypeID = $scope.ControlList[i].InputValueTypeID.replace("f", "");
+                console.log("$scope.ControlList[i]", $scope.ControlList[i]);
                 if ($scope.ControlList[i].ID == "") {
                     requestService.add("AnalysisProcedures", $scope.ControlList[i]).then(function (data) { });
                     continue;
@@ -447,8 +449,8 @@
                     if (sp[j] == "") continue;
                     var obj = $scope.StandardSolutions[sp[j]];
                     var NewNode = {};
-                    NewNode.ID = obj.ID;
-                    NewNode.id = "e" + obj.ID;
+                    NewNode.ID = "f" + obj.ID;
+                    NewNode.id = "f" + obj.ID;
                     NewNode.Name = obj.Name;
                     NewNode.ProjectID = obj.ProjectID;
                     NewNode.title = obj.Name;
@@ -467,7 +469,7 @@
                         var obj = $scope.StandardSolutions[sp[j]];
                         var NewNode = {};
                         NewNode.ID = "f" + obj.ID;
-                        NewNode.id = "e" + obj.ID;
+                        NewNode.id = "f" + obj.ID;
                         NewNode.Name = obj.Name;
                         NewNode.ProjectID = obj.ProjectID;
                         NewNode.title = obj.Name;
@@ -505,10 +507,15 @@
         $scope.SelectItem = function (CurrentNode) {
             //$scope.CurrentObject.InputValue = CurrentNode.$modelValue.ID;
             $scope.CurrentObject.InputValue = CurrentNode.$modelValue.title;
-            $scope.CurrentObject.InputName = CurrentNode.$modelValue.title;
+            $scope.CurrentObject.InputValueTypeID = CurrentNode.$modelValue.ID;
             //$scope.TypeName = CurrentNode.$modelValue.title;
             $('#modal-table').modal('hide');
         };
+        $scope.ShowSelectButton = function (CurrentNode) {
+            if (CurrentNode.$modelValue.ID.indexOf("f") == 0) return true;
+            return false;
+        };
+        
         $scope.SelectType = function (c) {
             $scope.CurrentObject = c;
             $scope.QueryData = {

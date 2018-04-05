@@ -17,7 +17,7 @@ namespace MvcApplication1.Controllers
             return new AnalysisProcedureLogic().GetByID(id);
         }
 
-        // GET api/AnalysisProcedures
+        // GET api/AnalysisProcedures //operate use it
         public object Get([FromUri]string ProjectID, string ProcedureID, int currentPage, int itemsPerPage)
         {
             int TotalItems = 0;
@@ -30,19 +30,19 @@ namespace MvcApplication1.Controllers
                 Results = AnalysisProcedureInfoList
             };
         }
-
-        //public object Get([FromUri]string ProjectID, int currentPage, int itemsPerPage)
-        //{
-        //    int TotalItems = 0;
-        //    int PagesLength = 0;
-        //    List<AnalysisProcedureInfo> AnalysisProcedureInfoList = new AnalysisProcedureLogic().Query(ProjectID, currentPage, itemsPerPage, ref TotalItems, ref PagesLength);
-        //    return new
-        //    {
-        //        TotalItems = TotalItems,
-        //        PagesLength = PagesLength,
-        //        Results = AnalysisProcedureInfoList
-        //    };
-        //}
+        //list use it
+        public object Get([FromUri]string ProjectID, int currentPage, int itemsPerPage)
+        {
+            int TotalItems = 0;
+            int PagesLength = 0;
+            List<AnalysisProcedureInfo> AnalysisProcedureInfoList = new AnalysisProcedureLogic().Query(ProjectID, currentPage, itemsPerPage, ref TotalItems, ref PagesLength);
+            return new
+            {
+                TotalItems = TotalItems,
+                PagesLength = PagesLength,
+                Results = AnalysisProcedureInfoList
+            };
+        }
 
 
         // POST api/AnalysisProcedures

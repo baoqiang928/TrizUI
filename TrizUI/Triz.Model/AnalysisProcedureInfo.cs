@@ -70,6 +70,16 @@ namespace Triz.Model
             get { return radioValue; }
             set { radioValue = value; }
         }
+        private int? inputValueTypeID;
+        /// <summary>
+        /// 标准解 TypeID
+        /// </summary>
+        public int? InputValueTypeID
+        {
+            get { return inputValueTypeID; }
+            set { inputValueTypeID = value; }
+        }
+
         private string inputValue;
         /// <summary>
         /// 标准解输入框输入值

@@ -10,14 +10,15 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ProcedureID" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProcedureID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ProjectID" Type="int" Nullable="false" />
           <Property Name="SerialNum" Type="int" Nullable="false" />
-          <Property Name="TemplateName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="DisplayName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TemplateName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
           <Property Name="RadioValue" Type="nvarchar" MaxLength="50" />
           <Property Name="InputValue" Type="nvarchar" MaxLength="500" />
+          <Property Name="InputValueTypeID" Type="int" />
           <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="tbl_CauseEffectCurProblemInfo">
@@ -473,14 +474,15 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProcedureID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProcedureID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ProjectID" Type="Int32" Nullable="false" />
           <Property Name="SerialNum" Type="Int32" Nullable="false" />
-          <Property Name="TemplateName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DisplayName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TemplateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="RadioValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="InputValue" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="InputValueTypeID" Type="Int32" />
           <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
       </Schema>
@@ -712,6 +714,7 @@
             <EntityTypeMapping TypeName="TrizDBModel.tbl_AnalysisProcedureInfo">
               <MappingFragment StoreEntitySet="tbl_AnalysisProcedureInfo">
                 <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+                <ScalarProperty Name="InputValueTypeID" ColumnName="InputValueTypeID" />
                 <ScalarProperty Name="InputValue" ColumnName="InputValue" />
                 <ScalarProperty Name="RadioValue" ColumnName="RadioValue" />
                 <ScalarProperty Name="Code" ColumnName="Code" />

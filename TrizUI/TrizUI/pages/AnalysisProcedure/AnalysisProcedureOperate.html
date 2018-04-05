@@ -150,7 +150,7 @@
         }"></span>
             </a>
             {{node.title}}
-            <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="SelectItem(this)" style="margin-right: 3px;">
+            <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="SelectItem(this)" ng-show="ShowSelectButton(this)" style="margin-right: 3px;">
                 <span class="glyphicon glyphicon-check"></span>
             </a>
         </div>
