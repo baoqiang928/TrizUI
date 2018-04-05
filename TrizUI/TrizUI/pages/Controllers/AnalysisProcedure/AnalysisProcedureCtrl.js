@@ -490,7 +490,8 @@
         $scope.TypeName = "";
         $scope.CurrentObject = "";
         $scope.SelectItem = function (CurrentNode) {
-            $scope.CurrentObject.InputValue = CurrentNode.$modelValue.ID;
+            //$scope.CurrentObject.InputValue = CurrentNode.$modelValue.ID;
+            $scope.CurrentObject.InputValue = CurrentNode.$modelValue.title;
             $scope.CurrentObject.InputName = CurrentNode.$modelValue.title;
             //$scope.TypeName = CurrentNode.$modelValue.title;
             $('#modal-table').modal('hide');
