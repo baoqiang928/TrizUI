@@ -1,5 +1,5 @@
 angular.module("myApp")
-    .controller('AnalysisProcedureCtrl', function ($scope, $location, requestService, $state) {
+    .controller('AnalysisProcedureCtrl', function ($scope, $location, requestService, $state, locals) {
         var Sources = "AnalysisProcedures";
         $scope.paginationConf = {
             currentPage: 1,
@@ -14,10 +14,17 @@ angular.module("myApp")
         $scope.data = {
             currentPage: "",
             itemsPerPage: "",
-            ProcedureID: "",
-            ProjectID: ""
+            ProjectID: locals.get("ProjectID")
         };
-
+        $scope.AnalysisProcedures = [];
+        $scope.AnalysisProcedureInfo = function () {
+            ProjectID: locals.get("ProjectID");
+            ProcedureID: "";
+            Type: "";
+            ShortDescription: "";
+            Cases: "";
+            Valid: "";
+        }
         var GetAnalysisProcedures = function () {
             $scope.data.currentPage = $scope.paginationConf.currentPage;
             $scope.data.itemsPerPage = $scope.paginationConf.itemsPerPage;
@@ -34,10 +41,10 @@ angular.module("myApp")
             GetAnalysisProcedures();
         }
 
-        $scope.Delete = function (ID) {
+        $scope.Delete = function (ProcedureID) {
             bootbox.confirm("要删除当前的记录？", function (result) {
                 if (result) {
-                    requestService.delete(Sources, ID).then(function (data) {
+                    requestService.delete(Sources, ProcedureID).then(function (data) {
                         GetAnalysisProcedures();
                     });
                 }

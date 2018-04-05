@@ -7,6 +7,7 @@
             Selected: "";
         };
         $scope.CurrentProjectID = locals.get("ProjectID");
+        if ($stateParams.ProcedureID == null) $stateParams.ProcedureID = guid();
         $scope.ControlList = [];//决定了显示什么控件
         function ControlInfo() {
             this.ID = "";
@@ -303,19 +304,13 @@
         $scope.ProblemShortDesriptionCtrl.DisplayName = "问题的简洁描述";
         function guid() {
             function S4() {
-                return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+                return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
             }
-            return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+            return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
         }
 
         $scope.Save = function () {
-            var rdnID = guid();
             for (var i = 0; i < $scope.ControlList.length; i++) {
-
-                if ($stateParams.ProcedureID == null) {
-                    $scope.ControlList[i].ProcedureID = rdnID;
-                }
-
                 $scope.ControlList[i].SerialNum = i;
                 if ($scope.ControlList[i].ID == "") {
                     requestService.add("AnalysisProcedures", $scope.ControlList[i]).then(function (data) { });
@@ -323,11 +318,9 @@
                 }
                 requestService.update("AnalysisProcedures", $scope.ControlList[i]).then(function (data) { });
             }
-            $scope.ProblemShortDesriptionCtrl.ProcedureID = rdnID;
             requestService.add("AnalysisProcedures", $scope.ProblemShortDesriptionCtrl).then(function (data) { });
             alert('保存完毕。');
             $rootScope.$broadcast("ShareObjectEvent", 1);
-
         }
 
         $scope.data = {
@@ -339,33 +332,33 @@
 
 
         var GetAnalysisProcedures = function () {
-            if ($stateParams.ProcedureID != null) {
-                $scope.data.ProcedureID = $stateParams.ProcedureID;
-                requestService.lists("AnalysisProcedures", $scope.data).then(function (data) {
-                    $scope.ControlList = [];
-                    for (var i = 0; i < data.Results.length; i++) {
-                        var ctl = new ControlInfo();
-                        ctl.ID = data.Results[i].ID;
-                        ctl.ProjectID = data.Results[i].ProjectID;
-                        ctl.SerialNum = data.Results[i].SerialNum;
-                        ctl.TemplateName = data.Results[i].TemplateName;
-                        ctl.DisplayName = data.Results[i].DisplayName;
-                        ctl.Code = data.Results[i].Code;
-                        ctl.RadioValue = data.Results[i].RadioValue;
-                        ctl.InputValue = data.Results[i].InputValue;
-                        ctl.Options = GetOptionsByValue(data.Results[i].RadioValue);
-                        if (data.Results[i].DisplayName == "问题的简洁描述") {
-                            $scope.ProblemShortDesriptionCtrl = ctl;
-                            continue;
-                        }
-                        $scope.ControlList.push(ctl);
+            console.log("$stateParams.ProcedureID", $stateParams.ProcedureID);
+            $scope.data.ProcedureID = $stateParams.ProcedureID;
+            console.log("$scope.data", $scope.data);
+            requestService.lists("AnalysisProcedures", $scope.data).then(function (data) {
+                $scope.ControlList = [];
+                console.log("data.Results", data.Results);
+                for (var i = 0; i < data.Results.length; i++) {
+                    var ctl = new ControlInfo();
+                    ctl.ID = data.Results[i].ID;
+                    ctl.ProjectID = data.Results[i].ProjectID;
+                    ctl.SerialNum = data.Results[i].SerialNum;
+                    ctl.TemplateName = data.Results[i].TemplateName;
+                    ctl.DisplayName = data.Results[i].DisplayName;
+                    ctl.Code = data.Results[i].Code;
+                    ctl.RadioValue = data.Results[i].RadioValue;
+                    ctl.InputValue = data.Results[i].InputValue;
+                    ctl.Options = GetOptionsByValue(data.Results[i].RadioValue);
+                    if (data.Results[i].DisplayName == "问题的简洁描述") {
+                        $scope.ProblemShortDesriptionCtrl = ctl;
+                        continue;
                     }
-                    if ($scope.ControlList.length == 0)
-                        $scope.ControlList.push(CreateRadioCtrl("j1", ""));
-
-                    console.log("$scope.ControlList", $scope.ControlList);
-                });
-            }
+                    $scope.ControlList.push(ctl);
+                }
+                console.log("$scope.ControlList", $scope.ControlList);
+                if ($scope.ControlList.length == 0)
+                    $scope.ControlList.push(CreateRadioCtrl("j1", ""));
+            });
         }
 
         GetAnalysisProcedures();

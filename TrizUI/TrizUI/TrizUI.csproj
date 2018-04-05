@@ -210,6 +210,7 @@
     <Content Include="login.html" />
     <Content Include="nestable-list.html" />
     <Content Include="pages\AnalysisProcedure\AnalysisProcedureListTMP.html" />
+    <Content Include="pages\AnalysisProcedure\HtmlPage1.html" />
     <Content Include="pages\angular-ueditor-master\.gitignore" />
     <Content Include="pages\angular-ueditor-master\dialogs\emotion\emotion.css" />
     <Content Include="pages\angular-ueditor-master\dialogs\emotion\emotion.html" />

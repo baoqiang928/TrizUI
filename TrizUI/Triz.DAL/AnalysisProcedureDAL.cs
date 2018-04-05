@@ -206,6 +206,39 @@ namespace Triz.DAL
             }
         }
 
+        public List<AnalysisProcedureInfo> Query(string ProjectID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
+        {
+            int startRow = (pageIndex - 1) * pageSize;
+            Expression<Func<tbl_AnalysisProcedureInfo, bool>> where = PredicateExtensionses.True<tbl_AnalysisProcedureInfo>();
+
+            if (!string.IsNullOrWhiteSpace(ProjectID))
+                where = where.And(a => a.ProjectID == int.Parse(ProjectID));
+
+            where = where.And(a => a.DisplayName == "问题的简洁描述");
+
+            Expression<Func<tbl_AnalysisProcedureInfo, bool>> where1 = PredicateExtensionses.True<tbl_AnalysisProcedureInfo>();
+
+            if (!string.IsNullOrWhiteSpace(ProjectID))
+                where1 = where1.And(a => a.ProjectID == int.Parse(ProjectID));
+
+            where1 = where1.And(a => a.DisplayName == "需要做的工作");
+
+
+            using (TrizDBEntities TrizDB = new TrizDBEntities())
+            {
+                var query1 = TrizDB.tbl_AnalysisProcedureInfo.Where(where.Compile());
+
+                var query2 = TrizDB.tbl_AnalysisProcedureInfo.Where(where1.Compile());
+
+                var query = query1.Join(query2, a => a.ProcedureID, g => g.ProcedureID, (a, g) => new AnalysisProcedureInfo { ProcedureID = a.ProcedureID, ProjectID = a.ProjectID, RadioValue = a.RadioValue });
+
+                totalItems = query.Count();
+                PagesLength = (int)Math.Ceiling((double)totalItems / pageSize);
+                query = query.Skip(startRow).Take(pageSize);
+                return query.ToList();
+            }
+        }
+
         public AnalysisProcedureInfo GetBusinessObject(tbl_AnalysisProcedureInfo AnalysisProcedureInfoEntity)
         {
             AnalysisProcedureInfo AnalysisProcedureInfo = new AnalysisProcedureInfo();

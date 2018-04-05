@@ -36,10 +36,16 @@ namespace Triz.BLL
         {
            return new AnalysisProcedureDAL().GetByID(int.Parse(ID));
         }
-        public List<AnalysisProcedureInfo> Query(string ProjectID,string ProcedureID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
+        public List<AnalysisProcedureInfo> Query(string ProjectID, string ProcedureID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
-            return new AnalysisProcedureDAL().Query(ProjectID, ProcedureID,pageIndex, pageSize, ref totalItems, ref PagesLength);
+            return new AnalysisProcedureDAL().Query(ProjectID, ProcedureID, pageIndex, pageSize, ref totalItems, ref PagesLength);
         }
+
+        public List<AnalysisProcedureInfo> Query(string ProjectID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
+        {
+            return new AnalysisProcedureDAL().Query(ProjectID, pageIndex, pageSize, ref totalItems, ref PagesLength);
+        }
+
     }
 }
 

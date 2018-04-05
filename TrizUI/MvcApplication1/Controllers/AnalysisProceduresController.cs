@@ -31,6 +31,20 @@ namespace MvcApplication1.Controllers
             };
         }
 
+        //public object Get([FromUri]string ProjectID, int currentPage, int itemsPerPage)
+        //{
+        //    int TotalItems = 0;
+        //    int PagesLength = 0;
+        //    List<AnalysisProcedureInfo> AnalysisProcedureInfoList = new AnalysisProcedureLogic().Query(ProjectID, currentPage, itemsPerPage, ref TotalItems, ref PagesLength);
+        //    return new
+        //    {
+        //        TotalItems = TotalItems,
+        //        PagesLength = PagesLength,
+        //        Results = AnalysisProcedureInfoList
+        //    };
+        //}
+
+
         // POST api/AnalysisProcedures
         public void Post([FromBody]AnalysisProcedureInfo AnalysisProcedureInfo)
         {
