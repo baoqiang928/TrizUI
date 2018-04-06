@@ -45,6 +45,9 @@
                 }
             });
         }
+        $scope.Deal = function (ConflictID) {
+            $state.go("TechConflictResolveOpe", { ConflictID: ConflictID });
+        }
         $scope.SaveTechnicalConflictInfo = function () {
             //if (!$('#validation-form').valid()) {
             //    return false;

@@ -1,4 +1,4 @@
-﻿<div class="page-content" ng-controller="CauseEffectCtrl">
+﻿<div class="page-content" ng-controller="ConflictResolveCtrl">
     <div class="page-header">
         <h1>冲突解决
             <small>
@@ -63,6 +63,10 @@
 
                                                     <a class="red" style="cursor: pointer" ng-click="DeleteTechnicalConflictInfo($index)">
                                                         <i class="icon-trash bigger-130"></i>
+                                                    </a>
+
+                                                    <a class="red" style="cursor: pointer" ng-click="Deal(TechnicalConflictInfo.ID)">
+                                                        <i class="icon-key bigger-130"></i>
                                                     </a>
                                                 </div>
                                             </td>

@@ -56,6 +56,7 @@
     <Compile Include="StandardSolutionExampleInfo.cs" />
     <Compile Include="StandardSolutionInfo.cs" />
     <Compile Include="TechnicalConflictInfo.cs" />
+    <Compile Include="TechnicalConflictResolveInfo.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="UserProjectInfo.cs" />
   </ItemGroup>

@@ -170,6 +170,7 @@
     <Compile Include="Controllers\QuestionDescriptionsController.cs" />
     <Compile Include="Controllers\StandardSolutionExamplesController.cs" />
     <Compile Include="Controllers\StandardSolutionsController.cs" />
+    <Compile Include="Controllers\TechnicalConflictResolvesController.cs" />
     <Compile Include="Controllers\TechnicalConflictsController.cs" />
     <Compile Include="Controllers\UserProjectsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />

@@ -55,6 +55,7 @@
     <Compile Include="StandardSolutionExampleLogic.cs" />
     <Compile Include="StandardSolutionLogic.cs" />
     <Compile Include="TechnicalConflictLogic.cs" />
+    <Compile Include="TechnicalConflictResolveLogic.cs" />
     <Compile Include="UserLogic.cs" />
     <Compile Include="UserProjectLogic.cs" />
   </ItemGroup>

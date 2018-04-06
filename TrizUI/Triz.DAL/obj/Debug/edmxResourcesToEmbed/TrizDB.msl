@@ -264,5 +264,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TechnicalConflictResolveInfo">
+      <EntityTypeMapping TypeName="TrizDBModel.tbl_TechnicalConflictResolveInfo">
+        <MappingFragment StoreEntitySet="tbl_TechnicalConflictResolveInfo">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="CaseName" ColumnName="CaseName" />
+          <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+          <ScalarProperty Name="InventivePrincipleName" ColumnName="InventivePrincipleName" />
+          <ScalarProperty Name="InventivePrincipleID" ColumnName="InventivePrincipleID" />
+          <ScalarProperty Name="BackwardCharacter" ColumnName="BackwardCharacter" />
+          <ScalarProperty Name="ForwardCharacter" ColumnName="ForwardCharacter" />
+          <ScalarProperty Name="TechnicalConflictID" ColumnName="TechnicalConflictID" />
+          <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

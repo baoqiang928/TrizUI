@@ -18,6 +18,7 @@
     <EntitySet Name="tbl_AnalysisProcedureInfo" EntityType="TrizDBModel.tbl_AnalysisProcedureInfo" />
     <EntitySet Name="tbl_TechnicalConflictInfo" EntityType="TrizDBModel.tbl_TechnicalConflictInfo" />
     <EntitySet Name="tbl_PhysicalConflictInfo" EntityType="TrizDBModel.tbl_PhysicalConflictInfo" />
+    <EntitySet Name="tbl_TechnicalConflictResolveInfo" EntityType="TrizDBModel.tbl_TechnicalConflictResolveInfo" />
   </EntityContainer>
   <EntityType Name="tbl_ProjectInfo">
     <Key>
@@ -262,6 +263,23 @@
     <Property Name="ForwardCharacter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="BackwardCharacter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="CommonRelevantParams" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_TechnicalConflictResolveInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="SerialNum" Type="Int32" />
+    <Property Name="TechnicalConflictID" Type="Int32" Nullable="false" />
+    <Property Name="ForwardCharacter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="BackwardCharacter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="InventivePrincipleID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InventivePrincipleName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CaseID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CaseName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>

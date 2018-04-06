@@ -22,6 +22,7 @@
         <EntityTypeShape EntityType="TrizDBModel.tbl_AnalysisProcedureInfo" Width="2.75" PointX="3.375" PointY="10.75" />
         <EntityTypeShape EntityType="TrizDBModel.tbl_TechnicalConflictInfo" Width="1.5" PointX="11.375" PointY="0.75" />
         <EntityTypeShape EntityType="TrizDBModel.tbl_PhysicalConflictInfo" Width="1.5" PointX="11.375" PointY="4.75" />
+        <EntityTypeShape EntityType="TrizDBModel.tbl_TechnicalConflictResolveInfo" Width="1.5" PointX="11.375" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -228,6 +228,23 @@
           <Property Name="Remark" Type="nvarchar" MaxLength="500" />
           <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
+        <EntityType Name="tbl_TechnicalConflictResolveInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="SerialNum" Type="int" />
+          <Property Name="TechnicalConflictID" Type="int" Nullable="false" />
+          <Property Name="ForwardCharacter" Type="nvarchar" MaxLength="500" />
+          <Property Name="BackwardCharacter" Type="nvarchar" MaxLength="500" />
+          <Property Name="InventivePrincipleID" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="InventivePrincipleName" Type="nvarchar" MaxLength="500" />
+          <Property Name="CaseID" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CaseName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
         <EntityType Name="tbl_UserInfo">
           <Key>
             <PropertyRef Name="ID" />
@@ -267,6 +284,7 @@
           <EntitySet Name="tbl_StandardSolutionExampleInfo" EntityType="Self.tbl_StandardSolutionExampleInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_StandardSolutionInfo" EntityType="Self.tbl_StandardSolutionInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_TechnicalConflictInfo" EntityType="Self.tbl_TechnicalConflictInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_TechnicalConflictResolveInfo" EntityType="Self.tbl_TechnicalConflictResolveInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_UserInfo" EntityType="Self.tbl_UserInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_UserProjectInfo" EntityType="Self.tbl_UserProjectInfo" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -292,6 +310,7 @@
           <EntitySet Name="tbl_AnalysisProcedureInfo" EntityType="TrizDBModel.tbl_AnalysisProcedureInfo" />
           <EntitySet Name="tbl_TechnicalConflictInfo" EntityType="TrizDBModel.tbl_TechnicalConflictInfo" />
           <EntitySet Name="tbl_PhysicalConflictInfo" EntityType="TrizDBModel.tbl_PhysicalConflictInfo" />
+          <EntitySet Name="tbl_TechnicalConflictResolveInfo" EntityType="TrizDBModel.tbl_TechnicalConflictResolveInfo" />
         </EntityContainer>
         <EntityType Name="tbl_ProjectInfo">
           <Key>
@@ -536,6 +555,23 @@
           <Property Name="ForwardCharacter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="BackwardCharacter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CommonRelevantParams" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tbl_TechnicalConflictResolveInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="SerialNum" Type="Int32" />
+          <Property Name="TechnicalConflictID" Type="Int32" Nullable="false" />
+          <Property Name="ForwardCharacter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="BackwardCharacter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="InventivePrincipleID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="InventivePrincipleName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CaseID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CaseName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
@@ -802,6 +838,24 @@
                 <ScalarProperty Name="CommonRelevantParams" ColumnName="CommonRelevantParams" />
                 <ScalarProperty Name="BackwardCharacter" ColumnName="BackwardCharacter" />
                 <ScalarProperty Name="ForwardCharacter" ColumnName="ForwardCharacter" />
+                <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_TechnicalConflictResolveInfo">
+            <EntityTypeMapping TypeName="TrizDBModel.tbl_TechnicalConflictResolveInfo">
+              <MappingFragment StoreEntitySet="tbl_TechnicalConflictResolveInfo">
+                <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CaseName" ColumnName="CaseName" />
+                <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+                <ScalarProperty Name="InventivePrincipleName" ColumnName="InventivePrincipleName" />
+                <ScalarProperty Name="InventivePrincipleID" ColumnName="InventivePrincipleID" />
+                <ScalarProperty Name="BackwardCharacter" ColumnName="BackwardCharacter" />
+                <ScalarProperty Name="ForwardCharacter" ColumnName="ForwardCharacter" />
+                <ScalarProperty Name="TechnicalConflictID" ColumnName="TechnicalConflictID" />
                 <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
                 <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
