@@ -41,7 +41,7 @@
                                         <a href="" ng-click="Update(AnalysisProcedure.ProcedureID)">{{GetName(AnalysisProcedure.RadioValue)}}</a>
                                     </td>
                                     <td>{{AnalysisProcedure.InputValue}}</td>
-                                    <td>{{AnalysisProcedure.DisplayName}}</td>
+                                    <td><p ng-bind-html="AnalysisProcedure.DisplayName | to_trusted"></p></td>
                                     <td>{{AnalysisProcedure.Valid}}</td>
                                     <td>
                                         <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
