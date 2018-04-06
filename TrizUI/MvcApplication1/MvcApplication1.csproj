@@ -159,6 +159,7 @@
     <Compile Include="Controllers\ComponentRelSectionController.cs" />
     <Compile Include="Controllers\ConflictsController.cs" />
     <Compile Include="Controllers\Default1Controller.cs" />
+    <Compile Include="Controllers\DictionaryTreesController.cs" />
     <Compile Include="Controllers\FunctionElementsController.cs" />
     <Compile Include="Controllers\FunEleMutualReactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

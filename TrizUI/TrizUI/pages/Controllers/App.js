@@ -98,6 +98,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "/pages/StandardSolution/StandardSolutionAndExamplesList.html",
             controller: 'tree-Controller'
         })
+        .state("ConflictResolveDictionaryTree", {
+            params: { "TreeTypeID": "1" },
+            url: "/ConflictResolveDictionaryTree",
+            templateUrl: "/pages/DictionaryTree/DictionaryTreeOpe.html"
+        })
         .state("Solution", {
             url: "/Solution",
             templateUrl: "/pages/Solution/StandardSolutionList.html"

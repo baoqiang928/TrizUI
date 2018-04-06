@@ -71,6 +71,21 @@
           <Property Name="Visible" Type="nvarchar" MaxLength="5" />
           <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
+        <EntityType Name="tbl_DictionaryTreeInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="TreeTypeID" Type="int" Nullable="false" />
+          <Property Name="SerialNum" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="200" />
+          <Property Name="Note" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FatherID" Type="int" />
+          <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
         <EntityType Name="tbl_FunctionElementInfo">
           <Key>
             <PropertyRef Name="ID" />
@@ -274,6 +289,7 @@
           <EntitySet Name="tbl_ComponentParamInfo" EntityType="Self.tbl_ComponentParamInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ComponentRelInfo" EntityType="Self.tbl_ComponentRelInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ConflictInfo" EntityType="Self.tbl_ConflictInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_DictionaryTreeInfo" EntityType="Self.tbl_DictionaryTreeInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_FunctionElementInfo" EntityType="Self.tbl_FunctionElementInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_FunEleMutualReactInfo" EntityType="Self.tbl_FunEleMutualReactInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_MaterialFieldModelInfo" EntityType="Self.tbl_MaterialFieldModelInfo" Schema="dbo" store:Type="Tables" />
@@ -311,6 +327,7 @@
           <EntitySet Name="tbl_TechnicalConflictInfo" EntityType="TrizDBModel.tbl_TechnicalConflictInfo" />
           <EntitySet Name="tbl_PhysicalConflictInfo" EntityType="TrizDBModel.tbl_PhysicalConflictInfo" />
           <EntitySet Name="tbl_TechnicalConflictResolveInfo" EntityType="TrizDBModel.tbl_TechnicalConflictResolveInfo" />
+          <EntitySet Name="tbl_DictionaryTreeInfo" EntityType="TrizDBModel.tbl_DictionaryTreeInfo" />
         </EntityContainer>
         <EntityType Name="tbl_ProjectInfo">
           <Key>
@@ -573,6 +590,21 @@
           <Property Name="CaseID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="CaseName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tbl_DictionaryTreeInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="TreeTypeID" Type="Int32" Nullable="false" />
+          <Property Name="SerialNum" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FatherID" Type="Int32" />
           <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
       </Schema>
@@ -857,6 +889,22 @@
                 <ScalarProperty Name="ForwardCharacter" ColumnName="ForwardCharacter" />
                 <ScalarProperty Name="TechnicalConflictID" ColumnName="TechnicalConflictID" />
                 <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_DictionaryTreeInfo">
+            <EntityTypeMapping TypeName="TrizDBModel.tbl_DictionaryTreeInfo">
+              <MappingFragment StoreEntitySet="tbl_DictionaryTreeInfo">
+                <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+                <ScalarProperty Name="FatherID" ColumnName="FatherID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
+                <ScalarProperty Name="TreeTypeID" ColumnName="TreeTypeID" />
                 <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
