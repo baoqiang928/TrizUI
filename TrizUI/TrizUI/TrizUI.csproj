@@ -759,7 +759,7 @@
     <Content Include="pages\Controllers\CauseEffect\primaryComponentParam.js" />
     <Content Include="pages\Controllers\CauseEffect\reactMap.js" />
     <Content Include="pages\Controllers\ConflictResolve\ConflictResolveCtrl.js" />
-    <Content Include="pages\Controllers\ConflictResolve\ConflictResolveOpe.js" />
+    <Content Include="pages\Controllers\ConflictResolve\ConflictResolveOpeCtrl.js" />
     <Content Include="pages\Controllers\ConflictResolve\PhysicalConflictCtrl.js" />
     <Content Include="pages\Controllers\ConflictResolve\TechnicalConflictCtrl.js" />
     <Content Include="pages\Controllers\DataPicker.js" />

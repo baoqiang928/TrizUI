@@ -1,5 +1,5 @@
 ﻿angular.module('myApp')
-    .controller('DictionaryTreeCtrl', function ($scope, $location, requestService, $state, locals, $stateParams) {
+    .controller('DictionaryTreeCtrl', function ($scope, $rootScope, $location, requestService, $state, locals, $stateParams) {
         $scope.CurrentProjectID = locals.get("ProjectID");
         $scope.PageTitle = $stateParams.Title;
         //获得所有节点，左侧树使用
@@ -64,7 +64,13 @@
             $('#modal-table').modal('show');
             return;
         };
-
+        //浏览节点，冲突解决界面需要
+        $scope.View = function (CurrentNode) {
+            $scope.CurrentNode = CurrentNode;
+            requestService.getobj("DictionaryTrees", $scope.CurrentNode.$modelValue.ID).then(function (data) {
+                $scope.$emit("nodeData", data);
+            });
+        };
         //新增一个节点的保存事件
         $scope.Name = "";
         $scope.SaveName = function () {
@@ -103,8 +109,8 @@
         $scope.UpdateSubItem = function (CurrentNode) {
             $scope.CurrentNode = CurrentNode;
             requestService.getobj("DictionaryTrees", $scope.CurrentNode.$modelValue.ID).then(function (data) {
-                console.log("data", data);
                 $scope.nodeData = data;
+
             });
         };
 

@@ -99,7 +99,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
             controller: 'tree-Controller'
         })
         .state("TechConflictResolveDictionaryTree", {
-            params: { "TreeTypeID": "1","Title":"技术冲突解决方案维护" },
+            params: { "TreeTypeID": "1", "Title": "技术冲突解决方案维护" },
             url: "/TechConflictResolveDictionaryTree",
             templateUrl: "/pages/DictionaryTree/DictionaryTreeOpe.html"
         })
@@ -118,12 +118,12 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "/pages/Solution/StandardSolutionOperate.html"
         })
         .state("TechConflictResolveOpe", {
-            params: { "ConflictID": null, "ConflictType": "技术" },
+            params: { "ConflictID": null, "ConflictType": "技术", "TreeTypeID": "1" },
             url: "/ConflictResolveOpe",
             templateUrl: "/pages/ConflictResolve/ConflictResolveOpe.html"
         })
         .state("PhyConflictResolveOpe", {
-            params: { "ConflictID": null, "ConflictType": "物理" },
+            params: { "ConflictID": null, "ConflictType": "物理", "TreeTypeID": "2" },
             url: "/ConflictResolveOpe",
             templateUrl: "/pages/ConflictResolve/ConflictResolveOpe.html"
         })
