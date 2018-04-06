@@ -46,7 +46,7 @@
             });
         }
         $scope.Deal = function (ConflictID) {
-            $state.go("TechConflictResolveOpe", { ConflictID: ConflictID });
+            $state.go("TechConflictResolveOpe", { ConflictID: ConflictID, ConflictType:"技术" });
         }
         $scope.SaveTechnicalConflictInfo = function () {
             //if (!$('#validation-form').valid()) {

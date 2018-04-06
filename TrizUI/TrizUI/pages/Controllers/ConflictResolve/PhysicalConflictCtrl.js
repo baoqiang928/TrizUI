@@ -45,6 +45,9 @@
                 }
             });
         }
+        $scope.Deal = function (ConflictID) {
+            $state.go("PhyConflictResolveOpe", { ConflictID: ConflictID, ConflictType: "物理" });
+        }
         $scope.SavePhysicalConflict = function () {
             //if (!$('#validation-form').valid()) {
             //    return false;
