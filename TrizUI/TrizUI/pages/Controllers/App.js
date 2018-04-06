@@ -98,9 +98,14 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "/pages/StandardSolution/StandardSolutionAndExamplesList.html",
             controller: 'tree-Controller'
         })
-        .state("ConflictResolveDictionaryTree", {
-            params: { "TreeTypeID": "1" },
-            url: "/ConflictResolveDictionaryTree",
+        .state("TechConflictResolveDictionaryTree", {
+            params: { "TreeTypeID": "1","Title":"技术冲突解决方案维护" },
+            url: "/TechConflictResolveDictionaryTree",
+            templateUrl: "/pages/DictionaryTree/DictionaryTreeOpe.html"
+        })
+        .state("PhyConflictResolveDictionaryTree", {
+            params: { "TreeTypeID": "2", "Title": "物理冲突解决方案维护" },
+            url: "/PhyConflictResolveDictionaryTree",
             templateUrl: "/pages/DictionaryTree/DictionaryTreeOpe.html"
         })
         .state("Solution", {

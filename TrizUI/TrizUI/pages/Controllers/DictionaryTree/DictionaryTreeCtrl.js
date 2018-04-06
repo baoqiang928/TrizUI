@@ -1,7 +1,7 @@
 ﻿angular.module('myApp')
     .controller('DictionaryTreeCtrl', function ($scope, $location, requestService, $state, locals, $stateParams) {
         $scope.CurrentProjectID = locals.get("ProjectID");
-
+        $scope.PageTitle = $stateParams.Title;
         //获得所有节点，左侧树使用
         $scope.TreeData = [];
         var GetTreeNodes = function () {
