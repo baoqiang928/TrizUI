@@ -64,9 +64,10 @@ namespace MvcApplication1.Controllers
         }
 
         // DELETE api/AnalysisProcedures/5
-        public void Delete(string ProcedureID)
+        //ids==ProcedureID
+        public void Delete(string ids)
         {
-            new AnalysisProcedureLogic().DeleteAnalysisProcedure(ProcedureID);
+            new AnalysisProcedureLogic().DeleteAnalysisProcedure(ids);
         }
 
     }

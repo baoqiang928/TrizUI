@@ -163,9 +163,12 @@ namespace Triz.DAL
             {
                 try
                 {
-                    var Query = TrizDB.tbl_AnalysisProcedureInfo.Where(o => o.ProcedureID == ProcedureID).FirstOrDefault();
+                    var Query = TrizDB.tbl_AnalysisProcedureInfo.Where(o => o.ProcedureID == ProcedureID);
                     if (Query == null) return 0;
-                    TrizDB.tbl_AnalysisProcedureInfo.Remove(Query);
+                    foreach (var o in Query)
+                    {
+                        TrizDB.tbl_AnalysisProcedureInfo.Remove(o);
+                    }
                     return TrizDB.SaveChanges();
                 }
                 catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)

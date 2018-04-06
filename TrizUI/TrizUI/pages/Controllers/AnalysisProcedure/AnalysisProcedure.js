@@ -53,33 +53,11 @@ angular.module("myApp")
         $scope.Delete = function (ProcedureID) {
             bootbox.confirm("要删除当前的记录？", function (result) {
                 if (result) {
-                    requestService.delete(Sources, ProcedureID).then(function (data) {
+                    requestService.batchdelete(Sources, ProcedureID).then(function (data) {
                         GetAnalysisProcedures();
                     });
                 }
             });
-        }
-
-        $scope.BatchDelete = function () {
-            var ids = "";
-            $('input[name="ck"]:checked').each(function () {
-                ids = $(this).val() + "^" + ids;
-            });
-
-            if (ids == "") {
-                Alert("请选择记录。");
-                return;
-            }
-            bootbox.confirm("要删除选中的所有记录？", function (result) {
-                if (result) {
-                    requestService.batchdelete(Sources, ids).then(function (data) {
-                        GetAnalysisProcedures();
-                        $scope.one = false;
-                        $scope.all = false;
-                    });
-                }
-            });
-
         }
 
         $scope.Update = function (ProcedureID) {
