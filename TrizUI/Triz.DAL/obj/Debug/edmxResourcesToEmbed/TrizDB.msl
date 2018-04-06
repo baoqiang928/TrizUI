@@ -264,24 +264,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tbl_TechnicalConflictResolveInfo">
-      <EntityTypeMapping TypeName="TrizDBModel.tbl_TechnicalConflictResolveInfo">
-        <MappingFragment StoreEntitySet="tbl_TechnicalConflictResolveInfo">
-          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-          <ScalarProperty Name="CaseName" ColumnName="CaseName" />
-          <ScalarProperty Name="CaseID" ColumnName="CaseID" />
-          <ScalarProperty Name="InventivePrincipleName" ColumnName="InventivePrincipleName" />
-          <ScalarProperty Name="InventivePrincipleID" ColumnName="InventivePrincipleID" />
-          <ScalarProperty Name="BackwardCharacter" ColumnName="BackwardCharacter" />
-          <ScalarProperty Name="ForwardCharacter" ColumnName="ForwardCharacter" />
-          <ScalarProperty Name="TechnicalConflictID" ColumnName="TechnicalConflictID" />
-          <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
-          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tbl_DictionaryTreeInfo">
       <EntityTypeMapping TypeName="TrizDBModel.tbl_DictionaryTreeInfo">
         <MappingFragment StoreEntitySet="tbl_DictionaryTreeInfo">
@@ -293,6 +275,27 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
           <ScalarProperty Name="TreeTypeID" ColumnName="TreeTypeID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ConflictResolveInfo">
+      <EntityTypeMapping TypeName="TrizDBModel.tbl_ConflictResolveInfo">
+        <MappingFragment StoreEntitySet="tbl_ConflictResolveInfo">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="CaseName" ColumnName="CaseName" />
+          <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+          <ScalarProperty Name="InventivePrincipleName" ColumnName="InventivePrincipleName" />
+          <ScalarProperty Name="InventivePrincipleID" ColumnName="InventivePrincipleID" />
+          <ScalarProperty Name="DevidePrincipleName" ColumnName="DevidePrincipleName" />
+          <ScalarProperty Name="DevidePrincipleID" ColumnName="DevidePrincipleID" />
+          <ScalarProperty Name="BackwardCharacter" ColumnName="BackwardCharacter" />
+          <ScalarProperty Name="ForwardCharacter" ColumnName="ForwardCharacter" />
+          <ScalarProperty Name="ConflictID" ColumnName="ConflictID" />
+          <ScalarProperty Name="ConflictType" ColumnName="ConflictType" />
+          <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
           <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>

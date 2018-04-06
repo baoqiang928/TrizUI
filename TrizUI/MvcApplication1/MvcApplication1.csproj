@@ -157,6 +157,7 @@
     <Compile Include="Controllers\ComponentParamsController.cs" />
     <Compile Include="Controllers\ComponentRelsController.cs" />
     <Compile Include="Controllers\ComponentRelSectionController.cs" />
+    <Compile Include="Controllers\ConflictResolvesController.cs" />
     <Compile Include="Controllers\ConflictsController.cs" />
     <Compile Include="Controllers\Default1Controller.cs" />
     <Compile Include="Controllers\DictionaryTreesController.cs" />
@@ -171,7 +172,6 @@
     <Compile Include="Controllers\QuestionDescriptionsController.cs" />
     <Compile Include="Controllers\StandardSolutionExamplesController.cs" />
     <Compile Include="Controllers\StandardSolutionsController.cs" />
-    <Compile Include="Controllers\TechnicalConflictResolvesController.cs" />
     <Compile Include="Controllers\TechnicalConflictsController.cs" />
     <Compile Include="Controllers\UserProjectsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />

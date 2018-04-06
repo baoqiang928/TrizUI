@@ -15,7 +15,7 @@ namespace Triz.DAL
 using System;
     using System.Collections.Generic;
     
-public partial class tbl_TechnicalConflictResolveInfo
+public partial class tbl_ConflictResolveInfo
 {
 
     public int ID { get; set; }
@@ -24,11 +24,17 @@ public partial class tbl_TechnicalConflictResolveInfo
 
     public Nullable<int> SerialNum { get; set; }
 
-    public int TechnicalConflictID { get; set; }
+    public string ConflictType { get; set; }
+
+    public int ConflictID { get; set; }
 
     public string ForwardCharacter { get; set; }
 
     public string BackwardCharacter { get; set; }
+
+    public string DevidePrincipleID { get; set; }
+
+    public string DevidePrincipleName { get; set; }
 
     public string InventivePrincipleID { get; set; }
 

@@ -118,14 +118,14 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "/pages/Solution/StandardSolutionOperate.html"
         })
         .state("TechConflictResolveOpe", {
-            params: { "ConflictID": null },
-            url: "/TechConflictResolveOpe",
-            templateUrl: "/pages/ConflictResolve/TechConflictResolveOpe.html"
+            params: { "ConflictID": null, "ConflictType": "技术" },
+            url: "/ConflictResolveOpe",
+            templateUrl: "/pages/ConflictResolve/ConflictResolveOpe.html"
         })
         .state("PhyConflictResolveOpe", {
-            params: { "ID": null },
-            url: "/PhyConflictResolveOpe",
-            templateUrl: "/pages/ConflictResolve/PhyConflictResolveOpe.html"
+            params: { "ConflictID": null, "ConflictType": "物理" },
+            url: "/ConflictResolveOpe",
+            templateUrl: "/pages/ConflictResolve/ConflictResolveOpe.html"
         })
        .state("PageTab.Page1", {
            url: "/Page1",

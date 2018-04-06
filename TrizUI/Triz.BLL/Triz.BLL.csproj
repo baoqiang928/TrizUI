@@ -44,6 +44,7 @@
     <Compile Include="ComponentParamLogic.cs" />
     <Compile Include="ComponentRelLogic.cs" />
     <Compile Include="ConflictLogic.cs" />
+    <Compile Include="ConflictResolveLogic.cs" />
     <Compile Include="DictionaryTreeLogic.cs" />
     <Compile Include="FunctionElementLogic.cs" />
     <Compile Include="FunEleMutualReactLogic.cs" />
@@ -56,7 +57,6 @@
     <Compile Include="StandardSolutionExampleLogic.cs" />
     <Compile Include="StandardSolutionLogic.cs" />
     <Compile Include="TechnicalConflictLogic.cs" />
-    <Compile Include="TechnicalConflictResolveLogic.cs" />
     <Compile Include="UserLogic.cs" />
     <Compile Include="UserProjectLogic.cs" />
   </ItemGroup>
