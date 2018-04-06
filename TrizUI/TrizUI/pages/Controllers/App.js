@@ -83,6 +83,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
            templateUrl: "/pages/Evolve/EvolveList.html",
            controller: 'tree-Controller'
        })
+       .state("ConflictResolveList", {
+           url: "/ConflictResolveList",
+           templateUrl: "/pages/ConflictResolve/ConflictResolveList.html",
+           controller: 'tree-Controller'
+       })
        .state("EvolveOperate", {
            url: "/EvolveOperate",
            templateUrl: "/pages/Evolve/EvolveOperate.html",

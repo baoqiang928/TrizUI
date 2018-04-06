@@ -10,6 +10,22 @@ namespace CodesTool
     {
         #region MyRegion
         string codes = @"
+                                <table id=""sample-table-2"" class=""table table-striped table-bordered table-hover"">
+                                    <thead>
+                                        <tr>
+                                            <th>11111111111111111111</th>
+                                            <th>2222222222222222222</th>
+                                            <th>33333333333333333</th>
+                                            <th>
+                                                <div class=""visible-md visible-lg hidden-sm hidden-xs action-buttons"">
+                                                    <a class=""blue"" style=""cursor: pointer"" ng-click=""{add_codes}"">
+                                                        <i class=""icon-plus bigger-130""></i>
+                                                    </a>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
                                         <tr ng-repeat=""{ng-repeat_codes}"">
                                             {td_codes}
                                             <td>
@@ -24,6 +40,8 @@ namespace CodesTool
                                                 </div>
                                             </td>
                                         </tr>
+                                    </tbody>
+                                </table>
 ";
 
         #endregion

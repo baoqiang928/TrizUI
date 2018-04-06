@@ -16,6 +16,7 @@
     <EntitySet Name="tbl_StandardSolutionInfo" EntityType="TrizDBModel.tbl_StandardSolutionInfo" />
     <EntitySet Name="tbl_MaterialFieldModelInfo" EntityType="TrizDBModel.tbl_MaterialFieldModelInfo" />
     <EntitySet Name="tbl_AnalysisProcedureInfo" EntityType="TrizDBModel.tbl_AnalysisProcedureInfo" />
+    <EntitySet Name="tbl_TechnicalConflictInfo" EntityType="TrizDBModel.tbl_TechnicalConflictInfo" />
   </EntityContainer>
   <EntityType Name="tbl_ProjectInfo">
     <Key>
@@ -236,6 +237,18 @@
     <Property Name="RadioValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="InputValue" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="InputValueTypeID" Type="Int32" />
+    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_TechnicalConflictInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="SerialNum" Type="Int32" />
+    <Property Name="ImproveCharacter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DeteriorateCharacter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
 </Schema>

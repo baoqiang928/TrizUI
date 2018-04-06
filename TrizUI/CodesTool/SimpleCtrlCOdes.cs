@@ -26,9 +26,12 @@ namespace CodesTool
         var Get{ObjName}List = function () {
             $scope.data.currentPage = 1;
             $scope.data.itemsPerPage = ""999"";
-            requestService.lists({Sources}, $scope.data).then(function (data)
+            requestService.lists(""{Sources}"", $scope.data).then(function (data)
         {
                 $scope.{ObjName}List = data.Results;
+                if ($scope.{ObjName}List.length == 0) {
+                    $scope.{ObjName}List.push(new $scope.{ObjName}());
+                }
         });
         }
 
@@ -45,7 +48,7 @@ namespace CodesTool
             bootbox.confirm(""要删除当前的记录？"", function(result) {
                 if (result)
                 {
-                    requestService.delete({Sources}, scope.{ObjName}List[Index].ID).then(function (data) { });
+                    requestService.delete(""{Sources}"", $scope.{ObjName}List[index].ID).then(function (data) { });
                     $scope.{ObjName}List.splice(index, 1);
                     $scope.$apply();
                 }
@@ -56,10 +59,10 @@ namespace CodesTool
             //    return false;
             //}
             
-            for (var i = 0; i < $scope.{ObjName}List[i].length; i++) {
+            for (var i = 0; i < $scope.{ObjName}List.length; i++) {
                 var {ObjName} = $scope.{ObjName}List[i];
                 {ObjName}.SerialNum = i;
-                requestService.add($scope.Sources, {ObjName}).then(function (data) {
+                requestService.add(""{Sources}"", {ObjName}).then(function (data) {
                     if ({ObjName}.ID == "") {
                         {ObjName}.ID = data;
                     }
@@ -76,7 +79,7 @@ namespace CodesTool
             foreach (var BusinessObjectInfo in BusinessObjectInfoList)
             {
                 CodeSection += @"
-                         {BusinessObjectInfo.Name}: """";";
+                         this.{BusinessObjectInfo.Name}= """";";
                 CodeSection = CodeSection.Replace("{BusinessObjectInfo.Name}", BusinessObjectInfo.Name);
             }
 

@@ -734,6 +734,7 @@
     <Content Include="pages\CauseEffect\2.png" />
     <Content Include="pages\CauseEffect\3.png" />
     <Content Include="pages\CauseEffect\test.js" />
+    <Content Include="pages\ConflictResolve\ConflictResolveList.html" />
     <Content Include="pages\Conflict\0.jpg" />
     <Content Include="pages\Conflict\1.jpg" />
     <Content Include="pages\Conflict\3.jpg" />
@@ -755,6 +756,9 @@
     <Content Include="pages\Controllers\CauseEffect\currentProblem.js" />
     <Content Include="pages\Controllers\CauseEffect\primaryComponentParam.js" />
     <Content Include="pages\Controllers\CauseEffect\reactMap.js" />
+    <Content Include="pages\Controllers\ConflictResolve\ConflictResolveCtrl.js" />
+    <Content Include="pages\Controllers\ConflictResolve\PhysicalConflictCtrl.js" />
+    <Content Include="pages\Controllers\ConflictResolve\TechnicalConflictCtrl.js" />
     <Content Include="pages\Controllers\DataPicker.js" />
     <Content Include="pages\Controllers\DrawUtil.js" />
     <Content Include="pages\Controllers\FunctionAnalyseCtrl.js" />

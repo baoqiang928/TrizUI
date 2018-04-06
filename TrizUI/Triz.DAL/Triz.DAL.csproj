@@ -101,12 +101,16 @@
     <Compile Include="tbl_StandardSolutionInfo.cs">
       <DependentUpon>TrizDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="tbl_TechnicalConflictInfo.cs">
+      <DependentUpon>TrizDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="tbl_UserInfo.cs">
       <DependentUpon>TrizDB.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_UserProjectInfo.cs">
       <DependentUpon>TrizDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="TechnicalConflictDAL.cs" />
     <Compile Include="TrizDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -203,6 +203,18 @@
           <Property Name="TypeID" Type="int" Nullable="false" />
           <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
+        <EntityType Name="tbl_TechnicalConflictInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="SerialNum" Type="int" />
+          <Property Name="ImproveCharacter" Type="nvarchar" MaxLength="500" />
+          <Property Name="DeteriorateCharacter" Type="nvarchar" MaxLength="500" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
         <EntityType Name="tbl_UserInfo">
           <Key>
             <PropertyRef Name="ID" />
@@ -240,6 +252,7 @@
           <EntitySet Name="tbl_QuestionDescriptionInfo" EntityType="Self.tbl_QuestionDescriptionInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_StandardSolutionExampleInfo" EntityType="Self.tbl_StandardSolutionExampleInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_StandardSolutionInfo" EntityType="Self.tbl_StandardSolutionInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_TechnicalConflictInfo" EntityType="Self.tbl_TechnicalConflictInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_UserInfo" EntityType="Self.tbl_UserInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_UserProjectInfo" EntityType="Self.tbl_UserProjectInfo" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -263,6 +276,7 @@
           <EntitySet Name="tbl_StandardSolutionInfo" EntityType="TrizDBModel.tbl_StandardSolutionInfo" />
           <EntitySet Name="tbl_MaterialFieldModelInfo" EntityType="TrizDBModel.tbl_MaterialFieldModelInfo" />
           <EntitySet Name="tbl_AnalysisProcedureInfo" EntityType="TrizDBModel.tbl_AnalysisProcedureInfo" />
+          <EntitySet Name="tbl_TechnicalConflictInfo" EntityType="TrizDBModel.tbl_TechnicalConflictInfo" />
         </EntityContainer>
         <EntityType Name="tbl_ProjectInfo">
           <Key>
@@ -483,6 +497,18 @@
           <Property Name="RadioValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="InputValue" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="InputValueTypeID" Type="Int32" />
+          <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tbl_TechnicalConflictInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="SerialNum" Type="Int32" />
+          <Property Name="ImproveCharacter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DeteriorateCharacter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
       </Schema>
@@ -723,6 +749,19 @@
                 <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
                 <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
                 <ScalarProperty Name="ProcedureID" ColumnName="ProcedureID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_TechnicalConflictInfo">
+            <EntityTypeMapping TypeName="TrizDBModel.tbl_TechnicalConflictInfo">
+              <MappingFragment StoreEntitySet="tbl_TechnicalConflictInfo">
+                <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="DeteriorateCharacter" ColumnName="DeteriorateCharacter" />
+                <ScalarProperty Name="ImproveCharacter" ColumnName="ImproveCharacter" />
+                <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
