@@ -18,8 +18,8 @@ namespace CodesTool
         $scope.{ObjName}List = [];
 
         $scope.data = {
-            currentPage: "",
-            itemsPerPage: "",
+            currentPage: """",
+            itemsPerPage: """",
             ProjectID: locals.get(""ProjectID"")
         };
 
@@ -63,7 +63,7 @@ namespace CodesTool
                 var {ObjName} = $scope.{ObjName}List[i];
                 {ObjName}.SerialNum = i;
                 requestService.add(""{Sources}"", {ObjName}).then(function (data) {
-                    if ({ObjName}.ID == "") {
+                    if ({ObjName}.ID == """") {
                         {ObjName}.ID = data;
                     }
                 });

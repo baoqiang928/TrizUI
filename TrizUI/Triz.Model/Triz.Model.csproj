@@ -48,6 +48,7 @@
     <Compile Include="FunEleMutualReactInfo.cs" />
     <Compile Include="MapLinkInfo.cs" />
     <Compile Include="MaterialFieldModelInfo.cs" />
+    <Compile Include="PhysicalConflictInfo.cs" />
     <Compile Include="ProjectInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionAnalyseInfo.cs" />

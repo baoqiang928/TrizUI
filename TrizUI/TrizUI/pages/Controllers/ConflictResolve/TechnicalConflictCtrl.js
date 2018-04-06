@@ -1,6 +1,7 @@
 ﻿angular.module('myApp')
-    .controller('TechnicalConflictCtrl', function ($scope, $location, requestService, $state, locals) {
+    .controller('TechnicalConflictCtrl', function ($scope, $location, requestService, $state, locals, ImproveCharacterDictionary) {
 
+        $scope.ImproveCharacterDictionary = ImproveCharacterDictionary;
         $scope.TechnicalConflictInfo = function () {
             this.ID = "";
             this.ProjectID = locals.get("ProjectID");

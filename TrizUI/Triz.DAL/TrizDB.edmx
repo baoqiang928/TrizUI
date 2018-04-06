@@ -119,6 +119,19 @@
           <Property Name="Remark" Type="nvarchar" MaxLength="500" />
           <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
+        <EntityType Name="tbl_PhysicalConflictInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="SerialNum" Type="int" />
+          <Property Name="ForwardCharacter" Type="nvarchar" MaxLength="500" />
+          <Property Name="BackwardCharacter" Type="nvarchar" MaxLength="500" />
+          <Property Name="CommonRelevantParams" Type="nvarchar" MaxLength="500" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
         <EntityType Name="tbl_ProjectInfo">
           <Key>
             <PropertyRef Name="ID" />
@@ -247,6 +260,7 @@
           <EntitySet Name="tbl_FunctionElementInfo" EntityType="Self.tbl_FunctionElementInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_FunEleMutualReactInfo" EntityType="Self.tbl_FunEleMutualReactInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_MaterialFieldModelInfo" EntityType="Self.tbl_MaterialFieldModelInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_PhysicalConflictInfo" EntityType="Self.tbl_PhysicalConflictInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ProjectInfo" EntityType="Self.tbl_ProjectInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_QuestionAnalyseInfo" EntityType="Self.tbl_QuestionAnalyseInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_QuestionDescriptionInfo" EntityType="Self.tbl_QuestionDescriptionInfo" Schema="dbo" store:Type="Tables" />
@@ -277,6 +291,7 @@
           <EntitySet Name="tbl_MaterialFieldModelInfo" EntityType="TrizDBModel.tbl_MaterialFieldModelInfo" />
           <EntitySet Name="tbl_AnalysisProcedureInfo" EntityType="TrizDBModel.tbl_AnalysisProcedureInfo" />
           <EntitySet Name="tbl_TechnicalConflictInfo" EntityType="TrizDBModel.tbl_TechnicalConflictInfo" />
+          <EntitySet Name="tbl_PhysicalConflictInfo" EntityType="TrizDBModel.tbl_PhysicalConflictInfo" />
         </EntityContainer>
         <EntityType Name="tbl_ProjectInfo">
           <Key>
@@ -508,6 +523,19 @@
           <Property Name="SerialNum" Type="Int32" />
           <Property Name="ImproveCharacter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="DeteriorateCharacter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tbl_PhysicalConflictInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="SerialNum" Type="Int32" />
+          <Property Name="ForwardCharacter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="BackwardCharacter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CommonRelevantParams" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
@@ -766,6 +794,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tbl_PhysicalConflictInfo">
+            <EntityTypeMapping TypeName="TrizDBModel.tbl_PhysicalConflictInfo">
+              <MappingFragment StoreEntitySet="tbl_PhysicalConflictInfo">
+                <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CommonRelevantParams" ColumnName="CommonRelevantParams" />
+                <ScalarProperty Name="BackwardCharacter" ColumnName="BackwardCharacter" />
+                <ScalarProperty Name="ForwardCharacter" ColumnName="ForwardCharacter" />
+                <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -780,7 +822,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
         <DesignerProperty Name="UseLegacyProvider" Value="True" />

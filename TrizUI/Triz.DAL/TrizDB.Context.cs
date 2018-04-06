@@ -64,6 +64,8 @@ public partial class TrizDBEntities : DbContext
 
     public DbSet<tbl_TechnicalConflictInfo> tbl_TechnicalConflictInfo { get; set; }
 
+    public DbSet<tbl_PhysicalConflictInfo> tbl_PhysicalConflictInfo { get; set; }
+
 }
 
 }

@@ -722,6 +722,7 @@
     <Content Include="pages\AngularJs-UI-master\lib\bootstrap\3.2.0\js\bootstrap.js" />
     <Content Include="pages\AngularJs-UI-master\lib\bootstrap\3.2.0\js\bootstrap.min.js" />
     <Content Include="pages\AngularJs-UI-master\src\pagination\tm.pagination.js" />
+    <Content Include="pages\Angularjs\constant\constant.js" />
     <Content Include="pages\assets\images\rect.png" />
     <Content Include="pages\assets\images\rect2.png" />
     <Content Include="pages\assets\images\rect3.png" />
