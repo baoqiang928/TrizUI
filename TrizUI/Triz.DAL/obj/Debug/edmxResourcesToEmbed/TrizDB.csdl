@@ -289,7 +289,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ProjectID" Type="Int32" Nullable="false" />
     <Property Name="SerialNum" Type="Int32" />
-    <Property Name="ConflictType" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ConflictType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="ConflictID" Type="Int32" Nullable="false" />
     <Property Name="ForwardCharacter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="BackwardCharacter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
@@ -300,6 +300,6 @@
     <Property Name="CaseID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="CaseName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
 </Schema>

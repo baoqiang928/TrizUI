@@ -45,8 +45,14 @@
                 }
             });
         }
-        $scope.Deal = function (ConflictID) {
-            $state.go("TechConflictResolveOpe", { ConflictID: ConflictID, ConflictType:"技术" });
+        $scope.Deal = function (ConflictID, ImproveCharacter, DeteriorateCharacter) {
+            $state.go("TechConflictResolveOpe", { ConflictID: ConflictID, ConflictType: "技术", TreeTypeID: "1", ImproveCharacter: GetTextByID(ImproveCharacter), DeteriorateCharacter: GetTextByID(DeteriorateCharacter) });
+        }
+        function GetTextByID(id) {
+            for (var i = 0; i < ImproveCharacterDictionary.length; i++) {
+                if (ImproveCharacterDictionary[i].id == id)
+                    return ImproveCharacterDictionary[i].name;
+            }
         }
         $scope.SaveTechnicalConflictInfo = function () {
             //if (!$('#validation-form').valid()) {

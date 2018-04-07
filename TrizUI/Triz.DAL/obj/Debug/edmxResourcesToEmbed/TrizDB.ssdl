@@ -73,7 +73,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProjectID" Type="int" Nullable="false" />
     <Property Name="SerialNum" Type="int" />
-    <Property Name="ConflictType" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="ConflictType" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="ConflictID" Type="int" Nullable="false" />
     <Property Name="ForwardCharacter" Type="nvarchar" MaxLength="500" />
     <Property Name="BackwardCharacter" Type="nvarchar" MaxLength="500" />
@@ -84,7 +84,7 @@
     <Property Name="CaseID" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="CaseName" Type="nvarchar" MaxLength="500" />
     <Property Name="Remark" Type="nvarchar" MaxLength="500" />
-    <Property Name="CreateDateTime" Type="datetime" Nullable="false" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
   </EntityType>
   <EntityType Name="tbl_DictionaryTreeInfo">
     <Key>

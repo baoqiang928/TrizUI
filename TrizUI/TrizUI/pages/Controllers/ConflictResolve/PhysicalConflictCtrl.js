@@ -45,8 +45,8 @@
                 }
             });
         }
-        $scope.Deal = function (ConflictID) {
-            $state.go("PhyConflictResolveOpe", { ConflictID: ConflictID, ConflictType: "物理" });
+        $scope.Deal = function (ConflictID, ImproveCharacter, DeteriorateCharacter) {
+            $state.go("PhyConflictResolveOpe", { ConflictID: ConflictID, ConflictType: "物理", TreeTypeID: "2", ImproveCharacter: ImproveCharacter, DeteriorateCharacter: DeteriorateCharacter });
         }
         $scope.SavePhysicalConflict = function () {
             //if (!$('#validation-form').valid()) {
