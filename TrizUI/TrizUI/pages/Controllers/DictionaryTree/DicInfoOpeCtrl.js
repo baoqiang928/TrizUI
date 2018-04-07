@@ -31,6 +31,7 @@
         };
 
         $scope.SaveInfo = function (id) {
+            UE.getEditor('idTest').setContent(' ', true);
             console.log("$scope.$parent.nodeData.Note", $scope.$parent.nodeData.Note);
             requestService.update("DictionaryTrees", $scope.$parent.nodeData).then(function (data) {
                 if ($scope.$parent.CurrentNode.$modelValue.ID = $scope.$parent.nodeData.ID)

@@ -115,6 +115,7 @@
         });
 
         $scope.SaveToList = function () {
+            UE.getEditor('idTest').setContent(' ', true);
             $scope.ConflictResolveInfoList[$scope.CurrentIndex].Remark = $scope.Solution;
             console.log("$scope.ConflictResolveInfoList", $scope.ConflictResolveInfoList);
             $scope.Solution = "";
