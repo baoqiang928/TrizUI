@@ -270,9 +270,6 @@
     <Content Include="pages\angular-ueditor-master\index.html" />
     <Content Include="pages\angular-ueditor-master\karma.conf.js" />
     <Content Include="pages\angular-ueditor-master\net\net.sln" />
-    <Content Include="pages\angular-ueditor-master\net\upload\2018-04-01\6a109622-1025-4b12-b483-83929a08c49f.png" />
-    <Content Include="pages\angular-ueditor-master\net\upload\2018-04-01\6ba38bd0-85cd-43e0-8b0e-44aba7147d17.png" />
-    <Content Include="pages\angular-ueditor-master\net\upload\2018-04-01\d2f0e4fd-0b9c-4977-a29c-f04cebaf3027.png" />
     <Content Include="pages\angular-ueditor-master\sample\app.js" />
     <Content Include="pages\angular-ueditor-master\sample\demo.html" />
     <Content Include="pages\angular-ueditor-master\sample\views\index.html" />
@@ -1027,6 +1024,7 @@
     <Folder Include="pages\angular-ueditor-master\dialogs\webapp\" />
     <Folder Include="pages\angular-ueditor-master\dialogs\wordimage\" />
     <Folder Include="pages\angular-ueditor-master\lang\" />
+    <Folder Include="pages\angular-ueditor-master\net\upload\image\20180406\" />
     <Folder Include="pages\angular-ueditor-master\third-party\codemirror\" />
     <Folder Include="pages\angular-ueditor-master\third-party\highcharts\" />
     <Folder Include="pages\angular-ueditor-master\third-party\snapscreen\" />
