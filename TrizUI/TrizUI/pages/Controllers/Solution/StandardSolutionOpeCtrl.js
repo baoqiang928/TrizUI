@@ -32,11 +32,11 @@ angular.module("myApp")
 
         var Sources = "StandardSolutions";
         $scope.data = {
-            ProjectID: locals.get("ProjectID"),      
-            SerialNum: "0",        
-            Name: "",        
-            Note: "",        
-            Remark: "",        
+            ProjectID: locals.get("ProjectID"),
+            SerialNum: "0",
+            Name: "",
+            Note: "",
+            Remark: "",
             TypeID: "0"
         };
         if ($stateParams.ID != null) {
@@ -64,9 +64,9 @@ angular.module("myApp")
         $scope.TreeData = [];
         var GetTreeNodes = function () {
             $scope.QueryData = {
-                ProjectID: ""
+                ProjectID: locals.get("ProjectID"),
+                TypeID: ""//这个参数就是为了定位webapi方法的
             };
-            $scope.QueryData.ProjectID = $scope.CurrentProjectID;
             requestService.lists("StandardSolutionExamples", $scope.QueryData).then(function (data) {
                 $scope.TreeData = strToJson(data.json);
                 //console.log("$scope.nodeData", $scope.TreeData);
@@ -84,7 +84,7 @@ angular.module("myApp")
         };
         $scope.SelectType = function () {
             $('#modal-table').modal('show');
-        }; 
+        };
         //树 end
 
 
@@ -122,7 +122,7 @@ angular.module("myApp")
                 TypeID: {
                     required: "请填写所属分类ID。",
                     maxlength: "输入内容过多，请重新输入。"
-                }               
+                }
             },
 
             invalidHandler: function (event, validator) { //display error alert on form submit   
