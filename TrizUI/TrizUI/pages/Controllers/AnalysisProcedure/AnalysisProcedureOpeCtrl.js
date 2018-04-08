@@ -380,17 +380,6 @@
 
         //树
         $scope.TreeData = [];
-        $scope.QueryData = {
-            ProjectID: $scope.CurrentProjectID,
-            TypeID: ""
-        };
-        var GetTreeNodes = function () {
-            requestService.lists("StandardSolutionExamples", $scope.QueryData).then(function (data) {
-                $scope.TreeData = strToJson(data.json);
-                ClearValue();
-                GetStandardSolutions();
-            });
-        };
 
         //获取所有叶子节点集合（所有标准解）
         $scope.data = {
@@ -402,101 +391,8 @@
             Remark: "",
             TypeID: ""
         };
-        $scope.StandardSolutions = "";
-        var TypeIDsNeededAppendNodes = ",";
-        var Solutions = {};
-
-        function ClearValue() {
-            $scope.StandardSolutions = "";
-            TypeIDsNeededAppendNodes = ",";
-            Solutions = {};
-        }
-
-
-        var GetStandardSolutions = function () {
-            $scope.data.currentPage = 1;
-            $scope.data.itemsPerPage = 9999;
-            requestService.lists("StandardSolutions", $scope.data).then(function (data) {
-                $scope.StandardSolutions = data.Results;
-                for (var i = 0; i < data.Results.length; i++) {
-                    if (typeof (Solutions[data.Results[i].TypeID]) == "undefined") {
-                        Solutions[data.Results[i].TypeID] = i + ",";
-                    }
-                    else {
-                        Solutions[data.Results[i].TypeID] = Solutions[data.Results[i].TypeID] + "," + i + ",";
-                    }
-                    TypeIDsNeededAppendNodes = TypeIDsNeededAppendNodes + data.Results[i].TypeID + ",";
-                }
-                //合并到原有树中
-                Search($scope.TreeData);
-            });
-        }
-
-        function IsNode(n) {
-            try {
-                if (typeof (n.ID) != "undefined") {
-                    return true;
-                }
-            } catch (e) {
-                return false;
-            }
-            return false;
-        }
-        function Deal(node) {
-            if (TypeIDsNeededAppendNodes.indexOf("," + node.ID + ",") >= 0) {
-                var sp = (Solutions[node.ID]).split(",");
-                for (var j = 0; j < sp.length; j++) {
-                    if (sp[j] == "") continue;
-                    var obj = $scope.StandardSolutions[sp[j]];
-                    var NewNode = {};
-                    NewNode.ID = "f" + obj.ID;
-                    NewNode.id = "f" + obj.ID;
-                    NewNode.Name = obj.Name;
-                    NewNode.ProjectID = obj.ProjectID;
-                    NewNode.title = obj.Name;
-                    NewNode.nodes = [];
-                    node.nodes.push(NewNode);
-                }
-            }
-        }
-
-        function Search(Node) {
-            if (IsNode(Node)) {
-                if (TypeIDsNeededAppendNodes.indexOf("," + Node.ID + ",") >= 0) {
-                    var sp = (Solutions[Node.ID]).split(",");
-                    for (var j = 0; j < sp.length; j++) {
-                        if (sp[j] == "") continue;
-                        var obj = $scope.StandardSolutions[sp[j]];
-                        var NewNode = {};
-                        NewNode.ID = "f" + obj.ID;
-                        NewNode.id = "f" + obj.ID;
-                        NewNode.Name = obj.Name;
-                        NewNode.ProjectID = obj.ProjectID;
-                        NewNode.title = obj.Name;
-                        NewNode.nodes = [];
-                        Node.nodes.push(NewNode);
-                    }
-                }
-
-                for (var i = 0; i < Node.nodes.length; i++) {
-                    Search(Node.nodes[i]);
-                }
-            }
-            else {
-                for (var k = 0; k < Node.length; k++) {
-                    Search(Node[k]);
-                }
-            }
-
-        }
-
 
         //获取所有叶子节点集合（所有标准解）  End
-        GetTreeNodes();
-        function strToJson(str) {
-            var json = (new Function("return " + str))();
-            return json;
-        }
         $scope.ClearTypeID = function () {
             $scope.data.TypeID = "";
             $scope.TypeName = "";
@@ -511,18 +407,9 @@
             //$scope.TypeName = CurrentNode.$modelValue.title;
             $('#modal-table').modal('hide');
         };
-        $scope.ShowSelectButton = function (CurrentNode) {
-            if (CurrentNode.$modelValue.ID.indexOf("f") == 0) return true;
-            return false;
-        };
         
         $scope.SelectType = function (c) {
             $scope.CurrentObject = c;
-            $scope.QueryData = {
-                ProjectID: $scope.CurrentProjectID,
-                TypeID: "" //c.TypeID //5
-            };
-            GetTreeNodes();
             $('#modal-table').modal('show');
         };
         //树 end

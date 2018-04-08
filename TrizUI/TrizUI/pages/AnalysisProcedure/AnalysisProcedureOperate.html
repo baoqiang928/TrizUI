@@ -150,7 +150,7 @@
         }"></span>
             </a>
             {{node.title}}
-            <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="SelectItem(this)" ng-show="ShowSelectButton(this)" style="margin-right: 3px;">
+            <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="SelectItem(this)" style="margin-right: 3px;">
                 <span class="glyphicon glyphicon-check"></span>
             </a>
         </div>
@@ -161,7 +161,7 @@
     </script>
     <!--弹出添加节点窗口-->
     <div class="row">
-        <div id="modal-table" class="modal fade" tabindex="-1">
+        <div id="modal-table" class="modal fade" tabindex="-1" ng-controller="DictionaryTreeCtrl">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header no-padding">

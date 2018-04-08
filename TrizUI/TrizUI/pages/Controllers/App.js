@@ -32,7 +32,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
            templateUrl: "/pages/QuestionDescription/QuestionDescriptionOperate.html"
        })
         .state("AnalysisProcedureAdd", {
-            params: { "ProcedureID": null },
+            params: { "ProcedureID": null, "TreeTypeID": "3" },
             url: "/AnalysisProcedureAdd",
             templateUrl: "/pages/AnalysisProcedure/AnalysisProcedureOperate.html",
             controller: 'tree-Controller'
@@ -97,6 +97,12 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
             url: "/StandardSolutionAndExamplesList",
             templateUrl: "/pages/StandardSolution/StandardSolutionAndExamplesList.html",
             controller: 'tree-Controller'
+        })
+    
+        .state("StandSolutionDictionaryTree", {
+            params: { "TreeTypeID": "3", "Title": "标准解维护" },
+            url: "/StandSolutionDictionaryTree",
+            templateUrl: "/pages/DictionaryTree/DictionaryTreeOpe.html"
         })
         .state("TechConflictResolveDictionaryTree", {
             params: { "TreeTypeID": "1", "Title": "技术冲突解决方案维护" },

@@ -38,7 +38,6 @@ angular.module("myApp")
             $scope.data.itemsPerPage = $scope.paginationConf.itemsPerPage;
             requestService.lists(Sources, $scope.data).then(function (data) {
                 $scope.AnalysisProcedures = data.Results;
-                console.log("data.Results", data.Results);
                 $scope.paginationConf.totalItems = data.TotalItems;
                 $scope.paginationConf.pagesLength = data.PagesLength;
             });
@@ -61,7 +60,7 @@ angular.module("myApp")
         }
 
         $scope.Update = function (ProcedureID) {
-            $state.go("AnalysisProcedureAdd", { ProcedureID: ProcedureID });
+            $state.go("AnalysisProcedureAdd", { ProcedureID: ProcedureID, TreeTypeID: "3" });
         }
 
     });//end
