@@ -261,7 +261,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="Character" Type="nvarchar" MaxLength="200" />
           <Property Name="Remark" Type="nvarchar" MaxLength="1000" />
-          <Property Name="CreateDateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="tbl_TechnicalConflictInfo">
           <Key>
@@ -637,7 +637,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Character" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>

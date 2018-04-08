@@ -3,7 +3,7 @@
  */
 angular.module("myApp")
 
-// 公司行业
+// 冲突解决-提高特性和恶化特性
     .constant('ImproveCharacterDictionary', [
  { id: 48, name: '1 运动物体的重量' },
  { id: 49, name: '2 静止物体的重量' },
@@ -77,15 +77,14 @@ angular.module("myApp")
 
  { id: 87, name: '39 生产率' }
     ])
-    // 融资规模
-    .constant('financing', [
-        { id: 0, name: '无需融资' },
-        { id: 1, name: '天使轮' },
-        { id: 2, name: 'A轮' },
-        { id: 3, name: 'B轮' },
-        { id: 4, name: 'C轮' },
-        { id: 5, name: 'D轮及以上' },
-        { id: 6, name: '上市公司' }
+    //Dictionary TreeTypeID 只是描述，目前没有使用这个变量
+    .constant('TreeTypeID', [
+        { id: 1, name: '技术冲突解决' },
+        { id: 2, name: '物理冲突解决' },
+        { id: 3, name: '标准解' },
+        { id: 4, name: '技术进化' },
+        { id: 5, name: '' },
+        { id: 6, name: '' }
     ])
     // 公司行业多选数据
     .constant('companyIndustryGroup', [

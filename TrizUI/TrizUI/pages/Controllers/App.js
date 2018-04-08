@@ -98,7 +98,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "/pages/StandardSolution/StandardSolutionAndExamplesList.html",
             controller: 'tree-Controller'
         })
-    
+
         .state("StandSolutionDictionaryTree", {
             params: { "TreeTypeID": "3", "Title": "标准解维护" },
             url: "/StandSolutionDictionaryTree",
@@ -133,6 +133,17 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
             url: "/ConflictResolveOpe",
             templateUrl: "/pages/ConflictResolve/ConflictResolveOpe.html"
         })
+        .state("TechEvolveList", {
+            params: { "TreeTypeID": "4" },
+            url: "/TechEvolveList",
+            templateUrl: "/pages/TechEvolve/TechEvolveList.html"
+        })
+        .state("TechEvolveOpeList", {
+            params: { "ID": null, "TreeTypeID": "4" },
+            url: "/TechEvolveList",
+            templateUrl: "/pages/TechEvolve/TechEvolveOpe.html"
+        })
+
        .state("PageTab.Page1", {
            url: "/Page1",
            templateUrl: "/pages/Page1.html"

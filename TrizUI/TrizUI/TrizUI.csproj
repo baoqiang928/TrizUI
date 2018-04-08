@@ -775,6 +775,8 @@
     <Content Include="pages\Controllers\AnalysisProcedure\AnalysisProcedureOpeCtrl.js" />
     <Content Include="pages\Controllers\StandardSolution\standardExamples.js" />
     <Content Include="pages\Controllers\StandardSolution\StandardSolutionAndExamplesCtrl.js" />
+    <Content Include="pages\Controllers\TechEvolve\TechEvolveCtrl.js" />
+    <Content Include="pages\Controllers\TechEvolve\TechEvolveOpeCtrl.js" />
     <Content Include="pages\Controllers\tm.pagination.js" />
     <Content Include="pages\Controllers\Tree.js" />
     <Content Include="pages\Controllers\User.js" />
@@ -889,6 +891,8 @@
     <Content Include="pages\StandardSolution\StandardSolutionAndExamplesList.html" />
     <Content Include="pages\AnalysisProcedure\AnalysisProcedureList.html" />
     <Content Include="pages\AnalysisProcedure\AnalysisProcedureOperate.html" />
+    <Content Include="pages\TechEvolve\TechEvolveList.html" />
+    <Content Include="pages\TechEvolve\TechEvolveOpe.html" />
     <Content Include="pages\test\demo.html" />
     <Content Include="pages\test\pagination.css" />
     <Content Include="pages\test\pagination.html" />

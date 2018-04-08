@@ -1,0 +1,239 @@
+﻿<div class="page-content" ng-controller="TechEvolveCtrl">
+    <div class="page-header">
+        <h1>技术进化模式与进化路线
+        </h1>
+    </div>
+    <!-- /.page-header -->
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="widget-box">
+                        <div class="widget-header widget-header-flat">
+                            <h4 class="smaller">技术进化模式与进化路线</h4>
+                            <span class="widget-toolbar">
+                                <a href="" ng-click="SaveTechEvolveInfo()">
+                                    <i class="icon-save"></i>
+                                </a>
+                            </span>
+                        </div>
+
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>名称</th>
+                                            <th>特征</th>
+                                            <th>备注</th>
+                                            <th>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="blue" style="cursor: pointer" ng-click="AddTechEvolutionInfo()">
+                                                        <i class="icon-plus bigger-130"></i>
+                                                    </a>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="TechEvolutionInfo in TechEvolutionInfoList|orderBy:'SerialNum'">
+                                            <td>
+                                                <input type="text" class="col-xs-12 col-sm-12 col-md-12" ng-model="TechEvolutionInfo.Name" /></td>
+                                            <td>
+                                                <input type="text" class="col-xs-12 col-sm-12 col-md-12" ng-model="TechEvolutionInfo.Character" /></td>
+                                            <td>
+                                                <input type="text" class="col-xs-12 col-sm-12 col-md-12" ng-model="TechEvolutionInfo.Remark" /></td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="blue" style="cursor: pointer" ng-click="AddTechEvolutionInfo()">
+                                                        <i class="icon-plus bigger-130"></i>
+                                                    </a>
+
+                                                    <a class="red" style="cursor: pointer" ng-click="DeleteTechEvolutionInfo($index)">
+                                                        <i class="icon-trash bigger-130"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+    <!-- /row -->
+    <!-- Nested node template -->
+    <script type="text/ng-template" id="nodes_renderer.html">
+        <div ui-tree-handle class="tree-node tree-node-content">
+            <a class="btn btn-success btn-xs" ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)">
+                <span class="glyphicon"
+                      ng-class="{
+          'glyphicon-chevron-right': collapsed,
+          'glyphicon-chevron-down': !collapsed
+        }"></span>
+            </a>
+            {{node.title}}
+            <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="View(this)" style="margin-right: 3px;">
+                <span class="glyphicon glyphicon-search"></span>
+            </a>
+        </div>
+        <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+            <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+            </li>
+        </ol>
+    </script>
+    <div class="row">
+        <div class="col-sm-4" ng-controller="DictionaryTreeCtrl">
+            <div class="widget-box">
+                <div class="widget-header widget-header-flat">
+                    <h4 class="smaller">分类树</h4>
+                </div>
+
+                <div class="widget-body">
+                    <div class="widget-main">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div ui-tree id="tree-root">
+                                    <ol ui-tree-nodes ng-model="TreeData">
+                                        <li ng-repeat="node in TreeData" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="widget-box">
+                        <div class="widget-header widget-header-flat">
+                            <h4 class="smaller">详细信息</h4>
+                            <span class="widget-toolbar">
+                                <a href="" ng-click="AddConflictResolveInfo()">
+                                    <i class="icon-heart-empty"></i>
+                                </a>
+                            </span>
+                        </div>
+
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <form class="form-horizontal" id="validation-form" role="form">
+
+
+                                    <div class="form-group">
+                                        <label class="col-sm-1 control-label no-padding-right" for="form-field-1">名称</label>
+
+                                        <div class="col-sm-11">
+                                            <div class="clearfix">
+                                                {{nodeData.Name}}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-1 control-label no-padding-right" for="form-field-1">案例描述</label>
+
+                                        <div class="col-sm-11">
+                                            <div class="clearfix">
+                                                <p ng-bind-html="nodeData.Note | to_trusted"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-1 control-label no-padding-right" for="form-field-1">备注</label>
+                                        <div class="col-sm-11">
+                                            <div class="clearfix">
+                                                {{nodeData.Remark}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix form-actions">
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <button class="btn btn-info" type="button" ng-click="AddConflictResolveInfo()">
+                                                <i class="icon-heart-empty bigger-110"></i>
+                                                选择
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--弹出添加节点窗口-->
+    <div class="row">
+        <div id="modal-table" class="modal fade col-xs-12" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header no-padding">
+                        <div class="table-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                <span class="white">&times;</span>
+                            </button>
+                            解决思路
+                        </div>
+                    </div>
+
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="widget-box">
+                                        <div class="widget-header widget-header-flat">
+                                            <h4 class="smaller">解决思路</h4>
+                                        </div>
+
+                                        <div class="widget-body">
+                                            <div class="widget-main">
+                                                <div id="idTest" style="margin-bottom: 1.25rem" class="ueditor" config="_simpleConfig" ng-model="Solution"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="modal-footer no-margin-top">
+                        <button class="btn btn-sm pull-left" ng-click="SaveToList()">
+                            <i class="icon-plus"></i>
+                            保存
+
+                        </button>
+                        <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+                            <i class="icon-remove"></i>
+                            关闭
+
+                        </button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+
+    </div>
+    <!--弹出添加节点窗口  end-->
+</div>
+<!-- PAGE CONTENT ENDS -->
+<!-- /.page-content -->
