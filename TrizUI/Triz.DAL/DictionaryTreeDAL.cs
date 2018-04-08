@@ -28,6 +28,7 @@ namespace Triz.DAL
             Expression<Func<tbl_DictionaryTreeInfo, bool>> where = PredicateExtensionses.True<tbl_DictionaryTreeInfo>();
             where = where.And(a => a.ProjectID == int.Parse(ProjectID));
             where = where.And(a => a.TreeTypeID == int.Parse(TreeTypeID));
+            where = where.And(a => a.FatherID == null);
 
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {

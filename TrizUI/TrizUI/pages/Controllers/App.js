@@ -143,7 +143,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
             url: "/TechEvolveList",
             templateUrl: "/pages/TechEvolve/TechEvolveOpe.html"
         })
-
+        .state("TechEvolveDictionaryTree", {
+            params: { "TreeTypeID": "4", "Title": "技术进化模式" },
+            url: "/TechEvolveDictionaryTree",
+            templateUrl: "/pages/DictionaryTree/DictionaryTreeOpe.html"
+        })
        .state("PageTab.Page1", {
            url: "/Page1",
            templateUrl: "/pages/Page1.html"

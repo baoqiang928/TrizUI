@@ -345,7 +345,7 @@
                             <span class="menu-text">标准解 </span>
                         </a>
                     </li>
-<!--                    <li>
+                    <!--                    <li>
                         <a href="#" ui-sref="ConflictList">
                             <i class="icon-bolt"></i>
                             <span class="menu-text">冲突解决UI </span>
@@ -371,31 +371,62 @@
                     </li>
 
                     <li>
-                        <a href="#" ui-sref="UserList">
-                            <i class="icon-text-width"></i>
-                            <span class="menu-text">用户管理 </span>
+                        <a href="#" class="dropdown-toggle">
+                            <i class="icon-desktop"></i>
+                            <span class="menu-text">字典维护 </span>
+
+                            <b class="arrow icon-angle-down"></b>
                         </a>
+
+                        <ul class="submenu">
+                            <li>
+                                <a href="#" ui-sref="StandSolutionDictionaryTree">
+                                    <i class="icon-double-angle-right"></i>
+                                    标准解维护
+									</a>
+                            </li>
+
+                            <li>
+                                <a href="#" ui-sref="TechConflictResolveDictionaryTree">
+                                    <i class="icon-double-angle-right"></i>
+                                    技术冲突解决方案
+									</a>
+                            </li>
+
+                            <li>
+                                <a href="#" ui-sref="PhyConflictResolveDictionaryTree">
+                                    <i class="icon-double-angle-right"></i>
+                                    物理冲突解决方案
+									</a>
+                            </li>
+
+                            <li>
+                                <a href="#" ui-sref="TechEvolveDictionaryTree">
+                                    <i class="icon-double-angle-right"></i>
+                                    技术进化模式
+									</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
-                        <a href="#" ui-sref="StandSolutionDictionaryTree">
-                            <i class="icon-text-width"></i>
-                            <span class="menu-text">标准解维护 </span>
+                        <a href="#" class="dropdown-toggle">
+                            <i class="icon-desktop"></i>
+                            <span class="menu-text">系统管理 </span>
+
+                            <b class="arrow icon-angle-down"></b>
                         </a>
-                    </li>
-                    <li>
-                        <a href="#" ui-sref="TechConflictResolveDictionaryTree">
-                            <i class="icon-text-width"></i>
-                            <span class="menu-text">技术冲突解决方案 </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" ui-sref="PhyConflictResolveDictionaryTree">
-                            <i class="icon-text-width"></i>
-                            <span class="menu-text">物理冲突解决方案 </span>
-                        </a>
-                    </li>
+
+                        <ul class="submenu">
+                            <li>
+                                <a href="#" ui-sref="UserList">
+                                    <i class="icon-double-angle-right"></i>
+                                    用户管理
+									</a>
+                            </li>
 
 
+                        </ul>
+                    </li>
                 </ul>
                 <!-- /.nav-list -->
 
