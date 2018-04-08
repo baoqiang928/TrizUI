@@ -301,5 +301,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TechEvolutionInfo">
+      <EntityTypeMapping TypeName="TrizDBModel.tbl_TechEvolutionInfo">
+        <MappingFragment StoreEntitySet="tbl_TechEvolutionInfo">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Character" ColumnName="Character" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -20,6 +20,7 @@
     <EntitySet Name="tbl_PhysicalConflictInfo" EntityType="TrizDBModel.tbl_PhysicalConflictInfo" />
     <EntitySet Name="tbl_DictionaryTreeInfo" EntityType="TrizDBModel.tbl_DictionaryTreeInfo" />
     <EntitySet Name="tbl_ConflictResolveInfo" EntityType="TrizDBModel.tbl_ConflictResolveInfo" />
+    <EntitySet Name="tbl_TechEvolutionInfo" EntityType="TrizDBModel.tbl_TechEvolutionInfo" />
   </EntityContainer>
   <EntityType Name="tbl_ProjectInfo">
     <Key>
@@ -301,5 +302,17 @@
     <Property Name="CaseName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_TechEvolutionInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="SerialNum" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Character" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
 </Schema>
