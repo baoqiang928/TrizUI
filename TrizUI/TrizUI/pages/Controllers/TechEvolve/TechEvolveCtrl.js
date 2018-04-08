@@ -1,6 +1,8 @@
 ﻿angular.module('myApp')
     .controller('TechEvolveCtrl', function ($scope, $location, requestService, $state, locals, $stateParams) {
-
+        $scope.$on("nodeData", function (event, msg) {
+            $scope.nodeData = msg;
+        });
         $scope.TechEvolutionInfo = function () {
             this.ID = "";
             this.ProjectID = locals.get("ProjectID");
