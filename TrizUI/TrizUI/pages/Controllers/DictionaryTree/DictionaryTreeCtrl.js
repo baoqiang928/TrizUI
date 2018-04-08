@@ -47,7 +47,6 @@
             requestService.add("DictionaryTrees", tmpnode).then(function (data) {
                 tmpnode.id = data;
                 tmpnode.ID = data;
-                console.log("$scope.TreeData", $scope.TreeData);
             });
         }
         function GenRdmID(randomLength) {
@@ -74,9 +73,10 @@
         //新增一个节点的保存事件
         $scope.Name = "";
         $scope.SaveName = function () {
-            var ExampleInfo = {};
-            ExampleInfo.ProjectID = locals.get("ProjectID");
-            ExampleInfo.Name = $scope.Name;
+            var nodeobj = {};
+            nodeobj.ProjectID = locals.get("ProjectID");
+            nodeobj.Name = $scope.Name;
+            nodeobj.TreeTypeID = $stateParams.TreeTypeID;
             if ($scope.CurrentNode == "Root") {
                 AddRootNode($scope.Name, $scope.Name);
                 $('#modal-table').modal('hide');
@@ -85,8 +85,8 @@
             var nodeData = $scope.CurrentNode.$modelValue;
             //add
             if ($scope.CurrentOperate == "Add") {
-                ExampleInfo.FatherID = nodeData.id;
-                requestService.add("DictionaryTrees", ExampleInfo).then(function (data) {
+                nodeobj.FatherID = nodeData.id;
+                requestService.add("DictionaryTrees", nodeobj).then(function (data) {
                     console.log("data", data);
                     nodeData.nodes.push({
                         id: data,
@@ -128,15 +128,6 @@
                 }
             });
         };
-
-
-        $scope.SaveExampleInfo = function () {
-            //alert(1);
-            //$scope.$apply();
-            //$scope.TreeData[0].Name = "1111";
-            var nodeData = $scope.CurrentNode.$modelValue;
-            nodeData.Name = "455667";
-        }
 
 
     });//end
