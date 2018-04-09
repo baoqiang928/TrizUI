@@ -61,7 +61,13 @@
                     }
                 });
             }
+            alert('保存成功。');
         };
 
+        $scope.SetRador = function (TechEvolutionInfo) {
+            $state.go("TechEvolveOpe", { TechEvolveID: TechEvolutionInfo.ID, TreeTypeID: $stateParams.TreeTypeID, "Name": TechEvolutionInfo.Name, "Character": TechEvolutionInfo.Character, "Remark": TechEvolutionInfo.Remark });
+        };
+
+        
 
     });//End

@@ -138,8 +138,8 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
             url: "/TechEvolveList",
             templateUrl: "/pages/TechEvolve/TechEvolveList.html"
         })
-        .state("TechEvolveOpeList", {
-            params: { "ID": null, "TreeTypeID": "4" },
+        .state("TechEvolveOpe", {
+            params: { "ID": null, "TreeTypeID": "4", "TechEvolveID": null },
             url: "/TechEvolveList",
             templateUrl: "/pages/TechEvolve/TechEvolveOpe.html"
         })
