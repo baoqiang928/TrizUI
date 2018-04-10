@@ -753,6 +753,7 @@
     <Content Include="pages\Controllers\CauseEffect\componentRel.js" />
     <Content Include="pages\Controllers\CauseEffect\conflictList.js" />
     <Content Include="pages\Controllers\CauseEffect\currentProblem.js" />
+    <Content Include="pages\Controllers\CauseEffect\ImproveProblem.js" />
     <Content Include="pages\Controllers\CauseEffect\primaryComponentParam.js" />
     <Content Include="pages\Controllers\CauseEffect\reactMap.js" />
     <Content Include="pages\Controllers\ConflictResolve\ConflictResolveCtrl.js" />

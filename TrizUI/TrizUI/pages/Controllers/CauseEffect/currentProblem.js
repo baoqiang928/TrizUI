@@ -7,24 +7,24 @@
         templateUrl: 'currentProblem.html',
         replace: true,
         link: function (scope, elem, attrs) { //controllerInstance 调用另外一个directive的方法 需要require。//controllerInstance.say(scope);
-            var CurrentProjectID = locals.get("ProjectID");
-            requestService.getobj("CauseEffectCurProblems", scope.CurrentProjectID).then(function (data) {
-                scope.CurrentProblemDes = data.ProblemDescription;
+            requestService.getobj("CauseEffectCurProblems", scope.data.ProjectID).then(function (data) {
+                //scope.CurrentProblemDes = data.ProblemDescription;
+                console.log("data", data);
+                scope.data = data;
             });
 
-            var data = {
-                ProjectID: "",
-                ProblemDescription: ""
-            };
+            //scope.data = {
+            //    ProjectID: locals.get("ProjectID"),
+            //    ProblemDescription: "",
+            //    AltinativeProblem: "",
+            //    TechConflict: "",
+            //    PhyConflict: ""
+            //};
             scope.SaveCurrentProblemDes = function () {
                 //if (!$('#validation-form').valid()) {
                 //    return false;
                 //}
-                data.ProjectID = CurrentProjectID;
-                data.ProblemDescription = scope.CurrentProblemDes;
-                requestService.add("CauseEffectCurProblems", data).then(function (data) {
-
-                });
+                requestService.add("CauseEffectCurProblems", scope.data).then(function (data) { });
                 return;
             };
         },

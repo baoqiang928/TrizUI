@@ -124,6 +124,9 @@
     <EntitySetMapping Name="tbl_CauseEffectCurProblemInfo">
       <EntityTypeMapping TypeName="TrizDBModel.tbl_CauseEffectCurProblemInfo">
         <MappingFragment StoreEntitySet="tbl_CauseEffectCurProblemInfo">
+          <ScalarProperty Name="PhyConflict" ColumnName="PhyConflict" />
+          <ScalarProperty Name="TechConflict" ColumnName="TechConflict" />
+          <ScalarProperty Name="AltinativeProblem" ColumnName="AltinativeProblem" />
           <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
           <ScalarProperty Name="ProblemDescription" ColumnName="ProblemDescription" />
           <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />

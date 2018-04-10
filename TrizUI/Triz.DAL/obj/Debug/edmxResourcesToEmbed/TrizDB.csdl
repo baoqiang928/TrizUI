@@ -143,6 +143,9 @@
     <Property Name="ProjectID" Type="Int32" Nullable="false" />
     <Property Name="ProblemDescription" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AltinativeProblem" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="TechConflict" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PhyConflict" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="tbl_ComponentParamInfo">
     <Key>

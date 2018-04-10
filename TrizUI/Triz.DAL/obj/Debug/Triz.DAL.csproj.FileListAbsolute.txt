@@ -9,7 +9,6 @@ F:\TrizUI\TrizUI\Triz.DAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
 F:\TrizUI\TrizUI\Triz.DAL\obj\Debug\Triz.DAL.csprojResolveAssemblyReference.cache
 F:\TrizUI\TrizUI\Triz.DAL\obj\Debug\Triz.DAL.dll
 F:\TrizUI\TrizUI\Triz.DAL\obj\Debug\Triz.DAL.pdb
-E:\sourcecode\TrizUI\TrizUI\Triz.DAL\obj\Debug\Triz.DAL.csprojResolveAssemblyReference.cache
 E:\sourcecode\TrizUI\TrizUI\Triz.DAL\bin\Debug\Triz.DAL.dll.config
 E:\sourcecode\TrizUI\TrizUI\Triz.DAL\bin\Debug\Triz.DAL.dll
 E:\sourcecode\TrizUI\TrizUI\Triz.DAL\bin\Debug\Triz.DAL.pdb
@@ -18,5 +17,6 @@ E:\sourcecode\TrizUI\TrizUI\Triz.DAL\bin\Debug\Triz.Model.dll
 E:\sourcecode\TrizUI\TrizUI\Triz.DAL\bin\Debug\Triz.Model.pdb
 E:\sourcecode\TrizUI\TrizUI\Triz.DAL\bin\Debug\EntityFramework.xml
 E:\sourcecode\TrizUI\TrizUI\Triz.DAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\sourcecode\TrizUI\TrizUI\Triz.DAL\obj\Debug\Triz.DAL.csprojResolveAssemblyReference.cache
 E:\sourcecode\TrizUI\TrizUI\Triz.DAL\obj\Debug\Triz.DAL.dll
 E:\sourcecode\TrizUI\TrizUI\Triz.DAL\obj\Debug\Triz.DAL.pdb

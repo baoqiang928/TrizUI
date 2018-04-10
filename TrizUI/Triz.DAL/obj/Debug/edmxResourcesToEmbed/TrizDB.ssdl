@@ -23,6 +23,9 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProjectID" Type="int" Nullable="false" />
     <Property Name="ProblemDescription" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="AltinativeProblem" Type="nvarchar" MaxLength="200" />
+    <Property Name="TechConflict" Type="nvarchar" MaxLength="200" />
+    <Property Name="PhyConflict" Type="nvarchar" MaxLength="200" />
     <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
   </EntityType>
   <EntityType Name="tbl_ComponentParamInfo">

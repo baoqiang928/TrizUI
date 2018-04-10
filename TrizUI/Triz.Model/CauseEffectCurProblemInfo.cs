@@ -24,13 +24,44 @@ namespace Triz.Model
         }
         private string problemDescription;
         /// <summary>
-        /// 元件特征参数
+        /// 目前问题
         /// </summary>
         public string ProblemDescription
         {
             get { return problemDescription; }
             set { problemDescription = value; }
         }
+
+        private string altinativeProblem;
+        /// <summary>
+        /// 系统改进的替代问题
+        /// </summary>
+        public string AltinativeProblem
+        {
+            get { return altinativeProblem; }
+            set { altinativeProblem = value; }
+        }
+
+        private string techConflict;
+        /// <summary>
+        /// 系统改进的技术冲突
+        /// </summary>
+        public string TechConflict
+        {
+            get { return techConflict; }
+            set { techConflict = value; }
+        }
+
+        private string phyConflict;
+        /// <summary>
+        /// 系统改进的物理冲突
+        /// </summary>
+        public string PhyConflict
+        {
+            get { return phyConflict; }
+            set { phyConflict = value; }
+        }
+
         private DateTime? createDateTime;
         /// <summary>
         /// 創建時間

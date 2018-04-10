@@ -207,6 +207,12 @@ namespace Triz.DAL
 
             CauseEffectCurProblemInfo.ProblemDescription = CauseEffectCurProblemInfoEntity.ProblemDescription;
 
+            CauseEffectCurProblemInfo.AltinativeProblem = CauseEffectCurProblemInfoEntity.AltinativeProblem;
+
+            CauseEffectCurProblemInfo.TechConflict = CauseEffectCurProblemInfoEntity.TechConflict;
+
+            CauseEffectCurProblemInfo.PhyConflict = CauseEffectCurProblemInfoEntity.PhyConflict;
+
             CauseEffectCurProblemInfo.CreateDateTime = CauseEffectCurProblemInfoEntity.CreateDateTime;
 
 
@@ -224,6 +230,15 @@ namespace Triz.DAL
 
             if (CauseEffectCurProblemInfo.ProblemDescription != null)
                 CauseEffectCurProblemInfoEntity.ProblemDescription = CauseEffectCurProblemInfo.ProblemDescription;
+
+            if (CauseEffectCurProblemInfo.AltinativeProblem != null)
+                CauseEffectCurProblemInfoEntity.AltinativeProblem = CauseEffectCurProblemInfo.AltinativeProblem;
+
+            if (CauseEffectCurProblemInfo.TechConflict != null)
+                CauseEffectCurProblemInfoEntity.TechConflict = CauseEffectCurProblemInfo.TechConflict;
+
+            if (CauseEffectCurProblemInfo.PhyConflict != null)
+                CauseEffectCurProblemInfoEntity.PhyConflict = CauseEffectCurProblemInfo.PhyConflict;
 
         }
 

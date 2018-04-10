@@ -28,6 +28,9 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProjectID" Type="int" Nullable="false" />
           <Property Name="ProblemDescription" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="AltinativeProblem" Type="nvarchar" MaxLength="200" />
+          <Property Name="TechConflict" Type="nvarchar" MaxLength="200" />
+          <Property Name="PhyConflict" Type="nvarchar" MaxLength="200" />
           <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="tbl_ComponentParamInfo">
@@ -467,6 +470,9 @@
           <Property Name="ProjectID" Type="Int32" Nullable="false" />
           <Property Name="ProblemDescription" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AltinativeProblem" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TechConflict" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PhyConflict" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tbl_ComponentParamInfo">
           <Key>
@@ -768,6 +774,9 @@
           <EntitySetMapping Name="tbl_CauseEffectCurProblemInfo">
             <EntityTypeMapping TypeName="TrizDBModel.tbl_CauseEffectCurProblemInfo">
               <MappingFragment StoreEntitySet="tbl_CauseEffectCurProblemInfo">
+                <ScalarProperty Name="PhyConflict" ColumnName="PhyConflict" />
+                <ScalarProperty Name="TechConflict" ColumnName="TechConflict" />
+                <ScalarProperty Name="AltinativeProblem" ColumnName="AltinativeProblem" />
                 <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
                 <ScalarProperty Name="ProblemDescription" ColumnName="ProblemDescription" />
                 <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />

@@ -26,6 +26,12 @@ public partial class tbl_CauseEffectCurProblemInfo
 
     public System.DateTime CreateDateTime { get; set; }
 
+    public string AltinativeProblem { get; set; }
+
+    public string TechConflict { get; set; }
+
+    public string PhyConflict { get; set; }
+
 }
 
 }

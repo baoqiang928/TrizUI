@@ -51,8 +51,21 @@
             this.Disabled = "";
         }
 
-
+        $scope.data = {
+            ProjectID: locals.get("ProjectID"),
+            ProblemDescription: "",
+            AltinativeProblem: "",
+            TechConflict: "",
+            PhyConflict: ""
+        };
         
-
+        $scope.SaveCurrentProblemDes = function () {
+            //if (!$('#validation-form').valid()) {
+            //    return false;
+            //}
+            console.log("data", data);
+            requestService.add("CauseEffectCurProblems", data).then(function (data) { });
+            return;
+        };
 
     });//end
