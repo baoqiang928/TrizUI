@@ -1060,6 +1060,9 @@
     <Content Include="pages\angular-ueditor-master\net\getContent.ashx" />
     <Content Include="pages\angular-ueditor-master\net\imageUp.ashx" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Doc\20180411-innvocationsoft.rar" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

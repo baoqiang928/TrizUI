@@ -1,12 +1,12 @@
 ﻿angular.module('myApp')
     .controller('DictionaryTreeCtrl', function ($scope, $rootScope, $location, requestService, $state, locals, $stateParams) {
-        $scope.CurrentProjectID = locals.get("ProjectID");
+        $scope.CurrentProjectID = "0";//$scope.CurrentProjectID;
         $scope.PageTitle = $stateParams.Title;
         //获得所有节点，左侧树使用
         $scope.TreeData = [];
         var GetTreeNodes = function () {
             $scope.QueryData = {
-                ProjectID: locals.get("ProjectID"),
+                ProjectID: $scope.CurrentProjectID,
                 TreeTypeID: $stateParams.TreeTypeID
             };
             requestService.lists("DictionaryTrees", $scope.QueryData).then(function (data) {
@@ -37,7 +37,7 @@
             var tmpnode = {
                 id: GenRdmID(5),
                 title: title,
-                ProjectID: locals.get("ProjectID"),
+                ProjectID: $scope.CurrentProjectID,
                 TreeTypeID: $stateParams.TreeTypeID,
                 ID: "",
                 Name: Name,
@@ -74,7 +74,7 @@
         $scope.Name = "";
         $scope.SaveName = function () {
             var nodeobj = {};
-            nodeobj.ProjectID = locals.get("ProjectID");
+            nodeobj.ProjectID = $scope.CurrentProjectID;
             nodeobj.Name = $scope.Name;
             nodeobj.TreeTypeID = $stateParams.TreeTypeID;
             if ($scope.CurrentNode == "Root") {
@@ -94,7 +94,7 @@
                         title: $scope.Name,
                         Name: $scope.Name,
                         Remark: "",
-                        ProjectID: locals.get("ProjectID"),
+                        ProjectID: $scope.CurrentProjectID,
                         TreeTypeID: $stateParams.TreeTypeID,
                         FatherID: nodeData.id,
                         nodes: []

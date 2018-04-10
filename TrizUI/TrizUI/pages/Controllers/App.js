@@ -105,12 +105,12 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "/pages/DictionaryTree/DictionaryTreeOpe.html"
         })
         .state("TechConflictResolveDictionaryTree", {
-            params: { "TreeTypeID": "1", "Title": "技术冲突解决方案维护" },
+            params: { "TreeTypeID": "1", "Title": "发明原理与案例" },
             url: "/TechConflictResolveDictionaryTree",
             templateUrl: "/pages/DictionaryTree/DictionaryTreeOpe.html"
         })
         .state("PhyConflictResolveDictionaryTree", {
-            params: { "TreeTypeID": "2", "Title": "物理冲突解决方案维护" },
+            params: { "TreeTypeID": "2", "Title": "分离原理与案例" },
             url: "/PhyConflictResolveDictionaryTree",
             templateUrl: "/pages/DictionaryTree/DictionaryTreeOpe.html"
         })
