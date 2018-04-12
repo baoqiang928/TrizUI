@@ -33,10 +33,12 @@
         $scope.SaveInfo = function (id) {
             UE.getEditor('idTest').setContent(' ', true);
             console.log("$scope.$parent.nodeData.Note", $scope.$parent.nodeData.Note);
+            console.log("$scope.$parent.nodeData", $scope.$parent.nodeData);
             requestService.update("DictionaryTrees", $scope.$parent.nodeData).then(function (data) {
-                if ($scope.$parent.CurrentNode.$modelValue.ID = $scope.$parent.nodeData.ID)
-                {
-                    $scope.$parent.CurrentNode.$modelValue.title = $scope.$parent.nodeData.Name;
+                if (($scope.$parent.CurrentNode != null) && ($scope.$parent.CurrentNode.$modelValue != null)) {
+                    if ($scope.$parent.CurrentNode.$modelValue.ID = $scope.$parent.nodeData.ID) {
+                        $scope.$parent.CurrentNode.$modelValue.title = $scope.$parent.nodeData.Name;
+                    }
                 }
                 alert("保存成功。");
             });

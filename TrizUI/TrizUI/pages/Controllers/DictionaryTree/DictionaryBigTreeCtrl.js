@@ -250,7 +250,7 @@
         $('#tree1').ace_tree({
             //dataSource: remoteDateSource,
             dataSource: treeDataSource,
-            multiSelect: true,
+            multiSelect: false,
             loadingHTML: '<div class="tree-loading"><i class="icon-refresh icon-spin blue"></i></div>',
             'open-icon': 'icon-minus',
             'close-icon': 'icon-plus',
@@ -276,12 +276,24 @@
         });
 
         $('#tree1').on('opened', function (evt, data) {
+            console.log("data", data);
+            console.log("evt", evt);
+            requestService.getobj("DictionaryTrees", data.id).then(function (data) {
+                $scope.nodeData = data;
+                //$scope.$broadcast("nodeData", data);
+            });
         });
 
         $('#tree1').on('closed', function (evt, data) {
         });
 
         $('#tree1').on('selected', function (evt, data) {
+            console.log("data", data);
+            console.log("evt", evt);
+            requestService.getobj("DictionaryTrees", data.info[0].id).then(function (data) {
+                $scope.nodeData = data;
+                //$scope.$broadcast("nodeData", data);
+            });
         });
 
 
