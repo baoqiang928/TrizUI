@@ -762,6 +762,7 @@
     <Content Include="pages\Controllers\ConflictResolve\TechnicalConflictCtrl.js" />
     <Content Include="pages\Controllers\DataPicker.js" />
     <Content Include="pages\Controllers\DictionaryTree\DicInfoOpeCtrl.js" />
+    <Content Include="pages\Controllers\DictionaryTree\DictionaryBigTreeCtrl.js" />
     <Content Include="pages\Controllers\DictionaryTree\DictionaryTreeCtrl.js" />
     <Content Include="pages\Controllers\DrawUtil.js" />
     <Content Include="pages\Controllers\FunctionAnalyseCtrl.js" />
@@ -808,6 +809,7 @@
     <Content Include="pages\Controllers\vendor\umeditor\themes\default\images\pop-bg.png" />
     <Content Include="pages\Controllers\vendor\umeditor\umeditor.config.js" />
     <Content Include="pages\Controllers\vendor\umeditor\umeditor.js" />
+    <Content Include="pages\DictionaryTree\DictionaryBigTreeOpe.html" />
     <Content Include="pages\DictionaryTree\DictionaryTreeOpe.html" />
     <Content Include="pages\Evolve\demo.png" />
     <Content Include="pages\Evolve\EvolveList.html" />

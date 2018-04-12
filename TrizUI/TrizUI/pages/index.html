@@ -58,10 +58,11 @@
     <script src="Controllers/ConflictResolve/PhysicalConflictCtrl.js"></script>
     <script src="Controllers/ConflictResolve/ConflictResolveOpeCtrl.js?v=1"></script>
     <script src="Controllers/DictionaryTree/DictionaryTreeCtrl.js"></script>
+    <script src="Controllers/DictionaryTree/DictionaryBigTreeCtrl.js"></script>
     <script src="Controllers/DictionaryTree/DicInfoOpeCtrl.js?v=1"></script>
     <script src="Controllers/TechEvolve/TechEvolveCtrl.js"></script>
     <script src="Controllers/TechEvolve/TechEvolveOpeCtrl.js?v=1"></script>
-
+    
     <!--Editor-->
     <script type="text/javascript" src="angular-ueditor-master/ueditor.config.js"></script>
     <script type="text/javascript" src="angular-ueditor-master/ueditor.all.js"></script>
@@ -357,7 +358,7 @@
                             <span class="menu-text">冲突解决 </span>
                         </a>
                     </li>
-<!--                    <li>
+                    <!--                    <li>
                         <a href="#" ui-sref="EvolveList">
                             <i class="icon-text-width"></i>
                             <span class="menu-text">技术进化UI </span>
@@ -385,7 +386,12 @@
                                     标准解维护
 									</a>
                             </li>
-
+                            <li>
+                                <a href="#" ui-sref="TechConflictResolveDictionaryBigTree">
+                                    <i class="icon-double-angle-right"></i>
+                                    发明原理与案例new
+									</a>
+                            </li>
                             <li>
                                 <a href="#" ui-sref="TechConflictResolveDictionaryTree">
                                     <i class="icon-double-angle-right"></i>
@@ -510,6 +516,11 @@
 
     <script src="/assets/js/jquery.dataTables.min.js"></script>
     <script src="/assets/js/jquery.dataTables.bootstrap.js"></script>
+
+
+    <!--fuelux.tree-->
+    <!--<script src="/assets/js/fuelux/data/fuelux.tree-sampledata.js"></script>-->
+    <script src="/assets/js/fuelux/fuelux.tree.min.js"></script>
 
     <!-- ace scripts -->
 

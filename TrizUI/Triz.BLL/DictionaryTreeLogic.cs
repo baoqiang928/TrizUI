@@ -7,6 +7,69 @@ namespace Triz.BLL
 {
     public class DictionaryTreeLogic
     {
+
+        #region BigTree
+        public string GetBigTreeData(string ProjectID, string TreeTypeID)
+        {
+            List<DictionaryTreeInfo> Fathers = GetFathers(ProjectID, TreeTypeID);
+            string FatherObjListCodes = "";
+            string ChildrenCodes = "";
+            string js = "";
+            foreach (DictionaryTreeInfo Father in Fathers)
+            {
+                if (GetSons(Father.ID).Count > 0)
+                {
+                    FatherObjListCodes += "'" + Father.ID + "': { id: '" + Father.ID + "', name: '" + Father.Name + "', type: 'folder' },";
+
+                    ChildrenCodes += "TreeData['" + Father.ID + "']['additionalParameters'] = {'id': '" + Father.ID + "',  'children': {} }; ";
+                }
+                else
+                {
+                    FatherObjListCodes += "'" + Father.ID + "': { id: '" + Father.ID + "', name: '" + Father.Name + "', type: 'item' },";
+                }
+            }
+            js = "var TreeData = {" + FatherObjListCodes.TrimEnd(',') + "};";
+            js += ChildrenCodes;
+            return js;
+        }
+        public string GetBigTreeData(int FatherID)
+        {
+            List<DictionaryTreeInfo> Fathers = GetSons(FatherID);
+            string FatherObjListCodes = "";
+            string ChildrenCodes = "";
+            string js = "";
+            foreach (DictionaryTreeInfo Father in Fathers)
+            {
+                if (GetSons(Father.ID).Count > 0)
+                {
+                    FatherObjListCodes += "'" + Father.ID + "': { id: '" + Father.ID + "', name: '" + Father.Name + "', type: 'folder' },";
+
+                    ChildrenCodes += "TreeData['" + Father.ID + "']['additionalParameters'] = {'id': '" + Father.ID + "',  'children': {} }; ";
+                }
+                else
+                {
+                    FatherObjListCodes += "'" + Father.ID + "': { id: '" + Father.ID + "', name: '" + Father.Name + "', type: 'item' },";
+                }
+            }
+            js = "var TreeData = {" + FatherObjListCodes.TrimEnd(',') + "};";
+            js += ChildrenCodes;
+            return js;
+        }
+        #endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public void DeleteDictionaryTree(int id)
         {
             new DictionaryTreeDAL().Delete(id);
@@ -35,7 +98,7 @@ namespace Triz.BLL
         }
         public void FindSons(DictionaryTreeInfo DictionaryTreeInfo)
         {
-            List<DictionaryTreeInfo> SonList = GetSons(DictionaryTreeInfo.ID.ToString());
+            List<DictionaryTreeInfo> SonList = GetSons(DictionaryTreeInfo.ID);
             if (SonList.Count == 0) return;
             foreach (DictionaryTreeInfo Son in SonList)
             {
@@ -50,9 +113,9 @@ namespace Triz.BLL
             string aa = GetJson(sonInfo, false);
             Json = Json.Replace(str, str + GetJson(sonInfo, false) + ",");
         }
-        private List<DictionaryTreeInfo> GetSons(string ProjectID)
+        private List<DictionaryTreeInfo> GetSons(int? FatherID)
         {
-            return new DictionaryTreeDAL().GetSons(ProjectID);
+            return new DictionaryTreeDAL().GetSons(FatherID);
         }
         private List<DictionaryTreeInfo> GetFathers(string ProjectID, string TreeTypeID)
         {
@@ -79,7 +142,7 @@ namespace Triz.BLL
 
         public DictionaryTreeInfo GetByID(string ID)
         {
-           return new DictionaryTreeDAL().GetByID(int.Parse(ID));
+            return new DictionaryTreeDAL().GetByID(int.Parse(ID));
         }
         public List<DictionaryTreeInfo> Query(string ProjectID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {

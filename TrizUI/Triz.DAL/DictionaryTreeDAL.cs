@@ -11,13 +11,13 @@ namespace Triz.DAL
 {
     public class DictionaryTreeDAL
     {
-        public List<DictionaryTreeInfo> GetSons(string fatherID)
+        public List<DictionaryTreeInfo> GetSons(int? FatherID)
         {
             Expression<Func<tbl_DictionaryTreeInfo, bool>> where = PredicateExtensionses.True<tbl_DictionaryTreeInfo>();
-            where = where.And(a => a.FatherID == int.Parse(fatherID));
+            where = where.And(a => a.FatherID == FatherID);
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
-                var query = TrizDB.tbl_DictionaryTreeInfo.Where(where.Compile());
+                var query = TrizDB.tbl_DictionaryTreeInfo.Where(where.Compile()).OrderByDescending(p=>p.SerialNum);
 
                 return GetGetBusinessObjectList(query.ToList());
             }
