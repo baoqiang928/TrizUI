@@ -17,6 +17,21 @@ namespace Triz.BLL
             string js = "";
             foreach (DictionaryTreeInfo Father in Fathers)
             {
+                if (TreeTypeID == "2")
+                {
+                    if (Father.Note != null && Father.Note.Contains(";"))
+                    {
+                        FatherObjListCodes += "'" + Father.ID + "': { id: '" + Father.ID + "', name: '" + Father.Name + "', type: 'folder' },";
+                        ChildrenCodes += "TreeData['" + Father.ID + "']['additionalParameters'] = {'id': '" + Father.ID + "',  'children': {} }; ";
+                    }
+                    else
+                    {
+                        FatherObjListCodes += "'" + Father.ID + "': { id: '" + Father.ID + "', name: '" + Father.Name + "', type: 'item' },";
+                    }
+                    continue;
+                }
+
+
                 if (GetSons(Father.ID).Count > 0)
                 {
                     FatherObjListCodes += "'" + Father.ID + "': { id: '" + Father.ID + "', name: '" + Father.Name + "', type: 'folder' },";
@@ -32,9 +47,51 @@ namespace Triz.BLL
             js += ChildrenCodes;
             return js;
         }
+        //public string GetBigTreeData(int FatherID)
+        //{
+        //    List<DictionaryTreeInfo> Fathers = GetSons(FatherID);
+        //    string FatherObjListCodes = "";
+        //    string ChildrenCodes = "";
+        //    string js = "";
+        //    foreach (DictionaryTreeInfo Father in Fathers)
+        //    {
+        //        if (GetSons(Father.ID).Count > 0)
+        //        {
+        //            FatherObjListCodes += "'" + Father.ID + "': { id: '" + Father.ID + "', name: '" + Father.Name + "', type: 'folder' },";
+
+        //            ChildrenCodes += "TreeData['" + Father.ID + "']['additionalParameters'] = {'id': '" + Father.ID + "',  'children': {} }; ";
+        //        }
+        //        else
+        //        {
+        //            FatherObjListCodes += "'" + Father.ID + "': { id: '" + Father.ID + "', name: '" + Father.Name + "', type: 'item' },";
+        //        }
+        //    }
+        //    js = "var TreeData = {" + FatherObjListCodes.TrimEnd(',') + "};";
+        //    js += ChildrenCodes;
+        //    return js;
+        //}
+
         public string GetBigTreeData(int FatherID)
         {
-            List<DictionaryTreeInfo> Fathers = GetSons(FatherID);
+            DictionaryTreeInfo DictionaryTreeInfo = new DictionaryTreeDAL().GetByID(FatherID);
+            List<DictionaryTreeInfo> Fathers = new List<DictionaryTreeInfo>();
+            if (DictionaryTreeInfo.TreeTypeID == 2)//第一层节点，子节点从note里取，否则正常取。
+            {
+                if (string.IsNullOrWhiteSpace(DictionaryTreeInfo.Note)) return "";
+                string[] ids = DictionaryTreeInfo.Note.Split(';');
+                Fathers = new List<DictionaryTreeInfo>();
+                for (int i = 0; i < ids.Length; i++)
+                {
+                    if (string.IsNullOrWhiteSpace(ids[i])) continue;
+                    int id = 0;
+                    int.TryParse(ids[i], out id);
+                    Fathers.Add(new DictionaryTreeDAL().GetByID(id));
+                }
+            }
+            else
+            {
+                Fathers = GetSons(FatherID);
+            }
             string FatherObjListCodes = "";
             string ChildrenCodes = "";
             string js = "";
@@ -55,6 +112,50 @@ namespace Triz.BLL
             js += ChildrenCodes;
             return js;
         }
+
+
+
+        //public string GetBigTreeDataForSeparationPrinciple1(int FatherID)
+        //{
+        //    DictionaryTreeInfo DictionaryTreeInfo = new DictionaryTreeDAL().GetByID(FatherID);
+        //    if (DictionaryTreeInfo.TreeTypeID != 2)//第一层节点，子节点从note里取，否则正常取。
+        //    {
+        //        return GetBigTreeData(FatherID);
+        //    }
+        //    if (string.IsNullOrWhiteSpace(DictionaryTreeInfo.Note)) return "";
+        //    string[] ids = DictionaryTreeInfo.Note.Split(';');
+        //    List<DictionaryTreeInfo> Fathers = new List<DictionaryTreeInfo>();
+        //    for (int i = 0; i < ids.Length; i++)
+        //    {
+        //        if (string.IsNullOrWhiteSpace(ids[i]))
+        //        {
+        //            int id = 0;
+        //            int.TryParse(ids[i], out id);
+        //            Fathers.Add(new DictionaryTreeDAL().GetByID(id));
+        //        }
+        //    }
+        //    string FatherObjListCodes = "";
+        //    string ChildrenCodes = "";
+        //    string js = "";
+        //    foreach (DictionaryTreeInfo Father in Fathers)
+        //    {
+        //        if (GetSons(Father.ID).Count > 0)
+        //        {
+        //            FatherObjListCodes += "'" + Father.ID + "': { id: '" + Father.ID + "', name: '" + Father.Name + "', type: 'folder' },";
+
+        //            ChildrenCodes += "TreeData['" + Father.ID + "']['additionalParameters'] = {'id': '" + Father.ID + "',  'children': {} }; ";
+        //        }
+        //        else
+        //        {
+        //            FatherObjListCodes += "'" + Father.ID + "': { id: '" + Father.ID + "', name: '" + Father.Name + "', type: 'item' },";
+        //        }
+        //    }
+        //    js = "var TreeData = {" + FatherObjListCodes.TrimEnd(',') + "};";
+        //    js += ChildrenCodes;
+        //    return js;
+        //}
+
+
         #endregion
 
 
@@ -84,6 +185,13 @@ namespace Triz.BLL
             }
             string jsonItem = halfJsonItem + "]}";
             return jsonItem.Replace("{id}", DictionaryTreeInfo.ID.ToString()).Replace("{title}", DictionaryTreeInfo.Name).Replace("{DID}", DictionaryTreeInfo.ID.ToString()).Replace("{ProjectID}", DictionaryTreeInfo.ProjectID.ToString()).Replace("{Name}", DictionaryTreeInfo.Name);
+        }
+
+
+        public List<DictionaryTreeInfo> GetFathersTreeData(string ProjectID, string TreeTypeID)
+        {
+            List<DictionaryTreeInfo> Fathers = GetFathers(ProjectID, TreeTypeID);
+            return Fathers;
         }
         public string GetTreeData(string ProjectID, string TreeTypeID)
         {

@@ -26,7 +26,10 @@ namespace MvcApplication1.Controllers
                 ProjectID = ProjectID
             };
         }
-
+        public object Get([FromUri]int ProjectID, string TreeTypeID,string OpeType)
+        {
+            return new DictionaryTreeLogic().GetFathersTreeData(ProjectID.ToString(), TreeTypeID);
+        }
         // GET api/DictionaryTrees
         //public object Get([FromUri]string ProjectID, int currentPage, int itemsPerPage)
         //{

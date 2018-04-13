@@ -1,0 +1,87 @@
+﻿<div class="page-content" ng-controller="SeparationPrincipleOpeCtrl">
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="header smaller lighter blue">分离原理与发明原理关系维护</h3>
+                    <p>
+                        <button class="btn btn-primary" ui-sref="ViewSeparationPrincipleDictionaryTree">查看所有</button>
+                    </p>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="widget-box">
+                                        <div class="widget-header widget-header-flat">
+                                            <h4 class="smaller">分离原理与发明原理关系</h4>
+                                            <span class="widget-toolbar">
+                                                <a href="" ng-click="SaveRelInfo()">
+                                                    <i class="icon-save"></i>
+                                                </a>
+                                            </span>
+                                        </div>
+
+                                        <div class="widget-body">
+                                            <div class="widget-main">
+                                                <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>分离原理</th>
+                                                            <th>发明原理</th>
+                                                            <th>
+                                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                                    <a class="blue" style="cursor: pointer" ng-click="AddDictionaryTreeInfo()">
+                                                                        <i class="icon-plus bigger-130"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr ng-repeat="DictionaryTreeInfo in DictionaryTreeInfoList|orderBy:'SerialNum'">
+                                                            <td width="15%">
+                                                                <input type="text" class="col-xs-12 col-sm-12 col-md-12" ng-model="DictionaryTreeInfo.Name" />
+                                                            </td>
+                                                            <td width="75%">
+                                                                <label ng-repeat="InventInfo in InventInfoList">
+                                                                    <input type="checkbox" ng-checked="cb(InventInfo.ID,DictionaryTreeInfo.Note)" ng-click="click($event,InventInfo.ID,DictionaryTreeInfo)" />
+                                                                    {{InventInfo.Name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                            </td>
+                                                            <td>
+                                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                                    <a class="blue" style="cursor: pointer" ng-click="AddDictionaryTreeInfo()">
+                                                                        <i class="icon-plus bigger-130"></i>
+                                                                    </a>
+
+                                                                    <a class="red" style="cursor: pointer" ng-click="DeleteDictionaryTreeInfo($index)">
+                                                                        <i class="icon-trash bigger-130"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- PAGE CONTENT ENDS -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</div>
+
+<!-- inline scripts related to this page -->
+
+

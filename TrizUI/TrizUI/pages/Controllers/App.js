@@ -98,27 +98,28 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "/pages/StandardSolution/StandardSolutionAndExamplesList.html",
             controller: 'tree-Controller'
         })
-    
+
         .state("StandSolutionDictionaryTree", {
-            params: { "TreeTypeID": "3", "Title": "标准解维护" },
+            params: { "TreeTypeID": "3", "Title": "标准解维护", "CurrentProjectID": "" },
             url: "/StandSolutionDictionaryTree",
-            templateUrl: "/pages/DictionaryTree/DictionaryTreeOpe.html"
+            templateUrl: "/pages/DictionaryTree/DictionaryBigTreeOpe.html"
         })
         .state("TechConflictResolveDictionaryBigTree", {
-            params: { "TreeTypeID": "1", "Title": "发明原理与案例new" },
+            params: { "TreeTypeID": "1", "Title": "发明原理与案例", "CurrentProjectID": "0" },
             url: "/TechConflictResolveDictionaryBigTree",
             templateUrl: "/pages/DictionaryTree/DictionaryBigTreeOpe.html"
         })
-        .state("TechConflictResolveDictionaryTree", {
-            params: { "TreeTypeID": "1", "Title": "发明原理与案例" },
-            url: "/TechConflictResolveDictionaryTree",
-            templateUrl: "/pages/DictionaryTree/DictionaryTreeOpe.html"
+        .state("SeparationPrincipleDictionaryTree", {
+            params: { "TreeTypeID": "2", "Title": "分离原理与案例" },//首页
+            url: "/SeparationPrincipleDictionaryTree",
+            templateUrl: "/pages/SeparationPrinciple/SeparationPrincipleOpe.html"
         })
-        .state("PhyConflictResolveDictionaryTree", {
-            params: { "TreeTypeID": "2", "Title": "分离原理与案例" },
-            url: "/PhyConflictResolveDictionaryTree",
-            templateUrl: "/pages/DictionaryTree/DictionaryTreeOpe.html"
+        .state("ViewSeparationPrincipleDictionaryTree", {//浏览页
+            params: { "TreeTypeID": "2", "Title": "分离原理与案例", "CurrentProjectID": "0" },
+            url: "/ViewSeparationPrincipleDictionaryTree",
+            templateUrl: "/pages/SeparationPrinciple/SeparationPrincipleList.html"
         })
+
         .state("Solution", {
             url: "/Solution",
             templateUrl: "/pages/Solution/StandardSolutionList.html"

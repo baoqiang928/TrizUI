@@ -1,10 +1,8 @@
 ﻿angular.module('myApp')
-    .controller('DictionaryBigTreeCtrl', function ($scope, $rootScope, $location, requestService, $state, locals, $stateParams) {
+    .controller('SeparationPrincipleListCtrl', function ($scope, $rootScope, $location, requestService, $state, locals, $stateParams) {
         $scope.CurrentProjectID = $stateParams.CurrentProjectID;
         if ($stateParams.CurrentProjectID == "")
             $scope.CurrentProjectID = locals.get("ProjectID");
-        
-
         $scope.PageTitle = $stateParams.Title;
 
         var $assets = "assets";//this will be used in fuelux.tree-sampledata.js
@@ -16,39 +14,6 @@
         }
 
 
-
-
-
-
-        //DataSourceTree.prototype.data = function (options, callback) {
-        //    var parent_id = null
-        //    console.log("options", options);
-        //    if (!('text' in options || 'type' in options)) {
-        //        parent_id = "0000";//load first level data
-        //        callback({ data: tree_data })
-        //    }
-        //    else if ('type' in options && options['type'] == 'folder') {//it has children
-        //        if ('additionalParameters' in options && 'children' in options.additionalParameters)
-        //            parent_id = options.additionalParameters['id']
-        //    }
-
-        //    if (parent_id !== null) {//根据父节点id，请求子节点
-        //        alert(parent_id);
-        //        //$.ajax({
-        //        //    url: remoteUrl,
-        //        //    data: 'parent_id=' + parent_id,
-        //        //    type: 'POST',
-        //        //    dataType: 'json',
-        //        //    success: function (response) {
-        //        //        if (response.status == "OK")
-        //        //            callback({ data: response.data })
-        //        //    },
-        //        //    error: function (response) {
-        //        //        //console.log(response);
-        //        //    }
-        //        //})
-        //    }
-        //}
 
         //eval('var a = 2341;');
         //alert(a);
@@ -83,7 +48,7 @@
             if (!("name" in options) && !("type" in options)) {
                 $scope.data = {
                     TreeTypeID: $stateParams.TreeTypeID,
-                    ProjectID: $scope.CurrentProjectID
+                    ProjectID: "0",
                 };
                 requestService.lists("DictionaryBigTrees", $scope.data).then(function (data) {
                     console.log("js", data.Results);
@@ -99,24 +64,6 @@
                 if ("additionalParameters" in options && "children" in options.additionalParameters) {
                     console.log("options", options);
                     parent_id = options.additionalParameters['id'];
-                    //$scope.data = {
-                    //    FatherID: parent_id
-                    //};
-                    //requestService.lists("DictionaryBigTrees", $scope.data).then(function (data) {
-                    //    console.log("js", data.Results);
-                    //    eval(data.Results);
-                    //    callback({ data: TreeData });
-                    //});
-                    //var aa = {
-                    //    'appliances': { name: 'Appliances', type: 'item' },
-                    //    'arts-crafts': { name: 'Arts & Crafts', type: 'item' },
-                    //    'clothing': { name: 'Clothing', type: 'item' },
-                    //    'computers': { name: 'Computers', type: 'item' },
-                    //    'jewelry': { name: 'Jewelry', type: 'item' },
-                    //    'office-business': { name: 'Office & Business', type: 'item' },
-                    //    'sports-fitness': { name: 'Sports & Fitness', type: 'item' }
-                    //};
-                    //$data = aa;//options.additionalParameters.children;
                 }
                 else {
                     $data = {}//no data
@@ -125,21 +72,10 @@
 
             if (parent_id != null)//this setTimeout is only for mimicking some random delay
             {
-                console.log("parent_id", parent_id);
-                //var aa = {
-                //    'appliances': { name: 'Appliances', type: 'item' },
-                //    'arts-crafts': { name: 'Arts & Crafts', type: 'item' },
-                //    'clothing': { name: 'Clothing', type: 'item' },
-                //    'computers': { name: 'Computers', type: 'item' },
-                //    'jewelry': { name: 'Jewelry', type: 'item' },
-                //    'office-business': { name: 'Office & Business', type: 'item' },
-                //    'sports-fitness': { name: 'Sports & Fitness', type: 'item' }
-                //};
                 $scope.data = {
                     FatherID: parent_id
                 };
                 requestService.lists("DictionaryBigTrees", $scope.data).then(function (data) {
-                    console.log("js", data.Results);
                     eval(data.Results);
                     callback({ data: TreeData });
                 });

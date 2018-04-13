@@ -17,6 +17,19 @@ namespace MvcApplication1.Controllers
             return new DictionaryTreeLogic().GetByID(id);
         }
 
+
+
+        //public object Get([FromUri]int FatherID, string TreeTypeID, string OpeType)
+        //{
+        //    if (OpeType == "SeparationPrinciple")
+        //    {
+        //        return new
+        //        {
+        //            Results = new DictionaryTreeLogic().GetBigTreeDataForSeparationPrinciple(FatherID)
+        //        };
+        //    }
+        //    return new { };
+        //}
         public object Get([FromUri]int ProjectID, string TreeTypeID)
         {
             return new
@@ -24,7 +37,6 @@ namespace MvcApplication1.Controllers
                 Results = new DictionaryTreeLogic().GetBigTreeData(ProjectID.ToString(), TreeTypeID)
             };
         }
-
         public object Get([FromUri]int FatherID)
         {
             return new
