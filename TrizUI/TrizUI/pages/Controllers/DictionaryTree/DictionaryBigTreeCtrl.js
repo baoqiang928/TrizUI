@@ -217,40 +217,6 @@
         var treeDataSource = new DataSourceTree({ data: tree_data });
 
 
-        //ajax
-        //var remoteUrl = '/business/function/getFuncsTreeAll';
-        //var remoteDateSource = function (options, callback) {
-        //                callback({ data: "" })
-        //    alert(2);
-        //    var parent_id = null
-        //    if (!('text' in options || 'type' in options)) {
-        //        parent_id = "0000";//load first level data
-        //    }
-        //    else if ('type' in options && options['type'] == 'folder') {//it has children
-        //        if ('additionalParameters' in options && 'children' in options.additionalParameters)
-        //            parent_id = options.additionalParameters['id']
-        //    }
-
-        //    if (parent_id !== null) {//根据父节点id，请求子节点
-        //        alert(1);
-        //        //$.ajax({
-        //        //    url: remoteUrl,
-        //        //    data: 'parent_id=' + parent_id,
-        //        //    type: 'POST',
-        //        //    dataType: 'json',
-        //        //    success: function (response) {
-        //        //        if (response.status == "OK")
-        //        //            callback({ data: response.data })
-        //        //    },
-        //        //    error: function (response) {
-        //        //        //console.log(response);
-        //        //    }
-        //        //})
-        //    }
-        //}
-        //ajax end
-
-
         $('#tree1').ace_tree({
             //dataSource: remoteDateSource,
             dataSource: treeDataSource,
@@ -263,25 +229,24 @@
             'unselected-icon': 'icon-remove'
         });
 
-        //$('#tree2').ace_tree({
-        //    dataSource: treeDataSource2,
-        //    loadingHTML: '<div class="tree-loading"><i class="icon-refresh icon-spin blue"></i></div>',
-        //    'open-icon': 'icon-folder-open',
-        //    'close-icon': 'icon-folder-close',
-        //    'selectable': false,
-        //    'selected-icon': null,
-        //    'unselected-icon': null
-        //});
 
 
 
 
         $('#tree1').on('loaded', function (evt, data) {
+            console.log("data", data);
+            console.log("evt", evt);
+            if (typeof(data)=="undefined")return;
+            requestService.getobj("DictionaryTrees", data.id).then(function (data) {
+                $scope.nodeData = data;
+                //$scope.$broadcast("nodeData", data);
+            });
         });
 
         $('#tree1').on('opened', function (evt, data) {
             console.log("data", data);
             console.log("evt", evt);
+            if (typeof (data) == "undefined") return;
             requestService.getobj("DictionaryTrees", data.id).then(function (data) {
                 $scope.nodeData = data;
                 //$scope.$broadcast("nodeData", data);
@@ -289,17 +254,68 @@
         });
 
         $('#tree1').on('closed', function (evt, data) {
+            console.log("data", data);
+            console.log("evt", evt);
+            if (typeof (data) == "undefined") return;
+            requestService.getobj("DictionaryTrees", data.id).then(function (data) {
+                $scope.nodeData = data;
+                //$scope.$broadcast("nodeData", data);
+            });
         });
 
         $('#tree1').on('selected', function (evt, data) {
             console.log("data", data);
             console.log("evt", evt);
+            if (typeof (data) == "undefined") return;
             requestService.getobj("DictionaryTrees", data.info[0].id).then(function (data) {
                 $scope.nodeData = data;
                 //$scope.$broadcast("nodeData", data);
             });
         });
 
+
+        $scope.newSubItem = function () {
+            var tree = $('#tree1').data('tree');
+            console.log("tree", tree);
+            console.log(".html()", $("#tree1").html());
+            alert($("#tree1").html());
+            //var output = '';
+            //var items = tree.selectedItems();
+            //console.log("selectedItems", items);
+            //for (var i in items) if (items.hasOwnProperty(i)) {
+            //    var item = items[i];
+            //    //output += item.additionalParameters['id'] + ":"+ item.name+"\n";
+            //    output += item.name + "\n";
+            //    item.name += "aaaaaaa";
+            //}
+
+
+            //默认展开第一层节点
+            //$("#tree1").find(".tree-folder-header").each(function () {
+            //    console.log("$(this).parent()", $(this).parent());
+            //    if ($(this).parent().css("display") == "block") {
+            //        $(this).trigger("click");
+            //    }
+            //});
+
+            //unf('a');
+            //function unf(dep) {
+            //    // $("#tree1").find('.tree-selected').each(function () {
+            //    console.log("this11111111111", this);
+            //    $("#tree1").find('.tree-folder-name').each(function () {
+            //        console.log("this", this);
+            //        //$(this).find('.tree-branch').each(function () {
+            //        //    console.log("tree-label", $(this).find('.tree-branch-name').find('.tree-label').html());
+            //        //});
+            //    });
+            //}
+
+
+
+            //$('#modal-tree-items').modal('show');
+            //$('#tree-value').css({ 'width': '98%', 'height': '200px' }).val(output);
+
+        };
 
 
     });//end

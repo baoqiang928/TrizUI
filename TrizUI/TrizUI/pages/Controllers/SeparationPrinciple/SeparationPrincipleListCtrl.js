@@ -13,24 +13,6 @@
             this._delay = options.delay;
         }
 
-        var aaa_data = {
-            '1': { id: '1', name: 'For Sale', type: 'folder' },
-            'vehicles': { id: '2', name: 'Vehicles', type: 'folder' },
-            'clothing': { id: '3', name: 'Clothing', type: 'item' }
-        }
-        aaa_data['1']['additionalParameters'] = {
-            'id': "1",
-            'children': {
-                //'appliances': { name: 'Appliances', type: 'item' },
-                //'arts-crafts': { name: 'Arts & Crafts', type: 'item' },
-                //'clothing': { name: 'Clothing', type: 'item' },
-                //'computers': { name: 'Computers', type: 'item' },
-                //'jewelry': { name: 'Jewelry', type: 'item' },
-                //'office-business': { name: 'Office & Business', type: 'item' },
-                //'sports-fitness': { name: 'Sports & Fitness', type: 'item' }
-            }
-        }
-
         DataSourceTree.prototype.data = function (options, callback) {
             var parent_id = null
             var self = this;
@@ -95,16 +77,6 @@
             'unselected-icon': 'icon-remove'
         });
 
-        //$('#tree2').ace_tree({
-        //    dataSource: treeDataSource2,
-        //    loadingHTML: '<div class="tree-loading"><i class="icon-refresh icon-spin blue"></i></div>',
-        //    'open-icon': 'icon-folder-open',
-        //    'close-icon': 'icon-folder-close',
-        //    'selectable': false,
-        //    'selected-icon': null,
-        //    'unselected-icon': null
-        //});
-
 
         $scope.SelectedNodeName = "";
         $scope.nodeData = [];
@@ -116,17 +88,19 @@
             requestService.getobj("DictionaryTrees", data.id).then(function (data) {
                 $scope.nodeData = data;
                 $scope.SelectedNodeName = data.Name;
-                //$scope.$broadcast("nodeData", data);
             });
         });
 
         $('#tree1').on('closed', function (evt, data) {
+            requestService.getobj("DictionaryTrees", data.id).then(function (data) {
+                $scope.nodeData = data;
+                $scope.SelectedNodeName = data.Name;
+            });
         });
 
         $('#tree1').on('selected', function (evt, data) {
             requestService.getobj("DictionaryTrees", data.info[0].id).then(function (data) {
                 $scope.nodeData = data;
-                //$scope.$broadcast("nodeData", data);
             });
         });
 
