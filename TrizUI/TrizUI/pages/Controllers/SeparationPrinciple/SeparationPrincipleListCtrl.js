@@ -13,11 +13,6 @@
             this._delay = options.delay;
         }
 
-
-
-        //eval('var a = 2341;');
-        //alert(a);
-
         var aaa_data = {
             '1': { id: '1', name: 'For Sale', type: 'folder' },
             'vehicles': { id: '2', name: 'Vehicles', type: 'folder' },
@@ -35,10 +30,6 @@
                 //'sports-fitness': { name: 'Sports & Fitness', type: 'item' }
             }
         }
-
-
-
-
 
         DataSourceTree.prototype.data = function (options, callback) {
             var parent_id = null
@@ -86,105 +77,10 @@
             //checkout examples/treeview.html and examples/treeview.js for more info
         };
 
-        var tree_data = {
-            'for-sale': { name: 'For Sale', type: 'folder' },
-            'vehicles': { name: 'Vehicles', type: 'folder' },
-            'rentals': { name: 'Rentals', type: 'folder' },
-            'real-estate': { name: 'Real Estate', type: 'folder' },
-            'pets': { name: 'Pets', type: 'folder' },
-            'tickets': { name: 'Tickets', type: 'item' },
-            'services': { name: 'Services', type: 'item' },
-            'personals': { name: 'Personals', type: 'item' }
-        }
-        tree_data['for-sale']['additionalParameters'] = {
-            'children': {
-                'appliances': { name: 'Appliances', type: 'item' },
-                'arts-crafts': { name: 'Arts & Crafts', type: 'item' },
-                'clothing': { name: 'Clothing', type: 'item' },
-                'computers': { name: 'Computers', type: 'item' },
-                'jewelry': { name: 'Jewelry', type: 'item' },
-                'office-business': { name: 'Office & Business', type: 'item' },
-                'sports-fitness': { name: 'Sports & Fitness', type: 'item' }
-            }
-        }
-        tree_data['vehicles']['additionalParameters'] = {
-            'children': {
-                'cars': { name: 'Cars', type: 'folder' },
-                'motorcycles': { name: 'Motorcycles', type: 'item' },
-                'boats': { name: 'Boats', type: 'item' }
-            }
-        }
-        tree_data['vehicles']['additionalParameters']['children']['cars']['additionalParameters'] = {
-            'children': {
-                'classics': { name: 'Classics111', type: 'item' },
-                'convertibles': { name: 'Convertibles', type: 'item' },
-                'coupes': { name: 'Coupes', type: 'item' },
-                'hatchbacks': { name: 'Hatchbacks', type: 'item' },
-                'hybrids': { name: 'Hybrids', type: 'item' },
-                'suvs': { name: 'SUVs', type: 'item' },
-                'sedans': { name: 'Sedans', type: 'item' },
-                'trucks': { name: 'Trucks', type: 'item' }
-            }
-        }
 
-        tree_data['rentals']['additionalParameters'] = {
-            'children': {
-                'apartments-rentals': { name: 'Apartments', type: 'item' },
-                'office-space-rentals': { name: 'Office Space', type: 'item' },
-                'vacation-rentals': { name: 'Vacation Rentals', type: 'item' }
-            }
-        }
-        tree_data['real-estate']['additionalParameters'] = {
-            'children': {
-                'apartments': { name: 'Apartments', type: 'item' },
-                'villas': { name: 'Villas', type: 'item' },
-                'plots': { name: 'Plots', type: 'item' }
-            }
-        }
-        tree_data['pets']['additionalParameters'] = {
-            'children': {
-                'cats': { name: 'Cats', type: 'item' },
-                'dogs': { name: 'Dogs', type: 'item' },
-                'horses': { name: 'Horses', type: 'item' },
-                'reptiles': { name: 'Reptiles', type: 'item' }
-            }
-        }
-
+        var tree_data = {}
         var treeDataSource = new DataSourceTree({ data: tree_data });
 
-
-        //ajax
-        //var remoteUrl = '/business/function/getFuncsTreeAll';
-        //var remoteDateSource = function (options, callback) {
-        //                callback({ data: "" })
-        //    alert(2);
-        //    var parent_id = null
-        //    if (!('text' in options || 'type' in options)) {
-        //        parent_id = "0000";//load first level data
-        //    }
-        //    else if ('type' in options && options['type'] == 'folder') {//it has children
-        //        if ('additionalParameters' in options && 'children' in options.additionalParameters)
-        //            parent_id = options.additionalParameters['id']
-        //    }
-
-        //    if (parent_id !== null) {//根据父节点id，请求子节点
-        //        alert(1);
-        //        //$.ajax({
-        //        //    url: remoteUrl,
-        //        //    data: 'parent_id=' + parent_id,
-        //        //    type: 'POST',
-        //        //    dataType: 'json',
-        //        //    success: function (response) {
-        //        //        if (response.status == "OK")
-        //        //            callback({ data: response.data })
-        //        //    },
-        //        //    error: function (response) {
-        //        //        //console.log(response);
-        //        //    }
-        //        //})
-        //    }
-        //}
-        //ajax end
 
 
         $('#tree1').ace_tree({
@@ -210,16 +106,16 @@
         //});
 
 
-
+        $scope.SelectedNodeName = "";
+        $scope.nodeData = [];
 
         $('#tree1').on('loaded', function (evt, data) {
         });
 
         $('#tree1').on('opened', function (evt, data) {
-            console.log("data", data);
-            console.log("evt", evt);
             requestService.getobj("DictionaryTrees", data.id).then(function (data) {
                 $scope.nodeData = data;
+                $scope.SelectedNodeName = data.Name;
                 //$scope.$broadcast("nodeData", data);
             });
         });
@@ -228,14 +124,65 @@
         });
 
         $('#tree1').on('selected', function (evt, data) {
-            console.log("data", data);
-            console.log("evt", evt);
             requestService.getobj("DictionaryTrees", data.info[0].id).then(function (data) {
                 $scope.nodeData = data;
                 //$scope.$broadcast("nodeData", data);
             });
         });
 
+
+        $scope.newSubItem = function () {
+            var tree = $('#tree1').data('tree');
+            var output = '';
+            var items = tree.selectedItems();
+            console.log("selectedItems", items);
+            for (var i in items) if (items.hasOwnProperty(i)) {
+                var item = items[i];
+                //output += item.additionalParameters['id'] + ":"+ item.name+"\n";
+                output += item.name + "\n";
+                item.name += "aaaaaaa";
+            }
+
+
+
+            //默认展开第一层节点
+            //$("#tree1").find(".tree-folder-header").each(function () {
+            //    console.log("$(this).parent()", $(this).parent());
+            //    if ($(this).parent().css("display") == "block") {
+            //        $(this).trigger("click");
+            //    }
+            //});
+
+            unf('a');
+            function unf(dep) {
+                // $("#tree1").find('.tree-selected').each(function () {
+                $("#tree1").find('.tree-folder-name').each(function () {
+                    $(this).html('aaaa');
+                    console.log("this", this);
+                    //$(this).find('.tree-branch').each(function () {
+                    //    console.log("tree-label", $(this).find('.tree-branch-name').find('.tree-label').html());
+                    //});
+                });
+            }
+
+
+
+            //$('#modal-tree-items').modal('show');
+            //$('#tree-value').css({ 'width': '98%', 'height': '200px' }).val(output);
+
+        };
+
+        $scope.UpdateCurrentNodeName = function (NewName) {
+            $("#tree1").find('.tree-folder-name').each(function () {
+                if ($(this).html() == $scope.SelectedNodeName) {
+                    $(this).html(NewName);
+                    $scope.SelectedNodeName = NewName;
+                }
+                //$(this).find('.tree-branch').each(function () {
+                //    console.log("tree-label", $(this).find('.tree-branch-name').find('.tree-label').html());
+                //});
+            });
+        };
 
 
     });//end

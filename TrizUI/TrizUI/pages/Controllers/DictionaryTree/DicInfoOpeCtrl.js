@@ -1,6 +1,7 @@
 ﻿angular.module('myApp')
     .controller('DicInfoOpeCtrl', function ($scope, $location, requestService, $state, locals) {
         $scope.CurrentProjectID = locals.get("ProjectID");
+        $scope.Note = "aa";
         $scope._simpleConfig = {
             //初始化编辑器内容  
             content: '<p>test1</p>',
@@ -31,17 +32,27 @@
         };
 
         $scope.SaveInfo = function (id) {
-            UE.getEditor('idTest').setContent(' ', true);
-            console.log("$scope.$parent.nodeData.Note", $scope.$parent.nodeData.Note);
-            console.log("$scope.$parent.nodeData", $scope.$parent.nodeData);
-            requestService.update("DictionaryTrees", $scope.$parent.nodeData).then(function (data) {
-                if (($scope.$parent.CurrentNode != null) && ($scope.$parent.CurrentNode.$modelValue != null)) {
-                    if ($scope.$parent.CurrentNode.$modelValue.ID = $scope.$parent.nodeData.ID) {
-                        $scope.$parent.CurrentNode.$modelValue.title = $scope.$parent.nodeData.Name;
+            setTimeout(function () {
+                UE.getEditor('idTest').setContent(" ", true);
+                $scope.$apply();//必需手动进行脏值检测,否则数据无法刷新到界面  
+                requestService.update("DictionaryTrees", $scope.$parent.nodeData).then(function (data) {
+                    if (($scope.$parent.CurrentNode != null) && ($scope.$parent.CurrentNode.$modelValue != null)) {
+                        if ($scope.$parent.CurrentNode.$modelValue.ID = $scope.$parent.nodeData.ID) {
+                            $scope.$parent.CurrentNode.$modelValue.title = $scope.$parent.nodeData.Name;
+                        }
                     }
-                }
-                alert("保存成功。");
-            });
+                    console.log("3", 3);
+                    //BigTree使用
+                    console.log("$scope.$parent", $scope.$parent);
+                    console.log("$scope.$parent.SelectedNodeName", $scope.$parent.SelectedNodeName);
+                    if ($scope.$parent.SelectedNodeName != null) {
+                        console.log("1", 1);
+                        $scope.$parent.UpdateCurrentNodeName($scope.$parent.nodeData.Name);
+                    }
+                    alert("保存成功。");
+                });
+
+            }, 10);
         };
 
 
