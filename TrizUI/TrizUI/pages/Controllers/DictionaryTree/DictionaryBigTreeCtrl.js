@@ -3,319 +3,135 @@
         $scope.CurrentProjectID = $stateParams.CurrentProjectID;
         if ($stateParams.CurrentProjectID == "")
             $scope.CurrentProjectID = locals.get("ProjectID");
-        
+
 
         $scope.PageTitle = $stateParams.Title;
 
-        var $assets = "assets";//this will be used in fuelux.tree-sampledata.js
 
 
-        var DataSourceTree = function (options) {
-            this._data = options.data;
-            this._delay = options.delay;
+        var setting = {
+            async: {
+                enable: true,
+                url: getUrl
+            },
+            check: {
+                enable: true
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            view: {
+                expandSpeed: ""
+            },
+            callback: {
+                beforeExpand: beforeExpand,
+                onAsyncSuccess: onAsyncSuccess,
+                onAsyncError: onAsyncError,
+                onClick: onClick
+            }
+        };
+
+        var zNodes = [
+			{ name: "500个节点", id: "1", count: 500, times: 1, isParent: true },
+			{ name: "1000个节点", id: "2", count: 1000, times: 1, isParent: true },
+			{ name: "2000个节点", id: "3", count: 2000, times: 1, isParent: true }
+        ];
+
+        var log, className = "dark",
+		startTime = 0, endTime = 0, perCount = 100, perTime = 100;
+        function getUrl(treeId, treeNode) {
+            //var curCount = (treeNode.children) ? treeNode.children.length : 0;
+            //var getCount = (curCount + perCount) > treeNode.count ? (treeNode.count - curCount) : perCount;
+            //var param = "id=" + treeNode.id + "_" + (treeNode.times++) + "&count=" + getCount;
+            //return "../asyncData/getNodesForBigData.php?" + param;
+            return "http://localhost:2072/api/DictionaryBigTrees?OpeType=GetFatherNodes&ProjectID=0&TreeTypeID=2";
         }
-
-
-
-
-
-
-        //DataSourceTree.prototype.data = function (options, callback) {
-        //    var parent_id = null
-        //    console.log("options", options);
-        //    if (!('text' in options || 'type' in options)) {
-        //        parent_id = "0000";//load first level data
-        //        callback({ data: tree_data })
-        //    }
-        //    else if ('type' in options && options['type'] == 'folder') {//it has children
-        //        if ('additionalParameters' in options && 'children' in options.additionalParameters)
-        //            parent_id = options.additionalParameters['id']
-        //    }
-
-        //    if (parent_id !== null) {//根据父节点id，请求子节点
-        //        alert(parent_id);
-        //        //$.ajax({
-        //        //    url: remoteUrl,
-        //        //    data: 'parent_id=' + parent_id,
-        //        //    type: 'POST',
-        //        //    dataType: 'json',
-        //        //    success: function (response) {
-        //        //        if (response.status == "OK")
-        //        //            callback({ data: response.data })
-        //        //    },
-        //        //    error: function (response) {
-        //        //        //console.log(response);
-        //        //    }
-        //        //})
+        function beforeExpand(treeId, treeNode) {
+            //if (!treeNode.isAjaxing) {
+            //    startTime = new Date();
+            //    treeNode.times = 1;
+            //    ajaxGetNodes(treeNode, "refresh");
+            //    return true;
+            //} else {
+            //    alert("zTree 正在下载数据中，请稍后展开节点。。。");
+            //    return false;
+            //}
+        }
+        function onAsyncSuccess(event, treeId, treeNode, msg) {
+            //if (!msg || msg.length == 0) {
+            //    return;
+            //}
+            //var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+            //totalCount = treeNode.count;
+            //if (treeNode.children.length < totalCount) {
+            //    setTimeout(function () { ajaxGetNodes(treeNode); }, perTime);
+            //} else {
+            //    treeNode.icon = "";
+            //    zTree.updateNode(treeNode);
+            //    zTree.selectNode(treeNode.children[0]);
+            //    endTime = new Date();
+            //    var usedTime = (endTime.getTime() - startTime.getTime()) / 1000;
+            //    className = (className === "dark" ? "" : "dark");
+            //    showLog("[ " + getTime() + " ]&nbsp;&nbsp;treeNode:" + treeNode.name);
+            //    showLog("加载完毕，共进行 " + (treeNode.times - 1) + " 次异步加载, 耗时：" + usedTime + " 秒");
+            //}
+        }
+        function onAsyncError(event, treeId, treeNode, XMLHttpRequest, textStatus, errorThrown) {
+            var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+            alert("异步获取数据出现异常。");
+            treeNode.icon = "";
+            zTree.updateNode(treeNode);
+        }
+        function ajaxGetNodes(treeNode, reloadType) {
+            var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+            if (reloadType == "refresh") {
+                treeNode.icon = "../../../css/zTreeStyle/img/loading.gif";
+                zTree.updateNode(treeNode);
+            }
+            zTree.reAsyncChildNodes(treeNode, reloadType, true);
+        }
+        //function showLog(str) {
+        //    if (!log) log = $("#log");
+        //    log.append("<li class='" + className + "'>" + str + "</li>");
+        //    if (log.children("li").length > 4) {
+        //        log.get(0).removeChild(log.children("li")[0]);
         //    }
         //}
-
-        //eval('var a = 2341;');
-        //alert(a);
-
-        var aaa_data = {
-            '1': { id: '1', name: 'For Sale', type: 'folder' },
-            'vehicles': { id: '2', name: 'Vehicles', type: 'folder' },
-            'clothing': { id: '3', name: 'Clothing', type: 'item' }
-        }
-        aaa_data['1']['additionalParameters'] = {
-            'id': "1",
-            'children': {
-                //'appliances': { name: 'Appliances', type: 'item' },
-                //'arts-crafts': { name: 'Arts & Crafts', type: 'item' },
-                //'clothing': { name: 'Clothing', type: 'item' },
-                //'computers': { name: 'Computers', type: 'item' },
-                //'jewelry': { name: 'Jewelry', type: 'item' },
-                //'office-business': { name: 'Office & Business', type: 'item' },
-                //'sports-fitness': { name: 'Sports & Fitness', type: 'item' }
-            }
-        }
-
-
-
-
-
-        DataSourceTree.prototype.data = function (options, callback) {
-            var parent_id = null
-            var self = this;
-            var $data = null;
-
-            if (!("name" in options) && !("type" in options)) {
-                $scope.data = {
-                    TreeTypeID: $stateParams.TreeTypeID,
-                    ProjectID: $scope.CurrentProjectID
-                };
-                requestService.lists("DictionaryBigTrees", $scope.data).then(function (data) {
-                    console.log("js", data.Results);
-                    eval(data.Results);
-                    callback({ data: TreeData });
-                });
-
-                $data = aaa_data;//this._data;//the root tree
-                return;
-            }
-
-            if ("type" in options && options.type == "folder") {
-                if ("additionalParameters" in options && "children" in options.additionalParameters) {
-                    console.log("options", options);
-                    parent_id = options.additionalParameters['id'];
-                    //$scope.data = {
-                    //    FatherID: parent_id
-                    //};
-                    //requestService.lists("DictionaryBigTrees", $scope.data).then(function (data) {
-                    //    console.log("js", data.Results);
-                    //    eval(data.Results);
-                    //    callback({ data: TreeData });
-                    //});
-                    //var aa = {
-                    //    'appliances': { name: 'Appliances', type: 'item' },
-                    //    'arts-crafts': { name: 'Arts & Crafts', type: 'item' },
-                    //    'clothing': { name: 'Clothing', type: 'item' },
-                    //    'computers': { name: 'Computers', type: 'item' },
-                    //    'jewelry': { name: 'Jewelry', type: 'item' },
-                    //    'office-business': { name: 'Office & Business', type: 'item' },
-                    //    'sports-fitness': { name: 'Sports & Fitness', type: 'item' }
-                    //};
-                    //$data = aa;//options.additionalParameters.children;
-                }
-                else {
-                    $data = {}//no data
-                }
-            }
-
-            if (parent_id != null)//this setTimeout is only for mimicking some random delay
-            {
-                console.log("parent_id", parent_id);
-                //var aa = {
-                //    'appliances': { name: 'Appliances', type: 'item' },
-                //    'arts-crafts': { name: 'Arts & Crafts', type: 'item' },
-                //    'clothing': { name: 'Clothing', type: 'item' },
-                //    'computers': { name: 'Computers', type: 'item' },
-                //    'jewelry': { name: 'Jewelry', type: 'item' },
-                //    'office-business': { name: 'Office & Business', type: 'item' },
-                //    'sports-fitness': { name: 'Sports & Fitness', type: 'item' }
-                //};
-                $scope.data = {
-                    FatherID: parent_id
-                };
-                requestService.lists("DictionaryBigTrees", $scope.data).then(function (data) {
-                    console.log("js", data.Results);
-                    eval(data.Results);
-                    callback({ data: TreeData });
-                });
-                //setTimeout(function () { callback({ data: $data }); }, parseInt(Math.random() * 500) + 200);
-            }
-            //we have used static data here
-            //but you can retrieve your data dynamically from a server using ajax call
-            //checkout examples/treeview.html and examples/treeview.js for more info
+        //function getTime() {
+        //    var now = new Date(),
+        //	h = now.getHours(),
+        //	m = now.getMinutes(),
+        //	s = now.getSeconds(),
+        //	ms = now.getMilliseconds();
+        //    return (h + ":" + m + ":" + s + " " + ms);
+        //}
+        $scope.nodeData = function () {
+            this.ID = "";
+            this.Name = "";
+            this.Note = "";
+            this.Remark = "";
         };
-
-        var tree_data = {
-            'for-sale': { name: 'For Sale', type: 'folder' },
-            'vehicles': { name: 'Vehicles', type: 'folder' },
-            'rentals': { name: 'Rentals', type: 'folder' },
-            'real-estate': { name: 'Real Estate', type: 'folder' },
-            'pets': { name: 'Pets', type: 'folder' },
-            'tickets': { name: 'Tickets', type: 'item' },
-            'services': { name: 'Services', type: 'item' },
-            'personals': { name: 'Personals', type: 'item' }
-        }
-        tree_data['for-sale']['additionalParameters'] = {
-            'children': {
-                'appliances': { name: 'Appliances', type: 'item' },
-                'arts-crafts': { name: 'Arts & Crafts', type: 'item' },
-                'clothing': { name: 'Clothing', type: 'item' },
-                'computers': { name: 'Computers', type: 'item' },
-                'jewelry': { name: 'Jewelry', type: 'item' },
-                'office-business': { name: 'Office & Business', type: 'item' },
-                'sports-fitness': { name: 'Sports & Fitness', type: 'item' }
-            }
-        }
-        tree_data['vehicles']['additionalParameters'] = {
-            'children': {
-                'cars': { name: 'Cars', type: 'folder' },
-                'motorcycles': { name: 'Motorcycles', type: 'item' },
-                'boats': { name: 'Boats', type: 'item' }
-            }
-        }
-        tree_data['vehicles']['additionalParameters']['children']['cars']['additionalParameters'] = {
-            'children': {
-                'classics': { name: 'Classics111', type: 'item' },
-                'convertibles': { name: 'Convertibles', type: 'item' },
-                'coupes': { name: 'Coupes', type: 'item' },
-                'hatchbacks': { name: 'Hatchbacks', type: 'item' },
-                'hybrids': { name: 'Hybrids', type: 'item' },
-                'suvs': { name: 'SUVs', type: 'item' },
-                'sedans': { name: 'Sedans', type: 'item' },
-                'trucks': { name: 'Trucks', type: 'item' }
-            }
-        }
-
-        tree_data['rentals']['additionalParameters'] = {
-            'children': {
-                'apartments-rentals': { name: 'Apartments', type: 'item' },
-                'office-space-rentals': { name: 'Office Space', type: 'item' },
-                'vacation-rentals': { name: 'Vacation Rentals', type: 'item' }
-            }
-        }
-        tree_data['real-estate']['additionalParameters'] = {
-            'children': {
-                'apartments': { name: 'Apartments', type: 'item' },
-                'villas': { name: 'Villas', type: 'item' },
-                'plots': { name: 'Plots', type: 'item' }
-            }
-        }
-        tree_data['pets']['additionalParameters'] = {
-            'children': {
-                'cats': { name: 'Cats', type: 'item' },
-                'dogs': { name: 'Dogs', type: 'item' },
-                'horses': { name: 'Horses', type: 'item' },
-                'reptiles': { name: 'Reptiles', type: 'item' }
-            }
-        }
-
-        var treeDataSource = new DataSourceTree({ data: tree_data });
-
-
-        $('#tree1').ace_tree({
-            //dataSource: remoteDateSource,
-            dataSource: treeDataSource,
-            multiSelect: false,
-            loadingHTML: '<div class="tree-loading"><i class="icon-refresh icon-spin blue"></i></div>',
-            'open-icon': 'icon-minus',
-            'close-icon': 'icon-plus',
-            'selectable': true,
-            'selected-icon': 'icon-ok',
-            'unselected-icon': 'icon-remove'
-        });
-
-
-
-
-
-        $('#tree1').on('loaded', function (evt, data) {
-            console.log("data", data);
-            console.log("evt", evt);
-            if (typeof(data)=="undefined")return;
-            requestService.getobj("DictionaryTrees", data.id).then(function (data) {
+        function onClick(event, treeId, treeNode, clickFlag) {
+            //showLog("[ " + getTime() + " onClick ]&nbsp;&nbsp;clickFlag = " + clickFlag + " (" + (clickFlag === 1 ? "普通选中" : (clickFlag === 0 ? "<b>取消选中</b>" : "<b>追加选中</b>")) + ")");
+            //console.log("treeNode", treeNode);
+            requestService.getobj("DictionaryTrees", treeNode.id).then(function (data) {
                 $scope.nodeData = data;
-                //$scope.$broadcast("nodeData", data);
+                //$scope.SelectedNodeName = data.Name;
             });
-        });
 
-        $('#tree1').on('opened', function (evt, data) {
-            console.log("data", data);
-            console.log("evt", evt);
-            if (typeof (data) == "undefined") return;
-            requestService.getobj("DictionaryTrees", data.id).then(function (data) {
-                $scope.nodeData = data;
-                //$scope.$broadcast("nodeData", data);
-            });
-        });
-
-        $('#tree1').on('closed', function (evt, data) {
-            console.log("data", data);
-            console.log("evt", evt);
-            if (typeof (data) == "undefined") return;
-            requestService.getobj("DictionaryTrees", data.id).then(function (data) {
-                $scope.nodeData = data;
-                //$scope.$broadcast("nodeData", data);
-            });
-        });
-
-        $('#tree1').on('selected', function (evt, data) {
-            console.log("data", data);
-            console.log("evt", evt);
-            if (typeof (data) == "undefined") return;
-            requestService.getobj("DictionaryTrees", data.info[0].id).then(function (data) {
-                $scope.nodeData = data;
-                //$scope.$broadcast("nodeData", data);
-            });
-        });
-
+        }
+        $.fn.zTree.init($("#treeDemo"), setting, zNodes);
 
         $scope.newSubItem = function () {
-            var tree = $('#tree1').data('tree');
-            console.log("tree", tree);
-            console.log(".html()", $("#tree1").html());
-            alert($("#tree1").html());
-            //var output = '';
-            //var items = tree.selectedItems();
-            //console.log("selectedItems", items);
-            //for (var i in items) if (items.hasOwnProperty(i)) {
-            //    var item = items[i];
-            //    //output += item.additionalParameters['id'] + ":"+ item.name+"\n";
-            //    output += item.name + "\n";
-            //    item.name += "aaaaaaa";
-            //}
-
-
-            //默认展开第一层节点
-            //$("#tree1").find(".tree-folder-header").each(function () {
-            //    console.log("$(this).parent()", $(this).parent());
-            //    if ($(this).parent().css("display") == "block") {
-            //        $(this).trigger("click");
-            //    }
-            //});
-
-            //unf('a');
-            //function unf(dep) {
-            //    // $("#tree1").find('.tree-selected').each(function () {
-            //    console.log("this11111111111", this);
-            //    $("#tree1").find('.tree-folder-name').each(function () {
-            //        console.log("this", this);
-            //        //$(this).find('.tree-branch').each(function () {
-            //        //    console.log("tree-label", $(this).find('.tree-branch-name').find('.tree-label').html());
-            //        //});
-            //    });
-            //}
-
-
-
-            //$('#modal-tree-items').modal('show');
-            //$('#tree-value').css({ 'width': '98%', 'height': '200px' }).val(output);
-
+            var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+            var nodes = zTree.getSelectedNodes();
+            console.log("nodes", nodes);
+            for (var i = 0, l = nodes.length; i < l; i++) {
+                nodes[i].name = "4444433333222111";
+                zTree.updateNode(nodes[i]);
+            }
         };
-
 
     });//end
