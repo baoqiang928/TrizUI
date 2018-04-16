@@ -24,18 +24,17 @@
                     ProjectID: "0",
                 };
                 requestService.lists("DictionaryBigTrees", $scope.data).then(function (data) {
-                    console.log("js", data.Results);
+                    console.log("js22", data.Results);
                     eval(data.Results);
                     callback({ data: TreeData });
                 });
 
-                $data = aaa_data;//this._data;//the root tree
+                //$data = aaa_data;//this._data;//the root tree
                 return;
             }
 
             if ("type" in options && options.type == "folder") {
                 if ("additionalParameters" in options && "children" in options.additionalParameters) {
-                    console.log("options", options);
                     parent_id = options.additionalParameters['id'];
                 }
                 else {
@@ -50,6 +49,7 @@
                 };
                 requestService.lists("DictionaryBigTrees", $scope.data).then(function (data) {
                     eval(data.Results);
+                    console.log("js11", data.Results);
                     callback({ data: TreeData });
                 });
                 //setTimeout(function () { callback({ data: $data }); }, parseInt(Math.random() * 500) + 200);

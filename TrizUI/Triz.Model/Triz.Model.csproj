@@ -60,6 +60,7 @@
     <Compile Include="TechEvolutionInfo.cs" />
     <Compile Include="TechnicalConflictInfo.cs" />
     <Compile Include="TechnicalConflictResolveInfo.cs" />
+    <Compile Include="TreeNodeInfo.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="UserProjectInfo.cs" />
   </ItemGroup>

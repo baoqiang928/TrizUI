@@ -71,6 +71,51 @@ namespace Triz.BLL
         //    return js;
         //}
 
+        public List<TreeNodeInfo> GetBigTreeDataForZTree(int FatherID)
+        {
+            List<TreeNodeInfo> nodes = new List<TreeNodeInfo>();
+            DictionaryTreeInfo DictionaryTreeInfo = new DictionaryTreeDAL().GetByID(FatherID);
+            List<DictionaryTreeInfo> Fathers = new List<DictionaryTreeInfo>();
+            if (DictionaryTreeInfo.TreeTypeID == 2)//第一层节点，子节点从note里取，否则正常取。
+            {
+                if (string.IsNullOrWhiteSpace(DictionaryTreeInfo.Note)) return new List<TreeNodeInfo>();
+                string[] ids = DictionaryTreeInfo.Note.Split(';');
+                Fathers = new List<DictionaryTreeInfo>();
+                for (int i = 0; i < ids.Length; i++)
+                {
+                    if (string.IsNullOrWhiteSpace(ids[i])) continue;
+                    int id = 0;
+                    int.TryParse(ids[i], out id);
+                    Fathers.Add(new DictionaryTreeDAL().GetByID(id));
+                }
+            }
+            else
+            {
+                Fathers = GetSons(FatherID);
+            }
+            string FatherObjListCodes = "";
+            string ChildrenCodes = "";
+            string js = "";
+            foreach (DictionaryTreeInfo Father in Fathers)
+            {
+                if (GetSons(Father.ID).Count > 0)
+                {
+                    nodes.Add(new TreeNodeInfo() { id = Father.ID.ToString(), name = Father.Name, isParent = true });
+                    //FatherObjListCodes += "'" + Father.ID + "': { id: '" + Father.ID + "', name: '" + Father.Name + "', type: 'folder' },";
+
+                    //ChildrenCodes += "TreeData['" + Father.ID + "']['additionalParameters'] = {'id': '" + Father.ID + "',  'children': {} }; ";
+                }
+                else
+                {
+                    //FatherObjListCodes += "'" + Father.ID + "': { id: '" + Father.ID + "', name: '" + Father.Name + "', type: 'item' },";
+                    nodes.Add(new TreeNodeInfo() { id = Father.ID.ToString(), name = Father.Name, isParent = false });
+                }
+            }
+            //js = "var TreeData = {" + FatherObjListCodes.TrimEnd(',') + "};";
+            //js += ChildrenCodes;
+            return nodes;
+        }
+
         public string GetBigTreeData(int FatherID)
         {
             DictionaryTreeInfo DictionaryTreeInfo = new DictionaryTreeDAL().GetByID(FatherID);
@@ -112,7 +157,6 @@ namespace Triz.BLL
             js += ChildrenCodes;
             return js;
         }
-
 
 
         //public string GetBigTreeDataForSeparationPrinciple1(int FatherID)

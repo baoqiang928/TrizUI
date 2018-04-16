@@ -161,6 +161,7 @@
     <Compile Include="Controllers\ConflictsController.cs" />
     <Compile Include="Controllers\Default1Controller.cs" />
     <Compile Include="Controllers\DictionaryBigTreesController.cs" />
+    <Compile Include="Controllers\DictionaryBigTreesViewController.cs" />
     <Compile Include="Controllers\DictionaryTreesController.cs" />
     <Compile Include="Controllers\FunctionElementsController.cs" />
     <Compile Include="Controllers\FunEleMutualReactsController.cs" />

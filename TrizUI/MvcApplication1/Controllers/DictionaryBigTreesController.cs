@@ -16,33 +16,13 @@ namespace MvcApplication1.Controllers
         {
             return new DictionaryTreeLogic().GetByID(id);
         }
-        public class a {
+        public class a
+        {
             public string id = "";
             public string name = "";
             public bool isParent = true;
         }
-        public object Get([FromUri]int ProjectID, string TreeTypeID,string OpeType)
-        {
-            List<a> l = new List<a>();
-            for (int i = 0; i < 3; i++)
-            {
-                l.Add(new a() { id = i.ToString(), name = "aaa" + i.ToString(), isParent = true });
-            }
 
-            return l;
-        }
-
-        //public object Get([FromUri]int FatherID, string TreeTypeID, string OpeType)
-        //{
-        //    if (OpeType == "SeparationPrinciple")
-        //    {
-        //        return new
-        //        {
-        //            Results = new DictionaryTreeLogic().GetBigTreeDataForSeparationPrinciple(FatherID)
-        //        };
-        //    }
-        //    return new { };
-        //}
         public object Get([FromUri]int ProjectID, string TreeTypeID)
         {
             return new
@@ -74,15 +54,7 @@ namespace MvcApplication1.Controllers
         // POST api/DictionaryTrees
         public object Post([FromBody]DictionaryTreeInfo DictionaryTreeInfo)
         {
-            List<a> l = new List<a>();
-            for (int i = 0; i < 3; i++)
-            {
-                l.Add(new a() { id = i.ToString(), name = "aaa" + i.ToString() });
-            }
-
-            return l;
-
-           // return new DictionaryTreeLogic().SaveDictionaryTree(DictionaryTreeInfo);
+             return new DictionaryTreeLogic().SaveDictionaryTree(DictionaryTreeInfo);
         }
 
         public int Put([FromBody]DictionaryTreeInfo DictionaryTreeInfo)
