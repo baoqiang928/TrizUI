@@ -91,7 +91,7 @@
         </ol>
     </script>
     <div class="row">
-        <div class="col-sm-4" ng-controller="DictionaryTreeCtrl">
+        <div class="col-sm-6" ng-controller="DictionaryTreeCtrl">
             <div class="widget-box">
                 <div class="widget-header widget-header-flat">
                     <h4 class="smaller">分类树</h4>
@@ -100,7 +100,7 @@
                 <div class="widget-body">
                     <div class="widget-main">
                         <div class="row">
-                            <div class="col-xs-12">
+                            <div class="col-xs-12" style="height:1000px;width:100%;overflow:auto">
                                 <div ui-tree id="tree-root">
                                     <ol ui-tree-nodes ng-model="TreeData">
                                         <li ng-repeat="node in TreeData" ui-tree-node ng-include="'nodes_renderer.html'"></li>
@@ -114,7 +114,7 @@
             </div>
         </div>
 
-        <div class="col-sm-8">
+        <div class="col-sm-6">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="widget-box">

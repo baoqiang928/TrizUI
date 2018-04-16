@@ -202,6 +202,7 @@
     <Content Include="grid.html" />
     <Content Include="HtmlPage1.html" />
     <Content Include="HtmlPage2.html" />
+    <Content Include="HtmlPage3.html" />
     <Content Include="inbox.html" />
     <Content Include="index.html" />
     <Content Include="invoice.html" />

@@ -7,15 +7,13 @@
 
         $scope.PageTitle = $stateParams.Title;
 
-
-
         var setting = {
             async: {
                 enable: true,
                 url: getUrl
             },
             check: {
-                enable: true
+                enable: false
             },
             data: {
                 simpleData: {
@@ -23,12 +21,25 @@
                 }
             },
             view: {
-                expandSpeed: ""
+                expandSpeed: "",
+                addHoverDom: addHoverDom,
+                removeHoverDom: removeHoverDom,
+                selectedMulti: false
+            },
+            edit: {
+                enable: true
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
             },
             callback: {
                 beforeExpand: beforeExpand,
                 onAsyncSuccess: onAsyncSuccess,
                 onAsyncError: onAsyncError,
+                beforeRemove: beforeRemove,
+                beforeRename: beforeRename,
                 onClick: onClick
             }
         };
@@ -122,6 +133,41 @@
             });
 
         }
+        function beforeRemove(treeId, treeNode) {
+            var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+            zTree.selectNode(treeNode);
+            return confirm("确认删除 节点 -- " + treeNode.name + " 吗？");
+        }
+        function beforeRename(treeId, treeNode, newName) {
+            if (newName.length == 0) {
+                setTimeout(function () {
+                    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                    zTree.cancelEditName();
+                    alert("节点名称不能为空.");
+                }, 0);
+                return false;
+            }
+            return true;
+        }
+        var newCount = 1;
+        function addHoverDom(treeId, treeNode) {
+            var sObj = $("#" + treeNode.tId + "_span");
+            if (treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0) return;
+            var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
+				+ "' title='add node' onfocus='this.blur();'></span>";
+            sObj.after(addStr);
+            var btn = $("#addBtn_" + treeNode.tId);
+            if (btn) btn.bind("click", function () {
+                var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                zTree.addNodes(treeNode, { id: (100 + newCount), pId: treeNode.id, name: "new node" + (newCount++) });
+                return false;
+            });
+        };
+        function removeHoverDom(treeId, treeNode) {
+            $("#addBtn_" + treeNode.tId).unbind().remove();
+        };
+
+
         $.fn.zTree.init($("#treeDemo"), setting, zNodes);
 
         $scope.newSubItem = function () {
