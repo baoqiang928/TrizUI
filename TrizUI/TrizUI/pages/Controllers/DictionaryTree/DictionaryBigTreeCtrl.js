@@ -7,7 +7,7 @@
 
         $scope.PageTitle = $stateParams.Title;
 
-       
+
         var iniTree = function () {
             $scope.data = {
                 ProjectID: $scope.CurrentProjectID,
@@ -39,7 +39,9 @@
                         selectedMulti: false
                     },
                     edit: {
-                        enable: true
+                        enable: true,
+                        showRenameBtn: false,
+                        showRemoveBtn: showRemoveBtn,
                     },
                     callback: {
                         beforeExpand: beforeExpand,
@@ -57,12 +59,12 @@
 
         iniTree();
 
-
-
-
         var log, className = "dark",
 		startTime = 0, endTime = 0, perCount = 100, perTime = 100;
 
+        function showRemoveBtn(treeId, treeNode) {
+            return !treeNode.isParent;
+        }
         function beforeExpand(treeId, treeNode) {
             //if (!treeNode.isAjaxing) {
             //    startTime = new Date();
@@ -141,7 +143,11 @@
         function beforeRemove(treeId, treeNode) {
             var zTree = $.fn.zTree.getZTreeObj("treeDemo");
             zTree.selectNode(treeNode);
-            return confirm("确认删除 节点 -- " + treeNode.name + " 吗？");
+            if (confirm("确认删除 节点 -- " + treeNode.name + " 吗？")) {
+                requestService.delete("DictionaryTrees", treeNode.id).then(function (data) { });
+                return true;
+            }
+            return false;
         }
         function beforeRename(treeId, treeNode, newName) {
             if (newName.length == 0) {
@@ -161,7 +167,7 @@
 
             var sObj = $("#" + treeNode.tId + "_span");
             if (treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0) return;
-            var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
+            var addStr = "<span class='button edit' id='addBtn_" + treeNode.tId
 				+ "' title='add node' onfocus='this.blur();'></span>";
             sObj.after(addStr);
             var btn = $("#addBtn_" + treeNode.tId);
@@ -176,8 +182,7 @@
         };
 
         $scope.SaveTreeNode = function () {
-            if ($scope.CurrentOperate == "Add")
-            {
+            if ($scope.CurrentOperate == "Add") {
                 var NodeInfo = {};
                 NodeInfo.ProjectID = $scope.CurrentProjectID;
                 NodeInfo.Name = $scope.Name;
@@ -197,12 +202,7 @@
             $("#addBtn_" + treeNode.tId).unbind().remove();
         };
 
-
-
         $scope.newSubItem = function () {
-
-
-
 
             //var zTree = $.fn.zTree.getZTreeObj("treeDemo");
             //var nodes = zTree.getSelectedNodes();
