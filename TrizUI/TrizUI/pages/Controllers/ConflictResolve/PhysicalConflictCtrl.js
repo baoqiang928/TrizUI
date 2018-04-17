@@ -31,11 +31,14 @@
 
         GetPhysicalConflictInfoList();
 
-        $scope.AddPhysicalConflictInfo = function () {
-            var newobj = new $scope.PhysicalConflictInfo();
-            $scope.PhysicalConflictInfoList.push(newobj);
-        }
-
+        //$scope.AddPhysicalConflictInfo = function () {
+        //    var newobj = new $scope.PhysicalConflictInfo();
+        //    $scope.PhysicalConflictInfoList.push(newobj);
+        //}
+        $scope.$on("AddPhysicalConflictInfo", function (event, msg) {
+            $scope.PhysicalConflictInfoList = [];
+            $scope.PhysicalConflictInfoList.push(msg);
+        });
         $scope.DeletePhysicalConflictInfo = function (index) {
             bootbox.confirm("要删除当前的记录？", function (result) {
                 if (result) {

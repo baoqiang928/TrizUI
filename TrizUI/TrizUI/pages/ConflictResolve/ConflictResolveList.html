@@ -26,9 +26,8 @@
 
                                             <div class="col-sm-9">
                                                 <div class="clearfix">
-                                                    <select class="form-control" ng-model="TechnicalConflictInfo.ImproveCharacter" required>
-                                                        <option value="">请选择</option>
-                                                        <option ng-repeat="item in ImproveCharacterDictionary track by $index" value="{{item.id}}" ng-selected="TechnicalConflictInfo.ImproveCharacter==item.id">{{item.name}}
+                                                    <select class="form-control" id="ImproveCharacter" required>
+                                                        <option ng-repeat="item in ImproveCharacterDictionary track by $index" value="{{item.id}}" ng-selected="FatherTechnicalConflictInfo.ImproveCharacter==item.id">{{item.name}}
                                                     </option>
                                                     </select>
                                                 </div>
@@ -40,9 +39,8 @@
 
                                             <div class="col-sm-9">
                                                 <div class="clearfix">
-                                                    <select class="form-control" ng-model="TechnicalConflictInfo.ImproveCharacter" required>
-                                                        <option value="">请选择</option>
-                                                        <option ng-repeat="item in ImproveCharacterDictionary track by $index" value="{{item.id}}" ng-selected="TechnicalConflictInfo.ImproveCharacter==item.id">{{item.name}}
+                                                    <select class="form-control" id="DeteriorateCharacter" required>
+                                                        <option ng-repeat="item in ImproveCharacterDictionary track by $index" value="{{item.id}}" ng-selected="FatherTechnicalConflictInfo.DeteriorateCharacter==item.id">{{item.name}}
                                                     </option>
                                                     </select>
                                                 </div>
@@ -53,7 +51,7 @@
 
                                             <div class="col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" id="Code" name="Code" class="col-xs-10 col-sm-12" data-ng-model="data.Code" />
+                                                    <input type="text" class="col-xs-10 col-sm-12" data-ng-model="PhysicalConflictInfo.CommonRelevantParams" />
                                                 </div>
                                             </div>
                                         </div>
@@ -63,7 +61,7 @@
 
                                             <div class="col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" id="Code" name="Code" class="col-xs-10 col-sm-12" data-ng-model="data.Code" />
+                                                    <input type="text" id="Code" name="Code" class="col-xs-10 col-sm-12" data-ng-model="PhysicalConflictInfo.ForwardCharacter" />
                                                 </div>
                                             </div>
                                         </div>
@@ -73,19 +71,19 @@
 
                                             <div class="col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" id="Code" name="Code" class="col-xs-10 col-sm-12" data-ng-model="data.Code" />
+                                                    <input type="text" id="Code" name="Code" class="col-xs-10 col-sm-12" data-ng-model="PhysicalConflictInfo.BackwardCharacter" />
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="clearfix form-actions">
                                             <div class="col-md-offset-3 col-md-9">
-                                                <button class="btn btn-info" type="button" ng-click="AddConflictResolveInfo()">
+                                                <button class="btn btn-info" type="button" ng-click="AddPhysicalConflictInfo()">
                                                     <i class="icon-save bigger-110"></i>
                                                     添加物理冲突
                                                 </button>
 
-                                                <button class="btn btn-info" type="button" ng-click="AddConflictResolveInfo()">
+                                                <button class="btn btn-info" type="button" ng-click="AddTechnicalConflictInfo()">
                                                     <i class="icon-save bigger-110"></i>
                                                     添加技术冲突
                                                 </button>
@@ -101,7 +99,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-6" ng-controller="PhysicalConflictCtrl">
+            <div class="col-sm-6" >
 
                 <div class="row">
                     <div class="col-xs-12">
@@ -132,14 +130,12 @@
                                                     <tr ng-repeat="TechnicalConflictInfo in TechnicalConflictInfoList|orderBy:'SerialNum'">
                                                         <td>
                                                             <select class="form-control" ng-model="TechnicalConflictInfo.ImproveCharacter" required>
-                                                                <option value="">请选择</option>
                                                                 <option ng-repeat="item in ImproveCharacterDictionary track by $index" value="{{item.id}}" ng-selected="TechnicalConflictInfo.ImproveCharacter==item.id">{{item.name}}
-                                                    </option>
+                                                                </option>
                                                             </select>
                                                             <!--<select ng-init="TechnicalConflictInfo.ImproveCharacter=ImproveCharacterDictionary[TechnicalConflictInfo.ImproveCharacter]" ng-model="TechnicalConflictInfo.ImproveCharacter" ng-options="x.id as x.name for x in ImproveCharacterDictionary"></select>-->
                                                             <td>
                                                                 <select class="form-control" ng-model="TechnicalConflictInfo.DeteriorateCharacter" required>
-                                                                    <option value="">请选择</option>
                                                                     <option ng-repeat="item in ImproveCharacterDictionary track by $index" value="{{item.id}}" ng-selected="TechnicalConflictInfo.DeteriorateCharacter==item.id">{{item.name}}
                                                     </option>
                                                                 </select>
@@ -170,7 +166,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-xs-12" ng-controller="PhysicalConflictCtrl">
                         <div class="widget-box">
                             <div class="widget-header widget-header-flat">
                                 <h4 class="smaller">物理冲突表</h4>

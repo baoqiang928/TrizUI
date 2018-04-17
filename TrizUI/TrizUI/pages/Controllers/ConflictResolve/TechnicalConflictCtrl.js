@@ -31,10 +31,15 @@
         }
 
         GetTechnicalConflictInfoList();
+        $scope.$on("AddTechnicalConflictInfo", function (event, msg) {
+            alert(2);
+            console.log("msg", msg);
+            $scope.TechnicalConflictInfoList.push(msg);
+        });
 
-        $scope.AddTechnicalConflictInfo = function () {
-            $scope.TechnicalConflictInfoList.push(new $scope.TechnicalConflictInfo());
-        }
+        //$scope.AddTechnicalConflictInfo = function () {
+        //    $scope.TechnicalConflictInfoList.push(new $scope.TechnicalConflictInfo());
+        //}
 
         $scope.DeleteTechnicalConflictInfo = function (index) {
             bootbox.confirm("要删除当前的记录？", function (result) {
