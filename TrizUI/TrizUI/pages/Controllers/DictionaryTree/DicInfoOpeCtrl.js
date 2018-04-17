@@ -41,14 +41,22 @@
                             $scope.$parent.CurrentNode.$modelValue.title = $scope.$parent.nodeData.Name;
                         }
                     }
+                    console.log("$scope.$parent.CurrentNode", $scope.$parent.CurrentNode);
+                    if (($scope.$parent.CurrentNode != null) && ($scope.$parent.CurrentNode.id != null)) {
+                        $scope.$parent.UpdateCurrentNodeName();
+                        alert("保存成功。");
+                        return;
+                    }
+
                     console.log("3", 3);
-                    //BigTree使用
+                    //BigTree（老）使用
                     console.log("$scope.$parent", $scope.$parent);
                     console.log("$scope.$parent.SelectedNodeName", $scope.$parent.SelectedNodeName);
                     if ($scope.$parent.SelectedNodeName != null) {
                         console.log("1", 1);
                         $scope.$parent.UpdateCurrentNodeName($scope.$parent.nodeData.Name);
                     }
+
                     alert("保存成功。");
                 });
 

@@ -131,6 +131,7 @@
         function onClick(event, treeId, treeNode, clickFlag) {
             //showLog("[ " + getTime() + " onClick ]&nbsp;&nbsp;clickFlag = " + clickFlag + " (" + (clickFlag === 1 ? "普通选中" : (clickFlag === 0 ? "<b>取消选中</b>" : "<b>追加选中</b>")) + ")");
             //console.log("treeNode", treeNode);
+            $scope.CurrentNode = treeNode;
             requestService.getobj("DictionaryTrees", treeNode.id).then(function (data) {
                 $scope.nodeData = data;
                 //$scope.SelectedNodeName = data.Name;
@@ -157,8 +158,6 @@
         $scope.Name = "";
         $scope.CurrentNode = {};
         function addHoverDom(treeId, treeNode) {
-
-
 
             var sObj = $("#" + treeNode.tId + "_span");
             if (treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0) return;
@@ -201,13 +200,30 @@
 
 
         $scope.newSubItem = function () {
+
+
+
+
+            //var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+            //var nodes = zTree.getSelectedNodes();
+            //console.log("nodes", nodes);
+            //for (var i = 0, l = nodes.length; i < l; i++) {
+            //    nodes[i].name = "4444433333222111";
+            //    zTree.updateNode(nodes[i]);
+            //}
+        };
+
+
+        $scope.UpdateCurrentNodeName = function () {
             var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-            var nodes = zTree.getSelectedNodes();
-            console.log("nodes", nodes);
-            for (var i = 0, l = nodes.length; i < l; i++) {
-                nodes[i].name = "4444433333222111";
-                zTree.updateNode(nodes[i]);
-            }
+            $scope.CurrentNode.name = $scope.nodeData.Name;
+            //var nodes = zTree.getSelectedNodes();
+            //console.log("nodes", nodes);
+            //for (var i = 0, l = nodes.length; i < l; i++) {
+            //    nodes[i].name = "4444433333222111";
+            zTree.updateNode($scope.CurrentNode);
+            //}
+            console.log("$scope.CurrentNode", $scope.CurrentNode);
         };
 
     });//end
