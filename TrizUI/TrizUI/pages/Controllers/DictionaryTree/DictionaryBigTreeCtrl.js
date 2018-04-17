@@ -7,47 +7,7 @@
 
         $scope.PageTitle = $stateParams.Title;
 
-        //var setting = {
-        //    async: {
-        //        enable: true,
-        //        url: "http://localhost:2072/api/DictionaryBigTreesView/",
-        //        autoParam: ["id=NodeID", "name=NodeName", "level=TreeLevel"],
-        //        otherParam: { "ProjectID": $stateParams.CurrentProjectID, "TreeTypeID": $stateParams.TreeTypeID, "OpeType": "View" }
-        //    },
-        //    check: {
-        //        enable: false
-        //    },
-        //    data: {
-        //        simpleData: {
-        //            enable: true
-        //        }
-        //    },
-        //    view: {
-        //        expandSpeed: "",
-        //        addHoverDom: addHoverDom,
-        //        removeHoverDom: removeHoverDom,
-        //        selectedMulti: false
-        //    },
-        //    edit: {
-        //        enable: true
-        //    },
-        //    callback: {
-        //        beforeExpand: beforeExpand,
-        //        onAsyncSuccess: onAsyncSuccess,
-        //        onAsyncError: onAsyncError,
-        //        beforeRemove: beforeRemove,
-        //        beforeRename: beforeRename,
-        //        onClick: onClick
-        //    }
-        //};
-
-        //var zNodes = [
-		//	{ name: "500个节点", id: "1", count: 500, times: 1, isParent: true },
-		//	{ name: "1000个节点", id: "2", count: 1000, times: 1, isParent: true },
-		//	{ name: "2000个节点", id: "3", count: 2000, times: 1, isParent: true }
-        //];
-        //zNodes.push({ name: "2111000个节点", id: "4", count: 2000, times: 1, isParent: true });
-
+       
         var iniTree = function () {
             $scope.data = {
                 ProjectID: $scope.CurrentProjectID,
@@ -102,13 +62,7 @@
 
         var log, className = "dark",
 		startTime = 0, endTime = 0, perCount = 100, perTime = 100;
-        //function getUrl(treeId, treeNode) {
-        //    //var curCount = (treeNode.children) ? treeNode.children.length : 0;
-        //    //var getCount = (curCount + perCount) > treeNode.count ? (treeNode.count - curCount) : perCount;
-        //    //var param = "id=" + treeNode.id + "_" + (treeNode.times++) + "&count=" + getCount;
-        //    //return "../asyncData/getNodesForBigData.php?" + param;
-        //    return "http://localhost:2072/api/DictionaryBigTrees?OpeType=GetFatherNodes&ProjectID=0&TreeTypeID=2";
-        //}
+
         function beforeExpand(treeId, treeNode) {
             //if (!treeNode.isAjaxing) {
             //    startTime = new Date();
@@ -200,7 +154,12 @@
             return true;
         }
         var newCount = 1;
+        $scope.Name = "";
+        $scope.CurrentNode = {};
         function addHoverDom(treeId, treeNode) {
+
+
+
             var sObj = $("#" + treeNode.tId + "_span");
             if (treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0) return;
             var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
@@ -208,11 +167,33 @@
             sObj.after(addStr);
             var btn = $("#addBtn_" + treeNode.tId);
             if (btn) btn.bind("click", function () {
-                var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-                zTree.addNodes(treeNode, { id: (100 + newCount), pId: treeNode.id, name: "new node" + (newCount++) });
+                $scope.CurrentNode = treeNode;
+                $scope.CurrentOperate = "Add";
+                $('#modal-table').modal('show');
+                //var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                //zTree.addNodes(treeNode, { id: (100 + newCount), pId: treeNode.id, name: "new node" + (newCount++) });
                 return false;
             });
         };
+
+        $scope.SaveTreeNode = function () {
+            if ($scope.CurrentOperate == "Add")
+            {
+                var NodeInfo = {};
+                NodeInfo.ProjectID = $scope.CurrentProjectID;
+                NodeInfo.Name = $scope.Name;
+                NodeInfo.FatherID = $scope.CurrentNode.id;
+                NodeInfo.TreeTypeID = $stateParams.TreeTypeID;
+                console.log("NodeInfo", NodeInfo);
+                requestService.add("DictionaryTrees", NodeInfo).then(function (data) {
+                    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                    zTree.addNodes($scope.CurrentNode, { id: data, pId: $scope.CurrentNode.id, name: $scope.Name });
+                    alert("保存成功。");
+                });
+            }
+
+        };
+
         function removeHoverDom(treeId, treeNode) {
             $("#addBtn_" + treeNode.tId).unbind().remove();
         };
