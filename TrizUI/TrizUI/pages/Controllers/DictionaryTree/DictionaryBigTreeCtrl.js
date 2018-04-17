@@ -190,7 +190,10 @@
                     NodeInfo.FatherID = $scope.CurrentNode.id;
                     pId = $scope.CurrentNode.id;
                 }
-                console.log("NodeInfo", NodeInfo);
+                //展开这个节点，否则会重复增加两个。
+                var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                    zTree.expandNode($scope.CurrentNode, true, null, null, true);
+
                 requestService.add("DictionaryTrees", NodeInfo).then(function (data) {
                     var zTree = $.fn.zTree.getZTreeObj("treeDemo");
                     zTree.addNodes($scope.CurrentNode, { id: data, pId:pId, name: $scope.Name });
