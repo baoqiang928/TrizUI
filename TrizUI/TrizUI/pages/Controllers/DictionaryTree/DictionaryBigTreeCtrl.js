@@ -50,7 +50,7 @@
 
         var iniTree = function () {
             $scope.data = {
-                ProjectID: locals.get("ProjectID"),
+                ProjectID: $scope.CurrentProjectID,
                 TreeTypeID: $stateParams.TreeTypeID,
                 OpeType: "GetFathers"
             };
@@ -62,7 +62,7 @@
                         enable: true,
                         url: "http://localhost:2072/api/DictionaryBigTreesView/",
                         autoParam: ["id=NodeID", "name=NodeName", "level=TreeLevel"],
-                        otherParam: { "ProjectID": $stateParams.CurrentProjectID, "TreeTypeID": $stateParams.TreeTypeID, "OpeType": "View" }
+                        otherParam: { "ProjectID": $scope.CurrentProjectID, "TreeTypeID": $stateParams.TreeTypeID, "OpeType": "View" }
                     },
                     check: {
                         enable: false

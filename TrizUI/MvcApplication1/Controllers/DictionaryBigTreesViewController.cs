@@ -146,7 +146,8 @@ namespace MvcApplication1.Controllers
         // POST api/DictionaryTrees
         public object Post([FromBody]QueryDataInfo QueryDataInfo)
         {
-            return new DictionaryTreeLogic().GetBigTreeData(int.Parse(QueryDataInfo.NodeID));
+            if (QueryDataInfo.NodeID == null) return new object();
+            return new DictionaryTreeLogic().GetBigTreeDataForZTree(int.Parse(QueryDataInfo.NodeID));
         }
 
         public int Put([FromBody]DictionaryTreeInfo DictionaryTreeInfo)
