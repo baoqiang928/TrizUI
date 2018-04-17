@@ -4,9 +4,7 @@
         if ($stateParams.CurrentProjectID == "")
             $scope.CurrentProjectID = locals.get("ProjectID");
 
-
         $scope.PageTitle = $stateParams.Title;
-
 
         var iniTree = function () {
             $scope.data = {
@@ -185,14 +183,19 @@
             if ($scope.CurrentOperate == "Add") {
                 var NodeInfo = {};
                 NodeInfo.ProjectID = $scope.CurrentProjectID;
-                NodeInfo.Name = $scope.Name;
-                NodeInfo.FatherID = $scope.CurrentNode.id;
                 NodeInfo.TreeTypeID = $stateParams.TreeTypeID;
+                NodeInfo.Name = $scope.Name;
+                var pId = 0;
+                if ($scope.CurrentNode != null) {
+                    NodeInfo.FatherID = $scope.CurrentNode.id;
+                    pId = $scope.CurrentNode.id;
+                }
                 console.log("NodeInfo", NodeInfo);
                 requestService.add("DictionaryTrees", NodeInfo).then(function (data) {
                     var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-                    zTree.addNodes($scope.CurrentNode, { id: data, pId: $scope.CurrentNode.id, name: $scope.Name });
+                    zTree.addNodes($scope.CurrentNode, { id: data, pId:pId, name: $scope.Name });
                     alert("保存成功。");
+                    $('#modal-table').modal('hide');
                 });
             }
 
@@ -203,7 +206,9 @@
         };
 
         $scope.newSubItem = function () {
-
+            $scope.CurrentNode = null;
+            $scope.CurrentOperate = "Add";
+            $('#modal-table').modal('show');
             //var zTree = $.fn.zTree.getZTreeObj("treeDemo");
             //var nodes = zTree.getSelectedNodes();
             //console.log("nodes", nodes);
