@@ -17,11 +17,11 @@ namespace MvcApplication1.Controllers
             public string name = "";
             public bool isParent = true;
         }
-        public object Get([FromUri]string CaseID, string OpeType)
+        public object Get([FromUri]string SonID, string OpeType)
         {
             if (OpeType == "GetFatherID")
             {
-                return new DictionaryTreeLogic().GetByID(new DictionaryTreeLogic().GetFatherID(CaseID));
+                return new DictionaryTreeLogic().GetByID(new DictionaryTreeLogic().GetFatherID(SonID));
             }
             return new object();
         }

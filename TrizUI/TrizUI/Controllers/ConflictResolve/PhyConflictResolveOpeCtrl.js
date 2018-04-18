@@ -75,7 +75,7 @@
             newobj.CaseID = nodeData.ID;
             newobj.CaseName = nodeData.Name;
             var query = {
-                CaseID: newobj.CaseID,
+                SonID: newobj.CaseID,
                 OpeType: "GetFatherID"
             }
             requestService.lists("DictionaryBigTrees", query).then(function (data) {
