@@ -102,8 +102,6 @@
             },
 
             submitHandler: function (form) {
-            },
-            invalidHandler: function (form) {
             }
         });
 

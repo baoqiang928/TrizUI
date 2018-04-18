@@ -56,12 +56,13 @@
             currentPage: "",
             itemsPerPage: "",
             ProjectID: locals.get("ProjectID"),
-            ConflicID: $stateParams.ConflictID
+            ConflictID: $stateParams.ConflictID
         };
 
         var GetConflictResolveInfoList = function () {
             $scope.data.currentPage = 1;
             $scope.data.itemsPerPage = "999";
+            console.log("$scope.data111", $scope.data);
             requestService.lists("ConflictResolves", $scope.data).then(function (data) {
                 $scope.ConflictResolveInfoList = data.Results;
             });
@@ -69,12 +70,21 @@
 
         GetConflictResolveInfoList();
 
-        $scope.AddConflictResolveInfo = function () {
-            console.log("$scope.nodeData", $scope.nodeData);
+        $scope.AddConflictResolveInfo = function (nodeData) {
             var newobj = new $scope.ConflictResolveInfo();
-            newobj.CaseID = $scope.nodeData.ID;
-            newobj.CaseName = $scope.nodeData.Name;
-            $scope.ConflictResolveInfoList.push(newobj);
+            console.log("nodeData", nodeData);
+            newobj.CaseID = nodeData.ID;
+            newobj.CaseName = nodeData.Name;
+            var query = {
+                CaseID: newobj.CaseID,
+                OpeType: "GetFatherID"
+            }
+            requestService.lists("DictionaryBigTrees", query).then(function (data) {
+                newobj.InventivePrincipleID = data.ID;
+                newobj.InventivePrincipleName = data.Name;
+                $scope.ConflictResolveInfoList.push(newobj);
+            });
+
         }
         $scope.Solution = "";
         $scope.CurrentIndex = "";

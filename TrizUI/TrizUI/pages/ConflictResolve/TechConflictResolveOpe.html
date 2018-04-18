@@ -60,15 +60,11 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
-
         </div>
     </div>
     <!-- /row -->
-    <div class="row" >
+    <div class="row" ng-controller="DictionaryBigTreeCtrl">
         <div class="col-sm-5">
             <div class="widget-box">
                 <div class="widget-header widget-header-flat">
@@ -83,7 +79,7 @@
                 <div class="widget-body" >
                     <div class="widget-main">
                         <div class="row">
-                            <div class="col-xs-12" style="height:1000px;width:100%;overflow:auto" ng-controller="DictionaryBigTreeCtrl">
+                            <div class="col-xs-12" style="height:1000px;width:100%;overflow:auto" >
                                 <ul id="treeDemo" class="ztree"></ul>
                             </div>
                         </div>
@@ -100,7 +96,7 @@
                         <div class="widget-header widget-header-flat">
                             <h4 class="smaller">详细信息</h4>
                             <span class="widget-toolbar">
-                                <a href="" ng-click="AddConflictResolveInfo()">
+                                <a href="" ng-click="AddConflictResolveInfo(nodeData)">
                                     <i class="icon-heart-empty"></i>
                                 </a>
                             </span>
@@ -135,7 +131,7 @@
                                     </div>
                                     <div class="clearfix form-actions">
                                         <div class="col-md-offset-3 col-md-9">
-                                            <button class="btn btn-info" type="button" ng-click="AddConflictResolveInfo()">
+                                            <button class="btn btn-info" type="button" ng-click="AddConflictResolveInfo(nodeData)">
                                                 <i class="icon-heart-empty bigger-110"></i>
                                                 选择
                                             </button>

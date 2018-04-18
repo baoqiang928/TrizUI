@@ -9,6 +9,17 @@ namespace Triz.BLL
     {
 
         #region BigTree
+        public string GetFatherID(string id)
+        {
+            DictionaryTreeInfo DictionaryTreeInfo = GetByID(id);
+            if (DictionaryTreeInfo.FatherID != null)
+            {
+                return GetFatherID(DictionaryTreeInfo.FatherID.ToString());
+            }
+            return DictionaryTreeInfo.ID.ToString();
+        }
+
+
         public string GetBigTreeData(string ProjectID, string TreeTypeID)
         {
             List<DictionaryTreeInfo> Fathers = GetFathers(ProjectID, TreeTypeID);

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Web.Http;
 using Triz.BLL;
 using Triz.Model;
 
@@ -12,7 +7,7 @@ namespace MvcApplication1.Controllers
     public class DictionaryBigTreesController : ApiController
     {
         // GET api/DictionaryTrees/5
-        public DictionaryTreeInfo Get(string id)
+        public DictionaryTreeInfo Get([FromUri]string id)
         {
             return new DictionaryTreeLogic().GetByID(id);
         }
@@ -22,7 +17,14 @@ namespace MvcApplication1.Controllers
             public string name = "";
             public bool isParent = true;
         }
-
+        public object Get([FromUri]string CaseID, string OpeType)
+        {
+            if (OpeType == "GetFatherID")
+            {
+                return new DictionaryTreeLogic().GetByID(new DictionaryTreeLogic().GetFatherID(CaseID));
+            }
+            return new object();
+        }
         public object Get([FromUri]int ProjectID, string TreeTypeID)
         {
             return new
@@ -54,7 +56,7 @@ namespace MvcApplication1.Controllers
         // POST api/DictionaryTrees
         public object Post([FromBody]DictionaryTreeInfo DictionaryTreeInfo)
         {
-             return new DictionaryTreeLogic().SaveDictionaryTree(DictionaryTreeInfo);
+            return new DictionaryTreeLogic().SaveDictionaryTree(DictionaryTreeInfo);
         }
 
         public int Put([FromBody]DictionaryTreeInfo DictionaryTreeInfo)
