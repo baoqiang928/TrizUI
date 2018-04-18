@@ -53,6 +53,8 @@
         $scope.data = {
             currentPage: "",
             itemsPerPage: "",
+            ConflictID: $stateParams.ConflictID,
+            ConflictType: "物理",
             ProjectID: locals.get("ProjectID")
         };
 
@@ -81,7 +83,15 @@
             requestService.lists("DictionaryBigTrees", query).then(function (data) {
                 newobj.InventivePrincipleID = data.ID;
                 newobj.InventivePrincipleName = data.Name;
-                $scope.ConflictResolveInfoList.push(newobj);
+                query = {
+                    SonID: data.ID,
+                    OpeType: "GetDevidePrincipleInfo"
+                }
+                requestService.lists("DictionaryBigTrees", query).then(function (data) {
+                    newobj.DevidePrincipleID = data.ID
+                    newobj.DevidePrincipleName = data.Name;
+                    $scope.ConflictResolveInfoList.push(newobj);
+                });
             });
 
         }

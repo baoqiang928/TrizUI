@@ -56,6 +56,7 @@
             currentPage: "",
             itemsPerPage: "",
             ProjectID: locals.get("ProjectID"),
+            ConflictType: "技术",
             ConflictID: $stateParams.ConflictID
         };
 

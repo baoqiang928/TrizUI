@@ -150,7 +150,7 @@ namespace Triz.DAL
             return new ConflictResolveInfo();
         }
 
-        public List<ConflictResolveInfo> Query(string ProjectID, string ConflictID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
+        public List<ConflictResolveInfo> Query(string ProjectID, string ConflictID,string ConflictType, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
             int startRow = (pageIndex - 1) * pageSize;
             Expression<Func<tbl_ConflictResolveInfo, bool>> where = PredicateExtensionses.True<tbl_ConflictResolveInfo>();
@@ -159,6 +159,8 @@ namespace Triz.DAL
                 where = where.And(a => a.ProjectID == int.Parse(ProjectID));
             if (!string.IsNullOrWhiteSpace(ConflictID))
                 where = where.And(a => a.ConflictID == int.Parse(ConflictID));
+            if (!string.IsNullOrWhiteSpace(ConflictType))
+                where = where.And(a => a.ConflictType == ConflictType);
 
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {

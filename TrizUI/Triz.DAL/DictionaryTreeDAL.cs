@@ -11,6 +11,25 @@ namespace Triz.DAL
 {
     public class DictionaryTreeDAL
     {
+        /// <summary>
+        /// 根据发明原理ID，找到分离原理ID
+        /// </summary>
+        /// <param name="InventivePrincipleID"></param>
+        /// <returns></returns>
+        public DictionaryTreeInfo GetDevidePrincipleInfoByInventivePrincipleID(string InventivePrincipleID)
+        {
+            Expression<Func<tbl_DictionaryTreeInfo, bool>> where = PredicateExtensionses.True<tbl_DictionaryTreeInfo>();
+            where = where.And(a => (";"+a.Note+";").Contains(";"+ InventivePrincipleID + ";"));
+            where = where.And(a => a.ProjectID == 0);
+            using (TrizDBEntities TrizDB = new TrizDBEntities())
+            {
+                var Query = TrizDB.tbl_DictionaryTreeInfo.Where(where.Compile()).FirstOrDefault();
+                if (Query == null) return null;
+                return GetBusinessObject(Query);
+            }
+            return new DictionaryTreeDAL().GetDevidePrincipleInfoByInventivePrincipleID(InventivePrincipleID);
+        }
+
         public List<DictionaryTreeInfo> GetSons(int? FatherID)
         {
             Expression<Func<tbl_DictionaryTreeInfo, bool>> where = PredicateExtensionses.True<tbl_DictionaryTreeInfo>();

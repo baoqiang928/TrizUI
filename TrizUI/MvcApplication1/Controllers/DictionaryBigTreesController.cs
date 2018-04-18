@@ -23,6 +23,11 @@ namespace MvcApplication1.Controllers
             {
                 return new DictionaryTreeLogic().GetByID(new DictionaryTreeLogic().GetFatherID(SonID));
             }
+            if (OpeType == "GetDevidePrincipleInfo")
+            {
+                return new DictionaryTreeLogic().GetDevidePrincipleInfoByInventivePrincipleID(SonID);
+            }
+
             return new object();
         }
         public object Get([FromUri]int ProjectID, string TreeTypeID)

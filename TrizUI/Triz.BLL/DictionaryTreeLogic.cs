@@ -18,7 +18,12 @@ namespace Triz.BLL
             }
             return DictionaryTreeInfo.ID.ToString();
         }
+        public DictionaryTreeInfo GetDevidePrincipleInfoByInventivePrincipleID(string InventivePrincipleID)
+        {
+            return new DictionaryTreeDAL().GetDevidePrincipleInfoByInventivePrincipleID(InventivePrincipleID);
+        }
 
+        
 
         public string GetBigTreeData(string ProjectID, string TreeTypeID)
         {
