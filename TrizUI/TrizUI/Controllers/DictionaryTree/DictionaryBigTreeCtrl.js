@@ -1,12 +1,15 @@
 ﻿angular.module('myApp')
     .controller('DictionaryBigTreeCtrl', function ($scope, $rootScope, $location, requestService, $state, locals, $stateParams) {
-        $scope.ProjectID = "";
+        $scope.BigTreeProjectID = "0";
         console.log("bigtree $stateParams", $stateParams);
         console.log("$scope.parent", $scope.$parent);
-        if (typeof $stateParams.CurrentProjectID == "undefined") {
-            $scope.ProjectID = locals.get("ProjectID");
-        } else {
-            $scope.ProjectID = $stateParams.CurrentProjectID;
+        if (typeof $stateParams.BigTreeProjectID != "undefined") {
+            $scope.BigTreeProjectID = $stateParams.BigTreeProjectID;
+        }
+        else
+        {
+            if (typeof $stateParams.$parent != "undefined") 
+                $scope.BigTreeProjectID = $stateParams.$parent.BigTreeProjectID;
         }
 
         $scope.FatherIDs = "";
@@ -31,7 +34,7 @@
 
         var iniTree = function () {
             $scope.data = {
-                ProjectID: $scope.ProjectID,
+                ProjectID: $scope.BigTreeProjectID,
                 TreeTypeID: $scope.TreeTypeID,
                 FatherIDs: $scope.FatherIDs,
                 OpeType: "GetFathers"

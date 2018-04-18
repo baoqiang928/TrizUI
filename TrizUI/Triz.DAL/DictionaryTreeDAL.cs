@@ -40,7 +40,8 @@ namespace Triz.DAL
         public List<DictionaryTreeInfo> GetFathers(string ProjectID, string TreeTypeID)
         {
             Expression<Func<tbl_DictionaryTreeInfo, bool>> where = PredicateExtensionses.True<tbl_DictionaryTreeInfo>();
-            where = where.And(a => a.ProjectID == int.Parse(ProjectID));
+            if (!string.IsNullOrWhiteSpace(ProjectID))
+                where = where.And(a => a.ProjectID == int.Parse(ProjectID));
             where = where.And(a => a.TreeTypeID == int.Parse(TreeTypeID));
             where = where.And(a => a.FatherID == null);
 

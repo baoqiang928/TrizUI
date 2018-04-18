@@ -14,7 +14,7 @@
         $scope.DictionaryTreeInfoList = [];
 
         $scope.QueryData = {
-            ProjectID: $scope.CurrentProjectID,
+            ProjectID: "0",
             TreeTypeID: $stateParams.TreeTypeID,
             OpeType: "GetFatherNodes"
         };
