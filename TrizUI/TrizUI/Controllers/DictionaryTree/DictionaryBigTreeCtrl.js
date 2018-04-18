@@ -6,9 +6,8 @@
         if (typeof $stateParams.BigTreeProjectID != "undefined") {
             $scope.BigTreeProjectID = $stateParams.BigTreeProjectID;
         }
-        else
-        {
-            if (typeof $stateParams.$parent != "undefined") 
+        else {
+            if (typeof $stateParams.$parent != "undefined")
                 $scope.BigTreeProjectID = $stateParams.$parent.BigTreeProjectID;
         }
 
@@ -47,6 +46,7 @@
                     async: {
                         enable: true,
                         url: "http://localhost:2072/api/DictionaryBigTreesView/",
+                        //url: "http://101.201.67.155:81/api/DictionaryBigTreesView/",
                         autoParam: ["id=NodeID", "name=NodeName", "level=TreeLevel"],
                         otherParam: { "ProjectID": $scope.CurrentProjectID, "TreeTypeID": $stateParams.TreeTypeID, "OpeType": "View" }
                     },
@@ -86,7 +86,7 @@
         iniTree();
 
         var log, className = "dark",
-		startTime = 0, endTime = 0, perCount = 100, perTime = 100;
+        startTime = 0, endTime = 0, perCount = 100, perTime = 100;
 
         function showRemoveBtn(treeId, treeNode) {
             return !treeNode.isParent;
@@ -194,7 +194,7 @@
             var sObj = $("#" + treeNode.tId + "_span");
             if (treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0) return;
             var addStr = "<span class='button edit' id='addBtn_" + treeNode.tId
-				+ "' title='add node' onfocus='this.blur();'></span>";
+                + "' title='add node' onfocus='this.blur();'></span>";
             sObj.after(addStr);
             var btn = $("#addBtn_" + treeNode.tId);
             if (btn) btn.bind("click", function () {
