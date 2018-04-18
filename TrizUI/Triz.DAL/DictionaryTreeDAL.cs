@@ -36,7 +36,7 @@ namespace Triz.DAL
             where = where.And(a => a.FatherID == FatherID);
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
-                var query = TrizDB.tbl_DictionaryTreeInfo.Where(where.Compile()).OrderByDescending(p => p.SerialNum);
+                var query = TrizDB.tbl_DictionaryTreeInfo.Where(where.Compile()).OrderBy(p => p.SerialNum);
 
                 return GetGetBusinessObjectList(query.ToList());
             }
@@ -224,7 +224,7 @@ namespace Triz.DAL
                 var query = TrizDB.tbl_DictionaryTreeInfo.Where(where.Compile());
                 totalItems = query.Count();
                 PagesLength = (int)Math.Ceiling((double)totalItems / pageSize);
-                query = query.OrderByDescending(p => p.ID).Skip(startRow).Take(pageSize);
+                query = query.OrderBy(p => p.SerialNum).Skip(startRow).Take(pageSize);
                 return GetGetBusinessObjectList(query.ToList());
             }
         }

@@ -140,7 +140,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "/pages/ConflictResolve/PhyConflictResolveOpe.html"
         })
         .state("TechEvolveList", {
-            params: { "TreeTypeID": "4" },
+            params: { "TreeTypeID": "5" },
             url: "/TechEvolveList",
             templateUrl: "/pages/TechEvolve/TechEvolveList.html"
         })
@@ -150,10 +150,15 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "/pages/TechEvolve/TechEvolveOpe.html"
         })
         .state("TechEvolveDictionaryTree", {
-            params: { "TreeTypeID": "4", "Title": "技术进化模式" },
+            params: { "TreeTypeID": "5", "Title": "技术进化模式维护", "CurrentProjectID": "" },
             url: "/TechEvolveDictionaryTree",
-            templateUrl: "/pages/DictionaryTree/DictionaryTreeOpe.html"
+            templateUrl: "/pages/DictionaryTree/DictionaryBigTreeOpe.html"
         })
+        //.state("TechEvolveDictionaryTree", {
+        //    params: { "TreeTypeID": "4", "Title": "技术进化模式" },
+        //    url: "/TechEvolveDictionaryTree",
+        //    templateUrl: "/pages/DictionaryTree/DictionaryTreeOpe.html"
+        //})
        .state("PageTab.Page1", {
            url: "/Page1",
            templateUrl: "/pages/Page1.html"
