@@ -69,11 +69,21 @@
 
         GetConflictResolveInfoList();
 
-        $scope.AddConflictResolveInfo = function () {
+        $scope.AddConflictResolveInfo = function (nodeData) {
             var newobj = new $scope.ConflictResolveInfo();
-            newobj.CaseID = $scope.nodeData.ID;
-            newobj.CaseName = $scope.nodeData.Name;
-            $scope.ConflictResolveInfoList.push(newobj);
+            console.log("nodeData", nodeData);
+            newobj.CaseID = nodeData.ID;
+            newobj.CaseName = nodeData.Name;
+            var query = {
+                CaseID: newobj.CaseID,
+                OpeType: "GetFatherID"
+            }
+            requestService.lists("DictionaryBigTrees", query).then(function (data) {
+                newobj.InventivePrincipleID = data.ID;
+                newobj.InventivePrincipleName = data.Name;
+                $scope.ConflictResolveInfoList.push(newobj);
+            });
+
         }
         $scope.Solution = "";
         $scope.CurrentIndex = "";
