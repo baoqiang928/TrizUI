@@ -17,12 +17,26 @@ namespace Triz.DAL
             where = where.And(a => a.FatherID == FatherID);
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
-                var query = TrizDB.tbl_DictionaryTreeInfo.Where(where.Compile()).OrderByDescending(p=>p.SerialNum);
+                var query = TrizDB.tbl_DictionaryTreeInfo.Where(where.Compile()).OrderByDescending(p => p.SerialNum);
 
                 return GetGetBusinessObjectList(query.ToList());
             }
 
         }
+        public DictionaryTreeInfo GetBySeq(string Seq)
+        {
+            Expression<Func<tbl_DictionaryTreeInfo, bool>> where = PredicateExtensionses.True<tbl_DictionaryTreeInfo>();
+            where = where.And(a => a.Name.StartsWith(Seq + " "));
+            using (TrizDBEntities TrizDB = new TrizDBEntities())
+            {
+                var Query = TrizDB.tbl_DictionaryTreeInfo.Where(a => a.Name.StartsWith(Seq + " ")).FirstOrDefault();
+                if (Query == null) return null;
+                return GetBusinessObject(Query);
+            }
+        }
+
+
+
         public List<DictionaryTreeInfo> GetFathers(string ProjectID, string TreeTypeID)
         {
             Expression<Func<tbl_DictionaryTreeInfo, bool>> where = PredicateExtensionses.True<tbl_DictionaryTreeInfo>();

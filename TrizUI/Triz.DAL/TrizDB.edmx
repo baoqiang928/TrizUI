@@ -74,6 +74,18 @@
           <Property Name="Visible" Type="nvarchar" MaxLength="5" />
           <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
+        <EntityType Name="tbl_ConflictMatrixInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectID" Type="int" />
+          <Property Name="ImproveCharacter" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="DeteriorateCharacter" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="ConflictIDs" Type="nvarchar" MaxLength="200" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreateDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="tbl_ConflictResolveInfo">
           <Key>
             <PropertyRef Name="ID" />
@@ -102,9 +114,9 @@
           <Property Name="ProjectID" Type="int" Nullable="false" />
           <Property Name="TreeTypeID" Type="int" Nullable="false" />
           <Property Name="SerialNum" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="1000" Nullable="false" />
           <Property Name="Type" Type="nvarchar" MaxLength="200" />
-          <Property Name="Note" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Note" Type="nvarchar(max)" />
           <Property Name="Remark" Type="nvarchar" MaxLength="1000" />
           <Property Name="FatherID" Type="int" />
           <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
@@ -307,6 +319,7 @@
           <EntitySet Name="tbl_ComponentParamInfo" EntityType="Self.tbl_ComponentParamInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ComponentRelInfo" EntityType="Self.tbl_ComponentRelInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ConflictInfo" EntityType="Self.tbl_ConflictInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_ConflictMatrixInfo" EntityType="Self.tbl_ConflictMatrixInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ConflictResolveInfo" EntityType="Self.tbl_ConflictResolveInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_DictionaryTreeInfo" EntityType="Self.tbl_DictionaryTreeInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_FunctionElementInfo" EntityType="Self.tbl_FunctionElementInfo" Schema="dbo" store:Type="Tables" />
@@ -348,6 +361,7 @@
           <EntitySet Name="tbl_DictionaryTreeInfo" EntityType="TrizDBModel.tbl_DictionaryTreeInfo" />
           <EntitySet Name="tbl_ConflictResolveInfo" EntityType="TrizDBModel.tbl_ConflictResolveInfo" />
           <EntitySet Name="tbl_TechEvolutionInfo" EntityType="TrizDBModel.tbl_TechEvolutionInfo" />
+          <EntitySet Name="tbl_ConflictMatrixInfo" EntityType="TrizDBModel.tbl_ConflictMatrixInfo" />
         </EntityContainer>
         <EntityType Name="tbl_ProjectInfo">
           <Key>
@@ -606,9 +620,9 @@
           <Property Name="ProjectID" Type="Int32" Nullable="false" />
           <Property Name="TreeTypeID" Type="Int32" Nullable="false" />
           <Property Name="SerialNum" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="Type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Note" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="FatherID" Type="Int32" />
           <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
@@ -644,6 +658,18 @@
           <Property Name="Character" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tbl_ConflictMatrixInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="Int32" />
+          <Property Name="ImproveCharacter" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DeteriorateCharacter" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ConflictIDs" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -962,6 +988,19 @@
                 <ScalarProperty Name="Character" ColumnName="Character" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_ConflictMatrixInfo">
+            <EntityTypeMapping TypeName="TrizDBModel.tbl_ConflictMatrixInfo">
+              <MappingFragment StoreEntitySet="tbl_ConflictMatrixInfo">
+                <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ConflictIDs" ColumnName="ConflictIDs" />
+                <ScalarProperty Name="DeteriorateCharacter" ColumnName="DeteriorateCharacter" />
+                <ScalarProperty Name="ImproveCharacter" ColumnName="ImproveCharacter" />
                 <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>

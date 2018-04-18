@@ -232,10 +232,21 @@ namespace Triz.BLL
         }
 
 
-        public List<DictionaryTreeInfo> GetFathersTreeData(string ProjectID, string TreeTypeID)
+        public List<DictionaryTreeInfo> GetFathersTreeData(string ProjectID, string TreeTypeID, string FatherIDs)
         {
-            List<DictionaryTreeInfo> Fathers = GetFathers(ProjectID, TreeTypeID);
-            return Fathers;
+            if (string.IsNullOrWhiteSpace(FatherIDs))
+            {
+                return GetFathers(ProjectID, TreeTypeID);
+            }
+            FatherIDs = FatherIDs.Replace("£¬", ",").Replace(" ", "");
+            List<DictionaryTreeInfo> FatherNodes = new List<DictionaryTreeInfo>();
+            for (int i = 0; i < FatherIDs.Split(',').Length; i++)
+            {
+                DictionaryTreeInfo DictionaryTreeInfo = new DictionaryTreeLogic().GetBySeq(FatherIDs.Split(',')[i]);
+                if (DictionaryTreeInfo == null) continue;
+                FatherNodes.Add(DictionaryTreeInfo);
+            }
+            return FatherNodes;
         }
         public string GetTreeData(string ProjectID, string TreeTypeID)
         {
@@ -296,6 +307,13 @@ namespace Triz.BLL
         {
             return new DictionaryTreeDAL().GetByID(int.Parse(ID));
         }
+
+        public DictionaryTreeInfo GetBySeq(string Seq)
+        {
+            return new DictionaryTreeDAL().GetBySeq(Seq);
+        }
+
+
         public List<DictionaryTreeInfo> Query(string ProjectID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
             return new DictionaryTreeDAL().Query(ProjectID, pageIndex, pageSize, ref totalItems, ref PagesLength);

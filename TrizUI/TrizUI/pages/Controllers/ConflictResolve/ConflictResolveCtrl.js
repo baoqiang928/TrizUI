@@ -14,7 +14,6 @@
             var FatherTechnicalConflictInfo = new $scope.TechnicalConflictInfo();
             FatherTechnicalConflictInfo.ImproveCharacter = $("#ImproveCharacter").val();
             FatherTechnicalConflictInfo.DeteriorateCharacter = $("#DeteriorateCharacter").val();
-            alert(1);
             $scope.$broadcast("AddTechnicalConflictInfo", FatherTechnicalConflictInfo);
         };
 

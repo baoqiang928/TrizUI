@@ -130,14 +130,14 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "/pages/Solution/StandardSolutionOperate.html"
         })
         .state("TechConflictResolveOpe", {
-            params: { "ConflictID": null, "ConflictType": "技术", "TreeTypeID": "1", "ImproveCharacter": "", "DeteriorateCharacter": "" },
-            url: "/ConflictResolveOpe",
-            templateUrl: "/pages/ConflictResolve/ConflictResolveOpe.html"
+            params: { "ConflictID": null, "FatherIDs": null, "ConflictType": "技术", "TreeTypeID": "1", "ImproveCharacter": "", "DeteriorateCharacter": "" },
+            url: "/TechConflictResolveOpe",
+            templateUrl: "/pages/ConflictResolve/TechConflictResolveOpe.html"
         })
         .state("PhyConflictResolveOpe", {
             params: { "ConflictID": null, "ConflictType": "物理", "TreeTypeID": "2", "ImproveCharacter": "", "DeteriorateCharacter": "" },
-            url: "/ConflictResolveOpe",
-            templateUrl: "/pages/ConflictResolve/ConflictResolveOpe.html"
+            url: "/PhyConflictResolveOpe",
+            templateUrl: "/pages/ConflictResolve/PhyConflictResolveOpe.html"
         })
         .state("TechEvolveList", {
             params: { "TreeTypeID": "4" },

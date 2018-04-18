@@ -32,8 +32,6 @@
 
         GetTechnicalConflictInfoList();
         $scope.$on("AddTechnicalConflictInfo", function (event, msg) {
-            alert(2);
-            console.log("msg", msg);
             $scope.TechnicalConflictInfoList.push(msg);
         });
 
@@ -51,7 +49,14 @@
             });
         }
         $scope.Deal = function (ConflictID, ImproveCharacter, DeteriorateCharacter) {
-            $state.go("TechConflictResolveOpe", { ConflictID: ConflictID, ConflictType: "技术", TreeTypeID: "1", ImproveCharacter: GetTextByID(ImproveCharacter), DeteriorateCharacter: GetTextByID(DeteriorateCharacter) });
+            var query = {
+                ImproveCharacter: ImproveCharacter,
+                DeteriorateCharacter: DeteriorateCharacter
+            };
+            requestService.lists("ConflictMatrixs", query).then(function (data) {
+                console.log("SolveIDs", data);
+                $state.go("TechConflictResolveOpe", { ConflictID: ConflictID, FatherIDs: data, ConflictType: "技术", TreeTypeID: "1", ImproveCharacter: GetTextByID(ImproveCharacter), DeteriorateCharacter: GetTextByID(DeteriorateCharacter) });
+            });
         }
         function GetTextByID(id) {
             for (var i = 0; i < ImproveCharacterDictionary.length; i++) {

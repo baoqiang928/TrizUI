@@ -35,9 +35,9 @@ namespace Triz.BLL
         {
            return new ConflictResolveDAL().GetByID(int.Parse(ID));
         }
-        public List<ConflictResolveInfo> Query(string ProjectID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
+        public List<ConflictResolveInfo> Query(string ProjectID,string ConflictID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
-            return new ConflictResolveDAL().Query(ProjectID, pageIndex, pageSize, ref totalItems, ref PagesLength);
+            return new ConflictResolveDAL().Query(ProjectID, ConflictID, pageIndex, pageSize, ref totalItems, ref PagesLength);
         }
     }
 }

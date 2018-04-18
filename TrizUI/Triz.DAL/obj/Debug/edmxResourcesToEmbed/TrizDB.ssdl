@@ -69,6 +69,18 @@
     <Property Name="Visible" Type="nvarchar" MaxLength="5" />
     <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
   </EntityType>
+  <EntityType Name="tbl_ConflictMatrixInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="ImproveCharacter" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="DeteriorateCharacter" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ConflictIDs" Type="nvarchar" MaxLength="200" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="tbl_ConflictResolveInfo">
     <Key>
       <PropertyRef Name="ID" />
@@ -97,9 +109,9 @@
     <Property Name="ProjectID" Type="int" Nullable="false" />
     <Property Name="TreeTypeID" Type="int" Nullable="false" />
     <Property Name="SerialNum" Type="int" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="1000" Nullable="false" />
     <Property Name="Type" Type="nvarchar" MaxLength="200" />
-    <Property Name="Note" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Note" Type="nvarchar(max)" />
     <Property Name="Remark" Type="nvarchar" MaxLength="1000" />
     <Property Name="FatherID" Type="int" />
     <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
@@ -302,6 +314,7 @@
     <EntitySet Name="tbl_ComponentParamInfo" EntityType="Self.tbl_ComponentParamInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_ComponentRelInfo" EntityType="Self.tbl_ComponentRelInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_ConflictInfo" EntityType="Self.tbl_ConflictInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ConflictMatrixInfo" EntityType="Self.tbl_ConflictMatrixInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_ConflictResolveInfo" EntityType="Self.tbl_ConflictResolveInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_DictionaryTreeInfo" EntityType="Self.tbl_DictionaryTreeInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_FunctionElementInfo" EntityType="Self.tbl_FunctionElementInfo" Schema="dbo" store:Type="Tables" />

@@ -18,11 +18,11 @@ namespace MvcApplication1.Controllers
         }
 
         // GET api/ConflictResolves
-        public object Get([FromUri]string ProjectID, int currentPage, int itemsPerPage)
+        public object Get([FromUri]string ProjectID,string ConflictID, int currentPage, int itemsPerPage)
         {
             int TotalItems = 0;
             int PagesLength = 0;
-            List<ConflictResolveInfo> ConflictResolveInfoList = new ConflictResolveLogic().Query(ProjectID, currentPage, itemsPerPage, ref TotalItems,ref PagesLength);
+            List<ConflictResolveInfo> ConflictResolveInfoList = new ConflictResolveLogic().Query(ProjectID, ConflictID, currentPage, itemsPerPage, ref TotalItems,ref PagesLength);
             return new
             {
                 TotalItems = TotalItems,

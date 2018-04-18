@@ -317,5 +317,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ConflictMatrixInfo">
+      <EntityTypeMapping TypeName="TrizDBModel.tbl_ConflictMatrixInfo">
+        <MappingFragment StoreEntitySet="tbl_ConflictMatrixInfo">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="ConflictIDs" ColumnName="ConflictIDs" />
+          <ScalarProperty Name="DeteriorateCharacter" ColumnName="DeteriorateCharacter" />
+          <ScalarProperty Name="ImproveCharacter" ColumnName="ImproveCharacter" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

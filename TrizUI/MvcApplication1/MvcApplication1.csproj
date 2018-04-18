@@ -157,6 +157,7 @@
     <Compile Include="Controllers\ComponentParamsController.cs" />
     <Compile Include="Controllers\ComponentRelsController.cs" />
     <Compile Include="Controllers\ComponentRelSectionController.cs" />
+    <Compile Include="Controllers\ConflictMatrixsController.cs" />
     <Compile Include="Controllers\ConflictResolvesController.cs" />
     <Compile Include="Controllers\ConflictsController.cs" />
     <Compile Include="Controllers\Default1Controller.cs" />

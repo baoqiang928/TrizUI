@@ -17,9 +17,10 @@ namespace MvcApplication1.Controllers
             return new DictionaryTreeLogic().GetByID(id);
         }
 
-        public object Get([FromUri]string ProjectID, string TreeTypeID, string OpeType)
+        public object Get([FromUri]string ProjectID, string TreeTypeID, string FatherIDs, string OpeType)
         {
-            List<DictionaryTreeInfo> fathers = new DictionaryTreeLogic().GetFathersTreeData(ProjectID, TreeTypeID);
+            if (!string.IsNullOrWhiteSpace(FatherIDs)) FatherIDs = FatherIDs.Replace("\"", "");
+            List<DictionaryTreeInfo> fathers = new DictionaryTreeLogic().GetFathersTreeData(ProjectID, TreeTypeID, FatherIDs);
             List<TreeNodeInfo> nodes = new List<TreeNodeInfo>();
             foreach (DictionaryTreeInfo TreeInfo in fathers)
             {
@@ -146,7 +147,7 @@ namespace MvcApplication1.Controllers
         // POST api/DictionaryTrees
         public object Post([FromBody]QueryDataInfo QueryDataInfo)
         {
-            if (QueryDataInfo.NodeID == null) return new object();
+            if ((QueryDataInfo.NodeID == null) || (QueryDataInfo.NodeID == "")) return new object();
             return new DictionaryTreeLogic().GetBigTreeDataForZTree(int.Parse(QueryDataInfo.NodeID));
         }
 

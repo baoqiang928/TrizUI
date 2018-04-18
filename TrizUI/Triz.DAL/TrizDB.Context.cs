@@ -72,6 +72,8 @@ public partial class TrizDBEntities : DbContext
 
     public DbSet<tbl_TechEvolutionInfo> tbl_TechEvolutionInfo { get; set; }
 
+    public DbSet<tbl_ConflictMatrixInfo> tbl_ConflictMatrixInfo { get; set; }
+
 }
 
 }

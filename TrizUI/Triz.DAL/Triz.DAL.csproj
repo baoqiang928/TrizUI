@@ -52,6 +52,7 @@
     <Compile Include="ComponentParamDAL.cs" />
     <Compile Include="ComponentRelDAL.cs" />
     <Compile Include="ConflictDAL.cs" />
+    <Compile Include="ConflictMatrixDAL.cs" />
     <Compile Include="ConflictResolveDAL.cs" />
     <Compile Include="DictionaryTreeDAL.cs" />
     <Compile Include="FunctionElementDAL.cs" />
@@ -78,6 +79,9 @@
       <DependentUpon>TrizDB.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_ConflictInfo.cs">
+      <DependentUpon>TrizDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_ConflictMatrixInfo.cs">
       <DependentUpon>TrizDB.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_ConflictResolveInfo.cs">

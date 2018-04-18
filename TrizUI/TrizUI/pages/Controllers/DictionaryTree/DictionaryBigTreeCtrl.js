@@ -1,17 +1,42 @@
 ﻿angular.module('myApp')
     .controller('DictionaryBigTreeCtrl', function ($scope, $rootScope, $location, requestService, $state, locals, $stateParams) {
-        $scope.CurrentProjectID = $stateParams.CurrentProjectID;
-        if ($stateParams.CurrentProjectID == "")
-            $scope.CurrentProjectID = locals.get("ProjectID");
+        $scope.ProjectID = "";
+        console.log("bigtree $stateParams", $stateParams);
+        console.log("$scope.parent", $scope.$parent);
+        if (typeof $stateParams.CurrentProjectID == "undefined") {
+            $scope.ProjectID = locals.get("ProjectID");
+        } else {
+            $scope.ProjectID = $stateParams.CurrentProjectID;
+        }
+
+        $scope.FatherIDs = "";
+        if ((typeof $scope.$parent == "undefined") || (typeof $scope.$parent.FatherIDs == "undefined")) {
+            $scope.FatherIDs = "";
+        } else {
+            $scope.FatherIDs = $scope.$parent.FatherIDs;
+        }
+
+        $scope.TreeTypeID = "";
+        if (typeof $stateParams.TreeTypeID == "undefined") {
+            $scope.TreeTypeID = $scope.$parent.TreeTypeID;
+            console.log("$scope.parent.TreeTypeID", $scope.$parent.TreeTypeID);
+        } else {
+            $scope.TreeTypeID = $stateParams.TreeTypeID;
+        }
+
+
+
 
         $scope.PageTitle = $stateParams.Title;
 
         var iniTree = function () {
             $scope.data = {
-                ProjectID: $scope.CurrentProjectID,
-                TreeTypeID: $stateParams.TreeTypeID,
+                ProjectID: $scope.ProjectID,
+                TreeTypeID: $scope.TreeTypeID,
+                FatherIDs: $scope.FatherIDs,
                 OpeType: "GetFathers"
             };
+            console.log("$scope.data", $scope.data);
             requestService.lists("DictionaryBigTreesView", $scope.data).then(function (data) {
                 var zNodes = data;
                 console.log("zNodes", zNodes);
@@ -192,11 +217,11 @@
                 }
                 //展开这个节点，否则会重复增加两个。
                 var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-                    zTree.expandNode($scope.CurrentNode, true, null, null, true);
+                zTree.expandNode($scope.CurrentNode, true, null, null, true);
 
                 requestService.add("DictionaryTrees", NodeInfo).then(function (data) {
                     var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-                    zTree.addNodes($scope.CurrentNode, { id: data, pId:pId, name: $scope.Name });
+                    zTree.addNodes($scope.CurrentNode, { id: data, pId: pId, name: $scope.Name });
                     alert("保存成功。");
                     $('#modal-table').modal('hide');
                 });

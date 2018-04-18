@@ -1,19 +1,19 @@
 ﻿<div class="page-content" ng-controller="TechConflictResolveOpeCtrl">
     <div class="page-header">
-        <h1>原理与案例
+        <h1>冲突解决
         </h1>
     </div>
     <!-- /.page-header -->
 
-<div class="row">
+    <div class="row">
         <div class="col-xs-12">
-            <div class="col-sm-12" ng-controller="TechnicalConflictCtrl">
+            <div class="col-sm-12">
                 <div class="row">
                     <div class="widget-box">
                         <div class="widget-header widget-header-flat">
                             <h4 class="smaller">技术冲突表</h4>
                             <span class="widget-toolbar">
-                                <a href="" ng-click="SaveTechnicalConflictInfo()">
+                                <a href="" ng-click="SaveConflictResolveInfo()">
                                     <i class="icon-save"></i>
                                 </a>
                             </span>
@@ -22,48 +22,34 @@
                         <div class="widget-body">
                             <div class="widget-main">
                                 <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                                    <tr>
+                                        <td>改进的技术参数:{{ImproveCharacter}}</td>
+                                        <td>恶化的技术参数:{{DeteriorateCharacter}}</td>
+                                    </tr>
+                                </table>
+                                <table id="sample-table-2" class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th>提高特性</th>
-                                            <th>恶化特性</th>
-                                            <th>
-                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                    <a class="blue" style="cursor: pointer" ng-click="AddTechnicalConflictInfo()">
-                                                        <i class="icon-plus bigger-130"></i>
-                                                    </a>
-                                                </div>
-                                            </th>
+                                            <th width="15%">发明原理</th>
+                                            <th width="15%">案例代码</th>
+                                            <th width="45%">解决思路</th>
+                                            <th width="5%"></th>
                                         </tr>
                                     </thead>
-
                                     <tbody>
-                                        <tr ng-repeat="TechnicalConflictInfo in TechnicalConflictInfoList|orderBy:'SerialNum'">
+                                        <tr ng-repeat="ConflictResolveInfo in ConflictResolveInfoList|orderBy:'SerialNum'">
+                                            <td>{{ConflictResolveInfo.InventivePrincipleName}}</td>
+                                            <td>{{ConflictResolveInfo.CaseName}}</td>
                                             <td>
-                                                <select class="form-control" ng-model="TechnicalConflictInfo.ImproveCharacter" required>
-                                                    <option value="">请选择</option>
-                                                    <option ng-repeat="item in ImproveCharacterDictionary track by $index" value="{{item.id}}" ng-selected="TechnicalConflictInfo.ImproveCharacter==item.id">{{item.name}}
-                                                    </option>
-                                                </select>
-                                                <!--<select ng-init="TechnicalConflictInfo.ImproveCharacter=ImproveCharacterDictionary[TechnicalConflictInfo.ImproveCharacter]" ng-model="TechnicalConflictInfo.ImproveCharacter" ng-options="x.id as x.name for x in ImproveCharacterDictionary"></select>-->
-                                                <td>
-                                                    <select class="form-control" ng-model="TechnicalConflictInfo.DeteriorateCharacter" required>
-                                                        <option value="">请选择</option>
-                                                        <option ng-repeat="item in ImproveCharacterDictionary track by $index" value="{{item.id}}" ng-selected="TechnicalConflictInfo.DeteriorateCharacter==item.id">{{item.name}}
-                                                    </option>
-                                                    </select>
-                                                </td>
+                                                <p ng-bind-html="ConflictResolveInfo.Remark | to_trusted"></p>
+                                            </td>
                                             <td>
                                                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                    <a class="blue" style="cursor: pointer" ng-click="AddTechnicalConflictInfo()">
-                                                        <i class="icon-plus bigger-130"></i>
+                                                    <a class="red" style="cursor: pointer" ng-click="EditConflictResolveInfo(ConflictResolveInfo.Remark,$index)">
+                                                        <i class="icon-edit bigger-130"></i>
                                                     </a>
-
-                                                    <a class="red" style="cursor: pointer" ng-click="DeleteTechnicalConflictInfo($index)">
+                                                    <a class="red" style="cursor: pointer" ng-click="DeleteConflictResolveInfo($index)">
                                                         <i class="icon-trash bigger-130"></i>
-                                                    </a>
-
-                                                    <a class="red" style="cursor: pointer" ng-click="Deal(TechnicalConflictInfo.ID)">
-                                                        <i class="icon-key bigger-130"></i>
                                                     </a>
                                                 </div>
                                             </td>
@@ -78,40 +64,12 @@
 
             </div>
 
-            
+
         </div>
     </div>
     <!-- /row -->
-    <!-- Nested node template -->
-    <script type="text/ng-template" id="nodes_renderer.html">
-        <div ui-tree-handle class="tree-node tree-node-content">
-            <a class="btn btn-success btn-xs" ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)">
-                <span class="glyphicon"
-                      ng-class="{
-          'glyphicon-chevron-right': collapsed,
-          'glyphicon-chevron-down': !collapsed
-        }"></span>
-            </a>
-            {{node.title}}
-            <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="DeleteSubItem(this)" style="margin-right: 3px;">
-                <span class="glyphicon glyphicon-remove"></span>
-            </a>
-            <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="UpdateSubItem(this)" style="margin-right: 3px;">
-                <span class="glyphicon glyphicon-edit"></span>
-            </a>
-            <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 3px;">
-                <span class="glyphicon glyphicon-plus"></span>
-            </a>
-        </div>
-        <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
-            <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
-            </li>
-        </ol>
-    </script>
-    <standard-examples></standard-examples>
-    <script type='text/ng-template' id='standardExamples.html'>
-<div class="row">
-        <div class="col-sm-4">
+    <div class="row" >
+        <div class="col-sm-5">
             <div class="widget-box">
                 <div class="widget-header widget-header-flat">
                     <h4 class="smaller">分类树</h4>
@@ -122,15 +80,11 @@
                     </span>
                 </div>
 
-                <div class="widget-body">
+                <div class="widget-body" >
                     <div class="widget-main">
                         <div class="row">
-                            <div class="col-xs-12">
-                                <div ui-tree id="tree-root">
-                                    <ol ui-tree-nodes ng-model="TreeData">
-                                        <li ng-repeat="node in TreeData" ui-tree-node ng-include="'nodes_renderer.html'"></li>
-                                    </ol>
-                                </div>
+                            <div class="col-xs-12" style="height:1000px;width:100%;overflow:auto" ng-controller="DictionaryBigTreeCtrl">
+                                <ul id="treeDemo" class="ztree"></ul>
                             </div>
                         </div>
 
@@ -139,15 +93,15 @@
             </div>
         </div>
 
-        <div class="col-sm-8">
+        <div class="col-sm-6">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="widget-box">
                         <div class="widget-header widget-header-flat">
-                            <h4 class="smaller">标准解分类信息</h4>
+                            <h4 class="smaller">详细信息</h4>
                             <span class="widget-toolbar">
-                                <a href="" ng-click="SaveExampleInfo()">
-                                    <i class="icon-save"></i>
+                                <a href="" ng-click="AddConflictResolveInfo()">
+                                    <i class="icon-heart-empty"></i>
                                 </a>
                             </span>
                         </div>
@@ -155,52 +109,39 @@
                         <div class="widget-body">
                             <div class="widget-main">
                                 <form class="form-horizontal" id="validation-form" role="form">
-                                    <div class="form-group">
-                                        <label class="col-sm-1 control-label no-padding-right" for="form-field-1">编号</label>
 
-                                        <div class="col-sm-11">
-                                            <div class="clearfix">
-                                                <input type="text" id="Code" name="Code" class="col-xs-10 col-sm-12" data-ng-model="nodeData.ID" />
-                                            </div>
-                                        </div>
-                                    </div>                                        
-                    
-                                    <div class="form-group">
-                                        <label class="col-sm-1 control-label no-padding-right" for="form-field-1">名称</label>
 
-                                        <div class="col-sm-11">
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
                                             <div class="clearfix">
-                                                <input type="text" id="Name" name="Name" class="col-xs-10 col-sm-5" data-ng-model="nodeData.Name" />
+                                                {{nodeData.Name}}
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-sm-1 control-label no-padding-right" for="form-field-1">案例描述</label>
-
-                                        <div class="col-sm-11">
+                                        <div class="col-sm-12">
                                             <div class="clearfix">
-                                             <textarea class="form-control limited" data-ng-model="nodeData.Note" ></textarea>
+                                                <p ng-bind-html="nodeData.Note | to_trusted"></p>
                                             </div>
                                         </div>
-                                    </div>                                        
+                                    </div>
                                     <div class="form-group">
-                                        <label class="col-sm-1 control-label no-padding-right" for="form-field-1">备注</label>
-                                        <div class="col-sm-11">
+                                        <div class="col-sm-12">
                                             <div class="clearfix">
-                                             <textarea class="form-control limited" data-ng-model="nodeData.Remark" ></textarea>
+                                                {{nodeData.Remark}}
                                             </div>
                                         </div>
-                                    </div>                                     
+                                    </div>
                                     <div class="clearfix form-actions">
                                         <div class="col-md-offset-3 col-md-9">
-                                            <button class="btn btn-info" type="button" ng-click="SaveExampleInfo()">
-                                                <i class="icon-ok bigger-110"></i>
-                                                保存
+                                            <button class="btn btn-info" type="button" ng-click="AddConflictResolveInfo()">
+                                                <i class="icon-heart-empty bigger-110"></i>
+                                                选择
                                             </button>
                                         </div>
                                     </div>
-                                       
+
                                 </form>
                             </div>
                         </div>
@@ -210,11 +151,10 @@
 
         </div>
     </div>
-    </script>
 
     <!--弹出添加节点窗口-->
     <div class="row">
-        <div id="modal-table" class="modal fade" tabindex="-1">
+        <div id="modal-table" class="modal fade col-xs-12" tabindex="-1" >
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header no-padding">
@@ -222,7 +162,7 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                                 <span class="white">&times;</span>
                             </button>
-                            维护标准解
+                            解决思路
                         </div>
                     </div>
 
@@ -232,18 +172,12 @@
                                 <div class="col-xs-12">
                                     <div class="widget-box">
                                         <div class="widget-header widget-header-flat">
-                                            <h4 class="smaller">标准解</h4>
+                                            <h4 class="smaller">解决思路</h4>
                                         </div>
 
                                         <div class="widget-body">
                                             <div class="widget-main">
-                                                <div>
-                                                    <div>
-                                                        <label for="form-field-select-1">标准解名称</label>
-                                                        <input type="text" id="ExampleName" name="ExampleName" class="form-control" data-ng-model="ExampleName" />
-                                                    </div>
-                                                </div>
-
+                                                <div id="idTest" style="margin-bottom: 1.25rem" class="ueditor" config="_simpleConfig" ng-model="Solution"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -254,7 +188,7 @@
                     </div>
 
                     <div class="modal-footer no-margin-top">
-                        <button class="btn btn-sm pull-left" ng-click="SaveExampleName()">
+                        <button class="btn btn-sm pull-left" ng-click="SaveToList()">
                             <i class="icon-plus"></i>
                             保存
 

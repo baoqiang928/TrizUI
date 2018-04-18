@@ -150,14 +150,16 @@ namespace Triz.DAL
             return new ConflictResolveInfo();
         }
 
-        public List<ConflictResolveInfo> Query(string ProjectID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
+        public List<ConflictResolveInfo> Query(string ProjectID, string ConflictID, int pageIndex, int pageSize, ref int totalItems, ref int PagesLength)
         {
             int startRow = (pageIndex - 1) * pageSize;
             Expression<Func<tbl_ConflictResolveInfo, bool>> where = PredicateExtensionses.True<tbl_ConflictResolveInfo>();
-            
-                    if (!string.IsNullOrWhiteSpace(ProjectID))
-                        where = where.And(a => a.ProjectID==int.Parse(ProjectID));
-                
+
+            if (!string.IsNullOrWhiteSpace(ProjectID))
+                where = where.And(a => a.ProjectID == int.Parse(ProjectID));
+            if (!string.IsNullOrWhiteSpace(ConflictID))
+                where = where.And(a => a.ConflictID == int.Parse(ConflictID));
+
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
                 var query = TrizDB.tbl_ConflictResolveInfo.Where(where.Compile());
@@ -171,86 +173,86 @@ namespace Triz.DAL
         public ConflictResolveInfo GetBusinessObject(tbl_ConflictResolveInfo ConflictResolveInfoEntity)
         {
             ConflictResolveInfo ConflictResolveInfo = new ConflictResolveInfo();
-            
-                                     ConflictResolveInfo.ID = ConflictResolveInfoEntity.ID;
-                    
-                                     ConflictResolveInfo.ProjectID = ConflictResolveInfoEntity.ProjectID;
-                    
-                                     ConflictResolveInfo.SerialNum = ConflictResolveInfoEntity.SerialNum;
-                    
-                                     ConflictResolveInfo.ConflictType = ConflictResolveInfoEntity.ConflictType;
-                    
-                                     ConflictResolveInfo.ConflictID = ConflictResolveInfoEntity.ConflictID;
-                    
-                                     ConflictResolveInfo.ForwardCharacter = ConflictResolveInfoEntity.ForwardCharacter;
-                    
-                                     ConflictResolveInfo.BackwardCharacter = ConflictResolveInfoEntity.BackwardCharacter;
-                    
-                                     ConflictResolveInfo.DevidePrincipleID = ConflictResolveInfoEntity.DevidePrincipleID;
-                    
-                                     ConflictResolveInfo.DevidePrincipleName = ConflictResolveInfoEntity.DevidePrincipleName;
-                    
-                                     ConflictResolveInfo.InventivePrincipleID = ConflictResolveInfoEntity.InventivePrincipleID;
-                    
-                                     ConflictResolveInfo.InventivePrincipleName = ConflictResolveInfoEntity.InventivePrincipleName;
-                    
-                                     ConflictResolveInfo.CaseID = ConflictResolveInfoEntity.CaseID;
-                    
-                                     ConflictResolveInfo.CaseName = ConflictResolveInfoEntity.CaseName;
-                    
-                                     ConflictResolveInfo.Remark = ConflictResolveInfoEntity.Remark;
-                    
-                                     ConflictResolveInfo.CreateDateTime = ConflictResolveInfoEntity.CreateDateTime;
-                    
+
+            ConflictResolveInfo.ID = ConflictResolveInfoEntity.ID;
+
+            ConflictResolveInfo.ProjectID = ConflictResolveInfoEntity.ProjectID;
+
+            ConflictResolveInfo.SerialNum = ConflictResolveInfoEntity.SerialNum;
+
+            ConflictResolveInfo.ConflictType = ConflictResolveInfoEntity.ConflictType;
+
+            ConflictResolveInfo.ConflictID = ConflictResolveInfoEntity.ConflictID;
+
+            ConflictResolveInfo.ForwardCharacter = ConflictResolveInfoEntity.ForwardCharacter;
+
+            ConflictResolveInfo.BackwardCharacter = ConflictResolveInfoEntity.BackwardCharacter;
+
+            ConflictResolveInfo.DevidePrincipleID = ConflictResolveInfoEntity.DevidePrincipleID;
+
+            ConflictResolveInfo.DevidePrincipleName = ConflictResolveInfoEntity.DevidePrincipleName;
+
+            ConflictResolveInfo.InventivePrincipleID = ConflictResolveInfoEntity.InventivePrincipleID;
+
+            ConflictResolveInfo.InventivePrincipleName = ConflictResolveInfoEntity.InventivePrincipleName;
+
+            ConflictResolveInfo.CaseID = ConflictResolveInfoEntity.CaseID;
+
+            ConflictResolveInfo.CaseName = ConflictResolveInfoEntity.CaseName;
+
+            ConflictResolveInfo.Remark = ConflictResolveInfoEntity.Remark;
+
+            ConflictResolveInfo.CreateDateTime = ConflictResolveInfoEntity.CreateDateTime;
+
 
             return ConflictResolveInfo;
         }
 
         public void SetDataEntity(tbl_ConflictResolveInfo ConflictResolveInfoEntity, ConflictResolveInfo ConflictResolveInfo)
         {
-             
-                                        if (ConflictResolveInfo.ID != null)
-                                            ConflictResolveInfoEntity.ID = ConflictResolveInfo.ID ?? 0;
-                    
-                                        if (ConflictResolveInfo.ProjectID != null)
-                                            ConflictResolveInfoEntity.ProjectID = ConflictResolveInfo.ProjectID;
-                    
-                                        if (ConflictResolveInfo.SerialNum != null)
-                                            ConflictResolveInfoEntity.SerialNum = ConflictResolveInfo.SerialNum;
-                    
-                                        if (ConflictResolveInfo.ConflictType != null)
-                                            ConflictResolveInfoEntity.ConflictType = ConflictResolveInfo.ConflictType;
-                    
-                                        if (ConflictResolveInfo.ConflictID != null)
-                                            ConflictResolveInfoEntity.ConflictID = ConflictResolveInfo.ConflictID;
-                    
-                                        if (ConflictResolveInfo.ForwardCharacter != null)
-                                            ConflictResolveInfoEntity.ForwardCharacter = ConflictResolveInfo.ForwardCharacter;
-                    
-                                        if (ConflictResolveInfo.BackwardCharacter != null)
-                                            ConflictResolveInfoEntity.BackwardCharacter = ConflictResolveInfo.BackwardCharacter;
-                    
-                                        if (ConflictResolveInfo.DevidePrincipleID != null)
-                                            ConflictResolveInfoEntity.DevidePrincipleID = ConflictResolveInfo.DevidePrincipleID;
-                    
-                                        if (ConflictResolveInfo.DevidePrincipleName != null)
-                                            ConflictResolveInfoEntity.DevidePrincipleName = ConflictResolveInfo.DevidePrincipleName;
-                    
-                                        if (ConflictResolveInfo.InventivePrincipleID != null)
-                                            ConflictResolveInfoEntity.InventivePrincipleID = ConflictResolveInfo.InventivePrincipleID;
-                    
-                                        if (ConflictResolveInfo.InventivePrincipleName != null)
-                                            ConflictResolveInfoEntity.InventivePrincipleName = ConflictResolveInfo.InventivePrincipleName;
-                    
-                                        if (ConflictResolveInfo.CaseID != null)
-                                            ConflictResolveInfoEntity.CaseID = ConflictResolveInfo.CaseID;
-                    
-                                        if (ConflictResolveInfo.CaseName != null)
-                                            ConflictResolveInfoEntity.CaseName = ConflictResolveInfo.CaseName;
-                    
-                                        if (ConflictResolveInfo.Remark != null)
-                                            ConflictResolveInfoEntity.Remark = ConflictResolveInfo.Remark;
-                    
+
+            if (ConflictResolveInfo.ID != null)
+                ConflictResolveInfoEntity.ID = ConflictResolveInfo.ID ?? 0;
+
+            if (ConflictResolveInfo.ProjectID != null)
+                ConflictResolveInfoEntity.ProjectID = ConflictResolveInfo.ProjectID;
+
+            if (ConflictResolveInfo.SerialNum != null)
+                ConflictResolveInfoEntity.SerialNum = ConflictResolveInfo.SerialNum;
+
+            if (ConflictResolveInfo.ConflictType != null)
+                ConflictResolveInfoEntity.ConflictType = ConflictResolveInfo.ConflictType;
+
+            if (ConflictResolveInfo.ConflictID != null)
+                ConflictResolveInfoEntity.ConflictID = ConflictResolveInfo.ConflictID;
+
+            if (ConflictResolveInfo.ForwardCharacter != null)
+                ConflictResolveInfoEntity.ForwardCharacter = ConflictResolveInfo.ForwardCharacter;
+
+            if (ConflictResolveInfo.BackwardCharacter != null)
+                ConflictResolveInfoEntity.BackwardCharacter = ConflictResolveInfo.BackwardCharacter;
+
+            if (ConflictResolveInfo.DevidePrincipleID != null)
+                ConflictResolveInfoEntity.DevidePrincipleID = ConflictResolveInfo.DevidePrincipleID;
+
+            if (ConflictResolveInfo.DevidePrincipleName != null)
+                ConflictResolveInfoEntity.DevidePrincipleName = ConflictResolveInfo.DevidePrincipleName;
+
+            if (ConflictResolveInfo.InventivePrincipleID != null)
+                ConflictResolveInfoEntity.InventivePrincipleID = ConflictResolveInfo.InventivePrincipleID;
+
+            if (ConflictResolveInfo.InventivePrincipleName != null)
+                ConflictResolveInfoEntity.InventivePrincipleName = ConflictResolveInfo.InventivePrincipleName;
+
+            if (ConflictResolveInfo.CaseID != null)
+                ConflictResolveInfoEntity.CaseID = ConflictResolveInfo.CaseID;
+
+            if (ConflictResolveInfo.CaseName != null)
+                ConflictResolveInfoEntity.CaseName = ConflictResolveInfo.CaseName;
+
+            if (ConflictResolveInfo.Remark != null)
+                ConflictResolveInfoEntity.Remark = ConflictResolveInfo.Remark;
+
         }
 
         public List<ConflictResolveInfo> GetGetBusinessObjectList(List<tbl_ConflictResolveInfo> ConflictResolveInfoEntityList)

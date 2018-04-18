@@ -44,6 +44,7 @@
     <Compile Include="ComponentParamLogic.cs" />
     <Compile Include="ComponentRelLogic.cs" />
     <Compile Include="ConflictLogic.cs" />
+    <Compile Include="ConflictMatrixLogic.cs" />
     <Compile Include="ConflictResolveLogic.cs" />
     <Compile Include="DictionaryTreeLogic.cs" />
     <Compile Include="FunctionElementLogic.cs" />
