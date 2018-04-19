@@ -92,18 +92,19 @@
             }
             zTree.hideNodes(nodes);
         }
+        //获得所有已经勾选。
         $scope.aaa = function () {
-            var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-            //nodes = zTree.getSelectedNodes();
-            console.log("nodes", nodes);
-            if (nodes.length == 0) {
-                alert("请至少选择一个节点");
-                return;
+            var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+			nodes = zTree.getCheckedNodes(true),
+			v = "";
+            for (var i = 0, l = nodes.length; i < l; i++) {
+                v += nodes[i].id + ",";
+                //v += nodes[i].name + ",";
             }
-            zTree.hideNodes(nodes);
-            alert(1);
+            alert(v);
 
         };
+
         function filter(treeId, parentNode, childNodes) {
             if (!childNodes) return null;
             var zTree = $.fn.zTree.getZTreeObj("treeDemo");
@@ -116,6 +117,8 @@
                 {
                     zTree.hideNode(childNodes[i]);
                 }
+                zTree.checkNode(childNodes[i], true, true);
+                zTree.checkNode(parentNode, true, true);
             }
             return childNodes;
         }
