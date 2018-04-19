@@ -176,6 +176,7 @@
     <Content Include="blank.html" />
     <Content Include="buttons.html" />
     <Content Include="calendar.html" />
+    <Content Include="Controllers\TechEvolve\DictionaryBigTreeCheckboxCtrl.js" />
     <Content Include="Doc\3.png" />
     <Content Include="Doc\tasks.txt" />
     <Content Include="Doc\微信图片_20171010151612.png" />
