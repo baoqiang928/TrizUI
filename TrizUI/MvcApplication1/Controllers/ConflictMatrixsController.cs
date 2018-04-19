@@ -19,7 +19,13 @@ namespace MvcApplication1.Controllers
         public object Get([FromUri]string ImproveCharacter, string DeteriorateCharacter)
         {
             List<ConflictMatrixInfo> ConflictMatrixInfoList = new ConflictMatrixLogic().Query(ImproveCharacter, DeteriorateCharacter);
-            if (ConflictMatrixInfoList.Count > 0) return ConflictMatrixInfoList[0].ConflictIDs;
+            if (ConflictMatrixInfoList.Count > 0)
+            {
+                return new
+                {
+                    Results = ConflictMatrixInfoList[0].ConflictIDs
+                };
+            }
             return new object();
         }
         // GET api/ConflictMatrixs

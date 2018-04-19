@@ -1596,6 +1596,9 @@
     <Content Include="pages\zTree_v3\demo\en\asyncData\getNodesForBigData.php" />
     <Content Include="pages\zTree_v3\README.md" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Doc\软件问题20180419.docx" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

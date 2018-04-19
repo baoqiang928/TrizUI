@@ -14,7 +14,20 @@
             var FatherTechnicalConflictInfo = new $scope.TechnicalConflictInfo();
             FatherTechnicalConflictInfo.ImproveCharacter = $("#ImproveCharacter").val();
             FatherTechnicalConflictInfo.DeteriorateCharacter = $("#DeteriorateCharacter").val();
-            $scope.$broadcast("AddTechnicalConflictInfo", FatherTechnicalConflictInfo);
+
+            //获得冲突矩阵结果 如果是空或者减号，或者加号，则提示。
+            var query = {
+                ImproveCharacter: FatherTechnicalConflictInfo.ImproveCharacter,
+                DeteriorateCharacter: FatherTechnicalConflictInfo.DeteriorateCharacter
+            };
+            requestService.lists("ConflictMatrixs", query).then(function (data) {
+                if ((data.Results == "") || (data.Results == "+") || (data.Results == "-")) {
+                    alert('不存在对应解。请重新选择。');
+                    return;
+                }
+
+                $scope.$broadcast("AddTechnicalConflictInfo", FatherTechnicalConflictInfo);
+            });
         };
 
 

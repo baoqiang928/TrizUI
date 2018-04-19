@@ -54,8 +54,7 @@
                 DeteriorateCharacter: DeteriorateCharacter
             };
             requestService.lists("ConflictMatrixs", query).then(function (data) {
-                console.log("SolveIDs", data);
-                $state.go("TechConflictResolveOpe", { ConflictID: ConflictID, FatherIDs: data, ConflictType: "技术", TreeTypeID: "1", ImproveCharacter: GetTextByID(ImproveCharacter), DeteriorateCharacter: GetTextByID(DeteriorateCharacter) });
+                $state.go("TechConflictResolveOpe", { ConflictID: ConflictID, FatherIDs: data.Results, ConflictType: "技术", TreeTypeID: "1", ImproveCharacter: GetTextByID(ImproveCharacter), DeteriorateCharacter: GetTextByID(DeteriorateCharacter) });
             });
         }
         function GetTextByID(id) {
