@@ -32,6 +32,8 @@ public partial class tbl_TechEvolutionInfo
 
     public System.DateTime CreateDateTime { get; set; }
 
+    public string PrincipleIDs { get; set; }
+
 }
 
 }

@@ -1,6 +1,8 @@
 ﻿angular.module('myApp')
     .controller('DictionaryBigTreeCheckboxCtrl', function ($scope, $rootScope, $location, requestService, $state, locals, $stateParams) {
         $scope.BigTreeProjectID = "0";
+        $scope.TechEvolveID = $stateParams.TechEvolveID;
+        $scope.PrincipleIDs = $stateParams.PrincipleIDs;
         if (typeof $stateParams.BigTreeProjectID != "undefined") {
             $scope.BigTreeProjectID = $stateParams.BigTreeProjectID;
         }
@@ -19,7 +21,6 @@
         $scope.TreeTypeID = "";
         if (typeof $stateParams.TreeTypeID == "undefined") {
             $scope.TreeTypeID = $scope.$parent.TreeTypeID;
-            console.log("$scope.parent.TreeTypeID", $scope.$parent.TreeTypeID);
         } else {
             $scope.TreeTypeID = $stateParams.TreeTypeID;
         }
@@ -33,10 +34,8 @@
                 FatherIDs: $scope.FatherIDs,
                 OpeType: "GetFathers"
             };
-            console.log("$scope.data", $scope.data);
             requestService.lists("DictionaryBigTreesView", $scope.data).then(function (data) {
                 var zNodes = data;
-                console.log("zNodes", zNodes);
                 var setting = {
                     async: {
                         enable: true,
@@ -56,8 +55,8 @@
                     },
                     view: {
                         expandSpeed: "",
-                        addHoverDom: addHoverDom,
-                        removeHoverDom: removeHoverDom,
+                        //addHoverDom: addHoverDom,
+                        //removeHoverDom: removeHoverDom,
                         selectedMulti: false
                     },
                     edit: {
@@ -93,7 +92,7 @@
             zTree.hideNodes(nodes);
         }
         //获得所有已经勾选。
-        $scope.aaa = function () {
+        function GetCheckIDs () {
             var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
 			nodes = zTree.getCheckedNodes(true),
 			v = "";
@@ -101,13 +100,35 @@
                 v += nodes[i].id + ",";
                 //v += nodes[i].name + ",";
             }
-            alert(v);
+            return v;
+        };
 
+        $scope.SaveChecked = function () {
+            var query={};
+            query.ID =  $scope.TechEvolveID;
+            query.PrincipleIDs = GetCheckIDs();
+            query.ProjectID = locals.get("ProjectID");
+            requestService.update("TechEvolutions", query).then(function (data) {
+                alert('保存成功。');
+            });
         };
 
         function filter(treeId, parentNode, childNodes) {
+            console.log("parentNode222", parentNode);
+
             if (!childNodes) return null;
             var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+            //勾选父节点
+            //console.log("parentNode1111", parentNode);
+            console.log("childNodes11112222222222", childNodes);
+            if (typeof parentNode != "undefined") {
+                console.log("parentNode1111", parentNode);
+                if (("," + $scope.PrincipleIDs + ",").indexOf("," + parentNode.id + ",") >= 0) {
+                    console.log("1111", 111111);
+                    zTree.checkNode(parentNode, true, true);
+                }
+            }
+            //勾选子节点
             for (var i = 0, l = childNodes.length; i < l; i++) {
                 //定理开头可以，非数字开头隐藏
                 if (childNodes[i].name.length <= 3) {
@@ -117,8 +138,11 @@
                 {
                     zTree.hideNode(childNodes[i]);
                 }
-                zTree.checkNode(childNodes[i], true, true);
-                zTree.checkNode(parentNode, true, true);
+                console.log("$scope.PrincipleIDs", $scope.PrincipleIDs);
+                if (("," + $scope.PrincipleIDs + ",").indexOf("," + childNodes[i].id + ",") >= 0) {
+                    zTree.checkNode(childNodes[i], true, true);
+                    zTree.checkNode(parentNode, true, true);
+                }
             }
             return childNodes;
         }

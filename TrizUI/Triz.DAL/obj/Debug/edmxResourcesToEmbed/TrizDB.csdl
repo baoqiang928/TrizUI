@@ -318,6 +318,7 @@
     <Property Name="Character" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
     <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrincipleIDs" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="tbl_ConflictMatrixInfo">
     <Key>

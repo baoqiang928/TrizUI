@@ -271,6 +271,7 @@
     <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="Character" Type="nvarchar" MaxLength="200" />
     <Property Name="Remark" Type="nvarchar" MaxLength="1000" />
+    <Property Name="PrincipleIDs" Type="nvarchar" MaxLength="2000" />
     <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
   </EntityType>
   <EntityType Name="tbl_TechnicalConflictInfo">

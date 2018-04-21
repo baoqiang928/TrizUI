@@ -154,10 +154,10 @@ namespace Triz.DAL
         {
             int startRow = (pageIndex - 1) * pageSize;
             Expression<Func<tbl_TechEvolutionInfo, bool>> where = PredicateExtensionses.True<tbl_TechEvolutionInfo>();
-            
-                    if (!string.IsNullOrWhiteSpace(ProjectID))
-                        where = where.And(a => a.ProjectID==int.Parse(ProjectID));
-                
+
+            if (!string.IsNullOrWhiteSpace(ProjectID))
+                where = where.And(a => a.ProjectID == int.Parse(ProjectID));
+
             using (TrizDBEntities TrizDB = new TrizDBEntities())
             {
                 var query = TrizDB.tbl_TechEvolutionInfo.Where(where.Compile());
@@ -171,46 +171,51 @@ namespace Triz.DAL
         public TechEvolutionInfo GetBusinessObject(tbl_TechEvolutionInfo TechEvolutionInfoEntity)
         {
             TechEvolutionInfo TechEvolutionInfo = new TechEvolutionInfo();
-            
-                                     TechEvolutionInfo.ID = TechEvolutionInfoEntity.ID;
-                    
-                                     TechEvolutionInfo.ProjectID = TechEvolutionInfoEntity.ProjectID;
-                    
-                                     TechEvolutionInfo.SerialNum = TechEvolutionInfoEntity.SerialNum;
-                    
-                                     TechEvolutionInfo.Name = TechEvolutionInfoEntity.Name;
-                    
-                                     TechEvolutionInfo.Character = TechEvolutionInfoEntity.Character;
-                    
-                                     TechEvolutionInfo.Remark = TechEvolutionInfoEntity.Remark;
-                    
-                                     TechEvolutionInfo.CreateDateTime = TechEvolutionInfoEntity.CreateDateTime;
-                    
+
+            TechEvolutionInfo.ID = TechEvolutionInfoEntity.ID;
+
+            TechEvolutionInfo.ProjectID = TechEvolutionInfoEntity.ProjectID;
+
+            TechEvolutionInfo.SerialNum = TechEvolutionInfoEntity.SerialNum;
+
+            TechEvolutionInfo.Name = TechEvolutionInfoEntity.Name;
+
+            TechEvolutionInfo.Character = TechEvolutionInfoEntity.Character;
+
+            TechEvolutionInfo.PrincipleIDs = TechEvolutionInfoEntity.PrincipleIDs;
+
+            TechEvolutionInfo.Remark = TechEvolutionInfoEntity.Remark;
+
+            TechEvolutionInfo.CreateDateTime = TechEvolutionInfoEntity.CreateDateTime;
+
 
             return TechEvolutionInfo;
         }
 
         public void SetDataEntity(tbl_TechEvolutionInfo TechEvolutionInfoEntity, TechEvolutionInfo TechEvolutionInfo)
         {
-             
-                                        if (TechEvolutionInfo.ID != null)
-                                            TechEvolutionInfoEntity.ID = TechEvolutionInfo.ID ?? 0;
-                    
-                                        if (TechEvolutionInfo.ProjectID != null)
-                                            TechEvolutionInfoEntity.ProjectID = TechEvolutionInfo.ProjectID;
-                    
-                                        if (TechEvolutionInfo.SerialNum != null)
-                                            TechEvolutionInfoEntity.SerialNum = TechEvolutionInfo.SerialNum;
-                    
-                                        if (TechEvolutionInfo.Name != null)
-                                            TechEvolutionInfoEntity.Name = TechEvolutionInfo.Name;
-                    
-                                        if (TechEvolutionInfo.Character != null)
-                                            TechEvolutionInfoEntity.Character = TechEvolutionInfo.Character;
-                    
-                                        if (TechEvolutionInfo.Remark != null)
-                                            TechEvolutionInfoEntity.Remark = TechEvolutionInfo.Remark;
-                    
+
+            if (TechEvolutionInfo.ID != null)
+                TechEvolutionInfoEntity.ID = TechEvolutionInfo.ID ?? 0;
+
+            if (TechEvolutionInfo.ProjectID != null)
+                TechEvolutionInfoEntity.ProjectID = TechEvolutionInfo.ProjectID;
+
+            if (TechEvolutionInfo.SerialNum != null)
+                TechEvolutionInfoEntity.SerialNum = TechEvolutionInfo.SerialNum;
+
+            if (TechEvolutionInfo.Name != null)
+                TechEvolutionInfoEntity.Name = TechEvolutionInfo.Name;
+
+            if (TechEvolutionInfo.Character != null)
+                TechEvolutionInfoEntity.Character = TechEvolutionInfo.Character;
+
+            if (TechEvolutionInfo.Remark != null)
+                TechEvolutionInfoEntity.Remark = TechEvolutionInfo.Remark;
+
+            if (TechEvolutionInfo.PrincipleIDs != null)
+                TechEvolutionInfoEntity.PrincipleIDs = TechEvolutionInfo.PrincipleIDs;
+
         }
 
         public List<TechEvolutionInfo> GetGetBusinessObjectList(List<tbl_TechEvolutionInfo> TechEvolutionInfoEntityList)

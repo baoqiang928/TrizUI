@@ -66,7 +66,7 @@
         };
 
         $scope.SetRador = function (TechEvolutionInfo) {
-            $state.go("TechEvolveOpe", { TechEvolveID: TechEvolutionInfo.ID, TreeTypeID: $stateParams.TreeTypeID, Name: TechEvolutionInfo.Name, Character: TechEvolutionInfo.Character, Remark: TechEvolutionInfo.Remark });
+            $state.go("TechEvolveOpe", { TechEvolveID: TechEvolutionInfo.ID, TreeTypeID: $stateParams.TreeTypeID, Name: TechEvolutionInfo.Name, Character: TechEvolutionInfo.Character, Remark: TechEvolutionInfo.Remark, PrincipleIDs: TechEvolutionInfo.PrincipleIDs });
         };
 
         

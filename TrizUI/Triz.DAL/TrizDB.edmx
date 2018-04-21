@@ -276,6 +276,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="Character" Type="nvarchar" MaxLength="200" />
           <Property Name="Remark" Type="nvarchar" MaxLength="1000" />
+          <Property Name="PrincipleIDs" Type="nvarchar" MaxLength="2000" />
           <Property Name="CreateDateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="tbl_TechnicalConflictInfo">
@@ -658,6 +659,7 @@
           <Property Name="Character" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PrincipleIDs" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tbl_ConflictMatrixInfo">
           <Key>
@@ -983,6 +985,7 @@
           <EntitySetMapping Name="tbl_TechEvolutionInfo">
             <EntityTypeMapping TypeName="TrizDBModel.tbl_TechEvolutionInfo">
               <MappingFragment StoreEntitySet="tbl_TechEvolutionInfo">
+                <ScalarProperty Name="PrincipleIDs" ColumnName="PrincipleIDs" />
                 <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
                 <ScalarProperty Name="Character" ColumnName="Character" />
